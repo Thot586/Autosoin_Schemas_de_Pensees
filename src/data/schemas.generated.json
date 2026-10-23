@@ -1,0 +1,1577 @@
+[
+ {
+  "slug": "carence-affective",
+  "name": "Carence affective",
+  "base": 1,
+  "phrase": "« Personne ne répondra vraiment à mon besoin d’affection et d’écoute. »",
+  "besoin": "être écouté(e), compris(e) et soutenu(e).",
+  "origine": [
+   "Des parents froids ou peu attentifs à mes besoins.",
+   "Une présence de façade : là pour le matériel, moins pour l’écoute et le réconfort.",
+   "Parfois une famille où l’on montrait peu son affection."
+  ],
+  "sensible": "Souvent rien de dramatique : c’est le manque, jour après jour.",
+  "servait": "Ne rien attendre pour ne pas être déçu(e), ou me rendre utile pour mériter un peu d’attention. Aujourd’hui, je passe à côté du soutien qui existe.",
+  "contextes": [
+   {
+    "label": "Santé",
+    "text": "Après une hospitalisation, peu de visites : « je compte peu »."
+   },
+   {
+    "label": "Famille",
+    "text": "Mon anniversaire passe presque inaperçu ; je fais comme si de rien n’était."
+   },
+   {
+    "label": "Amis",
+    "text": "Je me confie, l’ami change de sujet : je n’en parle plus."
+   }
+  ],
+  "facons": [
+   {
+    "title": "Je me contente de peu",
+    "text": "je ne demande rien."
+   },
+   {
+    "title": "Je me protège",
+    "text": "je reste seul(e) ou très occupé(e)."
+   },
+   {
+    "title": "Je réclame",
+    "text": "j’exige beaucoup, sans jamais être comblé(e)."
+   }
+  ],
+  "prudence": "Ce sont des pistes, pas des causes. Un même vécu donne des schémas différents selon le tempérament, et on peut avoir un schéma sans souvenir précis. Si ces souvenirs sont pénibles, j’en parle à un thérapeute avant d’aller plus loin.",
+  "recap": {
+   "situations": [
+    "Un coup dur : personne n’appelle.",
+    "Un vide, même entouré(e)."
+   ],
+   "pousse": "Je ne demande rien et je m’occupe des autres. Ou je réclame, jamais comblé(e)."
+  },
+  "moment": {
+   "scene": "Je rentre épuisé(e). Mon (ma) partenaire répond « ça va ? » sans lever les yeux de son téléphone.",
+   "voice": "« Personne ne s’intéresse vraiment à moi. »",
+   "reaction": "Je réponds « oui, ça va » et je me ferme. Ou je m’occupe de tout le monde sans rien demander.",
+   "steps": [
+    {
+     "title": "Nommer le besoin",
+     "text": "Me demander : de quoi ai-je besoin, là ? Être écouté(e), touché(e), rassuré(e) ? Mettre le bon mot calme déjà un peu."
+    },
+    {
+     "title": "Le dire en une phrase",
+     "text": "« J’ai eu une journée dure, j’aimerais en parler avec toi. Tu aurais cinq minutes, maintenant ou plus tard ? » Je dis mon besoin, sans reproche, et l’autre choisit le moment."
+    },
+    {
+     "title": "Prévoir un plan B de chaleur",
+     "text": "Si l’autre n’est pas disponible, me tourner vers quelqu’un d’autre : message à une amie, appel, boisson chaude, musique."
+    }
+   ],
+   "phrase": "« J’ai le droit d’avoir besoin de chaleur, et de la demander. »"
+  },
+  "semaines": {
+   "steps": [
+    {
+     "level": "Pas 1 · facile",
+     "text": "Une fois par jour, dire à quelqu’un de sûr ce que j’ai ressenti : « ça m’a fait plaisir », « j’étais fatigué(e) »."
+    },
+    {
+     "level": "Pas 2 · moyen",
+     "text": "Faire une demande précise et nouvelle à un proche, en laissant le choix : « Aurais-tu un moment pour m’appeler ce soir ? », « Ça te dirait de m’accompagner à ce rendez-vous ? »"
+    },
+    {
+     "level": "Pas 3 · plus difficile",
+     "text": "Me laisser consoler : accepter un câlin, un conseil, un cadeau, sans changer de sujet ni dire « ce n’est rien »."
+    }
+   ],
+   "others": "Dire comment être aidé(e) : « Je ne cherche pas de solution, j’ai juste besoin que tu m’écoutes. » Les proches devinent rarement, mais beaucoup savent faire quand on leur dit.",
+   "trap": "Attendre que l’autre devine, puis lui en vouloir. Ou choisir toujours des personnes peu disponibles : cela confirme le schéma.",
+   "sign": "Je demande plus vite, et je remarque davantage ce que je reçois : un message, une attention, un sourire."
+  },
+  "pro": {
+   "comprendre": [
+    "Carence affective : manque de chaleur, d’écoute ou de protection. Le guide cite des parents froids ou peu empathiques ; Young ajoute l’absence d’apaisement et de guidance. Il n’y a pas besoin d’un événement marquant : c’est souvent un manque répété, et le sentiment de vide est fréquent. On peut se reconnaître dans la phrase sans souvenir précis."
+   ],
+   "moment": [
+    "Faire lire la scène à voix haute, puis demander : « Quel besoin se cache derrière ? » Le but est de passer de « personne ne s’intéresse à moi » à « j’ai besoin d’écoute ». Les gestes se pratiquent en binôme : l’un formule la demande, l’autre répond « d’accord » ou propose un autre moment."
+   ],
+   "semaines": [
+    "Ce schéma pousse à ne rien demander : demander est déjà un progrès, quelle que soit la réponse. Si la personne choisit des partenaires distants, en parler en séance plutôt qu’en groupe."
+   ]
+  },
+  "autosoin": {
+   "comprendre": "lire « D’où ça peut venir » sans chercher à tout expliquer. Si des souvenirs pénibles remontent, m’arrêter et en parler à un professionnel avant de continuer.",
+   "moment": "écrire la phrase, la dire à voix haute, puis la dire à l’autre ; si l’autre n’est pas disponible, passer au plan B.",
+   "semaines": "commencer par le pas 1 pendant une semaine ; si je choisis souvent des partenaires peu disponibles, le noter dans le carnet et en parler à un professionnel."
+  }
+ },
+ {
+  "slug": "abandon",
+  "name": "Abandon",
+  "base": 1,
+  "phrase": "« Les personnes que j’aime finiront par partir. »",
+  "besoin": "des liens stables, sur lesquels je peux compter.",
+  "origine": [
+   "Un parent parti, décédé ou longtemps absent.",
+   "Une présence imprévisible : chaleureuse un jour, ailleurs le lendemain (maladie, dépression, alcool, travail prenant).",
+   "Parfois l’inverse : un parent très protecteur, qui craint de me perdre."
+  ],
+  "sensible": "Chez un enfant très sensible, la même séparation pèse davantage.",
+  "servait": "Rester proche et vigilant pour ne pas perdre ceux dont je dépendais. Aujourd’hui, cette vigilance use mes relations.",
+  "contextes": [
+   {
+    "label": "Couple",
+    "text": "On se dispute : j’ai peur que ce soit la fin."
+   },
+   {
+    "label": "Travail",
+    "text": "Un collègue proche change de service : je me sens lâché(e)."
+   },
+   {
+    "label": "Amis, famille",
+    "text": "Un ami annule une soirée : je me dis qu’il se lasse de moi."
+   }
+  ],
+  "facons": [
+   {
+    "title": "Je m’accroche",
+    "text": "je cherche sans cesse à être rassuré(e)."
+   },
+   {
+    "title": "Je prends mes distances",
+    "text": "je pars avant d’être quitté(e)."
+   },
+   {
+    "title": "Je teste ou je reproche",
+    "text": "je mets l’autre à l’épreuve."
+   }
+  ],
+  "prudence": "Ce sont des pistes, pas des causes. Un même vécu donne des schémas différents selon le tempérament, et on peut avoir un schéma sans souvenir précis. Si ces souvenirs sont pénibles, j’en parle à un thérapeute avant d’aller plus loin.",
+  "recap": {
+   "situations": [
+    "Un message reste sans réponse.",
+    "La peur qu’on se lasse de moi."
+   ],
+   "pousse": "Je m’accroche et je demande à être rassuré(e). Ou je pars avant d’être quitté(e)."
+  },
+  "moment": {
+   "scene": "Mon conjoint part trois jours en déplacement. Dès la veille, je me sens tendu(e) et je cherche des signes qu’il s’éloigne.",
+   "voice": "« Il va se rendre compte qu’il est mieux sans moi. »",
+   "reaction": "Je l’appelle plusieurs fois, je demande s’il m’aime encore. Ou je prends mes distances avant qu’il ne le fasse.",
+   "steps": [
+    {
+     "title": "Séparer les faits du scénario",
+     "text": "Deux colonnes : « Ce que je sais » (il part mardi, rentre jeudi) et « Ce que j’imagine » (il ne reviendra pas). Relire la première."
+    },
+    {
+     "title": "Retarder le geste",
+     "text": "Attendre vingt minutes avant d’appeler ou d’écrire, en m’occupant: ranger, marcher, cuisiner. L’angoisse monte, puis redescend."
+    },
+    {
+     "title": "Un seul message, calme",
+     "text": "« Je pense à toi. Si tu as un moment, j’aimerais t’entendre, ce soir ou demain. » Un message plutôt que dix, sans test ni reproche."
+    }
+   ],
+   "phrase": "« Une absence n’est pas un abandon. Je peux supporter l’attente. »"
+  },
+  "semaines": {
+   "steps": [
+    {
+     "level": "Pas 1 · facile",
+     "text": "Avant chaque séparation, prévoir un petit rituel : quand on se reparle, et ce que je fais en attendant (film, amie, sport)."
+    },
+    {
+     "level": "Pas 2 · moyen",
+     "text": "Tenir une heure sans relancer, puis deux, puis une demi-journée, en notant l’angoisse de 0 à 10 avant et après."
+    },
+    {
+     "level": "Pas 3 · plus difficile",
+     "text": "Ne pas tout attendre d’une seule personne : entretenir au moins trois liens sûrs (une amie, un proche, un groupe) et les voir chaque semaine."
+    }
+   ],
+   "others": "Hors des moments tendus, expliquer : « Quand je n’ai pas de nouvelles, mon inquiétude monte. Savoir quand tu rentres m’aide. » Demander un repère, pas des preuves.",
+   "trap": "Tester l’autre (« tu m’aimes vraiment ? »), le surveiller, ou rompre en premier pour ne pas être quitté(e). On fabrique ce qu’on redoute.",
+   "sign": "L’attente est plus longue sans me submerger, et je garde mes activités pendant l’absence."
+  },
+  "pro": {
+   "comprendre": [
+    "Abandon : le schéma se réveille surtout dans les relations proches, par une séparation réelle ou imaginée. Il peut venir d’une perte ou d’une instabilité, mais aussi d’une surprotection (la peur de perdre se transmet)."
+   ],
+   "moment": [
+    "Le délai de vingt minutes est le geste le plus utile : il casse l’enchaînement angoisse, appels, tension. Demander au groupe ce qu’il fait de ses mains pendant ce temps."
+   ],
+   "semaines": [
+    "Le but n’est pas de ne plus avoir peur, mais de ne plus agir sous l’emprise de la peur. Le troisième pas (plusieurs liens sûrs) est souvent le plus durable. Les tests imposés à l’autre sont à repérer avec bienveillance."
+   ]
+  },
+  "autosoin": {
+   "comprendre": "lire « D’où ça peut venir » sans chercher à tout expliquer. Si des souvenirs pénibles remontent, m’arrêter et en parler à un professionnel avant de continuer.",
+   "moment": "préparer à l’avance trois occupations pour les vingt minutes d’attente (marcher, ranger, cuisiner).",
+   "semaines": ""
+  }
+ },
+ {
+  "slug": "mefiance-abus",
+  "name": "Méfiance, abus",
+  "base": 1,
+  "phrase": "« On va me blesser, me tromper ou profiter de moi. »",
+  "besoin": "me sentir en sécurité avec les autres.",
+  "origine": [
+   "Des violences, des humiliations ou des trahisons venues de proches pendant l’enfance.",
+   "Parfois l’intimidation ou le harcèlement par d’autres enfants.",
+   "Parfois peu de souvenirs précis : la méfiance reste, sans scène à raconter."
+  ],
+  "sensible": "Certains souvenirs sont lourds : je ne les rouvre pas seul(e).",
+  "servait": "Rester sur mes gardes pour ne plus être blessé(e) ni trompé(e). Aujourd’hui, cette méfiance m’empêche aussi de recevoir la gentillesse et de me confier.",
+  "contextes": [
+   {
+    "label": "Travail",
+    "text": "Un collègue relit mon dossier : je crains qu’il s’en attribue le mérite."
+   },
+   {
+    "label": "Famille",
+    "text": "Un proche propose de gérer mes papiers : je flaire l’arnaque."
+   },
+   {
+    "label": "Amis",
+    "text": "Un éclat de rire quand j’arrive : « ils parlaient de moi »."
+   }
+  ],
+  "facons": [
+   {
+    "title": "Je laisse faire",
+    "text": "je supporte ce qui me blesse."
+   },
+   {
+    "title": "Je reste sur mes gardes",
+    "text": "je me confie peu."
+   },
+   {
+    "title": "Je prends les devants",
+    "text": "j’attaque avant d’être attaqué(e)."
+   }
+  ],
+  "prudence": "Ce sont des pistes, pas des causes. Un même vécu donne des schémas différents selon le tempérament, et on peut avoir un schéma sans souvenir précis. Si ces souvenirs sont pénibles, j’en parle à un thérapeute avant d’aller plus loin.",
+  "recap": {
+   "situations": [
+    "Quelqu’un est très gentil avec moi.",
+    "Je me demande ce qu’on veut de moi."
+   ],
+   "pousse": "Je reste sur mes gardes et je me confie peu. Ou je laisse faire ce qui me blesse."
+  },
+  "moment": {
+   "scene": "Un voisin que je connais peu me propose de porter mes courses, sans que je l’aie demandé.",
+   "voice": "« Pourquoi est-il gentil ? Qu’est-ce qu’il veut en échange ? »",
+   "reaction": "Je refuse sèchement, je reste sur mes gardes, je me méfie de lui pendant des jours. Ou, à l’inverse, je laisse passer ce qui me blesse.",
+   "steps": [
+    {
+     "title": "Distinguer prudence et schéma",
+     "text": "Qu’a fait cette personne, concrètement ? Ai-je des faits (promesse non tenue, secret trahi) ou seulement un air de déjà-vu ?"
+    },
+    {
+     "title": "Tester à petite mise",
+     "text": "Confier une information sans risque (un goût, un petit souci) et observer : respecte-t-il ma confidence ? Noter ce qui se passe vraiment."
+    },
+    {
+     "title": "Poser ses limites calmement",
+     "text": "« Merci, je préfère le faire seul(e). » ou « Je ne souhaite pas parler de ça. » Me protéger par des limites claires, pas par l’attaque ou la fuite."
+    }
+   ],
+   "phrase": "« Je peux être prudent(e) sans présumer le pire. »"
+  },
+  "semaines": {
+   "steps": [
+    {
+     "level": "Pas 1 · facile",
+     "text": "Confier un avis ou une préférence sans enjeu (un film, un plat) à une personne qui n’a jamais abusé de ma confiance."
+    },
+    {
+     "level": "Pas 2 · moyen",
+     "text": "Confier un petit souci du quotidien, puis observer trois choses : elle m’écoute, garde le secret, ne s’en sert pas contre moi."
+    },
+    {
+     "level": "Pas 3 · plus difficile",
+     "text": "Parler d’une vulnérabilité plus personnelle à une personne sûre, ou en séance, à mon rythme. Rien n’oblige à aller plus vite."
+    }
+   ],
+   "others": "Repérer les personnes sûres : elles respectent mes « non », tiennent parole et restent discrètes. La confiance se gagne par des actes.",
+   "trap": "Faire confiance à tout le monde d’un coup, ou à personne : la confiance se dose. Si je suis en danger ou sous emprise aujourd’hui, j’en parle à mon thérapeute.",
+   "sign": "Je distingue mieux les personnes sûres de celles qui ne le sont pas, et je me confie sans m’en vouloir ensuite."
+  },
+  "pro": {
+   "comprendre": [
+    "Méfiance, abus : le guide cite les abus pendant l’enfance (sexuels, physiques, émotionnels ou verbaux) et parfois l’intimidation par les pairs ; Young décrit aussi humiliations et trahisons. Page sensible : ne pas faire raconter les souvenirs en groupe, ni en autosoin. Si des images pénibles remontent, orienter vers un professionnel. Un souvenir précis n’est pas nécessaire pour reconnaître le schéma. La méfiance a pu protéger : il s’agit de la nuancer, pas de la supprimer."
+   ],
+   "moment": [
+    "Valider d’emblée : la prudence est parfois née de faits réels. Le but n’est pas de faire confiance à tout le monde, mais de distinguer les personnes sûres de celles qui ne le sont pas."
+   ],
+   "semaines": [
+    "Si quelqu’un évoque une situation actuelle de danger, de violences ou d’emprise, ne pas la traiter comme un exercice : orienter vers le thérapeute et vers les services d’aide (voir la page « Quand demander de l’aide »). Ne jamais pousser à se confier en groupe."
+   ]
+  },
+  "autosoin": {
+   "comprendre": "lire « D’où ça peut venir » sans chercher à tout expliquer. Si des souvenirs pénibles remontent, m’arrêter et en parler à un professionnel avant de continuer.",
+   "moment": "",
+   "semaines": "ne rien confier de lourd seul(e) au départ. Si je suis en danger ou sous emprise aujourd’hui, ce n’est pas un exercice : voir « Quand demander de l’aide » (3114, 15, 3919)."
+  }
+ },
+ {
+  "slug": "isolement-social",
+  "name": "Isolement social",
+  "base": 1,
+  "phrase": "« Je suis différent(e), je n’appartiens à aucun groupe. »",
+  "besoin": "appartenir, me sentir semblable aux autres.",
+  "origine": [
+   "Une vraie différence dans l’enfance : religion, origine, orientation, milieu, santé…",
+   "Des déménagements fréquents, ou un milieu différent de celui des camarades.",
+   "Parfois la timidité, ou des moqueries entre enfants."
+  ],
+  "sensible": "On peut se sentir à part sans que personne l’ait voulu.",
+  "servait": "Rester en retrait pour éviter d’être rejeté(e) ou jugé(e). Aujourd’hui, je me prive de liens qui seraient possibles.",
+  "contextes": [
+   {
+    "label": "Études",
+    "text": "Arrivé(e) dans un groupe déjà soudé, je me sens de trop."
+   },
+   {
+    "label": "Loisirs",
+    "text": "Au club, les autres plaisantent entre eux ; je reste au bord."
+   },
+   {
+    "label": "Famille",
+    "text": "Dans ma fratrie, je me sens « le(la) différent(e) »."
+   }
+  ],
+  "facons": [
+   {
+    "title": "Je m’adapte",
+    "text": "je me fonds dans le groupe sans me montrer."
+   },
+   {
+    "title": "Je reste à l’écart",
+    "text": "je décline les invitations."
+   },
+   {
+    "title": "Je me démarque",
+    "text": "je critique le groupe avant qu’il me rejette."
+   }
+  ],
+  "prudence": "Ce sont des pistes, pas des causes. Un même vécu donne des schémas différents selon le tempérament, et on peut avoir un schéma sans souvenir précis. Si ces souvenirs sont pénibles, j’en parle à un thérapeute avant d’aller plus loin.",
+  "recap": {
+   "situations": [
+    "Un repas où tous se connaissent.",
+    "Je me sens à part des autres."
+   ],
+   "pousse": "Je reste en retrait. Ou je m’adapte tant que personne ne me connaît vraiment."
+  },
+  "moment": {
+   "scene": "La pause café : l’équipe rit ensemble. Je reste à mon poste, la tête dans l’écran.",
+   "voice": "« Ils sont entre eux. Je n’ai pas ma place. »",
+   "reaction": "Je reste en retrait et je décline l’invitation suivante. Ou je m’adapte tant que plus personne ne me connaît vraiment.",
+   "steps": [
+    {
+     "title": "Viser une personne, pas le groupe",
+     "text": "Choisir une personne et lui adresser une phrase simple : « As-tu passé un bon week-end ? », « Tu connais ce café ? » Deux minutes suffisent."
+    },
+    {
+     "title": "Chercher un point commun",
+     "text": "Le lien naît souvent d’une activité partagée plus que d’une grande conversation : un projet, une série, un trajet, une recette."
+    },
+    {
+     "title": "Rester vingt minutes",
+     "text": "Aller à l’invitation en me donnant vingt minutes. Après, je décide librement de partir ou de rester."
+    }
+   ],
+   "phrase": "« Je n’ai pas besoin d’être pareil pour avoir ma place. »"
+  },
+  "semaines": {
+   "steps": [
+    {
+     "level": "Pas 1 · facile",
+     "text": "Dire bonjour par le prénom à trois personnes cette semaine, puis demander à l’une d’elles comment s’est passé son week-end."
+    },
+    {
+     "level": "Pas 2 · moyen",
+     "text": "Rejoindre une activité régulière autour d’un intérêt : association, atelier, club, groupe d’entraide. La répétition crée du lien."
+    },
+    {
+     "level": "Pas 3 · plus difficile",
+     "text": "Proposer moi-même un café ou une promenade à une personne. Une personne, un moment précis, rien de plus."
+    }
+   ],
+   "others": "Dire oui à une invitation qui me tente un peu, même si je doute : le plaisir vient souvent après. Dire à quelqu’un de sûr : « J’ai du mal à m’intégrer, j’aimerais y arriver. »",
+   "trap": "Attendre d’être choisi(e), ou lire le moindre silence comme un rejet. Beaucoup de gens attendent aussi qu’on vienne vers eux.",
+   "sign": "Je connais plusieurs prénoms, on me salue, et il m’arrive de revenir à un groupe sans me forcer."
+  },
+  "pro": {
+   "comprendre": [
+    "Isolement social (« exclusion » chez Young, « exclusion/rejet » dans le guide) : le guide cite une réelle différence avec la communauté (religion, origine, orientation sexuelle…) et un écart entre le milieu de l’enfant et ses accomplissements plus tard ; Young ajoute les déménagements, la timidité et les moqueries. Éviter de répondre « tout le monde se sent parfois seul » : cela minimise. Si une discrimination actuelle existe, la nommer : ce n’est pas seulement un schéma."
+   ],
+   "moment": [
+    "Choisir avec le groupe un contact à tenter cette semaine. Dédramatiser : une phrase de deux minutes compte déjà. Les ateliers et les groupes d’entraide sont souvent plus accessibles que les grands groupes."
+   ],
+   "semaines": [
+    "Lire un silence comme un rejet est fréquent : proposer une autre lecture (« peut-être était-elle simplement pressée »). Le but est d’augmenter la fréquence des contacts, pas d’être populaire."
+   ]
+  },
+  "autosoin": {
+   "comprendre": "lire « D’où ça peut venir » sans chercher à tout expliquer. Si des souvenirs pénibles remontent, m’arrêter et en parler à un professionnel avant de continuer.",
+   "moment": "choisir un contact pour cette semaine et noter à l’avance la phrase de deux minutes que je lui dirai.",
+   "semaines": ""
+  }
+ },
+ {
+  "slug": "imperfection-honte",
+  "name": "Imperfection, honte",
+  "base": 1,
+  "phrase": "« Si on me connaissait vraiment, on ne m’aimerait pas. »",
+  "besoin": "être accepté(e) tel(le) que je suis.",
+  "origine": [
+   "Des reproches, des humiliations ou des comparaisons répétés, venus de proches ou d’autres enfants.",
+   "L’impression de décevoir un parent, ou de ne pas être « assez ».",
+   "Parfois un rejet ou des violences : l’enfant conclut que la faute vient de lui."
+  ],
+  "sensible": "Les critiques d’autrefois deviennent la voix intérieure.",
+  "servait": "Cacher mes défauts supposés pour ne pas être rejeté(e) ni humilié(e). Aujourd’hui, je me cache aussi de gens qui pourraient m’accepter.",
+  "contextes": [
+   {
+    "label": "Apparence",
+    "text": "Sur une photo de groupe, je ne vois que mes défauts."
+   },
+   {
+    "label": "Couple",
+    "text": "On me dit « je t’aime » : je me demande ce qu’on me trouve."
+   },
+   {
+    "label": "Travail",
+    "text": "Mon chef relève une erreur : j’entends « tu es nul(le) »."
+   }
+  ],
+  "facons": [
+   {
+    "title": "Je me rabaisse",
+    "text": "je m’excuse, je me critique avant les autres."
+   },
+   {
+    "title": "Je me cache",
+    "text": "je ne montre rien de moi."
+   },
+   {
+    "title": "Je veux paraître parfait(e)",
+    "text": "aucun défaut visible."
+   }
+  ],
+  "prudence": "Ce sont des pistes, pas des causes. Un même vécu donne des schémas différents selon le tempérament, et on peut avoir un schéma sans souvenir précis. Si ces souvenirs sont pénibles, j’en parle à un thérapeute avant d’aller plus loin.",
+  "recap": {
+   "situations": [
+    "Quelqu’un veut mieux me connaître.",
+    "Je voudrais me cacher."
+   ],
+   "pousse": "Je cache ce qui me fait honte et je m’excuse. Ou je veux paraître parfait(e)."
+  },
+  "moment": {
+   "scene": "Un collègue me dit : « Ton travail est très bon. » Je sens la chaleur monter aux joues.",
+   "voice": "« S’il savait tous mes défauts, il ne dirait pas ça. »",
+   "reaction": "Je minimise (« c’est de la chance »), je change de sujet, je m’excuse. Ou je cache ce que je crée par peur d’être jugé(e).",
+   "steps": [
+    {
+     "title": "Dire simplement merci",
+     "text": "Répondre « Merci, ça me fait plaisir » puis me taire trois secondes. Pas d’explication, pas de « mais ». Le compliment peut rester."
+    },
+    {
+     "title": "Garder la trace",
+     "text": "Le soir, noter le compliment dans un carnet des preuves : date, mots exacts, personne. Le schéma oublie, le carnet garde."
+    },
+    {
+     "title": "Me parler comme à un(e) ami(e)",
+     "text": "Me demander : que dirais-je à une amie qui vivrait la même chose ? Puis me dire la même phrase, à voix basse ou par écrit."
+    }
+   ],
+   "phrase": "« Mes défauts existent. Ma valeur n’en dépend pas. »"
+  },
+  "semaines": {
+   "steps": [
+    {
+     "level": "Pas 1 · facile",
+     "text": "Partager une imperfection sans gravité à quelqu’un de sûr : « J’ai raté ce plat », « je me suis trompé(e) de salle ». Observer la réaction."
+    },
+    {
+     "level": "Pas 2 · moyen",
+     "text": "Montrer quelque chose que j’ai fait (un texte, un dessin, une idée) à une personne bienveillante, sans m’excuser avant."
+    },
+    {
+     "level": "Pas 3 · plus difficile",
+     "text": "Parler de ce dont j’ai honte, d’abord en séance, puis à une personne très proche si je le choisis. Un pas à la fois."
+    }
+   ],
+   "others": "Choisir des personnes qui accueillent plutôt qu’elles ne jugent. La honte aime le secret : la dire à quelqu’un de sûr l’allège souvent.",
+   "trap": "Attendre d’être irréprochable pour me montrer, ou chercher à paraître parfait(e) : la honte reste intacte et on s’éloigne des autres.",
+   "sign": "La honte dure moins longtemps, je me confie sans ruminer pendant des heures, et j’accepte plus facilement un compliment."
+  },
+  "pro": {
+   "comprendre": [
+    "Imperfection, honte : le guide cite la dévalorisation et l’humiliation par les figures d’attachement ou les pairs ; Young décrit critiques, mépris, comparaisons défavorables avec la fratrie et sentiment de décevoir un parent. Page sensible : la voix intérieure (« je suis nul ») reprend souvent des critiques entendues enfant ; la repérer aide à la distinguer des faits, sans rouvrir les souvenirs seul(e). Si ces souvenirs sont lourds, ne pas les travailler en autosoin."
+   ],
+   "moment": [
+    "Le compliment est un moment difficile pour ce schéma : l’exercice du « merci » suivi de trois secondes de silence est souvent mémorable en groupe. Ne pas obliger à partager la honte devant tous."
+   ],
+   "semaines": [
+    "Le pas « plus difficile » se fait d’abord en séance. Distinguer la honte (« je suis mauvais(e) ») de la culpabilité (« j’ai mal agi »). Respecter le rythme : la honte se travaille par petites doses."
+   ]
+  },
+  "autosoin": {
+   "comprendre": "lire « D’où ça peut venir » sans chercher à tout expliquer. Si des souvenirs pénibles remontent, m’arrêter et en parler à un professionnel avant de continuer.",
+   "moment": "s’exercer par écrit ou devant un miroir à répondre « merci » sans explication, puis noter le compliment dans le carnet des preuves.",
+   "semaines": "s’en tenir aux pas 1 et 2. Le pas 3 (parler de ce dont j’ai honte) se fait avec un professionnel ou une personne très proche, à mon rythme."
+  }
+ },
+ {
+  "slug": "echec",
+  "name": "Échec",
+  "base": 2,
+  "phrase": "« Je suis moins capable que les autres ; je vais échouer. »",
+  "besoin": "me sentir capable et reconnu(e) pour ce que je fais.",
+  "origine": [
+   "Un parent très exigeant, ou qui jugeait sévèrement mes résultats.",
+   "Des comparaisons répétées avec des frères et sœurs ou des camarades plus à l’aise.",
+   "Parfois peu d’intérêt pour mes efforts, ou des difficultés d’apprentissage sans soutien."
+  ],
+  "sensible": "Ce n’est pas le niveau réel qui compte, mais ce qu’on en a retenu.",
+  "servait": "Ne pas trop tenter pour éviter la déception, ou en faire beaucoup pour cacher mes limites. Aujourd’hui, je me prive de ce que je pourrais apprendre.",
+  "contextes": [
+   {
+    "label": "Loisirs",
+    "text": "Un cours de guitare ou de danse : « les autres progressent, pas moi »."
+   },
+   {
+    "label": "Parentalité",
+    "text": "J’aide mon enfant à ses devoirs : « je n’y arriverai pas »."
+   },
+   {
+    "label": "Amis",
+    "text": "Un ami annonce sa promotion : je me compare, je me sens nul(le)."
+   }
+  ],
+  "facons": [
+   {
+    "title": "Je baisse les bras",
+    "text": "je m’attends à échouer."
+   },
+   {
+    "title": "J’évite",
+    "text": "je remets à plus tard, ou je ne tente rien."
+   },
+   {
+    "title": "Je me surmène",
+    "text": "je prouve ma valeur par le travail."
+   }
+  ],
+  "prudence": "Ce sont des pistes, pas des causes. Un même vécu donne des schémas différents selon le tempérament, et on peut avoir un schéma sans souvenir précis. Si ces souvenirs sont pénibles, j’en parle à un thérapeute avant d’aller plus loin.",
+  "recap": {
+   "situations": [
+    "Un examen ou un entretien approche.",
+    "« Les autres font mieux que moi. »"
+   ],
+   "pousse": "J’évite ou je remets à plus tard. Ou je vérifie dix fois et je travaille trop."
+  },
+  "moment": {
+   "scene": "On me confie une nouvelle tâche au travail. Je pense déjà à tout ce qui peut mal tourner.",
+   "voice": "« Je vais me planter, comme d’habitude. »",
+   "reaction": "Je remets à plus tard ou je refuse la responsabilité. Ou je travaille tard et je revérifie dix fois.",
+   "steps": [
+    {
+     "title": "Commencer dix minutes",
+     "text": "Me donner dix minutes pour la toute première étape, minuteur en main. Ensuite, je choisis de continuer ou de m’arrêter."
+    },
+    {
+     "title": "Écrire ma prédiction",
+     "text": "Avant : « Je pense que ça va rater à 80 %. » Après : noter ce qui s’est vraiment passé, et comparer. Le schéma exagère presque toujours."
+    },
+    {
+     "title": "Compter les réussites",
+     "text": "Lister trois choses réussies cette semaine, même petites : un mail clair, un dossier rendu, un problème réglé."
+    }
+   ],
+   "phrase": "« Je peux apprendre. Une erreur n’est pas un verdict sur moi. »"
+  },
+  "semaines": {
+   "steps": [
+    {
+     "level": "Pas 1 · facile",
+     "text": "Tenir un journal de trois réussites par semaine, avec ce que j’ai fait pour y arriver, pas seulement la chance."
+    },
+    {
+     "level": "Pas 2 · moyen",
+     "text": "Demander un retour précis : « Qu’est-ce qui marche ? Qu’est-ce que je peux améliorer ? » plutôt que conclure « c’est nul »."
+    },
+    {
+     "level": "Pas 3 · plus difficile",
+     "text": "Viser « assez bien » (70 %) sur une tâche qui compte, la rendre telle quelle, puis constater les conséquences réelles."
+    }
+   ],
+   "others": "Choisir un(e) proche ou un(e) collègue qui sait faire des retours concrets. Me demander : si un(e) ami(e) avait fait la même erreur, que lui dirais-je ?",
+   "trap": "Mettre mes réussites sur le compte de la chance et mes erreurs sur celui de mon incapacité : je ne compte que ce qui confirme le schéma.",
+   "sign": "Je commence plus vite, je me remets plus vite d’un faux pas, et je cite spontanément des réussites."
+  },
+  "pro": {
+   "comprendre": [
+    "Échec : le guide cite un parent qui juge sévèrement les performances, une carrière parentale très prospère, des comparaisons avec la fratrie, l’immigration, mais aussi des parents trop indulgents ; Young ajoute les difficultés d’apprentissage restées sans soutien. Le schéma porte sur l’impression d’être incompétent, qui peut être sans rapport avec le niveau réel : ne pas débattre des compétences, regarder ce que la personne retient de ses échecs."
+   ],
+   "moment": [
+    "La prédiction écrite avant et après est un exercice simple de test des croyances : les personnes sont souvent surprises par l’écart. Commencer par des tâches à faible enjeu."
+   ],
+   "semaines": [
+    "Insister sur le biais d’attribution : on compte les échecs, on oublie les réussites. Le journal des réussites peut être relu avec le thérapeute. Viser « assez bien » avant de viser « très bien »."
+   ]
+  },
+  "autosoin": {
+   "comprendre": "lire « D’où ça peut venir » sans chercher à tout expliquer. Si des souvenirs pénibles remontent, m’arrêter et en parler à un professionnel avant de continuer.",
+   "moment": "",
+   "semaines": ""
+  }
+ },
+ {
+  "slug": "dependance-incompetence",
+  "name": "Dépendance, incompétence",
+  "base": 2,
+  "phrase": "« Je ne peux pas me débrouiller seul(e) au quotidien. »",
+  "besoin": "me débrouiller à mon rythme, avec un appui sûr.",
+  "origine": [
+   "Des parents qui faisaient tout à ma place, ou décourageaient mes essais.",
+   "Parfois l’inverse : laissé(e) très tôt sans soutien, il a fallu « faire l’adulte ».",
+   "Peu d’occasions d’essayer, de me tromper, puis de réussir seul(e)."
+  ],
+  "sensible": "On peut paraître autonome et se sentir dépendant(e) au fond.",
+  "servait": "Laisser les autres décider pour éviter l’erreur et rester en sécurité. Aujourd’hui, mes capacités restent sous-employées et je dépends de mon entourage.",
+  "contextes": [
+   {
+    "label": "Maison",
+    "text": "Une panne de chauffe-eau : j’attends que quelqu’un s’en occupe."
+   },
+   {
+    "label": "Déplacements",
+    "text": "Un trajet inconnu en train : je préfère annuler ou être accompagné(e)."
+   },
+   {
+    "label": "Numérique",
+    "text": "Une appli ou un appareil à configurer : je demande de l’aide avant d’essayer."
+   }
+  ],
+  "facons": [
+   {
+    "title": "Je m’appuie",
+    "text": "un proche décide et fait pour moi."
+   },
+   {
+    "title": "J’évite",
+    "text": "je renonce à ce qui demande d’être autonome."
+   },
+   {
+    "title": "Je refuse toute aide",
+    "text": "pour me prouver que je m’en sors."
+   }
+  ],
+  "prudence": "Ce sont des pistes, pas des causes. Un même vécu donne des schémas différents selon le tempérament, et on peut avoir un schéma sans souvenir précis. Si ces souvenirs sont pénibles, j’en parle à un thérapeute avant d’aller plus loin.",
+  "recap": {
+   "situations": [
+    "Une décision à prendre seul(e).",
+    "Je me sens démuni(e) devant l’imprévu."
+   ],
+   "pousse": "Je laisse un proche faire. Ou je refuse toute aide pour me prouver que je m’en sors."
+  },
+  "moment": {
+   "scene": "Il faut prendre un rendez-vous par téléphone pour une démarche administrative.",
+   "voice": "« Je vais mal m’y prendre. Quelqu’un devrait le faire à ma place. »",
+   "reaction": "Je demande à un proche de s’en charger ou je laisse traîner le courrier. Ou je refuse toute aide pour prouver que je me débrouille.",
+   "steps": [
+    {
+     "title": "Découper en trois étapes",
+     "text": "Écrire : 1. chercher le numéro, 2. noter ce que je veux dire, 3. appeler. Je ne pense qu’à l’étape suivante."
+    },
+    {
+     "title": "Essayer d’abord, demander ensuite",
+     "text": "Tenter dix minutes seul(e), puis demander de l’aide pour l’étape précise qui bloque, pas pour toute la démarche."
+    },
+    {
+     "title": "Décider une petite chose seul(e)",
+     "text": "Menu, trajet, tenue : décider sans demander d’avis, puis noter ce qui se passe. Presque toujours, rien de grave."
+    }
+   ],
+   "phrase": "« Je peux ne pas savoir, apprendre, et demander une aide ciblée. »"
+  },
+  "semaines": {
+   "steps": [
+    {
+     "level": "Pas 1 · facile",
+     "text": "Décider seul(e) de petites choses (repas, programme, trajet) et noter chaque soir : « je l’ai fait seul(e) »."
+    },
+    {
+     "level": "Pas 2 · moyen",
+     "text": "Faire une démarche entière avec un script écrit : appeler pour un rendez-vous, remplir un formulaire, poser une question à un guichet."
+    },
+    {
+     "level": "Pas 3 · plus difficile",
+     "text": "Mener un petit projet à son terme (trajet nouveau, achat important, réparation), en n’appelant à l’aide que sur les points bloquants."
+    }
+   ],
+   "others": "Demander à l’entourage d’accompagner plutôt que de faire à ma place : « Pourrais-tu me montrer une fois ? Ensuite, je le refais seul(e). » Dire merci, puis reprendre la main.",
+   "trap": "Laisser les proches tout faire par gentillesse : le schéma se renforce à chaque fois. Tout refuser par défi fatigue aussi.",
+   "sign": "Je décide plus de choses sans consulter, je demande de l’aide pour une étape et non pour tout, et ma liste des « je l’ai fait » s’allonge."
+  },
+  "pro": {
+   "comprendre": [
+    "Dépendance, incompétence : le guide cite une protection excessive ou une négligence des parents ; Young précise que le schéma peut naître autant d’un enfant couvé que d’un enfant laissé trop tôt à lui-même (autonomie « de façade »). Rester neutre sur les parents : l’équilibre entre aider assez et trop est difficile, ce n’est pas une faute. Le schéma n’est pas un manque de capacités : c’est la croyance qu’on ne pourra pas s’en sortir."
+   ],
+   "moment": [
+    "Distinguer demander de l’aide (sain) et faire faire à sa place (entretien du schéma). Proposer le script écrit en binôme pour un appel téléphonique : très concret et très utile."
+   ],
+   "semaines": [
+    "Inviter les proches, avec l’accord de la personne, à accompagner plutôt qu’à faire à la place. Valoriser la liste des « je l’ai fait seul(e) » : elle sert de preuve."
+   ]
+  },
+  "autosoin": {
+   "comprendre": "lire « D’où ça peut venir » sans chercher à tout expliquer. Si des souvenirs pénibles remontent, m’arrêter et en parler à un professionnel avant de continuer.",
+   "moment": "écrire le script de l’appel, le lire à voix haute, puis passer l’appel ; noter ensuite ce qui s’est vraiment passé.",
+   "semaines": ""
+  }
+ },
+ {
+  "slug": "vulnerabilite",
+  "name": "Vulnérabilité",
+  "base": 2,
+  "phrase": "« Une catastrophe peut arriver à tout moment : maladie, accident, ruine. »",
+  "besoin": "me sentir en sécurité dans un monde imprévisible.",
+  "origine": [
+   "Un parent anxieux, qui voyait des dangers partout (maladie, accidents, argent).",
+   "Une éducation très protectrice, qui m’a fait sentir fragile.",
+   "Parfois un événement grave : maladie, accident, deuil, ou peu de protection."
+  ],
+  "sensible": "On apprend aussi par l’exemple : la peur se transmet.",
+  "servait": "Rester vigilant(e) pour prévenir le pire et ne jamais être pris(e) au dépourvu. Aujourd’hui, cette vigilance devient une inquiétude constante qui m’épuise.",
+  "contextes": [
+   {
+    "label": "Actualité",
+    "text": "Un accident aux informations : « et si cela m’arrivait ? »"
+   },
+   {
+    "label": "Transports",
+    "text": "Un vol ou un long trajet en voiture : je guette tout ce qui peut mal tourner."
+   },
+   {
+    "label": "Nuit",
+    "text": "Un bruit dans la maison : je vérifie la porte, plusieurs fois."
+   }
+  ],
+  "facons": [
+   {
+    "title": "Je m’inquiète",
+    "text": "je pense au pire et je guette les signes."
+   },
+   {
+    "title": "J’évite",
+    "text": "je renonce à ce qui me fait peur."
+   },
+   {
+    "title": "Je défie le danger",
+    "text": "je me force à prendre des risques."
+   }
+  ],
+  "prudence": "Ce sont des pistes, pas des causes. Un même vécu donne des schémas différents selon le tempérament, et on peut avoir un schéma sans souvenir précis. Si ces souvenirs sont pénibles, j’en parle à un thérapeute avant d’aller plus loin.",
+  "recap": {
+   "situations": [
+    "Une douleur inhabituelle ou une facture imprévue.",
+    "Je me dis : « et si ça tournait mal ? »"
+   ],
+   "pousse": "Je pense au pire et je guette les signes. Ou j’évite ce qui me fait peur."
+  },
+  "moment": {
+   "scene": "Mon enfant a une heure de retard et ne répond pas au téléphone.",
+   "voice": "« Et s’il lui était arrivé quelque chose de grave ? »",
+   "reaction": "J’imagine le pire, je rappelle sans cesse, je cherche des informations. Ou j’évite les sorties pour ne plus avoir peur.",
+   "steps": [
+    {
+     "title": "Écrire trois scénarios",
+     "text": "Le pire, le plus probable, le meilleur, avec une probabilité pour chacun. Le plus probable est souvent banal : batterie vide, bus raté."
+    },
+    {
+     "title": "Préparer un plan B",
+     "text": "Écrire ce que je ferais si le pire arrivait : qui appeler, quoi faire. Savoir quoi faire calme plus qu’un « tout ira bien »."
+    },
+    {
+     "title": "Une seule vérification",
+     "text": "Un appel ou un message, puis stop. Les vérifications répétées apaisent trois minutes et entretiennent la peur."
+    }
+   ],
+   "phrase": "« Le risque existe, il n’est pas imminent. J’ai un plan. »"
+  },
+  "semaines": {
+   "steps": [
+    {
+     "level": "Pas 1 · facile",
+     "text": "Fixer un « rendez-vous avec l’inquiétude » de quinze minutes par jour, à heure fixe. En dehors, noter l’idée et la reporter."
+    },
+    {
+     "level": "Pas 2 · moyen",
+     "text": "Lister ce que j’évite (infos, route, voyage) et en reprendre une chose, sans vérifier, en notant l’anxiété de 0 à 10."
+    },
+    {
+     "level": "Pas 3 · plus difficile",
+     "text": "Vivre une situation redoutée avec mon plan B en poche : un trajet, un week-end, une journée sans vérifier ni chercher en ligne."
+    }
+   ],
+   "others": "Dire aux proches : « Une réponse rassurante m’aide ; si je redemande, tu peux me rappeler mon plan. » Pour une douleur ou un signe nouveau : consulter une fois, puis suivre l’avis du médecin.",
+   "trap": "Se rassurer sans cesse (appels, recherches, examens à répétition) : cela soulage vite, mais l’alerte revient plus fort.",
+   "sign": "Mes inquiétudes durent moins longtemps, je traverse des situations sans vérifier, et je me déplace plus librement."
+  },
+  "pro": {
+   "comprendre": [
+    "Vulnérabilité : le guide cite des parents qui craignaient la vulnérabilité et couvaient l’enfant, des parents qui ne protégeaient pas assez, ou un traumatisme grave chez un parent ; Young ajoute la maladie ou un traumatisme de l’enfant, et l’apprentissage par l’exemple. À distinguer d’un trouble anxieux, d’un trouble panique ou d’un TOC : si l’inquiétude envahit le quotidien, voir « Quand demander de l’aide »."
+   ],
+   "moment": [
+    "Ne pas banaliser : certaines craintes sont fondées. L’objectif est de réduire l’évitement et les vérifications. Le plan B donne du contrôle sans entretenir l’inquiétude."
+   ],
+   "semaines": [
+    "Rappeler de consulter un médecin pour un symptôme nouveau ou persistant, puis de suivre son avis. Le créneau d’inquiétude de quinze minutes demande de l’entraînement avant de devenir efficace."
+   ]
+  },
+  "autosoin": {
+   "comprendre": "lire « D’où ça peut venir » sans chercher à tout expliquer. Si des souvenirs pénibles remontent, m’arrêter et en parler à un professionnel avant de continuer.",
+   "moment": "",
+   "semaines": ""
+  }
+ },
+ {
+  "slug": "relation-fusionnelle",
+  "name": "Relation fusionnelle",
+  "base": 2,
+  "phrase": "« Je n’existe pas vraiment sans mon parent ou mon partenaire. »",
+  "besoin": "être moi-même, avec mes goûts et mes choix.",
+  "origine": [
+   "Un parent très protecteur, pour qui s’éloigner ou penser autrement posait problème.",
+   "Une différence mal acceptée : mieux valait penser et ressentir comme la famille.",
+   "Parfois un parent qui me prenait pour confident(e)."
+  ],
+  "sensible": "Être proche d’un parent n’est pas un problème en soi.",
+  "servait": "Rester près de ceux qui me protégeaient et éviter le conflit avec eux. Aujourd’hui, j’ai du mal à savoir ce que je veux, et la distance m’angoisse.",
+  "contextes": [
+   {
+    "label": "Famille",
+    "text": "Un appel manqué de ma mère : je me sens coupable et je rappelle aussitôt."
+   },
+   {
+    "label": "Amis",
+    "text": "Avant de choisir, je demande à un ami ce qu’il ferait."
+   },
+   {
+    "label": "Choix de vie",
+    "text": "Un déménagement ou une orientation à décider : je ne sais pas ce que je veux, moi."
+   }
+  ],
+  "facons": [
+   {
+    "title": "Je me fonds",
+    "text": "je pense et je décide comme l’autre."
+   },
+   {
+    "title": "Je prends mes distances",
+    "text": "je rejette toute proximité."
+   },
+   {
+    "title": "Je m’oppose",
+    "text": "je contredis pour me sentir exister."
+   }
+  ],
+  "prudence": "Ce sont des pistes, pas des causes. Un même vécu donne des schémas différents selon le tempérament, et on peut avoir un schéma sans souvenir précis. Si ces souvenirs sont pénibles, j’en parle à un thérapeute avant d’aller plus loin.",
+  "recap": {
+   "situations": [
+    "On me demande ce que je veux, moi.",
+    "Sans mon proche, je suis perdu(e)."
+   ],
+   "pousse": "Je pense et je décide comme mon proche. Ou je rejette toute proximité."
+  },
+  "moment": {
+   "scene": "Mon partenaire a prévu une soirée sans moi. Je dois décider seul(e) de ce que je fais.",
+   "voice": "« Sans lui, je ne sais pas ce que je veux. Que dirait-il ? »",
+   "reaction": "Je lui demande son avis sur tout et je renonce à mes envies. Ou je le rejette pour prouver que je n’ai besoin de personne.",
+   "steps": [
+    {
+     "title": "Me demander d’abord : et moi ?",
+     "text": "Avant de demander l’avis de l’autre, écrire une phrase : « Moi, je pense… », « j’aimerais… ». Même petite. Puis en parler si je veux."
+    },
+    {
+     "title": "Faire une chose seul(e) par jour",
+     "text": "Marcher, boire un café, écouter de la musique : un moment à moi, sans en rendre compte. Rester attentif(ve) à ce que je ressens."
+    },
+    {
+     "title": "Tolérer le désaccord",
+     "text": "On peut penser autrement et rester lié(e). Dire « je ne suis pas d’accord » une fois, calmement, et observer : le lien tient presque toujours."
+    }
+   ],
+   "phrase": "« Je suis moi, et je reste lié(e) à lui. »"
+  },
+  "semaines": {
+   "steps": [
+    {
+     "level": "Pas 1 · facile",
+     "text": "Écrire dix phrases commençant par « J’aime… » ou « Je tiens à… » qui ne parlent que de moi : goûts, valeurs, envies."
+    },
+    {
+     "level": "Pas 2 · moyen",
+     "text": "Avoir un loisir, un(e) ami(e) ou un projet qui m’appartient, et y consacrer du temps chaque semaine."
+    },
+    {
+     "level": "Pas 3 · plus difficile",
+     "text": "Passer une soirée, puis un week-end séparés, en prévoyant à l’avance ce que je fais, sans appels répétés."
+    }
+   ],
+   "others": "Prévenir avant : « J’ai besoin de temps pour moi. Ce n’est pas contre toi. » Convenir ensemble d’un rythme d’appels ou de visites, surtout avec un parent.",
+   "trap": "Passer de la fusion à la rupture : claquer la porte pour prouver mon indépendance. Il s’agit d’être deux, pas de couper le lien.",
+   "sign": "Je dis « je ne suis pas d’accord » sans panique, je supporte deux heures seul(e), et j’ai des envies qui ne dépendent de personne."
+  },
+  "pro": {
+   "comprendre": [
+    "Relation fusionnelle (« fusionnement / soi non développé » dans le guide) : le guide cite une surprotection marquée de personnes significatives et une dévalorisation de la différence de l’enfant ; Pascal décrit un parent envahissant qui décide de tout et prend l’enfant pour confident. La proximité avec un parent n’est pas un problème en soi : ce qui compte est le prix payé (identité, goûts, choix). Ne pas la présenter comme « un mauvais lien »."
+   ],
+   "moment": [
+    "Ce schéma se joue souvent avec un parent autant qu’avec un partenaire. Éviter de présenter la proximité comme un défaut : on cherche un équilibre entre lien et identité."
+   ],
+   "semaines": [
+    "Surveiller le risque de rupture réactionnelle : le but est d’être deux personnes, pas de couper le lien. Les dix phrases « J’aime… » peuvent être lues en groupe si la personne le souhaite."
+   ]
+  },
+  "autosoin": {
+   "comprendre": "lire « D’où ça peut venir » sans chercher à tout expliquer. Si des souvenirs pénibles remontent, m’arrêter et en parler à un professionnel avant de continuer.",
+   "moment": "",
+   "semaines": "écrire les dix phrases et les relire dans la semaine ; ne les montrer que si je le souhaite."
+  }
+ },
+ {
+  "slug": "assujettissement",
+  "name": "Assujettissement",
+  "base": 3,
+  "phrase": "« Si je dis ce que je veux, on va se fâcher ou me rejeter. »",
+  "besoin": "dire ce que je veux et ce que je ressens, sans crainte.",
+  "origine": [
+   "Des parents qui décidaient de tout, ou se fâchaient et boudaient si je disais non.",
+   "Un parent fragile ou déprimé : il fallait peser mes mots pour ne pas l’inquiéter.",
+   "Parfois des parents qui s’oubliaient eux-mêmes."
+  ],
+  "sensible": "Se soumettre était alors la meilleure façon de s’en sortir.",
+  "servait": "Éviter la colère, la punition ou le rejet en me pliant aux autres. Aujourd’hui, j’étouffe mes besoins, je m’épuise et le ressentiment s’accumule.",
+  "contextes": [
+   {
+    "label": "Commerces",
+    "text": "Chez le coiffeur, la coupe ne me plaît pas : je dis « c’est très bien »."
+   },
+   {
+    "label": "Couple",
+    "text": "Pour les vacances, je n’ose pas dire que je préférerais autre chose."
+   },
+   {
+    "label": "Famille",
+    "text": "Un proche me fait une remarque blessante : je me tais et je souris."
+   }
+  ],
+  "facons": [
+   {
+    "title": "Je dis oui",
+    "text": "je me plie, quitte à m’oublier."
+   },
+   {
+    "title": "Je me retire",
+    "text": "j’évite les situations où il faudrait dire non."
+   },
+   {
+    "title": "Je me rebelle",
+    "text": "en silence (retards, oublis) ou d’un coup."
+   }
+  ],
+  "prudence": "Ce sont des pistes, pas des causes. Un même vécu donne des schémas différents selon le tempérament, et on peut avoir un schéma sans souvenir précis. Si ces souvenirs sont pénibles, j’en parle à un thérapeute avant d’aller plus loin.",
+  "recap": {
+   "situations": [
+    "Quelqu’un décide pour tout le monde et je ne suis pas d’accord.",
+    "Une boule au ventre à l’idée de dire non."
+   ],
+   "pousse": "Je dis « pas de souci », puis j’en veux aux autres ou à moi. Ou je garde tout jusqu’à exploser pour une broutille."
+  },
+  "moment": {
+   "scene": "Mes amis demandent « On mange où ? ». Je réponds « Comme vous voulez », alors que j’ai une envie.",
+   "voice": "« Si je choisis, quelqu’un sera mécontent. »",
+   "reaction": "Je cède, je laisse choisir, puis je rumine. Ou je garde tout jusqu’à exploser pour une broutille.",
+   "steps": [
+    {
+     "title": "Dire une préférence parmi deux",
+     "text": "« Plutôt thaï que pizza. » Une phrase, sans justification. Je commence par des enjeux minuscules."
+    },
+    {
+     "title": "M’accorder un délai",
+     "text": "« Je vais y réfléchir, je te réponds ce soir. » J’ai le droit de ne pas répondre sur-le-champ à une demande."
+    },
+    {
+     "title": "Observer la réaction réelle",
+     "text": "Après avoir dit ce que je veux : l’autre s’est-il vraiment fâché ? Noter ce qui s’est passé, pas ce que je craignais."
+    }
+   ],
+   "phrase": "« Mon avis compte autant que celui des autres. »"
+  },
+  "semaines": {
+   "steps": [
+    {
+     "level": "Pas 1 · facile",
+     "text": "Choisir le restaurant, le film ou l’horaire au moins une fois par semaine, sans dire « ça m’est égal »."
+    },
+    {
+     "level": "Pas 2 · moyen",
+     "text": "Dire un désaccord léger : « Je vois ça autrement. » ou « Moi, je préfère… », sans m’excuser."
+    },
+    {
+     "level": "Pas 3 · plus difficile",
+     "text": "Refuser en trois temps : reconnaître, refuser, proposer. « Je comprends que tu aies besoin d’aide, je ne peux pas ce soir, je peux jeudi. »"
+    }
+   ],
+   "others": "M’entraîner à voix haute (miroir, séance, jeu de rôle avec un proche) avant la vraie situation. Dire une colère tôt, c’est éviter l’explosion.",
+   "trap": "Attendre de ne plus en pouvoir pour parler : cela sort en colère, et le schéma conclut « tu vois, s’exprimer est dangereux ».",
+   "sign": "Je choisis plus souvent, je supporte un petit mécontentement sans m’effondrer, et ma colère accumulée diminue."
+  },
+  "pro": {
+   "comprendre": [
+    "Assujettissement : le guide cite des parents contrôlants, punitifs, froids ou culpabilisants en cas de désobéissance, des parents « martyrs » ou déprimés (l’enfant mesure ses paroles) ; Young et Pascal distinguent l’obéissance, fondée sur la confiance, de l’assujettissement, qui répond à la contrainte. À l’âge adulte, se soumettre protège de la colère ou du rejet mais le ressentiment monte : c’est souvent lui qui met sur la piste."
+   ],
+   "moment": [
+    "Faire jouer la scène du restaurant en duo : très efficace. Souligner que dire une préférence n’est pas imposer un choix. La colère accumulée est un signal à entendre."
+   ],
+   "semaines": [
+    "Le refus en trois temps se prépare par écrit. Prévenir que l’autre peut être surpris au début : c’est un ajustement, pas la preuve que le schéma a raison."
+   ]
+  },
+  "autosoin": {
+   "comprendre": "lire « D’où ça peut venir » sans chercher à tout expliquer. Si des souvenirs pénibles remontent, m’arrêter et en parler à un professionnel avant de continuer.",
+   "moment": "m’exercer à voix haute devant un miroir à dire une préférence, puis la dire à un proche pour un enjeu minuscule.",
+   "semaines": ""
+  }
+ },
+ {
+  "slug": "sacrifice-de-soi",
+  "name": "Sacrifice de soi",
+  "base": 3,
+  "phrase": "« Les besoins des autres passent avant les miens. »",
+  "besoin": "donner sans m’oublier : mes besoins comptent aussi.",
+  "origine": [
+   "Un parent malade, déprimé, dépassé ou absent : j’ai pris soin de lui ou des autres.",
+   "Une famille où l’on valorisait beaucoup le fait de se dévouer.",
+   "Souvent une grande sensibilité à la souffrance des autres."
+  ],
+  "sensible": "Se soucier des autres est une force ; s’oublier a un coût.",
+  "servait": "Garder la paix et l’affection des miens en étant utile et irréprochable. Aujourd’hui, je m’épuise, je me sens peu reconnu(e) et du ressentiment peut monter.",
+  "contextes": [
+   {
+    "label": "Travail",
+    "text": "Je reste tard pour finir le travail d’un collègue ; le mien attend."
+   },
+   {
+    "label": "Famille",
+    "text": "Je m’occupe de tout pour les fêtes et je n’ai pas une minute pour moi."
+   },
+   {
+    "label": "Santé",
+    "text": "Je reporte mon propre rendez-vous médical pour dépanner quelqu’un."
+   }
+  ],
+  "facons": [
+   {
+    "title": "Je donne",
+    "text": "je dis oui à tout et je ne demande rien."
+   },
+   {
+    "title": "Je fuis les demandes",
+    "text": "je m’éloigne quand on a besoin de moi."
+   },
+   {
+    "title": "Je coupe d’un coup",
+    "text": "épuisé(e), je me retire et je reproche."
+   }
+  ],
+  "prudence": "Ce sont des pistes, pas des causes. Un même vécu donne des schémas différents selon le tempérament, et on peut avoir un schéma sans souvenir précis. Si ces souvenirs sont pénibles, j’en parle à un thérapeute avant d’aller plus loin.",
+  "recap": {
+   "situations": [
+    "Un proche est en difficulté : je me propose avant qu’on me le demande.",
+    "Quand je pense à moi, je me sens égoïste."
+   ],
+   "pousse": "Je porte les soucis des autres et je demande rarement pour moi. Ou, épuisé(e), je me retire d’un coup."
+  },
+  "moment": {
+   "scene": "Il est 22 h. Une amie en détresse m’appelle alors que je suis épuisé(e) et que j’allais me coucher.",
+   "voice": "« Je ne peux pas la laisser tomber. Je me reposerai plus tard. »",
+   "reaction": "Je dis toujours oui, j’écoute deux heures, je m’épuise. Ou, un jour, je coupe tout, irrité(e) et coupable.",
+   "steps": [
+    {
+     "title": "Prendre le temps de répondre",
+     "text": "« Laisse-moi regarder mon agenda, je te redis. » Je ne dis plus oui dans la seconde : un délai suffit pour retrouver mon propre avis."
+    },
+    {
+     "title": "Évaluer ma fatigue",
+     "text": "De 0 à 10, où en est ma fatigue ? De quoi ai-je besoin ce soir ? Mon besoin compte autant que celui de l’autre."
+    },
+    {
+     "title": "Donner avec une limite",
+     "text": "« Je peux t’écouter vingt minutes, ensuite je dois dormir. » Aider en disant ce que je peux, et ce que je ne peux pas."
+    }
+   ],
+   "phrase": "« Je peux aider sans m’oublier. Mes besoins comptent aussi. »"
+  },
+  "semaines": {
+   "steps": [
+    {
+     "level": "Pas 1 · facile",
+     "text": "Réserver dans l’agenda 30 minutes par jour qui n’appartiennent qu’à moi, comme un rendez-vous : lecture, marche, rien."
+    },
+    {
+     "level": "Pas 2 · moyen",
+     "text": "Demander une petite aide : « Tu peux ramener le pain ? », « Peux-tu me remplacer samedi ? »"
+    },
+    {
+     "level": "Pas 3 · plus difficile",
+     "text": "Dire non à une demande qui n’est pas urgente, puis noter ce qui arrive vraiment et ma culpabilité de 0 à 10 : elle baisse."
+    }
+   ],
+   "others": "Recevoir sans rendre tout de suite : un cadeau, un service, un compliment. Un simple « merci, ça me fait du bien » suffit.",
+   "trap": "Aider pour être aimé(e) ou pour éviter la culpabilité. Donner par choix fait du bien ; donner par peur épuise.",
+   "sign": "Je garde du temps pour moi sans trop de culpabilité, je demande de l’aide plus facilement, et je suis moins épuisé(e) ou amer(e)."
+  },
+  "pro": {
+   "comprendre": [
+    "Sacrifice de soi (« abnégation » dans le guide) : le guide cite des parents qui valorisent trop le fait de répondre à leurs besoins ou à ceux d’autrui, souvent en lien avec une grande sensibilité à la souffrance d’autrui ; Pascal décrit la parentification et relie ce schéma au burn-out (observation clinique, non démontrée ici). Valoriser le soin des autres : le but est l’équilibre, pas l’égoïsme."
+   ],
+   "moment": [
+    "Distinguer empathie et sacrifice : on peut rester très présent(e) tout en posant une limite. Demander au groupe : « Que se passe-t-il si je réponds demain ? »"
+   ],
+   "semaines": [
+    "Le créneau de 30 minutes dans l’agenda se prépare en séance. La culpabilité est attendue au début : elle diminue quand on observe que rien de grave n’arrive. Fatigue et irritation sont des signaux."
+   ]
+  },
+  "autosoin": {
+   "comprendre": "lire « D’où ça peut venir » sans chercher à tout expliquer. Si des souvenirs pénibles remontent, m’arrêter et en parler à un professionnel avant de continuer.",
+   "moment": "préparer deux phrases à l’avance (« Je te rappelle demain », « Je peux t’écouter vingt minutes »). Si quelqu’un parle de se faire du mal, ce n’est pas le moment de poser une limite : 3114 ou 15.",
+   "semaines": "bloquer le créneau dans l’agenda dès maintenant ; la culpabilité du début est attendue et diminue."
+  }
+ },
+ {
+  "slug": "controle-emotionnel",
+  "name": "Contrôle émotionnel",
+  "base": 4,
+  "phrase": "« Montrer mes émotions est gênant ou dangereux. »",
+  "besoin": "exprimer ce que je ressens, sans me sentir en danger.",
+  "origine": [
+   "Une famille où l’on ne parlait pas des émotions, ou où elles étaient mal vues.",
+   "Parfois des moqueries ou des reproches quand je pleurais ou me fâchais.",
+   "Parfois un parent très maître de lui, en exemple."
+  ],
+  "sensible": "Se retenir a pu être, alors, une façon de se protéger.",
+  "servait": "Éviter la honte et la perte de contrôle en gardant tout à l’intérieur. Aujourd’hui, mes proches me trouvent distant(e) et je ne sais plus toujours ce que je ressens.",
+  "contextes": [
+   {
+    "label": "Deuil",
+    "text": "Aux obsèques d’un proche, je reste « solide » et je ne pleure pas."
+   },
+   {
+    "label": "Tendresse",
+    "text": "Un proche me prend dans ses bras : je me raidis, puis je plaisante."
+   },
+   {
+    "label": "Joie",
+    "text": "Une belle surprise : je minimise, « ce n’est pas grand-chose »."
+   }
+  ],
+  "facons": [
+   {
+    "title": "Je me retiens",
+    "text": "je garde un visage neutre."
+   },
+   {
+    "title": "J’esquive",
+    "text": "je change de sujet, je fuis les confidences."
+   },
+   {
+    "title": "Ça déborde",
+    "text": "d’un coup, puis je regrette."
+   }
+  ],
+  "prudence": "Ce sont des pistes, pas des causes. Un même vécu donne des schémas différents selon le tempérament, et on peut avoir un schéma sans souvenir précis. Si ces souvenirs sont pénibles, j’en parle à un thérapeute avant d’aller plus loin.",
+  "recap": {
+   "situations": [
+    "« Comment tu te sens ? » : je réponds « bien ».",
+    "Je sens l’émotion monter et je la retiens."
+   ],
+   "pousse": "Je garde un ton calme, je change de sujet ou je propose du concret. Ou ça déborde d’un coup, puis je regrette."
+  },
+  "moment": {
+   "scene": "Un ami m’annonce une mauvaise nouvelle. Je ressens quelque chose, mais je reste le visage fermé.",
+   "voice": "« Ne rien montrer. Si je me laisse aller, ce sera gênant. »",
+   "reaction": "Je garde un ton neutre, je propose une solution pratique ou je plaisante. L’autre pense que je ne ressens rien.",
+   "steps": [
+    {
+     "title": "Repérer l’émotion dans le corps",
+     "text": "Où la sens-je : gorge, poitrine, ventre ? Poser un mot (triste, inquiet, touché) et une intensité de 0 à 10."
+    },
+    {
+     "title": "La dire en une phrase",
+     "text": "« Ça me touche. », « Je suis inquiet pour toi. » Une phrase courte suffit, sans explication ni excuse."
+    },
+    {
+     "title": "Ajouter des mots aux actes",
+     "text": "Si je montre d’habitude mon affection par des actes, y ajouter une phrase : « Merci », « Je tiens à toi », « Je suis content(e) que tu sois là »."
+    }
+   ],
+   "phrase": "« Ressentir n’est pas dangereux. Je choisis ce que je montre. »"
+  },
+  "semaines": {
+   "steps": [
+    {
+     "level": "Pas 1 · facile",
+     "text": "Chaque soir, noter un mot pour ma journée intérieure : « fatigué », « content », « tendu ». Une météo, sans analyse."
+    },
+    {
+     "level": "Pas 2 · moyen",
+     "text": "Dire un petit sentiment inconfortable à une personne sûre : « J’ai été déçu(e) », « Ça m’a agacé. »"
+    },
+    {
+     "level": "Pas 3 · plus difficile",
+     "text": "Laisser une émotion forte se voir devant quelqu’un de sûr : une larme, une joie, un rire franc. Observer ce qui se passe vraiment."
+    }
+   ],
+   "others": "Prévenir un proche : « Je ne suis pas à l’aise pour dire ce que je ressens, mais je m’entraîne. » Écrire, dessiner ou jouer de la musique aide aussi.",
+   "trap": "Attendre d’être certain(e) de ne pas être gêné(e), ou tout lâcher d’un coup puis refermer la porte. Mieux vaut plusieurs petites doses.",
+   "sign": "Je reconnais plus vite ce que je ressens, mes proches disent mieux me comprendre, et je me sens moins sous pression."
+  },
+  "pro": {
+   "comprendre": [
+    "Contrôle émotionnel (« inhibition émotionnelle » dans le guide) : le guide cite un milieu familial qui décourage la spontanéité ou l’expression des émotions ; l’inhibition vise à éviter la honte, la désapprobation ou la perte de contrôle. Ne pas confondre avec la pudeur ou des usages culturels : c’est le coût (relations, bien-être) qui fait le schéma."
+   ],
+   "moment": [
+    "Ne pas pousser à pleurer ni à tout dire. Il s’agit d’élargir le répertoire : nommer, dire en une phrase, ajouter des mots aux actes. L’écriture est une porte d’entrée sûre."
+   ],
+   "semaines": [
+    "Rappeler que la « météo intérieure » n’est pas à interpréter. Les vrais pas se font devant des personnes sûres, et d’abord en séance."
+   ]
+  },
+  "autosoin": {
+   "comprendre": "lire « D’où ça peut venir » sans chercher à tout expliquer. Si des souvenirs pénibles remontent, m’arrêter et en parler à un professionnel avant de continuer.",
+   "moment": "",
+   "semaines": "s’en tenir seul(e) aux pas 1 et 2 ; le pas 3 se fait devant une personne sûre ou en séance."
+  }
+ },
+ {
+  "slug": "ideaux-exigeants",
+  "name": "Idéaux exigeants",
+  "base": 4,
+  "phrase": "« Ce n’est jamais assez bien ; je dois faire mieux. »",
+  "besoin": "me reposer, jouer et être satisfait(e) de ce que je fais.",
+  "origine": [
+   "Une affection qui semblait dépendre de mes réussites.",
+   "Un parent perfectionniste ou très exigeant avec lui-même, qui montrait l’exemple.",
+   "Des critiques ou des humiliations quand je « ratais »."
+  ],
+  "sensible": "Dans la famille, ces exigences semblaient souvent « normales ».",
+  "servait": "Mériter l’affection et l’estime, ou éviter la critique, par la performance. Aujourd’hui, je me repose mal, je m’épuise et je profite peu de ce que je réussis.",
+  "contextes": [
+   {
+    "label": "Sport",
+    "text": "Une course terminée en bon temps : « j’aurais dû faire mieux »."
+   },
+   {
+    "label": "Parentalité",
+    "text": "Après une journée avec mes enfants, je ne retiens que ce que j’ai raté."
+   },
+   {
+    "label": "Études",
+    "text": "17 sur 20 : je ne retiens que les trois points perdus."
+   }
+  ],
+  "facons": [
+   {
+    "title": "Je me mets la pression",
+    "text": "aucun repos."
+   },
+   {
+    "title": "Je repousse",
+    "text": "si ce n’est pas parfait, je ne commence pas."
+   },
+   {
+    "title": "Je lâche prise",
+    "text": "« tant pis », puis je culpabilise."
+   }
+  ],
+  "prudence": "Ce sont des pistes, pas des causes. Un même vécu donne des schémas différents selon le tempérament, et on peut avoir un schéma sans souvenir précis. Si ces souvenirs sont pénibles, j’en parle à un thérapeute avant d’aller plus loin.",
+  "recap": {
+   "situations": [
+    "Un dossier est terminé, mais je le relis encore.",
+    "Quand je me repose, je culpabilise."
+   ],
+   "pousse": "Je me mets la pression et je ne m’accorde aucun repos. Ou je repousse ce que je ne peux pas faire parfaitement."
+  },
+  "moment": {
+   "scene": "Le repas pour mes amis est prêt à 90 %, il est 19 h. Je goûte, je rectifie encore, sans pouvoir m’arrêter.",
+   "voice": "« Ce n’est pas assez bien. Si je lâche, ce sera nul. »",
+   "reaction": "Je continue, je me critique, je ne m’accorde aucun repos. Ou je repousse la tâche tant que je ne suis pas sûr(e) de la faire parfaitement.",
+   "steps": [
+    {
+     "title": "Fixer l’« assez bien » avant",
+     "text": "Décider au départ : « À 80 %, c’est prêt. » Écrire le critère de fin : il protège de la boucle sans fin."
+    },
+    {
+     "title": "Mettre un minuteur",
+     "text": "Trente minutes pour une dernière retouche, pas plus. Quand il sonne, je passe à table, même avec un malaise."
+    },
+    {
+     "title": "Tester la différence",
+     "text": "Me demander : quelqu’un le remarquera-t-il ? Cela change-t-il vraiment le résultat ? Que dirais-je à un(e) ami(e) ?"
+    }
+   ],
+   "phrase": "« Assez bien, c’est déjà bien. Le repos fait partie du travail. »"
+  },
+  "semaines": {
+   "steps": [
+    {
+     "level": "Pas 1 · facile",
+     "text": "Choisir trois priorités par jour, pas dix. Le reste attend demain."
+    },
+    {
+     "level": "Pas 2 · moyen",
+     "text": "Envoyer un message ou rendre un travail sans la dernière relecture, et noter la réaction réelle des autres, souvent nulle."
+    },
+    {
+     "level": "Pas 3 · plus difficile",
+     "text": "Programmer dans l’agenda un temps de plaisir sans but (jeu, sieste, promenade), le tenir, et noter l’inconfort comme les bénéfices."
+    }
+   ],
+   "others": "Demander à un proche : « Si tu vois que j’en fais trop, ça m’aiderait que tu me le dises. » Me donner la même indulgence qu’à un ami : lui demanderait-on de se priver de repos ?",
+   "trap": "Transformer le repos en nouvelle tâche à réussir (« je dois bien me détendre »). Le but n’est pas de bien se reposer, mais de se reposer.",
+   "sign": "Je termine plus tôt, je tolère une imperfection mineure sans la corriger, et je ressens un peu de plaisir sans culpabilité."
+  },
+  "pro": {
+   "comprendre": [
+    "Idéaux exigeants (« exigences élevées / critique excessive » dans le guide) : le guide cite un amour parental conditionnel à la réussite, un parent exigeant envers lui-même, un parent qui humilie ou critique ; Young ajoute que ces exigences servent souvent à compenser d’autres schémas (imperfection, échec) et semblent « normales » dans la famille. Valoriser le sens des responsabilités : la cible est l’exigence qui coûte plus qu’elle ne rapporte."
+   ],
+   "moment": [
+    "Poser des critères de fin avant de commencer est l’outil central. Demander au groupe un exemple où « assez bien » aurait suffi, sans conséquence."
+   ],
+   "semaines": [
+    "Piège fréquent : le repos devenu un devoir. Rester concret : une activité sans but, sans mesure, sans photo à publier. Valoriser les petits relâchements."
+   ]
+  },
+  "autosoin": {
+   "comprendre": "lire « D’où ça peut venir » sans chercher à tout expliquer. Si des souvenirs pénibles remontent, m’arrêter et en parler à un professionnel avant de continuer.",
+   "moment": "noter un exemple récent où « assez bien » aurait suffi, et ce qui s’est passé.",
+   "semaines": ""
+  }
+ },
+ {
+  "slug": "droits-exageres",
+  "name": "Droits exagérés",
+  "base": 5,
+  "phrase": "« Les règles ne devraient pas s’appliquer à moi. »",
+  "besoin": "des limites justes et une place parmi les autres.",
+  "origine": [
+   "Peu de limites à la maison : on cédait presque toujours.",
+   "Une protection excessive : on faisait à ma place et on attendait peu de moi.",
+   "Parfois l’inverse : un manque d’affection ou de moyens, compensé par « je mérite mieux »."
+  ],
+  "sensible": "Pour l’enfant, tout exiger a parfois été une façon de s’en sortir.",
+  "servait": "Me protéger du manque ou du sentiment de ne pas compter, en prenant ma place. Aujourd’hui, mes proches se lassent et je me retrouve seul(e) face aux conséquences.",
+  "contextes": [
+   {
+    "label": "Circulation",
+    "text": "Un embouteillage : je double par la bande, les règles sont pour les autres."
+   },
+   {
+    "label": "Jeux",
+    "text": "Je perds à un jeu de société : je conteste la règle."
+   },
+   {
+    "label": "Couple",
+    "text": "Dans un désaccord, j’attends que l’autre cède, comme toujours."
+   }
+  ],
+  "facons": [
+   {
+    "title": "J’impose",
+    "text": "j’insiste jusqu’à obtenir gain de cause."
+   },
+   {
+    "title": "J’esquive",
+    "text": "je fuis ce qui me dirait non."
+   },
+   {
+    "title": "Je me prive",
+    "text": "je me force à tout céder, puis ça explose."
+   }
+  ],
+  "prudence": "Ce sont des pistes, pas des causes. Un même vécu donne des schémas différents selon le tempérament, et on peut avoir un schéma sans souvenir précis. Si ces souvenirs sont pénibles, j’en parle à un thérapeute avant d’aller plus loin.",
+  "recap": {
+   "situations": [
+    "On me dit non : un refus, une règle, une limite.",
+    "Ça me paraît injuste, et la colère monte vite."
+   ],
+   "pousse": "Je m’énerve, j’insiste, je cherche un passe-droit. Ensuite je me sens mal, ou je rends l’autre responsable."
+  },
+  "moment": {
+   "scene": "La file d’attente n’avance pas. Je dois attendre comme tout le monde, et la colère monte.",
+   "voice": "« Je n’ai pas à attendre. Les autres peuvent, pas moi. »",
+   "reaction": "Je soupire, j’exige un passe-droit, je hausse le ton. Ensuite je me sens mal ou je rends l’autre responsable.",
+   "steps": [
+    {
+     "title": "Stopper et respirer",
+     "text": "Trois respirations lentes avant de parler. La colère est un signal d’injustice ou de frustration : je la repère sans lui obéir."
+    },
+    {
+     "title": "Me mettre à la place de l’autre",
+     "text": "Que ressent la personne en face ? Que me coûte d’attendre ou d’accepter ? Que coûte mon exigence aux autres, et à moi plus tard ?"
+    },
+    {
+     "title": "Demander, pas exiger",
+     "text": "« Serait-il possible… ? » plutôt que « Il faut… ». Si la réponse est non, tenir dix minutes sans protester."
+    }
+   ],
+   "phrase": "« Je peux supporter un non. Mes besoins comptent, et les règles aussi. »"
+  },
+  "semaines": {
+   "steps": [
+    {
+     "level": "Pas 1 · facile",
+     "text": "Accepter volontairement une petite contrariété par jour : attendre mon tour, laisser passer quelqu’un, entendre un « non »."
+    },
+    {
+     "level": "Pas 2 · moyen",
+     "text": "Négocier au lieu d’exiger : proposer un échange (« Je fais ceci, tu fais cela »), puis écouter la contre-proposition."
+    },
+    {
+     "level": "Pas 3 · plus difficile",
+     "text": "Après un refus, demander à l’autre ce qu’il ressent, l’écouter sans me défendre, puis le remercier d’avoir été franc."
+    }
+   ],
+   "others": "Demander à un proche de me dire calmement quand je passe en force. Rester curieux de ce qui se cache sous l’exigence : besoin de reconnaissance, de sécurité ?",
+   "trap": "Passer de « tout m’est dû » à « je suis égoïste, je suis nul » : ce n’est pas une question de valeur, mais d’apprentissage de la frustration.",
+   "sign": "Je supporte mieux un refus, je négocie plus souvent, et mes relations sont plus détendues."
+  },
+  "pro": {
+   "comprendre": [
+    "Droits exagérés (« droits personnels exagérés / grandeur » dans le guide) : le guide cite l’absence de discipline familiale ; Young décrit trois voies : l’enfant gâté, la protection excessive, ou une contre-attaque face à un manque ou à un sentiment d’infériorité. Présenter sans jugement : c’est surtout la personne qui en paie le prix (conflits, solitude). Elle consulte rarement pour ce schéma lui-même, plutôt pour ses conséquences."
+   ],
+   "moment": [
+    "Présenter sans jugement moral : le schéma décrit une difficulté à apprendre la frustration, pas une personne égoïste. Il protège parfois d’un manque vécu ailleurs (voir la diapositive du domaine)."
+   ],
+   "semaines": [
+    "Éviter que la personne bascule vers la honte. Explorer en séance le besoin sous l’exigence : reconnaissance, sécurité, valeur. Négocier est une compétence qui s’apprend."
+   ]
+  },
+  "autosoin": {
+   "comprendre": "lire « D’où ça peut venir » sans chercher à tout expliquer. Si des souvenirs pénibles remontent, m’arrêter et en parler à un professionnel avant de continuer.",
+   "moment": "",
+   "semaines": "retenir qu’une exigence cache souvent un besoin ; le noter dans le carnet et l’explorer avec un professionnel si possible."
+  }
+ },
+ {
+  "slug": "manque-d-autocontrole",
+  "name": "Manque d’autocontrôle",
+  "base": 5,
+  "phrase": "« Je ne supporte ni l’effort ni la frustration. »",
+  "besoin": "apprendre à patienter et à persévérer pour ce qui compte.",
+  "origine": [
+   "Peu de cadre ou de règles constantes dans l’enfance.",
+   "Peu d’aide pour apaiser mes émotions et apprendre à attendre.",
+   "Parfois un parent lui-même impulsif, qui servait de modèle."
+  ],
+  "sensible": "Le tempérament compte : certains enfants se retiennent moins.",
+  "servait": "Éviter la gêne de l’effort ou de l’attente et chercher un soulagement immédiat. Aujourd’hui, ce qui compte à long terme (santé, argent, projets) en pâtit.",
+  "contextes": [
+   {
+    "label": "Argent",
+    "text": "Un achat en ligne « juste pour me faire plaisir » : je regrette en voyant le relevé."
+   },
+   {
+    "label": "Habitudes",
+    "text": "Je me promets de me coucher tôt, puis « encore un épisode »."
+   },
+   {
+    "label": "Échéance",
+    "text": "Je prépare mon dossier à la dernière minute, alors que j’avais le temps."
+   }
+  ],
+  "facons": [
+   {
+    "title": "Je cède",
+    "text": "sur le moment, puis je culpabilise."
+   },
+   {
+    "title": "J’évite",
+    "text": "ce qui demande de l’effort ou de l’attente."
+   },
+   {
+    "title": "Je me raidis",
+    "text": "discipline stricte, puis je craque."
+   }
+  ],
+  "prudence": "Ce sont des pistes, pas des causes. Un même vécu donne des schémas différents selon le tempérament, et on peut avoir un schéma sans souvenir précis. Si ces souvenirs sont pénibles, j’en parle à un thérapeute avant d’aller plus loin.",
+  "recap": {
+   "situations": [
+    "Une tâche répétitive ou ennuyeuse : rangement, papiers.",
+    "Une envie pressante : j’ai du mal à attendre."
+   ],
+   "pousse": "Je cède sur le moment ou je laisse tomber en route, puis je culpabilise. Ou je me raidis, puis je craque."
+  },
+  "moment": {
+   "scene": "Une tâche longue et ennuyeuse m’attend. Mon téléphone est à portée de main et l’envie de l’ouvrir devient forte.",
+   "voice": "« Pas maintenant. C’est trop pénible. Je le ferai plus tard. »",
+   "reaction": "Je cède à l’impulsion ou je laisse tomber en cours de route. Puis je me sens coupable et je recommence.",
+   "steps": [
+    {
+     "title": "La règle des dix minutes",
+     "text": "Je commence dix minutes, minuteur en main. Ensuite je choisis librement de continuer. Souvent, le plus dur est déjà passé."
+    },
+    {
+     "title": "Retarder l’envie",
+     "text": "Attendre dix minutes avant de céder : l’envie monte, atteint un pic, puis redescend. La regarder passer plutôt que lui obéir."
+    },
+    {
+     "title": "Éloigner la tentation",
+     "text": "Mettre le téléphone dans une autre pièce, fermer les onglets, préparer mon matériel avant : moins de tentation, moins d’effort de volonté."
+    }
+   ],
+   "phrase": "« L’envie va passer. Je peux tenir dix minutes. »"
+  },
+  "semaines": {
+   "steps": [
+    {
+     "level": "Pas 1 · facile",
+     "text": "Travailler par blocs de 25 minutes suivis de 5 minutes de pause, et cocher chaque bloc terminé."
+    },
+    {
+     "level": "Pas 2 · moyen",
+     "text": "Écrire un plan « si… alors… » : « Si j’ai envie d’abandonner, alors je fais trois respirations et cinq minutes de plus. »"
+    },
+    {
+     "level": "Pas 3 · plus difficile",
+     "text": "Terminer une tâche ennuyeuse repoussée depuis longtemps, puis me récompenser par un plaisir prévu à l’avance."
+    }
+   ],
+   "others": "Annoncer mon objectif à une personne et fixer un rendez-vous de bilan. Si une conduite devient difficile à contrôler (alcool, jeu, achats), en parler à mon médecin.",
+   "trap": "Le « tout ou rien » : « J’ai craqué, donc tout est perdu. » Un écart n’efface rien : reprendre dès la minute suivante.",
+   "sign": "Je tiens plus longtemps, je reprends après un écart sans me dévaloriser, et je finis des tâches que je repoussais."
+  },
+  "pro": {
+   "comprendre": [
+    "Manque d’autocontrôle (« contrôle de soi / autodiscipline insuffisants » dans le guide) : le guide cite un manque de cadre ou de discipline ; Pascal ajoute un parent impulsif, peu apaisant, qui n’a pas posé assez de limites ; Young note que le tempérament compte. À ne pas confondre avec un TDAH, une addiction ou un trouble de l’humeur : si l’impulsivité est importante ou ancienne, en parler à un professionnel. Le schéma ne se résume pas à un manque de volonté."
+   ],
+   "moment": [
+    "Les dix minutes sont un outil de départ, pas un test de volonté. L’envie qui monte puis redescend peut être illustrée par une vague. Réduire la tentation est plus efficace que la volonté seule."
+   ],
+   "semaines": [
+    "Le « tout ou rien » est la clé : un écart n’efface pas le progrès. Si une conduite devient difficile à contrôler (alcool, jeu, achats, écrans), orienter vers le médecin ou le thérapeute."
+   ]
+  },
+  "autosoin": {
+   "comprendre": "lire « D’où ça peut venir » sans chercher à tout expliquer. Si des souvenirs pénibles remontent, m’arrêter et en parler à un professionnel avant de continuer.",
+   "moment": "",
+   "semaines": ""
+  }
+ }
+]

@@ -1,0 +1,54 @@
+# Publie le site sur GitHub Pages à chaque push sur main.
+# Réglage à faire une fois : Settings → Pages → Build and deployment → Source : « GitHub Actions ».
+name: Déployer sur GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Installer les dépendances
+        run: npm install --no-audit --no-fund
+      - name: Télécharger les polices (facultatif : le site a des polices de secours)
+        run: npm run fonts || echo "Polices non téléchargées : polices de secours utilisées."
+      - name: Vérifier les types (n'empêche pas la publication)
+        run: npm run typecheck
+        continue-on-error: true
+      - name: Construire
+        env:
+          # Site de projet : https://<compte>.github.io/<dépôt>/
+          BASE_PATH: /${{ github.event.repository.name }}/
+          # Mettre SITE_INDEXABLE: "1" pour autoriser Google et consorts (par défaut : noindex).
+          SITE_INDEXABLE: ${{ vars.SITE_INDEXABLE }}
+        run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

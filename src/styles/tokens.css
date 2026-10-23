@@ -1,0 +1,96 @@
+/* ───────── Couleurs, typographie, espacements ───────── */
+:root {
+  --bg: #F7F4EE;
+  --bg-2: #EFEBE2;
+  --surface: #FFFDF9;
+  --surface-2: #EEF2EF;
+  --edge: #D9DFDB;
+  --edge-strong: #BFC9C4;
+  --ink: #1E2F36;
+  --ink-2: #46555B;
+  --ink-3: #5B686D;
+  --brand: #235F73;
+  --brand-ink: #1B4A5A;
+  --brand-soft: #DDEAEE;
+  --mist: #BCD0D4;
+  --on-brand: #FFFFFF;
+  --danger: #A8281F;
+  --danger-soft: #F9E3E0;
+  --ok: #2F6B4F;
+  --ok-soft: #DFEEE6;
+
+  --b1: #A9493A; --b1-soft: #F6E4DE; --b1-ink: #7C2D20;
+  --b2: #87590B; --b2-soft: #F5EBD5; --b2-ink: #5E3E05;
+  --b3: #357257; --b3-soft: #DFEEE6; --b3-ink: #234E3B;
+  --b4: #28628A; --b4-soft: #DCE9F1; --b4-ink: #1B4561;
+  --b5: #614C8C; --b5-soft: #E8E2F2; --b5-ink: #43336A;
+
+  --accent: var(--brand);
+  --accent-soft: var(--brand-soft);
+  --accent-ink: var(--brand-ink);
+
+  --glass: color-mix(in oklab, var(--bg) 80%, transparent);
+  --scrim: rgb(20 32 38 / .5);
+
+  --radius-s: 10px;
+  --radius: 18px;
+  --radius-l: 28px;
+  --shadow-1: 0 1px 2px rgb(30 47 54 / .06), 0 6px 18px rgb(30 47 54 / .06);
+  --shadow-2: 0 2px 4px rgb(30 47 54 / .07), 0 16px 40px rgb(30 47 54 / .12);
+
+  --font-body: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-title: "Domine", "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+
+  --text-scale: 1;
+  --gutter: clamp(16px, 4.5vw, 36px);
+  --header-h: 60px;
+  --tabbar-h: 62px;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --ease-soft: cubic-bezier(.4, 0, .2, 1);
+
+  color-scheme: light;
+}
+
+/* ───────── Mode sombre ───────── */
+:root[data-theme="dark"] {
+  --bg: #111A1E; --bg-2: #0C1316; --surface: #182429; --surface-2: #1E2D33;
+  --edge: #2C3D44; --edge-strong: #3D5159;
+  --ink: #EAF0F2; --ink-2: #BAC7CC; --ink-3: #9DADB3;
+  --brand: #86C4D8; --brand-ink: #A9D9E8; --brand-soft: #1C3640; --mist: #2F4B55; --on-brand: #0E1B20;
+  --danger: #F2A29B; --danger-soft: #3A1F1D; --ok: #86CBA8; --ok-soft: #1B3328;
+  --b1: #F0A090; --b1-soft: #3A2420; --b1-ink: #F6C3B8;
+  --b2: #DDAE57; --b2-soft: #362B14; --b2-ink: #EDCB8C;
+  --b3: #7FC9A3; --b3-soft: #1C3328; --b3-ink: #A9DEC3;
+  --b4: #7DB8E3; --b4-soft: #1A2F3E; --b4-ink: #A8D2EF;
+  --b5: #B6A3E3; --b5-soft: #2B2441; --b5-ink: #D0C3F0;
+  --shadow-1: 0 1px 2px rgb(0 0 0 / .3), 0 6px 18px rgb(0 0 0 / .25);
+  --shadow-2: 0 2px 4px rgb(0 0 0 / .35), 0 16px 40px rgb(0 0 0 / .4);
+  --scrim: rgb(0 0 0 / .62);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] {
+    --bg: #111A1E; --bg-2: #0C1316; --surface: #182429; --surface-2: #1E2D33;
+    --edge: #2C3D44; --edge-strong: #3D5159;
+    --ink: #EAF0F2; --ink-2: #BAC7CC; --ink-3: #9DADB3;
+    --brand: #86C4D8; --brand-ink: #A9D9E8; --brand-soft: #1C3640; --mist: #2F4B55; --on-brand: #0E1B20;
+    --danger: #F2A29B; --danger-soft: #3A1F1D; --ok: #86CBA8; --ok-soft: #1B3328;
+    --b1: #F0A090; --b1-soft: #3A2420; --b1-ink: #F6C3B8;
+    --b2: #DDAE57; --b2-soft: #362B14; --b2-ink: #EDCB8C;
+    --b3: #7FC9A3; --b3-soft: #1C3328; --b3-ink: #A9DEC3;
+    --b4: #7DB8E3; --b4-soft: #1A2F3E; --b4-ink: #A8D2EF;
+    --b5: #B6A3E3; --b5-soft: #2B2441; --b5-ink: #D0C3F0;
+    --shadow-1: 0 1px 2px rgb(0 0 0 / .3), 0 6px 18px rgb(0 0 0 / .25);
+    --shadow-2: 0 2px 4px rgb(0 0 0 / .35), 0 16px 40px rgb(0 0 0 / .4);
+    --scrim: rgb(0 0 0 / .62);
+    color-scheme: dark;
+  }
+}
+
+/* ───────── Accent par base (b1 à b5) ───────── */
+.tone-b1 { --accent: var(--b1); --accent-soft: var(--b1-soft); --accent-ink: var(--b1-ink); }
+.tone-b2 { --accent: var(--b2); --accent-soft: var(--b2-soft); --accent-ink: var(--b2-ink); }
+.tone-b3 { --accent: var(--b3); --accent-soft: var(--b3-soft); --accent-ink: var(--b3-ink); }
+.tone-b4 { --accent: var(--b4); --accent-soft: var(--b4-soft); --accent-ink: var(--b4-ink); }
+.tone-b5 { --accent: var(--b5); --accent-soft: var(--b5-soft); --accent-ink: var(--b5-ink); }
+.tone-brand { --accent: var(--brand); --accent-soft: var(--brand-soft); --accent-ink: var(--brand-ink); }

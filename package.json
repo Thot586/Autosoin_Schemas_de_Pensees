@@ -1,0 +1,27 @@
+{
+  "name": "autosoin-schemas-de-pensees",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Comprendre ses schémas : application web de psychoéducation et d’auto-soin (thérapie des schémas de J. Young), mobile d’abord.",
+  "license": "UNLICENSED",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs dist",
+    "typecheck": "tsc --noEmit",
+    "fonts": "node scripts/fetch-fonts.mjs",
+    "test:e2e": "node scripts/e2e.mjs"
+  },
+  "dependencies": {
+    "react": ">=19.0.0 <20",
+    "react-dom": ">=19.0.0 <20"
+  },
+  "devDependencies": {
+    "@types/react": ">=19.0.0 <20",
+    "@types/react-dom": ">=19.0.0 <20",
+    "esbuild": ">=0.25.0",
+    "typescript": ">=5.6.0"
+  }
+}

@@ -78,5 +78,5 @@ Les couleurs de base : encre `#1E2F36`, fond `#F7F4EE`, accent `#235F73`, plus u
 
 ## Crédits
 
-Dr FENOHASINA T.J. Félicien ; Mme LONG Aude ; Prof. FRANCK Nicolas.
+Dr FENOHASINA T.J. Félicien ; Mme BASSO Sophie ; Mme LONG Aude ; Prof. FRANCK Nicolas.
 D’après J. Young, J. Klosko et M. Weishaar.

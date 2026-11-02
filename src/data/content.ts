@@ -83,6 +83,19 @@ const C = {
       { titre: "Un groupe de schémas peut se former", texte: "Une façon apprise de voir, de ressentir et de réagir." },
     ],
     flux_note: "Les besoins sont légitimes, chez tout le monde : on ne s’en débarrasse pas, on apprend à y répondre. Et on peut se reconnaître dans plusieurs schémas, de plusieurs bases.",
+    // Reprend la diapo 8 du diaporama (« Les 15 schémas, d’un coup d’œil »)
+    apercu: {
+      eyebrow: "Vue d’ensemble",
+      titre: "Les 15 schémas, d’un coup d’œil",
+      chapeau: "Quinze schémas, regroupés selon la base dont ils naissent.",
+      savoir: [
+        "Je ne me reconnais pas dans tous, et c’est normal.",
+        "Plusieurs schémas peuvent coexister ; ils se réveillent selon les situations.",
+        "Un schéma n’est ni un diagnostic ni une étiquette.",
+      ],
+      vers_trouver: "Retrouver les miens (partie 5)",
+      vers_schemas: "Les lire un par un (partie 7)",
+    },
     retenir: ["Chaque base correspond à un besoin d’enfant ; un groupe de schémas peut se former quand il a manqué.", "Un besoin n’est jamais un défaut : on apprend à y répondre autrement.", "Se reconnaître dans une phrase est un point de départ, pas un diagnostic."],
   },
 

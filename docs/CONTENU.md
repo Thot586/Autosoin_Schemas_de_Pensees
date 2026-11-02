@@ -26,6 +26,7 @@ Légende : **Nouveau** = écrit pour le web · **Adapté** = repris du diaporama
 ## 3. Partie 2 — Les 5 besoins
 
 - **Nouveau** · mécanisme en trois temps (`p2.flux`) : « Un besoin de l’enfant » → « Il manque, durablement » → « Un groupe de schémas peut se former », avec la note `p2.flux_note`.
+- **Adapté** · vue d’ensemble « Les 15 schémas, d’un coup d’œil » (`p2.apercu`), reprise de la diapo 8 du diaporama : chapeau, encadré « À savoir » (3 phrases : « Je ne me reconnais pas dans tous, et c’est normal. », « Plusieurs schémas peuvent coexister ; ils se réveillent selon les situations. », « Un schéma n’est ni un diagnostic ni une étiquette. ») et deux boutons vers les parties 5 et 7. Textes à relire.
 - **Nouveau** · « À retenir » de la partie (`p2.retenir`, 3 phrases).
 - **Adapté** · pour chaque base : le texte de l’animation (« Ce que montre l’animation ») et « À essayer cette semaine » (`src/data/bases.ts` → `anim.explication`, `anim.essai`), repris des notes d’animation du diaporama.
 - **Nouveau** · encadré « Je peux m’arrêter ici » en bas de chaque base (`src/pages/Base.tsx`) : « Cette base peut réveiller des souvenirs. Si c’est trop lourd, je fais une pause, et j’en parle à un(e) professionnel(le) si cela dure. »

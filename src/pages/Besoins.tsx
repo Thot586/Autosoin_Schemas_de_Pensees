@@ -1,4 +1,4 @@
-import { Page, PartHero, Section, Reveal, Callout, Invite, NextUp, Pro, Retain, Pill, Term } from "../components/ui";
+import { Page, PartHero, Section, Reveal, Callout, Invite, NextUp, Pro, Retain, Pill, Term, Button } from "../components/ui";
 import { Icon } from "../components/Icon";
 import { Link } from "../lib/router";
 import { BASES } from "../data/bases";
@@ -55,7 +55,33 @@ export default function Besoins() {
         </div>
       </Section>
 
-      <Section>
+      <Section id="apercu" eyebrow={c.apercu.eyebrow} title={c.apercu.titre} lead={c.apercu.chapeau}>
+        <div className="overview">
+          {BASES.map((b, i) => {
+            const sc = schemasOfBase(b.id);
+            return (
+              <Reveal key={b.id} delay={(i % 3) * 80} className={`tone-b${b.id}`}>
+                <div className="ov-col" role="group" aria-labelledby={`ov-h${b.id}`}>
+                  <p className="ov-eyebrow">Base {b.id} · {sc.length} schémas</p>
+                  <h3 id={`ov-h${b.id}`} className="ov-name">{b.name}</h3>
+                  <ul className="ov-list">{sc.map((s) => <li key={s.slug}>{s.name}</li>)}</ul>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+        <Reveal className="ov-more">
+          <Callout title="À savoir" icon="info">
+            <ul>{c.apercu.savoir.map((x) => <li key={x}>{x}</li>)}</ul>
+          </Callout>
+          <div className="row">
+            <Button to="/trouver" variant="soft" iconRight="arrowRight">{c.apercu.vers_trouver}</Button>
+            <Button to="/schemas" variant="soft" iconRight="arrowRight">{c.apercu.vers_schemas}</Button>
+          </div>
+        </Reveal>
+      </Section>
+
+      <Section className="alt">
         <div className="stack" style={{ ["--gap" as string]: "1.4rem" }}>
           <Callout title="À propos du questionnaire de Young" icon="info">
             <p>{c.ysq} {c.complet}</p>

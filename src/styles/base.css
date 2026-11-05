@@ -4,7 +4,7 @@ body {
   margin: 0; background: var(--bg); color: var(--ink);
   font-family: var(--font-body); font-size: 1.125rem; line-height: 1.6;
   -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
-  min-height: 100dvh; overflow-x: hidden;
+  min-height: calc(100dvh / var(--zoom)); overflow-x: hidden;
 }
 @media (min-width: 900px) { body { font-size: 1.1875rem; } }
 h1, h2, h3, h4 { font-family: var(--font-title); font-weight: 800; line-height: 1.2; margin: 0 0 .5em; color: var(--ink); text-wrap: balance; letter-spacing: -.005em; }

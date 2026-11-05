@@ -1,5 +1,14 @@
 // Références affichées sur la page « La thérapie des schémas ».
-// Règle : seulement des références vérifiées (DOI, titre, auteurs, année) — voir docs/CONTENU.md.
+// Règle : seulement des références vérifiées (DOI, titre, auteurs, année). Vérification : 5 novembre 2026
+// (PubMed, Crossref, Europe PMC, catalogue BnF, Cambridge Core) — détail dans docs/CONTENU.md.
 export interface Ref { id: string; text: string; url?: string; urlLabel?: string }
 
-export const REFERENCES: Ref[] = [];
+export const REFERENCES: Ref[] = [
+  { id: "young2003", text: "Young JE, Klosko JS, Weishaar ME. Schema Therapy: A Practitioner’s Guide. New York : Guilford Press ; 2003. Trad. fr. B. Pascal : La thérapie des schémas. Approche cognitive des troubles de la personnalité. De Boeck Supérieur ; 3e éd. 2024." },
+  { id: "taylor2017", text: "Taylor CDJ, Bee P, Haddock G. Does schema therapy change schemas and symptoms? A systematic review across mental health disorders. Psychol Psychother. 2017 ; 90(3) : 456-479.", url: "https://doi.org/10.1111/papt.12112", urlLabel: "doi:10.1111/papt.12112" },
+  { id: "giesenbloo2006", text: "Giesen-Bloo J, van Dyck R, Spinhoven P, et al. Outpatient psychotherapy for borderline personality disorder: randomized trial of schema-focused therapy vs transference-focused psychotherapy. Arch Gen Psychiatry. 2006 ; 63(6) : 649-658.", url: "https://doi.org/10.1001/archpsyc.63.6.649", urlLabel: "doi:10.1001/archpsyc.63.6.649" },
+  { id: "bamelis2014", text: "Bamelis LLM, Evers SMAA, Spinhoven P, Arntz A. Results of a multicenter randomized controlled trial of the clinical effectiveness of schema therapy for personality disorders. Am J Psychiatry. 2014 ; 171(3) : 305-322.", url: "https://doi.org/10.1176/appi.ajp.2013.12040518", urlLabel: "doi:10.1176/appi.ajp.2013.12040518" },
+  { id: "arntz2022", text: "Arntz A, Jacob GA, Lee CW, et al. Effectiveness of predominantly group schema therapy and combined individual and group schema therapy for borderline personality disorder: a randomized clinical trial. JAMA Psychiatry. 2022 ; 79(4) : 287-299.", url: "https://doi.org/10.1001/jamapsychiatry.2022.0010", urlLabel: "doi:10.1001/jamapsychiatry.2022.0010" },
+  { id: "zhang2023", text: "Zhang K, Hu X, Ma L, et al. The efficacy of schema therapy for personality disorders: a systematic review and meta-analysis. Nord J Psychiatry. 2023 ; 77(7) : 641-650.", url: "https://doi.org/10.1080/08039488.2023.2228304", urlLabel: "doi:10.1080/08039488.2023.2228304" },
+  { id: "mauchand2011", text: "Mauchand P, Lachenal-Chevallet K, Cottraux J. Validation empirique du questionnaire abrégé des schémas de Young (YSQ-S2) sur une population de patients présentant un trouble de la personnalité borderline et de sujets témoins. L’Encéphale. 2011 ; 37(2) : 138-143.", url: "https://doi.org/10.1016/j.encep.2010.04.014", urlLabel: "doi:10.1016/j.encep.2010.04.014" },
+];

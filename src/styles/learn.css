@@ -23,7 +23,7 @@
 .choice-col .choice-o { border-radius: 14px; text-align: left; min-height: 52px; font-size: 1rem; }
 
 /* ───────── Le lecteur de leçon ───────── */
-.lesson { min-height: 100dvh; display: flex; flex-direction: column; }
+.lesson { min-height: calc(100dvh / var(--zoom)); display: flex; flex-direction: column; }
 .lesson-top { position: sticky; top: 0; z-index: 20; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: calc(8px + env(safe-area-inset-top)) max(10px, calc(var(--gutter) - 6px)) 6px; background: var(--glass); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
 .lesson-quit { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 6px 12px 6px 8px; border-radius: 12px; color: var(--ink-2); font-weight: 700; text-decoration: none; }
 .lesson-quit:hover { background: var(--surface-2); text-decoration: none; color: var(--ink); }
@@ -96,7 +96,7 @@
 .quiz-from { font-size: .85em; color: var(--ink-3); margin: 0 0 .4rem; }
 .quiz-q { font-size: 1.15em; font-weight: 800; margin: 0 0 1rem; line-height: 1.45; }
 .quiz-opts { display: grid; gap: 10px; }
-.quiz-o { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; min-height: 60px; padding: 12px 16px; border-radius: 16px; border: 2px solid var(--edge-strong); background: var(--surface); font-size: 1rem; font-weight: 700; color: var(--ink); line-height: 1.4; transition: border-color .2s, background .2s; }
+.quiz-o { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; min-height: 60px; padding: 12px 16px; border-radius: 16px; border: 2px solid var(--edge-strong); background: var(--surface); font-size: .92em; font-weight: 700; color: var(--ink); line-height: 1.4; transition: border-color .2s, background .2s; }
 .quiz-o:hover:not([aria-disabled]) { border-color: var(--accent); background: var(--accent-soft); }
 .quiz-o[aria-disabled] { cursor: default; }
 .quiz-mark { flex: 0 0 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); font-weight: 800; color: var(--ink-2); }
@@ -106,10 +106,10 @@
 .quiz-o.is-off { opacity: .55; }
 .quiz-fb-in { margin-top: 14px; padding: 16px 18px; border-radius: 16px; background: var(--surface-2); animation: card-in .3s var(--ease) both; }
 .quiz-fb-in.is-ok { background: var(--ok-soft); }
-.quiz-fb-in p { margin: 0 0 .4em; font-size: 1rem; }
+.quiz-fb-in p { margin: 0 0 .4em; font-size: .9em; }
 .quiz-fb-t { display: flex; gap: 8px; align-items: center; font-weight: 800; }
 .quiz-fb-in.is-ok .quiz-fb-t { color: var(--ok); }
-.quiz-fb-s { font-size: .9rem !important; color: var(--ink-3); margin: 0 !important; }
+.quiz-fb-s { font-size: .8em !important; color: var(--ink-3); margin: 0 !important; }
 
 /* Note personnelle */
 .reflect-q { display: block; font-weight: 800; font-size: 1.08em; margin-bottom: .4em; line-height: 1.45; }
@@ -328,4 +328,31 @@
 
 @media print {
   .lesson-nav, .lesson-top, .lcard-tools { display: none !important; }
+}
+
+/* ═══════════ Grands écrans : utiliser la largeur, sans allonger les lignes de texte ═══════════ */
+.page-pad > .lead { max-width: 46rem; }
+@media (min-width: 1000px) {
+  .home-cols { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 0 clamp(24px, 3vw, 48px); align-items: start; }
+  .home-side { padding-top: .4rem; }
+  .home-side .sos-card { margin-top: 0; }
+  .home-side .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .chapters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(24px, 3vw, 44px); align-items: start; }
+  .course-sum { max-width: 46rem; }
+  .sgroup .srows, .kept .srows { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hub-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+  .tools, .docs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+  .docs { gap: 8px 16px; }
+}
+@media (min-width: 1500px) {
+  .chapters { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sgroup .srows, .kept .srows { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+/* Une leçon projetée ou lue sur un grand écran : carte et texte plus grands */
+@media (min-width: 1400px) and (min-height: 820px) {
+  .lesson-stage { width: min(100% - 2 * var(--gutter), 54rem); }
+  .lcard { padding: 44px 52px; }
+  .lcard-body { font-size: 1.32rem; }
+  .lcard h2 { font-size: 2.3rem; }
+  .lesson-title { font-size: 1.15rem; }
 }

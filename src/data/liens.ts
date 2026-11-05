@@ -1,8 +1,11 @@
 // Liens externes, réunis ici pour être vérifiés et mis à jour à un seul endroit.
 // Dernière vérification : voir docs/CONTENU.md (§ Sources vérifiées).
 export const LIENS = {
-  annuaire: { url: "https://www.schematherapie.fr/therapie-des-schemas", label: "Annuaire de thérapeutes formés aux schémas" },
-  monSoutienPsy: { url: "https://www.doctolib.fr/dispositif-mon-soutien-psy", label: "Mon soutien psy : informations" },
+  // Institut Français de Thérapie des Schémas (IFTS) : association de formation ; thérapeutes formés, certains certifiés ISST.
+  annuaire: { url: "https://www.schematherapie.fr/annuaire-therapeutes", label: "Annuaire de l’Institut Français de Thérapie des Schémas" },
+  // International Society of Schema Therapy (en anglais ; la France est un critère de recherche).
+  annuaireIsst: { url: "https://schematherapysociety.org/Find-a-Therapist", label: "Annuaire international de l’ISST (en anglais)" },
+  monSoutienPsy: { url: "https://www.ameli.fr/assure/remboursements/rembourse/remboursement-seance-psychologue-mon-soutien-psy", label: "Mon soutien psy sur ameli.fr" },
   n3114: { url: "https://3114.fr", label: "3114.fr" },
   n3919: { url: "https://arretonslesviolences.gouv.fr", label: "arretonslesviolences.gouv.fr" },
 };

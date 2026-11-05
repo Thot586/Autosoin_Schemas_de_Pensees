@@ -19,7 +19,25 @@ export const CHAPTERS: Chapter[] = deepFr<Chapter[]>([
   { id: "action", title: "Passer à l’action", short: "La méthode et les outils, pas à pas.", icon: "sparkles" },
 ]);
 
-export const LESSONS: Lesson[] = deepFr<Lesson[]>([...AVANT, ...COMPRENDRE, ...BESOINS, ...CERCLE, ...AIDE, ...ACTION]);
+/**
+ * Les questions sont écrites avec la bonne réponse en premier : on mélange les réponses
+ * (toujours dans le même ordre pour une question donnée), sauf « Vrai / Faux », toujours dans cet ordre.
+ */
+const turn: Record<number, number> = {};
+function mixQuiz(q: QuizItem): QuizItem {
+  const good = q.options[q.answer];
+  const tf = q.options.length === 2 && q.options.every((o) => o === "Vrai" || o === "Faux");
+  if (tf) { const options = ["Vrai", "Faux"]; return { ...q, options, answer: options.indexOf(good) }; }
+  // La bonne réponse change de place à chaque question (A, B, C, A…) : pas de « c'est toujours la première ».
+  const n = q.options.length;
+  const at = (turn[n] = (turn[n] ?? 0) + 1) % n;
+  const rest = shuffle(q.options.filter((_, i) => i !== q.answer), `mix-${q.id}`);
+  const options = [...rest.slice(0, at), good, ...rest.slice(at)];
+  return { ...q, options, answer: at };
+}
+
+export const LESSONS: Lesson[] = deepFr<Lesson[]>([...AVANT, ...COMPRENDRE, ...BESOINS, ...CERCLE, ...AIDE, ...ACTION])
+  .map((l) => ({ ...l, cards: l.cards.map((c) => (c.kind === "quiz" ? { ...c, quiz: mixQuiz(c.quiz) } : c)) }));
 
 export const lessonById = (id: string): Lesson | undefined => LESSONS.find((l) => l.id === id);
 export const lessonsOf = (c: ChapterId): Lesson[] => LESSONS.filter((l) => l.chapter === c);

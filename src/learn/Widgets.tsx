@@ -48,15 +48,18 @@ function AgeSlider() {
 export function Numeros({ compact = false }: { compact?: boolean }) {
   return (
     <ul className={`numeros ${compact ? "is-compact" : ""}`}>
-      {CONTENT.p8.aide.numeros.map((n) => (
-        <li key={n.num}>
-          <a href={`tel:${n.tel}`} className="numero">
-            <span className="numero-n">{n.num}</span>
-            <span className="numero-t">{n.texte}</span>
-            <span className="numero-call"><Icon name="phone" size={18} /><span>Appeler</span></span>
-          </a>
-        </li>
-      ))}
+      {CONTENT.p8.aide.numeros.map((n) => {
+        const sms = "sms" in n && n.sms;
+        return (
+          <li key={n.num}>
+            <a href={`${sms ? "sms" : "tel"}:${n.tel}`} className="numero">
+              <span className="numero-n">{n.num}</span>
+              <span className="numero-t">{n.texte}</span>
+              <span className="numero-call"><Icon name={sms ? "chat" : "phone"} size={18} /><span>{sms ? "SMS" : "Appeler"}</span><span className="sr-only"> le {n.num}</span></span>
+            </a>
+          </li>
+        );
+      })}
     </ul>
   );
 }

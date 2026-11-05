@@ -6,6 +6,7 @@ import { createRequire } from "node:module";
 import { readFileSync, writeFileSync, mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { serve } from "./serve.mjs";
 
 let chromium;
@@ -13,14 +14,14 @@ try { ({ chromium } = createRequire(import.meta.url)("playwright")); }
 catch { console.error("Playwright est absent : npm i -D playwright && npx playwright install chromium"); process.exit(2); }
 
 const PORT = 4190;
-const server = await serve(new URL("../dist", import.meta.url).pathname, PORT, "/");
+const server = await serve(fileURLToPath(new URL("../dist", import.meta.url)), PORT, "/");
 const origin = `http://127.0.0.1:${PORT}`;
 const browser = await chromium.launch();
 let failures = 0;
 const check = (cond, msg) => { if (!cond) failures++; console.log((cond ? "✔ " : "✗ ") + msg); };
 
 // 1. Toutes les pages : pas d'erreur console, pas de débordement horizontal, un titre h1, pas de page 404.
-for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900]]) {
+for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900], ["écran géant", 3840, 2160]]) {
   const ctx = await browser.newContext({ viewport: { width: w, height: h } });
   const page = await ctx.newPage();
   let errs = [];
@@ -38,19 +39,49 @@ for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900]
       notFound: !!document.querySelector(".notfound"),
       links: [...document.querySelectorAll("a[href]")].map((a) => a.getAttribute("href")).filter((x) => x && x.startsWith("/") && !x.startsWith("//")),
     }));
-    for (const l of info.links) { const p = l.split("#")[0].split("?")[0]; if (p && !seen.has(p) && !/\.(ics|json|csv|png|svg|webmanifest)$/.test(p)) queue.push(p); }
+    for (const l of info.links) { const p = l.split("#")[0].split("?")[0]; if (p && !seen.has(p) && !/\.(ics|json|csv|png|svg|webmanifest|pdf|docx)$/.test(p)) queue.push(p); }
     if (!info.h1 || info.overflow > 1 || info.notFound || errs.length) { bad++; check(false, `${name} ${r} : ${JSON.stringify({ h1: info.h1, overflow: info.overflow, notFound: info.notFound, errs: errs.slice(0, 3) })}`); }
   }
   check(bad === 0, `${name} : ${seen.size} pages parcourues, ${bad} problème(s)`);
   await ctx.close();
 }
 
-// 2. Carnet, sauvegarde, restauration, effacement.
+// 2. Une leçon en entier : questions, « À retenir », fin ; puis l'accueil et le rappel du jour.
+{
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const page = await ctx.newPage();
+  await page.goto(origin + "/apprendre/bienvenue", { waitUntil: "networkidle" });
+  check(await page.locator(".header").isHidden(), "leçon : mode concentration (en-tête masqué)");
+  for (let k = 0; k < 30; k++) {
+    if (await page.locator(".lcard-end").count()) break;
+    if (await page.locator(".lcard-quiz").count()) await page.locator(".quiz-o").first().click();
+    const nav = await page.locator(".lesson-nav").boundingBox();
+    if (k === 0) check(!!nav && nav.y + nav.height <= 844 + 1, "leçon : barre Retour / Suivant visible en bas de l'écran");
+    await page.click(".lesson-next");
+  }
+  check(await page.locator(".lcard-end").count() === 1, "leçon : carte de fin atteinte");
+  const st = await page.evaluate(() => JSON.parse(localStorage.getItem("autosoin:v1:lecons") || "{}"));
+  check(!!st.bienvenue?.done, "leçon : marquée terminée");
+  const q = await page.evaluate(() => JSON.parse(localStorage.getItem("autosoin:v1:rappels") || "{}"));
+  check(Object.keys(q).length === 2, "leçon : deux réponses gardées pour les rappels");
+  await page.goto(origin + "/", { waitUntil: "networkidle" });
+  check(await page.locator(".next-lesson h2").innerText() === "La thérapie des schémas", "accueil : propose la leçon suivante");
+  await page.goto(origin + "/apprendre/therapie", { waitUntil: "networkidle" });
+  check(await page.locator(".lcard-rappel").count() === 1, "leçon suivante : commence par un petit rappel");
+  await page.goto(origin + "/trouver", { waitUntil: "networkidle" });
+  await page.click(".lesson-next"); await page.click(".lesson-next");
+  await page.locator(".fiche-c").nth(0).click(); await page.locator(".fiche-c").nth(2).click();
+  const t = await page.evaluate(() => JSON.parse(localStorage.getItem("autosoin:v1:ticks") || "{}"));
+  check(t["carence-affective"]?.vrai && t["carence-affective"]?.cout && !t["carence-affective"]?.souvent, "fiche : deux repères cochés pour le premier schéma");
+  await ctx.close();
+}
+
+// 3. Carnet, sauvegarde, restauration, effacement.
 {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, acceptDownloads: true });
   const page = await ctx.newPage();
   const tmp = mkdtempSync(path.join(tmpdir(), "autosoin-"));
-  await page.goto(origin + "/pour-la-suite/carnet", { waitUntil: "networkidle" });
+  await page.goto(origin + "/outils/carnet", { waitUntil: "networkidle" });
   check(await page.locator("button[type=submit]").isDisabled(), "carnet : ajout impossible sans situation");
   await page.fill("#cn-sit", "Mon collègue ne répond pas");
   await page.fill("#cn-emo", "Inquiétude");

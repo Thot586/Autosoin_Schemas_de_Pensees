@@ -21,7 +21,7 @@ const DOCS: { file: string; title: string; kind: string }[] = [
 export default function Outils() {
   return (
     <Page title="Mes outils">
-      <div className="wrap-narrow page-pad">
+      <div className="wrap page-pad">
         <h1>Mes outils</h1>
         <p className="lead">Pour passer à l’action, un petit pas à la fois. Ce que j’écris reste sur cet appareil.</p>
         <ul className="tools">

@@ -24,7 +24,9 @@ export default function Home() {
 
   return (
     <Page title="">
-      <div className="wrap-narrow page-pad home">
+      <div className="wrap page-pad home">
+        <div className="home-cols">
+        <div className="home-main">
         <header className="home-hero">
           <BrandMark size={44} />
           <h1>Comprendre ses schémas</h1>
@@ -71,6 +73,8 @@ export default function Home() {
           </Link>
         )}
 
+        </div>
+        <div className="home-side">
         <section className="sos-card" aria-labelledby="sos-h">
           <h2 id="sos-h"><Icon name="heart" size={22} /> Ça ne va pas ?</h2>
           <div className="row">
@@ -109,6 +113,8 @@ export default function Home() {
           <p><Icon name="shield" size={18} /><span>Ce support aide à comprendre : ce n’est ni un diagnostic, ni un soin. <Link to="/apprendre/limites">Ses limites</Link>.</span></p>
           <p><Icon name="lock" size={18} /><span>Gratuit, sans compte. Mes réponses restent sur cet appareil.</span></p>
         </aside>
+        </div>
+        </div>
       </div>
     </Page>
   );

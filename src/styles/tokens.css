@@ -54,8 +54,21 @@
   --ease: cubic-bezier(.22, 1, .36, 1);
   --ease-soft: cubic-bezier(.4, 0, .2, 1);
 
+  --zoom: 1;
   color-scheme: light;
 }
+
+/* ───────── Écrans géants (téléviseur, vidéoprojecteur, écran 4K) ─────────
+   Tout grandit d'un bloc (texte, icônes, marges, animations) : la page garde la mise en page
+   d'un écran d'ordinateur d'environ 1 900 px de large, lisible de loin, par exemple en groupe.
+   Les hauteurs « 100dvh » sont divisées par --zoom (le zoom les agrandit aussi). */
+@media (min-width: 2200px) { :root { --zoom: 1.15; } }
+@media (min-width: 2560px) { :root { --zoom: 1.33; } }
+@media (min-width: 3000px) { :root { --zoom: 1.55; } }
+@media (min-width: 3400px) { :root { --zoom: 1.75; } }
+@media (min-width: 3800px) { :root { --zoom: 2; } }
+@media (min-width: 5000px) { :root { --zoom: 2.6; } }
+html { zoom: var(--zoom); }
 
 /* ───────── Mode sombre ───────── */
 :root[data-theme="dark"] {

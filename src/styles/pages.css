@@ -1,6 +1,6 @@
 .mt { margin-top: 1.4rem; }
 .mb { margin-bottom: 1.4rem; }
-.loading { min-height: 50vh; display: grid; place-items: center; }
+.loading { min-height: calc(110vh / var(--zoom)); display: grid; place-items: start center; padding-top: calc(30vh / var(--zoom)); }  /* garde le pied de page hors de l’écran pendant le chargement (pas de saut de mise en page) */
 .loading-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--brand); animation: pulse 1s ease-in-out infinite; }
 @keyframes pulse { 0%, 100% { transform: scale(.7); opacity: .5; } 50% { transform: scale(1.2); opacity: 1; } }
 
@@ -88,7 +88,7 @@
 .basecard-h b { font-family: var(--font-title); font-size: 1.15rem; }
 .basecard-h small { color: var(--ink-2); font-size: .85rem; }
 .basecard-seen { margin-left: auto; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--ok-soft); color: var(--ok); display: grid; place-items: center; }
-.basecard-sec { font-size: .74rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--accent-ink); margin-top: .5rem; }
+.basecard-sec { font-size: .88rem; font-weight: 800; color: var(--accent-ink); margin-top: .5rem; }
 .basecard-needs { margin: 0; padding-left: 1.1em; font-size: .97rem; }
 .basecard-needs li { margin-bottom: .15em; }
 .basecard-miss { font-size: .97rem; color: var(--ink-2); }
@@ -101,7 +101,7 @@
 .overview { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); }
 .overview > .reveal { display: flex; }
 .ov-col { width: 100%; padding: 1rem 1.05rem 1.1rem; background: var(--accent-soft); border: 1px solid var(--edge); border-top: 6px solid var(--accent); border-radius: var(--radius); }
-.ov-eyebrow { margin: 0; font-size: .74rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--accent-ink); }
+.ov-eyebrow { margin: 0; font-size: .88rem; font-weight: 800; color: var(--accent-ink); }
 .ov-name { margin: .25rem 0 .8rem; font-family: var(--font-title); font-size: 1.1rem; line-height: 1.2; }
 @media (min-width: 700px) { .ov-name { min-height: 2.4em; } }
 .ov-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
@@ -139,13 +139,13 @@
 .anim-side { display: grid; gap: 1rem; }
 @media (min-width: 980px) { .anim-layout { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 2rem; } }
 .explain, .try { background: var(--surface); border: 1px solid var(--edge); border-radius: var(--radius); padding: 1rem 1.2rem; }
-.explain-t, .try-t { display: flex; align-items: center; gap: 8px; margin: 0 0 .4rem; font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; color: var(--accent-ink); }
+.explain-t, .try-t { display: flex; align-items: center; gap: 8px; margin: 0 0 .4rem; font-size: .9rem; font-weight: 800; color: var(--accent-ink); }
 .explain p:last-child, .try p:last-child { margin-bottom: 0; }
 .try { background: var(--accent-soft); border-color: transparent; }
 .basenav { display: flex; gap: .8rem; justify-content: space-between; flex-wrap: wrap; }
 .retain { background: var(--surface); border-radius: var(--radius); border: 1px solid var(--edge); padding: 1rem 1.3rem 1.1rem; position: relative; overflow: hidden; }
 .retain::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 6px; background: var(--accent, var(--brand)); }
-.retain-t { display: flex; align-items: center; gap: 8px; margin: 0 0 .5rem; font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--accent-ink, var(--brand-ink)); }
+.retain-t { display: flex; align-items: center; gap: 8px; margin: 0 0 .5rem; font-size: .9rem; font-weight: 800; color: var(--accent-ink, var(--brand-ink)); }
 .retain ul { margin: 0; padding-left: 1.2em; }
 .notfound { max-width: 640px; padding: 2rem 0; }
 
@@ -161,14 +161,14 @@
 .gdemo-out { border-radius: 18px; padding: 1rem 1.2rem; transition: background .6s var(--ease), border-color .6s; border: 2px solid transparent; }
 .gdemo-out.is-clear { background: var(--ok-soft); }
 .gdemo-out.is-tint { background: var(--b1-soft); border-color: var(--b1); }
-.gdemo-lab { font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); }
+.gdemo-lab { font-size: .88rem; font-weight: 800; color: var(--ink-2); }
 .gdemo-out .quote { margin: .2rem 0 0; font-size: 1.3rem; animation: cap-in .5s var(--ease); }
 .origin { display: grid; gap: .3rem; align-content: start; }
 .origin-ic { width: 3rem; height: 3rem; border-radius: 16px; background: var(--brand-soft); color: var(--brand-ink); display: grid; place-items: center; margin-bottom: .4rem; }
 .origin p { margin: 0; color: var(--ink-2); }
 .adapt { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; gap: .8rem; }
 .adapt li { background: var(--surface); border: 1px solid var(--edge); border-left: 6px solid var(--brand); border-radius: var(--radius); padding: .9rem 1.2rem; margin: 0; }
-.adapt-n { display: block; font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--brand-ink); }
+.adapt-n { display: block; font-size: .88rem; font-weight: 800; color: var(--brand-ink); }
 @media (min-width: 860px) { .adapt { grid-template-columns: repeat(3, 1fr); } }
 .disclose { background: var(--surface); border: 1px solid var(--edge); border-radius: var(--radius); padding: 1.1rem 1.3rem; box-shadow: var(--shadow-1); display: grid; gap: .7rem; justify-items: start; height: 100%; align-content: start; }
 .disclose-idea { font-family: var(--font-title); font-size: 1.2rem; line-height: 1.3; margin: 0; }
@@ -253,7 +253,7 @@
 .fcard-more .eyebrow { margin: .4rem 0 .15rem; }
 .fcard-more p:last-child { margin: 0; }
 .fcard-checks { border: 0; padding: 0; margin: 0; display: grid; gap: 4px; min-width: 0; }
-.fcard-checks legend { font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); padding: 0; margin-bottom: 4px; }
+.fcard-checks legend { font-size: .88rem; font-weight: 800; color: var(--ink-2); padding: 0; margin-bottom: 4px; }
 .fcheck { position: relative; display: flex; gap: 12px; align-items: center; min-height: 48px; padding: 6px 10px; border-radius: 14px; cursor: pointer; transition: background .2s; }
 .fcheck:hover { background: var(--accent-soft); }
 .fcheck input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; cursor: pointer; margin: 0; }
@@ -312,10 +312,10 @@
 /* ───────── Carte-mémo ───────── */
 .carte { background: var(--surface); border: 2px solid var(--accent, var(--brand)); border-radius: 20px; padding: 1.1rem 1.3rem 1.2rem; box-shadow: var(--shadow-1); max-width: 520px; position: relative; overflow: hidden; }
 .carte::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 8px; background: var(--accent, var(--brand)); }
-.carte-top { display: flex; align-items: center; gap: 6px; margin: .4rem 0 .1rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 800; color: var(--accent-ink, var(--brand-ink)); }
+.carte-top { display: flex; align-items: center; gap: 6px; margin: .4rem 0 .1rem; font-size: .88rem; font-weight: 800; color: var(--accent-ink, var(--brand-ink)); }
 .carte-s { font-family: var(--font-title); font-size: 1.5rem; font-weight: 600; margin: 0 0 .7rem; line-height: 1.15; }
 .carte dl { margin: 0; display: grid; gap: .55rem; }
-.carte dt { font-size: .72rem; text-transform: uppercase; letter-spacing: .07em; font-weight: 800; color: var(--ink-2); }
+.carte dt { font-size: .88rem; font-weight: 800; color: var(--ink-2); }
 .carte dd { margin: 0; font-size: 1rem; line-height: 1.35; white-space: pre-wrap; overflow-wrap: anywhere; }
 .carte div { min-width: 0; }
 .cm { display: grid; gap: 2rem; align-items: start; }
@@ -470,12 +470,12 @@ select:focus { outline: 3px solid color-mix(in oklab, var(--brand) 35%, transpar
 /* Carnet */
 .crow-ex { max-width: 860px; }
 .crow-dl { display: grid; gap: .6rem 1.4rem; margin: .6rem 0 0; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
-.crow-dl dt { font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); }
+.crow-dl dt { font-size: .9rem; font-weight: 800; color: var(--ink-3); }
 .crow-dl dd { margin: 0; }
 .carnet-form { max-width: 720px; }
 .carnet-wrap { overflow-x: auto; }
 .carnet-t { width: 100%; border-collapse: collapse; font-size: .95rem; }
-.carnet-t th { text-align: left; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-3); padding: .5rem .6rem; border-bottom: 2px solid var(--edge-strong); white-space: nowrap; }
+.carnet-t th { text-align: left; font-size: .9rem; color: var(--ink-3); padding: .5rem .6rem; border-bottom: 2px solid var(--edge-strong); white-space: nowrap; }
 .carnet-t td { padding: .7rem .6rem; border-bottom: 1px solid var(--edge); vertical-align: top; }
 .carnet-t td textarea { width: 100%; min-width: 11rem; border: 1.5px solid var(--edge); border-radius: 10px; background: var(--bg); padding: 8px 10px; resize: vertical; }
 .carnet-act { white-space: nowrap; }
@@ -484,7 +484,7 @@ select:focus { outline: 3px solid color-mix(in oklab, var(--brand) 35%, transpar
   .carnet-t thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .carnet-t tr { background: var(--surface); border: 1px solid var(--edge); border-radius: var(--radius); margin-bottom: 1rem; padding: .5rem .9rem .9rem; box-shadow: var(--shadow-1); }
   .carnet-t td { border: 0; padding: .35rem 0; }
-  .carnet-t td::before { content: attr(data-label); display: block; font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-3); }
+  .carnet-t td::before { content: attr(data-label); display: block; font-size: .88rem; font-weight: 800; color: var(--ink-3); }
   .carnet-t td[data-label="Jour"] { font-weight: 800; font-size: 1.05rem; }
   .carnet-t td.carnet-act::before { content: none; }
   .carnet-t td.carnet-act { padding-top: .6rem; }

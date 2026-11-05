@@ -11,7 +11,7 @@ export default function Apprendre() {
   const next = nextToDo(st);
   return (
     <Page title="Mon parcours">
-      <div className="wrap-narrow page-pad">
+      <div className="wrap page-pad">
         <h1>Mon parcours</h1>
         <p className="lead">{LESSONS.length} leçons courtes, en six étapes. Une par jour suffit, dans l’ordre si possible.</p>
         <div className="course-sum">

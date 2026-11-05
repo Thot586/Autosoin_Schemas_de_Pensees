@@ -43,7 +43,7 @@
 
 /* Bulle de pensée (petite voix) */
 .bubble { position: relative; background: var(--surface); border: 1.5px solid var(--accent, var(--brand)); border-radius: 22px; padding: 16px 20px; font-size: 1.12rem; box-shadow: var(--shadow-1); }
-.bubble .quote { margin: 0; }
+.bubble .quote { margin: 0; font-weight: 500; }
 .bubble::after { content: ""; position: absolute; left: 28px; bottom: -11px; width: 18px; height: 18px; background: var(--surface); border-right: 1.5px solid var(--accent, var(--brand)); border-bottom: 1.5px solid var(--accent, var(--brand)); transform: rotate(45deg); }
 .bubble footer { margin-top: .4rem; font-size: .88rem; color: var(--ink-3); }
 
@@ -56,7 +56,7 @@
 
 /* Petit exercice */
 .invite { background: var(--surface); border: 1.5px dashed var(--accent, var(--brand)); border-radius: 20px; padding: 18px 20px; }
-.invite-t { display: flex; gap: 8px; align-items: center; font-weight: 800; margin: 0 0 .4rem; color: var(--accent-ink, var(--brand-ink)); font-size: .92rem; text-transform: uppercase; letter-spacing: .05em; }
+.invite-t { display: flex; gap: 8px; align-items: center; font-weight: 800; margin: 0 0 .4rem; color: var(--accent-ink, var(--brand-ink)); font-size: .92rem; }
 .invite-q { font-family: var(--font-title); font-size: 1.15rem; margin: 0 0 .6rem; line-height: 1.35; }
 .invite textarea, .field textarea, .field input { width: 100%; border-radius: 14px; border: 1.5px solid var(--edge-strong); background: var(--bg); padding: 12px 14px; resize: vertical; min-height: 52px; }
 .invite textarea:focus, .field textarea:focus, .field input:focus { outline: 3px solid color-mix(in oklab, var(--brand) 35%, transparent); border-color: var(--brand); }

@@ -126,7 +126,7 @@ export function Link({ to, replace, onClick, children, ...rest }: LinkProps) {
 }
 
 /** Lien de navigation : marque `aria-current` quand la route correspond. */
-export function NavLink({ to, end, className, children, ...rest }: LinkProps & { end?: boolean; className?: string | ((a: { active: boolean }) => string) }) {
+export function NavLink({ to, end, className, children, ...rest }: Omit<LinkProps, "className"> & { end?: boolean; className?: string | ((a: { active: boolean }) => string) }) {
   const { path } = useLocation();
   const active = end ? path === to : path === to || path.startsWith(to + "/");
   const cn = typeof className === "function" ? className({ active }) : className;

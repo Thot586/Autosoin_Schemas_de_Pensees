@@ -6,3 +6,6 @@ public/fonts/
 *.log
 test-results/
 .env
+
+# Sources de travail (diaporama de 43 Mo, documents d’origine) : non publiées
+Other_data/

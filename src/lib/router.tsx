@@ -109,7 +109,15 @@ function scrollToHash(hash: string) {
   let tries = 0;
   const go = () => {
     const el = document.getElementById(id);
-    if (el) { el.scrollIntoView({ block: "start" }); (el as HTMLElement).focus?.({ preventScroll: true }); return; }
+    if (el) {
+      // arrivée directe sur l’ancre (pas de longue animation de défilement à travers la page)
+      const place = () => el.scrollIntoView({ block: "start", behavior: "instant" });
+      place(); (el as HTMLElement).focus?.({ preventScroll: true });
+      // la page entre avec une petite animation (translation) : on se recale quand elle est finie
+      const anims = el.closest(".page-enter")?.getAnimations?.() ?? [];
+      if (anims.length) Promise.all(anims.map((x) => x.finished)).then(place, () => {});
+      return;
+    }
     if (tries++ < 60) setTimeout(go, 50);
   };
   requestAnimationFrame(go);

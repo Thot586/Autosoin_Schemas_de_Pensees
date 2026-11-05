@@ -97,7 +97,7 @@ Le workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) constru
 | Crédits, statut, mentions légales | `src/data/meta.ts` |
 | Couleurs, typographie, paliers des écrans géants | `src/styles/tokens.css` |
 | Le lecteur de leçons et ses styles | `src/learn/LessonPlayer.tsx`, `src/learn/Cards.tsx`, `src/styles/learn.css` |
-| Les animations | `src/scenes/` et `src/styles/anim.css`, `anim-new.css` |
+| Les animations | `src/scenes/` et `src/styles/anim.css`, `anim-new.css` (les personnages assis ou à genoux de `NewScenes.tsx` utilisent un composant local `Person`, à côté du `Figure` commun) |
 | Les versions à imprimer | `public/documents/` |
 
 Une carte de leçon a un type parmi les suivants :

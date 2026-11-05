@@ -5,7 +5,7 @@ import { useDocTitle } from "../lib/hooks";
 import { last } from "../lib/state";
 import { CardBody, CardExtras, SpeakButton, speechOf } from "./Cards";
 import { Rich } from "./Rich";
-import { lessonState, markLessonDone, recordAnswer, setLessonPos } from "./progress";
+import { exoRatings, lessonState, markLessonDone, recordAnswer, setLessonPos } from "./progress";
 import { stopSpeaking } from "./speech";
 import type { Card, Tone } from "./types";
 
@@ -26,6 +26,7 @@ export function LessonPlayer({ storeKey, title, kicker, cards, tone = "brand", e
   });
   const [picked, setPicked] = useState<Record<string, number>>({});
   const [gates, setGates] = useState<Record<string, boolean[]>>({});
+  const ratings = exoRatings.use();
   const head = useRef<HTMLHeadingElement>(null);
   const first = useRef(true);
   const card = cards[Math.min(i, n - 1)];
@@ -56,7 +57,10 @@ export function LessonPlayer({ storeKey, title, kicker, cards, tone = "brand", e
   useEffect(() => () => stopSpeaking(), []);
 
   // Carte d'entrée d'un exercice : on n'avance qu'une fois toutes les cases cochées.
-  const blocked = card.kind === "gate" && !card.items.every((_, k) => gates[card.id]?.[k]);
+  const gateBlocked = card.kind === "gate" && !card.items.every((_, k) => gates[card.id]?.[k]);
+  // Exercice guidé : si l'émotion est déjà à 7 sur 10 ou plus avant de commencer, on ne continue pas (la pause est proposée).
+  const tooHigh = card.kind === "widget" && card.widget === "echelle" && !!card.param?.endsWith("-avant") && (ratings[card.param] ?? -1) >= 7;
+  const blocked = gateBlocked || tooHigh;
   const go = useCallback((d: number) => setI((x) => Math.max(0, Math.min(n - 1, x + d))), [n]);
   const toggleGate = (k: number) => setGates((g) => {
     const cur = (g[card.id] ?? []).slice();
@@ -127,7 +131,7 @@ export function LessonPlayer({ storeKey, title, kicker, cards, tone = "brand", e
             <Icon name="arrowLeft" size={22} /><span>Retour</span>
           </button>
           <button type="button" className={`btn ${unanswered ? "btn-soft" : "btn-primary"} lesson-next`} onClick={() => go(1)} disabled={blocked}>
-            <span>{blocked ? "Je coche les cases pour commencer" : unanswered ? "Passer" : i === n - 2 ? "Terminer" : "Suivant"}</span>{!blocked && <Icon name="arrowRight" size={22} />}
+            <span>{tooHigh ? "Aujourd’hui, je fais plutôt la pause" : gateBlocked ? "Je coche les cases pour commencer" : unanswered ? "Passer" : i === n - 2 ? "Terminer" : "Suivant"}</span>{!blocked && <Icon name="arrowRight" size={22} />}
           </button>
         </nav>
       )}

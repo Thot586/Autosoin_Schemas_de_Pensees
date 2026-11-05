@@ -39,7 +39,7 @@ Légende : **Nouveau** = écrit pour le web · **Adapté** = repris du diaporama
 | « Comprendre un schéma » (4 leçons) | `src/learn/content/comprendre.ts` |
 | « Les 5 besoins, un par un » (5 leçons, générées depuis les bases) | `src/learn/content/besoins.ts` + `src/data/bases.ts` |
 | « Comment un schéma agit » (3 leçons) | `src/learn/content/cercle.ts` |
-| « Ce qui aide » (3 leçons) | `src/learn/content/aide.ts` |
+| « Ce qui aide » (5 leçons) | `src/learn/content/aide.ts` et `src/learn/content/techniques.ts` (imagerie, chaises) |
 | « Passer à l’action » (4 leçons) | `src/learn/content/action.ts` |
 | Les 15 schémas en cartes | `src/learn/schemaLessons.ts` (textes : `src/data/schemas.generated.json`, repris du diaporama) |
 | Questions construites à partir des données | `src/learn/gen.ts` |
@@ -70,13 +70,15 @@ Légende : **Nouveau** = écrit pour le web · **Adapté** = repris du diaporama
 - **Nouveau** : la carte « Plusieurs bases à la fois » et l’entrée de glossaire « Tempérament ».
 
 ### Les 5 besoins, un par un — **Adapté** (diapos 9 à 18)
-Pour chaque base : le besoin, ce qui se passe quand il manque, ses schémas et leur phrase, l’animation, « À essayer cette semaine », deux questions. Les « À retenir » de chaque base sont **nouveaux** (`RETAIN` dans `besoins.ts`).
+Pour chaque base : le besoin, ce qui se passe quand il manque, ses schémas et leur phrase, l’animation, « À essayer cette semaine », deux questions. **Adapté, à relire** : trois phrases de l’animation des lunettes (base 1) ont été réécrites pour sonner naturel. Les « À retenir » de chaque base sont **nouveaux** (`RETAIN` dans `besoins.ts`).
 
 ### Comment un schéma agit — **Adapté** (diapos 20 à 22)
 **Nouveau** : les exemples de la carte « On peut sortir du cercle » (« Tiens, ça ressemble à avant. » ; « C’est de la peur, 7 sur 10. »).
+**Adapté, à relire** : le texte de l’animation du cercle a été réécrit pour sonner naturel (voir § 4).
 
 ### Ce qui aide — **Adapté** (diapos 24, 25, 89, 90, 93)
 **Nouveau** : la carte « Un thérapeute formé aux schémas » (annuaire de l’IFTS, « j’en parle d’abord avec mon équipe de soins »).
+**Adapté, à relire** : le texte de l’animation de l’adulte sain est réécrit comme un récit, sans les titres d’étape (voir § 4).
 
 ### Ce qui aide : l’imagerie et le dialogue des chaises — **Nouveau**
 - Placées juste après « Ce qui aide à s’en sortir ». La carte « Ressentir » des leviers y renvoie, ainsi que la leçon « La thérapie des schémas » et le glossaire.
@@ -105,7 +107,7 @@ Pour chaque base : le besoin, ce qui se passe quand il manque, ses schémas et l
   - Je sais m’arrêter.
   - S’y ajoutent : « Si je suis suivi(e) en psychiatrie, j’en parle d’abord à mon équipe de soins », et pour les chaises, « la petite voix est une pensée ; si j’entends des voix, je ne fais pas cet exercice seul(e) ».
 - Chaque étape porte une ligne **« Pourquoi cette étape ? »** et un rappel pour se recentrer : ouvrir les yeux, pieds au sol, cinq choses que je vois, avec un lien vers la pause en trois temps.
-- **Échelle de 0 à 10**, avant et après l’exercice. Si l’émotion est à 7 ou plus au départ, l’application propose plutôt la pause en trois temps. Si elle est montée à la fin, elle conseille de s’arrêter et d’en parler à l’équipe de soins.
+- **Échelle de 0 à 10**, avant et après l’exercice. Si l’émotion est à 7 ou plus au départ, l’exercice ne continue pas : le bouton devient « Aujourd’hui, je fais plutôt la pause », et le lien vers la pause en trois temps est affiché. Si elle est montée à la fin, elle conseille de s’arrêter et d’en parler à l’équipe de soins.
 - **Imaginer autrement** :
   - lieu calme (avec une alternative si ce lieu met mal à l’aise) ;
   - une scène récente et légère, et ce dont j’avais besoin ;

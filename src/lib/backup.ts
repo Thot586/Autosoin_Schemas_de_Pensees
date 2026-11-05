@@ -1,6 +1,6 @@
 import { ressources, type Ressource, ticks, retained, focusSchema, situations, visited, notes, stepsDone, onboarded, last, cartes, plan, emptyPlan, carnet, type Carte, type CarnetRow, type Plan, type Tick } from "./state";
 import { SCHEMAS } from "../data/schemas";
-import { lessonState, quizState, type LessonState, type QState } from "../learn/progress";
+import { exoRatings, lessonState, quizState, type LessonState, type QState } from "../learn/progress";
 
 export const BACKUP_APP = "autosoin-schemas";
 export const BACKUP_VERSION = 1;
@@ -20,7 +20,7 @@ export function collectBackup() {
     data: {
       ticks: ticks.get(), retained: retained.get(), focus: focusSchema.get(), situations: situations.get(), visited: visited.get(),
       notes: notes.get(), steps: stepsDone.get(), onboarded: onboarded.get(), last: last.get(), cartes: cartes.get(), plan: plan.get(), carnet: carnet.get(),
-      lecons: lessonState.get(), rappels: quizState.get(), ressources: ressources.get(),
+      lecons: lessonState.get(), rappels: quizState.get(), ressources: ressources.get(), exercices: exoRatings.get(),
     },
   };
 }
@@ -71,11 +71,12 @@ export function restoreBackup(text: string): RestoreResult {
   const rap = recordOf<QState>(d.rappels, (v) => (isObj(v) && num(v.box) !== undefined && num(v.due) !== undefined
     ? { box: Math.max(0, Math.min(5, num(v.box)!)), due: num(v.due)!, seen: num(v.seen) ?? 0, ok: num(v.ok) ?? 0 } : null));
 
+  const exo = recordOf<number | null>(d.exercices, (v) => (v === null ? null : typeof v === "number" && isFinite(v) ? Math.max(0, Math.min(10, Math.round(v))) : null));
   const res = recordOf<Ressource>(d.ressources, (v) => (isObj(v) ? { nom: str(v.nom).slice(0, 200), tel: str(v.tel).slice(0, 40) } : null));
 
   ticks.set(t); retained.set(kept); focusSchema.set(focus); situations.set(sit); visited.set(vis); notes.set(nts);
   stepsDone.set(stp); onboarded.set(d.onboarded === true); last.set(lst); cartes.set(crt); plan.set(pl); carnet.set(car);
-  lessonState.set(lec); quizState.set(rap); ressources.set(res);
+  lessonState.set(lec); quizState.set(rap); ressources.set(res); exoRatings.set(exo);
 
   const nLec = Object.values(lec).filter((x) => x.done).length;
   const restored = [

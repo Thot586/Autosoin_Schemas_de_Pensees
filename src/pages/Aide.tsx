@@ -1,40 +1,79 @@
-import { Page, Section, Reveal, Callout, Invite, Pro } from "../components/ui";
+import { Page } from "../components/ui";
 import { Icon } from "../components/Icon";
-import { SuiteHead } from "../components/Part8";
 import { Link } from "../lib/router";
 import { CONTENT } from "../data/content";
+import { Numeros } from "../learn/Widgets";
+import { ressources, type Ressource } from "../lib/state";
 
+const A = CONTENT.p8.aide;
+
+const PEOPLE: { id: string; label: string }[] = [
+  { id: "medecin", label: "Mon médecin traitant" },
+  { id: "therapeute", label: "Mon thérapeute ou mon service de soins" },
+  { id: "confiance", label: "Une personne de confiance" },
+  { id: "local", label: "Numéro d’urgence local (hors de France)" },
+];
+
+/** « Besoin d'aide ? » : accessible depuis chaque écran. L'essentiel en premier : appeler. */
 export default function Aide() {
-  const c = CONTENT.p8.aide;
+  const res = ressources.use();
+  const set = (id: string, patch: Partial<Ressource>) => ressources.set((r) => ({ ...r, [id]: { ...(r[id] ?? { nom: "", tel: "" }), ...patch } }));
   return (
-    <Page title="Quand demander de l’aide">
-      <SuiteHead title={c.titre} current="/pour-la-suite/aide" tone="brand" lead="Les schémas sont des fragilités fréquentes, pas des urgences. Mais certaines situations demandent de l’aide sans attendre." />
-      <Section eyebrow="Numéros" title="Si c’est urgent">
-        <ul className="nums">
-          {c.numeros.map((n, i) => (
-            <Reveal as="li" key={n.num} delay={i * 80}>
-              <a href={`tel:${n.tel}`} className="num"><span className="num-n">{n.num}</span><span className="num-t">{n.texte}</span><span className="num-c"><Icon name="phone" size={20} /><span className="sr-only">Appeler le {n.num}</span></span></a>
-            </Reveal>
-          ))}
-        </ul>
-        <p className="small muted mt">{c.horsFrance}</p>
-      </Section>
-      <Section className="alt" eyebrow="Les signes" title={c.chapeau}>
-        <ul className="signs-list">
-          {c.signes.map((t, i) => <Reveal as="li" key={i} delay={i * 70}><Icon name="flag" size={20} /><span>{t}</span></Reveal>)}
-        </ul>
-      </Section>
-      <Section eyebrow="Je ne reste pas seul(e)" title="À qui en parler">
-        <ul className="signs-list signs-list-ok">
-          <Reveal as="li"><Icon name="heart" size={20} /><span>{c.parler[0]}</span></Reveal>
-          <Reveal as="li" delay={70}><Icon name="heart" size={20} /><span>Sans thérapeute pour l’instant : <Link to="/pour-la-suite/soutien">où trouver un soutien</Link>.</span></Reveal>
-        </ul>
-        <div className="mt stack" style={{ ["--gap" as string]: "1.2rem" }}>
-          <Callout tone="ok" title={c.rappel} icon="shield">{c.parler[1]}</Callout>
-          <Invite id="p8-aide" prompt="Le numéro de mon médecin traitant, à portée de main" hint={c.invite} placeholder="Son nom, son numéro…" />
-          <Pro>{c.pro}</Pro>
+    <Page title="Besoin d’aide ?">
+      <div className="wrap-narrow page-pad">
+        <h1>Besoin d’aide ?</h1>
+
+        <section className="sos" aria-labelledby="sos-urgence">
+          <h2 id="sos-urgence">En danger, ou des pensées de me faire du mal : j’appelle maintenant.</h2>
+          <Numeros />
+          <p className="small">{A.horsFrance} Sur téléphone, je touche le numéro pour appeler.</p>
+        </section>
+
+        <h2 className="h-sec">Pour me poser, tout de suite</h2>
+        <div className="row">
+          <Link to="/outils/pause" className="btn btn-primary"><Icon name="wind" size={20} /><span>La pause en trois temps</span></Link>
         </div>
-      </Section>
+        <p className="muted small mt">Pieds au sol, trois respirations lentes : j’expire plus longtemps que j’inspire.</p>
+
+        <h2 className="h-sec">{A.chapeau}</h2>
+        <ol className="signs">
+          {A.signes.map((s, i) => <li key={i}><span className="mini-n">{i + 1}</span><span>{s}</span></li>)}
+        </ol>
+        <ul className="plain">
+          {A.parler.slice(0, 2).map((p) => <li key={p}>{p}</li>)}
+          <li>Sans thérapeute pour l’instant : <Link to="/soutien">où trouver un soutien</Link>.</li>
+        </ul>
+        <p className="quote-line">{A.rappel}</p>
+
+        <h2 className="h-sec">Mes personnes ressources</h2>
+        <p className="muted">Je note ici les numéros utiles. Ils restent sur cet appareil.</p>
+        <ul className="people">
+          {PEOPLE.map((p) => {
+            const r = res[p.id] || { nom: "", tel: "" };
+            const tel = r.tel.replace(/[^\d+]/g, "");
+            return (
+              <li key={p.id} className="person">
+                <p className="person-l">{p.label}</p>
+                <div className="person-f">
+                  <label><span className="sr-only">{p.label} : nom</span>
+                    <input type="text" value={r.nom} placeholder="Nom" autoComplete="off" onChange={(e) => set(p.id, { nom: e.target.value })} /></label>
+                  <label><span className="sr-only">{p.label} : téléphone</span>
+                    <input type="tel" value={r.tel} placeholder="Téléphone" autoComplete="off" inputMode="tel" onChange={(e) => set(p.id, { tel: e.target.value })} /></label>
+                  {tel.length >= 3 && <a href={`tel:${tel}`} className="btn btn-soft btn-sm"><Icon name="phone" size={18} /><span>Appeler</span></a>}
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+
+        <h2 className="h-sec">Trouver un soutien</h2>
+        <Link to="/soutien" className="act-card">
+          <span className="act-ic"><Icon name="users" size={26} /></span>
+          <span className="act-t"><b>Où trouver un soutien</b><span>Médecin traitant, Mon soutien psy, thérapeute formé aux schémas, proche ou groupe.</span></span>
+          <Icon name="arrowRight" size={24} className="act-go" />
+        </Link>
+        <p className="small muted mt"><a href={`${__BASE__}documents/quand-demander-de-l-aide.pdf`} download>Télécharger la fiche « Quand demander de l’aide » (PDF)</a></p>
+      </div>
     </Page>
   );
 }

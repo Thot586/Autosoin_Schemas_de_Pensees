@@ -1,5 +1,6 @@
-import { ticks, retained, focusSchema, situations, visited, notes, stepsDone, onboarded, last, cartes, plan, emptyPlan, carnet, type Carte, type CarnetRow, type Plan, type Tick } from "./state";
+import { ressources, type Ressource, ticks, retained, focusSchema, situations, visited, notes, stepsDone, onboarded, last, cartes, plan, emptyPlan, carnet, type Carte, type CarnetRow, type Plan, type Tick } from "./state";
 import { SCHEMAS } from "../data/schemas";
+import { lessonState, quizState, type LessonState, type QState } from "../learn/progress";
 
 export const BACKUP_APP = "autosoin-schemas";
 export const BACKUP_VERSION = 1;
@@ -19,6 +20,7 @@ export function collectBackup() {
     data: {
       ticks: ticks.get(), retained: retained.get(), focus: focusSchema.get(), situations: situations.get(), visited: visited.get(),
       notes: notes.get(), steps: stepsDone.get(), onboarded: onboarded.get(), last: last.get(), cartes: cartes.get(), plan: plan.get(), carnet: carnet.get(),
+      lecons: lessonState.get(), rappels: quizState.get(), ressources: ressources.get(),
     },
   };
 }
@@ -64,10 +66,20 @@ export function restoreBackup(text: string): RestoreResult {
     : [];
   const lst = isObj(d.last) && typeof d.last.path === "string" && d.last.path.startsWith("/") ? { path: d.last.path.slice(0, 200), title: str(d.last.title).slice(0, 200), at: typeof d.last.at === "number" ? d.last.at : Date.now() } : null;
 
+  const num = (x: unknown) => (typeof x === "number" && isFinite(x) ? x : undefined);
+  const lec = recordOf<LessonState>(d.lecons, (v) => (isObj(v) ? { pos: Math.max(0, Math.min(200, num(v.pos) ?? 0)), done: num(v.done), at: num(v.at) } : null));
+  const rap = recordOf<QState>(d.rappels, (v) => (isObj(v) && num(v.box) !== undefined && num(v.due) !== undefined
+    ? { box: Math.max(0, Math.min(5, num(v.box)!)), due: num(v.due)!, seen: num(v.seen) ?? 0, ok: num(v.ok) ?? 0 } : null));
+
+  const res = recordOf<Ressource>(d.ressources, (v) => (isObj(v) ? { nom: str(v.nom).slice(0, 200), tel: str(v.tel).slice(0, 40) } : null));
+
   ticks.set(t); retained.set(kept); focusSchema.set(focus); situations.set(sit); visited.set(vis); notes.set(nts);
   stepsDone.set(stp); onboarded.set(d.onboarded === true); last.set(lst); cartes.set(crt); plan.set(pl); carnet.set(car);
+  lessonState.set(lec); quizState.set(rap); ressources.set(res);
 
+  const nLec = Object.values(lec).filter((x) => x.done).length;
   const restored = [
+    nLec ? `${nLec} leçon${nLec > 1 ? "s" : ""} terminée${nLec > 1 ? "s" : ""}` : "",
     kept.length ? `${kept.length} schéma${kept.length > 1 ? "s" : ""} gardé${kept.length > 1 ? "s" : ""}` : "",
     Object.keys(crt).length ? `${Object.keys(crt).length} carte${Object.keys(crt).length > 1 ? "s" : ""}-mémo` : "",
     car.length ? `${car.length} ligne${car.length > 1 ? "s" : ""} de carnet` : "",

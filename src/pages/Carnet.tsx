@@ -2,7 +2,7 @@ import { printPage } from "../lib/print";
 import { useState } from "react";
 import { Page, Section, Callout, Invite, Pro, Button, Card } from "../components/ui";
 import { Icon } from "../components/Icon";
-import { SuiteHead } from "../components/Part8";
+import { ToolHead } from "../components/ToolBits";
 import { Link } from "../lib/router";
 import { CONTENT } from "../data/content";
 import { BASES } from "../data/bases";
@@ -55,7 +55,7 @@ export default function CarnetPage() {
 
   return (
     <Page title="Mon carnet de schémas">
-      <SuiteHead title="Mon carnet de schémas" current="/pour-la-suite/carnet" lead={C.chapeau} />
+      <ToolHead title="Mon carnet de schémas" current="/outils/carnet" lead={C.chapeau} />
 
       <Section eyebrow="Un exemple" title="À quoi ressemble une ligne">
         <Card className="crow-ex">
@@ -111,7 +111,7 @@ export default function CarnetPage() {
         <p className="small muted mt" role="status" aria-live="polite">{msg}</p>
 
         <Callout tone="care" title="Si une situation est trop lourde" icon="heart" className="mt">
-          Je n’ai pas à la noter en détail. Si l’émotion est très intense, je n’en reste pas seul(e) : j’en parle à mon thérapeute ou à mon médecin. <Link to="/pour-la-suite/aide">Quand demander de l’aide</Link>.
+          Je n’ai pas à la noter en détail. Si l’émotion est très intense, je n’en reste pas seul(e) : j’en parle à mon thérapeute ou à mon médecin. <Link to="/aide">Quand demander de l’aide</Link>.
         </Callout>
       </Section>
 

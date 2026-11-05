@@ -29,11 +29,10 @@ export default function APropos() {
 
   return (
     <Page title="À propos et mentions">
-      <header className="parthero tone-brand">
+      <header className="page-head">
         <div className="wrap">
-          <p className="eyebrow">À propos</p>
           <h1>À propos de ce site</h1>
-          <p className="lead">Ce que c’est, ce que ce n’est pas, et ce qui devient de mes données.</p>
+          <p className="lead">Ce que c’est, ses limites, et ce que deviennent mes données.</p>
           {META.statut && <p><span className="status-tag">{META.statut}</span></p>}
         </div>
       </header>
@@ -45,12 +44,16 @@ export default function APropos() {
         </div>
       </Section>
 
-      <Section className="alt" eyebrow="Ses limites" title="Ce que ce site n’est pas">
+      <Section className="alt" title="Ses limites" id="limites">
         <ul className="a-list">
-          <Reveal as="li"><Icon name="info" size={20} /><span>Ce n’est pas un diagnostic. Se reconnaître dans une phrase aide à réfléchir ; cela ne dit pas ce qu’on « a ».</span></Reveal>
-          <Reveal as="li" delay={70}><Icon name="info" size={20} /><span>Ce n’est pas un dispositif médical, ni un suivi. Pour un repérage fiable des schémas, le questionnaire YSQ-2 se passe avec un(e) professionnel(le) formé(e).</span></Reveal>
-          <Reveal as="li" delay={140}><Icon name="phone" size={20} /><span>Ce n’est pas un service d’urgence. Si ça ne va pas depuis plusieurs semaines, ou si je pense à me faire du mal : <Link to="/pour-la-suite/aide">quand demander de l’aide</Link>. En urgence : 3114, 15 ou 112.</span></Reveal>
+          <li><Icon name="shield" size={20} /><span><b>Ce n’est pas un diagnostic.</b> Se reconnaître dans une phrase aide à réfléchir ; cela ne dit pas ce qu’on « a ». Pour un repérage fiable des schémas, un questionnaire (le YSQ) se passe et s’interprète avec un professionnel formé.</span></li>
+          <li><Icon name="heart" size={20} /><span><b>Ce n’est pas un soin.</b> Ni un dispositif médical, ni un suivi, ni un traitement. Je ne change pas mon traitement sans en parler à mon médecin.</span></li>
+          <li><Icon name="phone" size={20} /><span><b>Ce n’est pas un service d’urgence.</b> Quand je vais très mal, je demande de l’aide d’abord : <Link to="/aide">numéros d’aide</Link> (3114, 15, 112).</span></li>
+          <li><Icon name="eye" size={20} /><span><b>Il peut réveiller des souvenirs.</b> Si c’est trop lourd, je m’arrête et j’en parle à un soignant. Un souvenir très douloureux se travaille avec un professionnel.</span></li>
+          <li><Icon name="info" size={20} /><span><b>Il n’a pas été évalué.</b> Ce support n’a pas fait l’objet d’une étude scientifique ; son contenu est en relecture. Le rangement des quinze schémas en cinq familles est un repère pour apprendre, pas une classification démontrée.</span></li>
+          <li><Icon name="lock" size={20} /><span><b>Sur un appareil partagé,</b> quelqu’un d’autre pourrait lire mes notes. Je peux tout effacer depuis <Link to="/mon-espace">Mon espace</Link>.</span></li>
         </ul>
+        <p className="mt"><Link to="/apprendre/limites" className="btn btn-soft"><Icon name="play" size={18} /><span>La leçon « Ce que ce support ne fait pas »</span></Link></p>
       </Section>
 
       <Section eyebrow="Mes données" title="Ce qui reste sur mon appareil">
@@ -86,7 +89,7 @@ export default function APropos() {
           <img className="a-logo" src={`${__BASE__}img/crr-logo.png`} alt="Centre Ressource de Réhabilitation psychosociale (CRR)" width="171" height="98" loading="lazy" />
           <div className="prose">
             <p>{META.creditLong}.</p>
-            <p>D’après J. Young, J. Klosko et M. Weishaar (<i>La thérapie des schémas</i>, De Boeck Supérieur). Les références complètes sont dans <Link to="/pour-la-suite/lectures">Pour aller plus loin</Link>.</p>
+            <p>D’après J. Young, J. Klosko et M. Weishaar (<i>La thérapie des schémas</i>, De Boeck Supérieur). Les références complètes sont dans <Link to="/soutien#lectures">Pour aller plus loin</Link>.</p>
           </div>
         </div>
       </Section>

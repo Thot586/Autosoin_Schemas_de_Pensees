@@ -1,10 +1,8 @@
 import { useEffect, useId, useRef, useState, type CSSProperties, type ElementType, type ReactNode } from "react";
 import { Icon, type IconName } from "./Icon";
 import { Link, useLocation } from "../lib/router";
-import { useInView, useDocTitle } from "../lib/hooks";
+import { useDocTitle } from "../lib/hooks";
 import { last, markVisited, notes, prefs } from "../lib/state";
-import { PARTS } from "../data/parts";
-import { visited } from "../lib/state";
 import { useGlossary } from "./Glossary";
 
 /* ───────── Page ───────── */
@@ -20,11 +18,11 @@ export function Page({ title, tone, children, className = "" }: { title: string;
   return <div className={`page ${tone ? "tone-" + tone : ""} ${className}`}>{children}</div>;
 }
 
-/* ───────── Apparition au défilement ───────── */
-export function Reveal({ as, delay = 0, className = "", children, style }: { as?: ElementType; delay?: number; className?: string; children: ReactNode; style?: CSSProperties }) {
+/* ───────── Bloc simple (anciennement « apparition au défilement ») ─────────
+   Le contenu s'affiche tout de suite : pas de mouvement non demandé, plus reposant pour l'attention. */
+export function Reveal({ as, className = "", children, style }: { as?: ElementType; delay?: number; className?: string; children: ReactNode; style?: CSSProperties }) {
   const Tag = (as || "div") as ElementType;
-  const [ref, seen] = useInView<HTMLElement>();
-  return <Tag ref={ref} className={`reveal ${seen ? "is-in" : ""} ${className}`} style={{ "--d": `${delay}ms`, ...style } as CSSProperties}>{children}</Tag>;
+  return <Tag className={className || undefined} style={style}>{children}</Tag>;
 }
 
 /* ───────── Titres ───────── */
@@ -42,44 +40,6 @@ export function Section({ id, eyebrow, title, lead, children, className = "", to
         {children}
       </div>
     </section>
-  );
-}
-
-/* ───────── Plan en 8 parties ───────── */
-export function usePartStatus(): boolean[] {
-  const v = visited.use();
-  return PARTS.map((p) => Object.keys(v).some((k) => k === p.path || k.startsWith(p.path + "/")));
-}
-
-export function PlanStrip({ current }: { current?: number }) {
-  const done = usePartStatus();
-  return (
-    <nav className="planstrip" aria-label="Plan en huit parties">
-      <ol>
-        {PARTS.map((p, i) => (
-          <li key={p.n} className={`${current === p.n ? "is-current" : ""} ${done[i] ? "is-done" : ""}`}>
-            <Link to={p.path} aria-current={current === p.n ? "page" : undefined}>
-              <span className="planstrip-n">{done[i] && current !== p.n ? <Icon name="check" size={14} /> : p.n}</span>
-              <span className="planstrip-t">{p.title}</span>
-            </Link>
-          </li>
-        ))}
-      </ol>
-    </nav>
-  );
-}
-
-export function PartHero({ n, title, intro, tone = "brand", children }: { n: number; title: string; intro?: ReactNode; tone?: string; children?: ReactNode }) {
-  return (
-    <header className={`parthero tone-${tone}`}>
-      <div className="wrap">
-        <p className="eyebrow">Partie {n} sur 8</p>
-        <h1>{title}</h1>
-        {intro && <p className="lead">{intro}</p>}
-        {children}
-        <PlanStrip current={n} />
-      </div>
-    </header>
   );
 }
 

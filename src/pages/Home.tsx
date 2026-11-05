@@ -1,146 +1,115 @@
-import { Page, Reveal, Section, Button, Callout, PlanStrip, usePartStatus, Ring } from "../components/ui";
-import { Icon } from "../components/Icon";
-import { HeroArt } from "../components/HeroArt";
+import { Page } from "../components/ui";
+import { Icon, BrandMark } from "../components/Icon";
 import { Link } from "../lib/router";
-import { PARTS } from "../data/parts";
-import { BASES } from "../data/bases";
-import { CONTENT } from "../data/content";
-import { schemasOfBase } from "../data/schemas";
-import { last, onboarded, ticks, retained, tickCount } from "../lib/state";
-import { DOORS, Door } from "./Commencer";
+import { chapterOf, dueToday, LESSONS, lessonIndex, nextToDo } from "../learn/lessons";
+import { lessonState, quizState } from "../learn/progress";
+import { SCHEMAS } from "../data/schemas";
+import { focusSchema, last, retained, ticks, tickCount } from "../lib/state";
 
+/** Accueil : où j'en étais, quoi ensuite, et que faire si ça ne va pas. */
 export default function Home() {
-  const onb = onboarded.use();
-  const lastV = last.use();
-  const done = usePartStatus();
-  const n = done.filter(Boolean).length;
+  const st = lessonState.use();
+  quizState.use();
   const t = ticks.use();
   const kept = retained.use();
-  const ticked = Object.values(t).filter((x) => tickCount(x) > 0).length;
+  const focus = focusSchema.use();
+  const lastV = last.use();
+  const next = nextToDo(st);
+  const done = LESSONS.filter((l) => st[l.id]?.done).length;
+  const due = done > 0 ? dueToday(3, st) : [];
+  const ticked = SCHEMAS.filter((s) => tickCount(t[s.slug]) > 0).length;
+  const focusS = SCHEMAS.find((s) => s.slug === focus);
+  const pos = next ? st[next.id]?.pos ?? 0 : 0;
+  const resumeOther = lastV && lastV.path !== "/" && !lastV.path.startsWith("/apprendre/") && lastV.path !== "/rappel" && Date.now() - lastV.at < 1000 * 60 * 60 * 24 * 14;
+
   return (
     <Page title="">
-      {/* ───── Accueil ───── */}
-      <header className="hero">
-        <div className="wrap hero-grid">
-          <div className="hero-text">
-            <p className="eyebrow page-enter-1">Psychoéducation · auto-soin en vue d’une thérapie des schémas</p>
-            <h1 className="hero-title page-enter-2">Comprendre<br /> ses schémas</h1>
-            <p className="lead page-enter-3">Les 15 schémas de pensées de Jeffrey Young et les 5 besoins fondamentaux dont ils naissent.</p>
-            <div className="row hero-cta page-enter-4">
-              <Button to="/commencer" iconRight="arrowRight">Commencer</Button>
-              {lastV && lastV.path !== "/" ? <Button to={lastV.path} variant="soft" icon="replay">Reprendre : {lastV.title || "là où j’en étais"}</Button> : <Button to="/trouver/fiche" variant="soft" icon="search">Trouver mon schéma</Button>}
+      <div className="wrap-narrow page-pad home">
+        <header className="home-hero">
+          <BrandMark size={44} />
+          <h1>Comprendre ses schémas</h1>
+          <p className="lead">Des leçons courtes pour comprendre ses façons de réagir, à son rythme. D’après la thérapie des schémas de Jeffrey Young.</p>
+        </header>
+
+        {next ? (
+          <section className="next-lesson" aria-labelledby="nl-h">
+            <p className="next-kicker">{done === 0 ? "Pour commencer" : pos > 0 ? "Je reprends où j’en étais" : "Ma prochaine leçon"}</p>
+            <h2 id="nl-h">{next.title}</h2>
+            <p>{next.short}</p>
+            <p className="next-meta"><Icon name="clock" size={16} />{next.minutes} minutes. Leçon {lessonIndex(next.id) + 1} sur {LESSONS.length}, dans « {chapterOf(next).title} ».</p>
+            <div className="meter" role="img" aria-label={`${done} leçons terminées sur ${LESSONS.length}`}><i style={{ width: `${(done / LESSONS.length) * 100}%` }} /></div>
+            <div className="row">
+              <Link to={`/apprendre/${next.id}`} className="btn btn-primary btn-lg"><span>{pos > 0 ? "Reprendre" : done === 0 ? "Commencer" : "Continuer"}</span><Icon name="arrowRight" size={22} /></Link>
+              <Link to="/apprendre" className="btn btn-ghost"><Icon name="route" size={20} /><span>Mon parcours</span></Link>
             </div>
-            <p className="hero-note page-enter-5"><Icon name="lock" size={16} /> Gratuit, sans compte. Mes réponses restent sur cet appareil.</p>
+          </section>
+        ) : (
+          <section className="next-lesson" aria-labelledby="nl-h">
+            <p className="next-kicker">Parcours terminé</p>
+            <h2 id="nl-h">J’ai fait les {LESSONS.length} leçons</h2>
+            <p>Je peux les revoir quand je veux, et avancer sur un schéma à la fois.</p>
+            <div className="row"><Link to="/schemas" className="btn btn-primary btn-lg"><span>Mes schémas</span><Icon name="arrowRight" size={22} /></Link></div>
+          </section>
+        )}
+
+        {done > 0 && (
+          <Link to="/rappel" className={`act-card ${due.length ? "tone-brand" : ""}`}>
+            <span className="act-ic"><Icon name="star" size={26} /></span>
+            <span className="act-t">
+              <b>Mon rappel du jour</b>
+              <span>{due.length ? `${due.length} question${due.length > 1 ? "s" : ""} pour retenir ce que j’ai vu. Une minute.` : "Tout est à jour pour aujourd’hui."}</span>
+            </span>
+            <Icon name="arrowRight" size={24} className="act-go" />
+          </Link>
+        )}
+
+        {resumeOther && lastV && (
+          <Link to={lastV.path} className="act-card">
+            <span className="act-ic"><Icon name="replay" size={26} /></span>
+            <span className="act-t"><b>Reprendre</b><span>{lastV.title || "Là où j’en étais"}</span></span>
+            <Icon name="arrowRight" size={24} className="act-go" />
+          </Link>
+        )}
+
+        <section className="sos-card" aria-labelledby="sos-h">
+          <h2 id="sos-h"><Icon name="heart" size={22} /> Ça ne va pas ?</h2>
+          <div className="row">
+            <Link to="/outils/pause" className="btn btn-soft"><Icon name="wind" size={20} /><span>La pause en trois temps</span></Link>
+            <Link to="/aide" className="btn btn-care"><Icon name="phone" size={20} /><span>Numéros d’aide</span></Link>
           </div>
-          <div className="hero-art" aria-hidden={false}><HeroArt interactive /></div>
-        </div>
-      </header>
+        </section>
 
-      {!onb && (
-        <Section className="welcome">
-          <Reveal>
-            <div className="welcome-card">
-              <p className="eyebrow">Bienvenue</p>
-              <h2>Trois choses à savoir avant de commencer</h2>
-              <ul className="welcome-list">
-                <li><Icon name="shield" size={22} /><span><b>Ni test, ni diagnostic.</b> {CONTENT.utiliser.chapeau}</span></li>
-                <li><Icon name="lock" size={22} /><span><b>Rien ne quitte cet appareil.</b> Mes cases cochées et mes notes restent dans mon navigateur. Je peux tout effacer à tout moment.</span></li>
-                <li><Icon name="heart" size={22} /><span><b>Je peux m’arrêter quand je veux.</b> Si ça ne va pas depuis plusieurs semaines, la page « Quand demander de l’aide » est faite pour ça.</span></li>
-              </ul>
-              <div className="row">
-                <Button onClick={() => onboarded.set(true)} icon="check">J’ai compris</Button>
-                <Button to="/pour-la-suite/aide" variant="ghost">Besoin d’aide ?</Button>
-              </div>
-            </div>
-          </Reveal>
-        </Section>
-      )}
+        <h2 className="h-sec">Mes schémas</h2>
+        {focusS ? (
+          <Link to={`/schemas/${focusS.slug}`} className={`act-card tone-b${focusS.base}`}>
+            <span className="act-ic"><Icon name="flag" size={26} /></span>
+            <span className="act-t"><b>Je commence par « {focusS.name} »</b><span>{focusS.phrase}</span></span>
+            <Icon name="arrowRight" size={24} className="act-go" />
+          </Link>
+        ) : (
+          <Link to={ticked > 0 ? "/trouver/priorites" : "/trouver"} className="act-card">
+            <span className="act-ic"><Icon name="check" size={26} /></span>
+            <span className="act-t">
+              <b>{ticked > 0 ? "Mes priorités" : "Retrouver mes schémas"}</b>
+              <span>{ticked > 0 ? `${ticked} schéma${ticked > 1 ? "s" : ""} coché${ticked > 1 ? "s" : ""}. Je garde un à trois schémas${kept.length ? ` (${kept.length} gardé${kept.length > 1 ? "s" : ""})` : ""}.` : "Une fiche à cocher, un schéma par écran. Ni test, ni diagnostic."}</span>
+            </span>
+            <Icon name="arrowRight" size={24} className="act-go" />
+          </Link>
+        )}
 
-      {/* ───── Par où commencer ───── */}
-      <Section eyebrow="Par où commencer ?" title="Je choisis mon chemin" lead="Quatre portes d’entrée. Je peux en changer à tout moment.">
-        <div className="cards doors">
-          {DOORS.map((d, i) => <Reveal key={d.to} delay={i * 80}><Door d={d} /></Reveal>)}
-        </div>
-      </Section>
+        <h2 className="h-sec">Mes outils</h2>
+        <ul className="tool-grid">
+          <li><Link to="/outils/carte-memo" className="tool-tile"><Icon name="copy" size={26} /><b>Ma carte-mémo</b></Link></li>
+          <li><Link to="/outils/plan" className="tool-tile"><Icon name="calendar" size={26} /><b>Mon plan de la semaine</b></Link></li>
+          <li><Link to="/outils/carnet" className="tool-tile"><Icon name="pencil" size={26} /><b>Mon carnet</b></Link></li>
+          <li><Link to="/outils/dire" className="tool-tile"><Icon name="chat" size={26} /><b>Dire ce qui ne va pas</b></Link></li>
+        </ul>
 
-      {/* ───── Les huit parties ───── */}
-      <Section className="alt" eyebrow="Le parcours" title="Huit parties. Je peux m’arrêter après chacune."
-        lead="Chaque partie se lit en quelques minutes. Les parties déjà vues se cochent toutes seules, sur cet appareil.">
-        <div className="parts-head">
-          <div className="parts-ring"><Ring value={n / 8} size={76} label={`${n} parties sur 8 vues`} /><span><b>{n}</b>/8</span></div>
-          <p className="muted small">{n === 0 ? "Rien de vu pour l’instant : le parcours commence quand je veux." : `${n} partie${n > 1 ? "s" : ""} vue${n > 1 ? "s" : ""}.`}</p>
-        </div>
-        <ol className="parts-list">
-          {PARTS.map((p, i) => (
-            <Reveal as="li" key={p.n} delay={(i % 4) * 70}>
-              <Link to={p.path} className={`part-card ${done[i] ? "is-done" : ""}`}>
-                <span className="part-n">{done[i] ? <Icon name="check" size={18} /> : p.n}</span>
-                <span className="part-b">
-                  <b>{p.title}</b>
-                  <small>{p.short}</small>
-                  {p.minutes > 0 && <small className="part-min"><Icon name="clock" size={13} /> environ {p.minutes} min</small>}
-                </span>
-                <Icon name="chevronRight" size={20} className="part-go" />
-              </Link>
-            </Reveal>
-          ))}
-        </ol>
-        <PlanStrip />
-      </Section>
-
-      {/* ───── Les cinq besoins ───── */}
-      <Section eyebrow="Le cœur du modèle" title="Cinq besoins, quinze schémas" lead={CONTENT.p2.chapeau}>
-        <div className="bases-teaser">
-          {BASES.map((b, i) => (
-            <Reveal key={b.id} delay={i * 70}>
-              <Link to={`/besoins/${b.slug}`} className={`base-card tone-b${b.id}`}>
-                <span className="base-card-n">{b.id}</span>
-                <b>{b.name}</b>
-                <small>{schemasOfBase(b.id).length} schémas</small>
-                <ul>{schemasOfBase(b.id).map((s) => <li key={s.slug}>{s.name}</li>)}</ul>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-        <p className="small muted" style={{ marginTop: "1rem" }}>{CONTENT.p2.ysq}</p>
-      </Section>
-
-      {/* ───── Mon avancée ───── */}
-      {(ticked > 0 || kept.length > 0) && (
-        <Section className="alt" eyebrow="Mon espace" title="Où j’en suis">
-          <Card2 ticked={ticked} kept={kept.length} />
-        </Section>
-      )}
-
-      {/* ───── Comment utiliser ───── */}
-      <Section eyebrow="Mode d’emploi" title="Comment utiliser ce support" lead={CONTENT.utiliser.chapeau}>
-        <div className="cards cards-2">
-          {CONTENT.utiliser.cartes.map((c, i) => (
-            <Reveal key={c.titre} delay={i * 80}>
-              <article className="card principle">
-                <span className="principle-n">{i + 1}</span>
-                <h3>{c.titre}</h3>
-                <p>{c.texte}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal>
-          <Callout tone="alert" title={CONTENT.utiliser.avertissement} className="mt">
-            {CONTENT.utiliser.siMalAller} <Link to="/pour-la-suite/aide">Quand demander de l’aide</Link>.
-          </Callout>
-        </Reveal>
-      </Section>
+        <aside className="home-note">
+          <p><Icon name="shield" size={18} /><span>Ce support aide à comprendre : ce n’est ni un diagnostic, ni un soin. <Link to="/apprendre/limites">Ses limites</Link>.</span></p>
+          <p><Icon name="lock" size={18} /><span>Gratuit, sans compte. Mes réponses restent sur cet appareil.</span></p>
+        </aside>
+      </div>
     </Page>
-  );
-}
-
-function Card2({ ticked, kept }: { ticked: number; kept: number }) {
-  return (
-    <div className="cards">
-      <div className="card"><p className="eyebrow">Ma fiche</p><p><b>{ticked}</b> schéma{ticked > 1 ? "s" : ""} avec au moins une case cochée.</p><Button to="/trouver/fiche" variant="soft" iconRight="arrowRight">Reprendre ma fiche</Button></div>
-      <div className="card"><p className="eyebrow">Mes priorités</p><p><b>{kept}</b> schéma{kept > 1 ? "s" : ""} gardé{kept > 1 ? "s" : ""} (trois au maximum).</p><Button to="/trouver/priorites" variant="soft" iconRight="arrowRight">Voir mes priorités</Button></div>
-      <div className="card"><p className="eyebrow">Tout au même endroit</p><p>Cartes-mémo, plan de la semaine et carnet, à imprimer pour mon thérapeute.</p><Button to="/mon-espace" variant="soft" iconRight="arrowRight">Mon espace</Button></div>
-    </div>
   );
 }

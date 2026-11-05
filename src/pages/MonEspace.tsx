@@ -1,43 +1,39 @@
 import { printPage } from "../lib/print";
 import { useRef, useState } from "react";
-import { Page, Section, Callout, Button, Card, Ring, Pill, usePartStatus } from "../components/ui";
+import { Page, Section, Callout, Button, Card, Pill } from "../components/ui";
 import { Icon } from "../components/Icon";
 import { Link, navigate } from "../lib/router";
-import { PARTS } from "../data/parts";
-import { BASES } from "../data/bases";
 import { schemaBySlug } from "../data/schemas";
 import { CarteView } from "../components/SchemaBits";
 import { ticks, retained, focusSchema, situations, notes, cartes, plan, carnet, last, tickCount } from "../lib/state";
 import { clearPersonalData } from "../lib/store";
 import { collectBackup, backupFileName, restoreBackup } from "../lib/backup";
 import { downloadText } from "../lib/ics";
+import { LESSONS } from "../learn/lessons";
+import { lessonState } from "../learn/progress";
 
 type NoteMeta = { label: string; to?: string };
+/** Les notes écrites dans les leçons (cartes « Et moi ? ») et dans les outils. */
+const LESSON_NOTES: Record<string, NoteMeta> = Object.fromEntries(
+  LESSONS.flatMap((l) => l.cards.filter((c) => c.kind === "reflect").map((c) => [(c as { noteId: string }).noteId, { label: l.title, to: `/apprendre/${l.id}` }])),
+);
 function noteMeta(key: string): NoteMeta | null {
-  const base = /^base-(\d)$/.exec(key);
-  if (base) { const b = BASES[Number(base[1]) - 1]; return b ? { label: `Base ${b.id} · ${b.name}`, to: `/besoins/${b.slug}` } : null; }
-  const sch = /^([mw])-(.+)$/.exec(key);
-  if (sch) { const s = schemaBySlug(sch[2]); return s ? { label: `${s.name} · ${sch[1] === "m" ? "dans le moment" : "au fil des semaines"}`, to: `/schemas/${s.slug}/${sch[1] === "m" ? "dans-le-moment" : "au-fil-des-semaines"}` } : null; }
-  if (key.startsWith("dire-")) return { label: "Dire ce qui ne va pas · avec mes mots", to: "/outils/dire" };
+  if (LESSON_NOTES[key]) return LESSON_NOTES[key];
+  if (key.startsWith("dire-")) return { label: "Dire ce qui ne va pas, avec mes mots", to: "/outils/dire" };
   const fixed: Record<string, NoteMeta> = {
-    "p1-fort": { label: "Comprendre un schéma", to: "/comprendre" },
-    "p2-base": { label: "Les 5 besoins", to: "/besoins" },
-    "p3-cercle": { label: "Comment un schéma s’entretient", to: "/entretien" },
-    "p5-trame": { label: "Trouver mon schéma", to: "/trouver" },
-    "p5-prio": { label: "Ma fiche et mes priorités", to: "/trouver/priorites" },
+    "p5-prio": { label: "Mes priorités", to: "/trouver/priorites" },
     "p6-carte": { label: "Ma carte-mémo", to: "/outils/carte-memo" },
     "p6-pause": { label: "La pause en trois temps", to: "/outils/pause" },
     "p6-plan": { label: "Mon plan pour la semaine", to: "/outils/plan" },
-    "p8-aide": { label: "Quand demander de l’aide", to: "/pour-la-suite/aide" },
-    "p8-carnet": { label: "Mon carnet", to: "/pour-la-suite/carnet" },
-    "p8-lectures": { label: "Pour aller plus loin", to: "/pour-la-suite/lectures" },
-    "p8-retenir": { label: "À retenir (partie 8)", to: "/pour-la-suite#a-retenir" },
+    "p8-carnet": { label: "Mon carnet", to: "/outils/carnet" },
   };
-  return fixed[key] ?? null;
+  return fixed[key] ?? { label: "Une note" };
 }
 
 export default function MonEspace() {
-  const done = usePartStatus();
+  const st = lessonState.use();
+  const doneLessons = LESSONS.filter((l) => st[l.id]?.done);
+  const nPartsDone = doneLessons.length;
   const t = ticks.use();
   const kept = retained.use();
   const focus = focusSchema.use();
@@ -47,7 +43,6 @@ export default function MonEspace() {
   const pl = plan.use();
   const car = carnet.use();
   const lst = last.use();
-  const nPartsDone = done.filter(Boolean).length;
   const ticked = Object.entries(t).filter(([, v]) => tickCount(v) > 0).length;
   const noteList = Object.entries(nts).filter(([, v]) => v && v.trim()).map(([k, v]) => ({ k, v, m: noteMeta(k) })).filter((x): x is { k: string; v: string; m: NoteMeta } => !!x.m);
   const carteList = Object.entries(crt).filter(([, c]) => c.schema);
@@ -76,11 +71,10 @@ export default function MonEspace() {
 
   return (
     <Page title="Mon espace">
-      <header className="parthero tone-brand">
+      <header className="page-head">
         <div className="wrap">
-          <p className="eyebrow">Mon espace</p>
-          <h1>Ce que j’ai fait et noté</h1>
-          <p className="lead">Tout est rassemblé ici. Ces données restent sur cet appareil, dans ce navigateur : personne d’autre ne les voit.</p>
+          <h1>Mon espace</h1>
+          <p className="lead">Ce que j’ai fait et noté. Tout reste sur cet appareil, dans ce navigateur : personne d’autre ne le voit.</p>
         </div>
       </header>
 
@@ -88,28 +82,28 @@ export default function MonEspace() {
         <Section>
           <Callout tone="info" title="Rien ici pour l’instant" icon="sparkles">
             <p>Mon espace se remplit au fur et à mesure : les schémas que je garde, ma carte-mémo, mon plan, mon carnet, mes notes.</p>
-            <p><Button to="/commencer" icon="play">Commencer par le début</Button></p>
+            <p><Button to="/apprendre" icon="play">Commencer par le début</Button></p>
           </Callout>
         </Section>
       )}
 
-      <Section eyebrow="Où j’en suis" title="Mon parcours">
-        <div className="me-progress">
-          <div className="me-ring">
-            <Ring value={nPartsDone / PARTS.length} size={110} stroke={10} label={`${nPartsDone} parties sur ${PARTS.length} visitées`} />
-            <span className="me-ring-n" aria-hidden="true"><b>{nPartsDone}</b>/{PARTS.length}</span>
-          </div>
-          <div>
-            <p className="lead">{nPartsDone === 0 ? "Je n’ai pas encore ouvert de partie." : nPartsDone === PARTS.length ? "J’ai ouvert les huit parties. Je peux y revenir quand je veux." : `J’ai ouvert ${nPartsDone} partie${nPartsDone > 1 ? "s" : ""} sur ${PARTS.length}.`}</p>
-            <div className="row">
-              {lst && <Button to={lst.path} icon="play">Reprendre : {lst.title}</Button>}
-              <Button to="/" variant="soft" icon="home">Plan en huit parties</Button>
-            </div>
-          </div>
+      <Section title="Mon parcours">
+        <div className="meter" role="img" aria-label={`${nPartsDone} leçons terminées sur ${LESSONS.length}`}><i style={{ width: `${(nPartsDone / LESSONS.length) * 100}%` }} /></div>
+        <p>{nPartsDone === 0 ? "Je n’ai pas encore terminé de leçon." : `J’ai terminé ${nPartsDone} leçon${nPartsDone > 1 ? "s" : ""} sur ${LESSONS.length}.`}</p>
+        <div className="row noprint">
+          {lst && lst.path !== "/mon-espace" && <Button to={lst.path} icon="play">Reprendre : {lst.title}</Button>}
+          <Button to="/apprendre" variant="soft" icon="route">Mon parcours</Button>
         </div>
-        <ol className="me-parts">
-          {PARTS.map((p, i) => <li key={p.n} className={done[i] ? "is-done" : ""}><Link to={p.path}><span className="me-n">{done[i] ? <Icon name="check" size={14} /> : p.n}</span><span>{p.title}</span></Link></li>)}
-        </ol>
+        {doneLessons.length > 0 && (
+          <details className="me-retain">
+            <summary><Icon name="star" size={18} /> Ce que j’ai retenu, leçon par leçon</summary>
+            <ul>
+              {doneLessons.map((l) => (
+                <li key={l.id}><p className="me-retain-t"><Link to={`/apprendre/${l.id}`}>{l.title}</Link></p><ul>{l.retain.map((r, i) => <li key={i}>{r}</li>)}</ul></li>
+              ))}
+            </ul>
+          </details>
+        )}
       </Section>
 
       <Section className="alt" eyebrow="Mes schémas" title="Ceux que je garde">
@@ -119,7 +113,7 @@ export default function MonEspace() {
           <ul className="schemacards me-kept">
             {kept.map((slug) => { const s = schemaBySlug(slug); if (!s) return null; return (
               <li key={slug}>
-                <Link to={`/schemas/${slug}/comprendre`} className={`schemacard tone-b${s.base}`}>
+                <Link to={`/schemas/${slug}`} className={`schemacard tone-b${s.base}`}>
                   <span className="schemacard-top"><b>{s.name}</b>{focus === slug && <Pill>Je commence par celui-ci</Pill>}</span>
                   <span className="quote schemacard-q">{s.phrase}</span>
                   <span className="schemacard-go">Ouvrir <Icon name="arrowRight" size={18} /></span>
@@ -128,7 +122,7 @@ export default function MonEspace() {
             ); })}
           </ul>
         )}
-        <p className="small muted mt">{ticked > 0 ? `${ticked} schéma${ticked > 1 ? "s" : ""} avec au moins une case cochée dans la fiche.` : "Aucune case cochée dans la fiche pour l’instant."} Cocher n’est pas un diagnostic : <Link to="/trouver/fiche">ma fiche</Link>.</p>
+        <p className="small muted mt">{ticked > 0 ? `${ticked} schéma${ticked > 1 ? "s" : ""} avec au moins une case cochée dans la fiche.` : "Aucune case cochée dans la fiche pour l’instant."} Cocher n’est pas un diagnostic : <Link to="/trouver">ma fiche</Link>.</p>
         {Object.values(sit).some((v) => v && v.trim()) && (
           <div className="mt me-note"><p className="eyebrow">Les situations où je me reconnais</p>{Object.entries(sit).filter(([, v]) => v && v.trim()).map(([k, v]) => { const s = schemaBySlug(k); return <p key={k}><b>{s ? s.name : "Situation"}</b> · {v}</p>; })}</div>
         )}
@@ -165,14 +159,14 @@ export default function MonEspace() {
 
       <Section eyebrow="Au jour le jour" title="Mon carnet">
         {car.length === 0 ? (
-          <p>Le carnet est vide. <Link to="/pour-la-suite/carnet">Je note une première situation</Link> quand une émotion me paraît trop forte.</p>
+          <p>Le carnet est vide. <Link to="/outils/carnet">Je note une première situation</Link> quand une émotion me paraît trop forte.</p>
         ) : (
           <>
             <p>{car.length} situation{car.length > 1 ? "s" : ""} notée{car.length > 1 ? "s" : ""}. Les trois dernières :</p>
             <ul className="me-carnet">
               {[...car].sort((a, b) => (b.date + b.id).localeCompare(a.date + a.id)).slice(0, 3).map((r) => <li key={r.id}><b>{r.date.split("-").reverse().join("/")}</b> · {r.situation}{r.emotion ? ` (${r.emotion})` : ""}</li>)}
             </ul>
-            <div className="row noprint"><Button to="/pour-la-suite/carnet" variant="soft" icon="pencil">Ouvrir mon carnet</Button></div>
+            <div className="row noprint"><Button to="/outils/carnet" variant="soft" icon="pencil">Ouvrir mon carnet</Button></div>
           </>
         )}
       </Section>

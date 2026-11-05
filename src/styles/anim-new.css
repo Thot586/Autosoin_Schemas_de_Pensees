@@ -1,0 +1,86 @@
+/* ───────── D'où vient un schéma : le parapluie ───────── */
+.pa-scene { --pa-sun: color-mix(in oklab, var(--b2) 55%, var(--surface)); --pa-rain: var(--b4); }
+.pa-person { transition: transform 1.6s var(--ease); }
+.pa-umb { transition: opacity .8s var(--ease); }
+.pa-tilt { transition: transform 1.6s var(--ease); }
+.pa-canopy { transition: transform 1.3s var(--ease); }
+.pa-cloth { fill: var(--accent); stroke: var(--accent-ink); stroke-width: 2.5; stroke-linejoin: round; }
+.pa-rib { fill: none; stroke: var(--accent-ink); stroke-width: 1.8; opacity: .55; }
+.pa-shaft { fill: none; stroke: var(--ink); stroke-width: 3.2; stroke-linecap: round; }
+.pa-need { transition: opacity 1s var(--ease); }
+.pa-bub { fill: var(--surface); stroke: var(--edge-strong); stroke-width: 1.5; }
+.pa-heart { fill: var(--care, var(--danger)); transition: fill 1.2s var(--ease), opacity 1.2s var(--ease); }
+.pa-heart.is-dim { fill: var(--ink-2); opacity: .3; }
+.pa-cloud { transition: opacity 1.2s var(--ease), transform 1.2s var(--ease); }
+.pa-cloud path { fill: color-mix(in oklab, var(--ink-2) 34%, var(--surface)); stroke: color-mix(in oklab, var(--ink-2) 55%, var(--surface)); stroke-width: 1.5; stroke-linejoin: round; }
+.pa-drop { stroke: var(--pa-rain); stroke-width: 2.4; stroke-linecap: round; opacity: 0; animation: pa-fall 1.8s linear infinite; }
+.pa-drip { animation-duration: 1.4s; }
+@keyframes pa-fall { 0% { opacity: 0; transform: translateY(0); } 12% { opacity: .85; } 88% { opacity: .85; } 100% { opacity: 0; transform: translateY(var(--fall)); } }
+.pa-sun { transition: opacity 1.4s var(--ease), transform 1.4s var(--ease); transform-box: fill-box; transform-origin: center; }
+.pa-sun-c { fill: var(--pa-sun); stroke: var(--b2); stroke-width: 2; }
+.pa-rays { transform-box: fill-box; transform-origin: center; animation: pa-turn 40s linear infinite; }
+.pa-rays line { stroke: var(--b2); stroke-width: 3; stroke-linecap: round; }
+@keyframes pa-turn { to { transform: rotate(360deg); } }
+.pa-light { fill: var(--pa-sun); fill-opacity: .32; transition: opacity 1.4s var(--ease); }
+.pa-halo { fill: var(--pa-sun); fill-opacity: .3; transition: opacity 1.6s var(--ease); }
+.pa-shade { fill: var(--ink); fill-opacity: .13; transition: opacity 1.2s var(--ease); }
+:root[data-theme="dark"] .pa-shade { fill: var(--bg-2); fill-opacity: .55; }
+:root[data-theme="dark"] .pa-scene { --pa-sun: color-mix(in oklab, var(--b2) 80%, var(--surface)); }
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] .pa-shade { fill: var(--bg-2); fill-opacity: .55; }
+  :root[data-theme="auto"] .pa-scene { --pa-sun: color-mix(in oklab, var(--b2) 80%, var(--surface)); }
+}
+
+/* ───────── Trois façons de réagir ───────── */
+.re-voice { transform-box: fill-box; transform-origin: 50% 100%; transition: transform 1.3s var(--ease); }
+.re-voice rect, .re-voice path { fill: var(--b1-soft); stroke: var(--b1); stroke-width: 2; stroke-linejoin: round; transition: stroke-width 1s; }
+.re-voice .re-voice-mask { stroke: none; }
+.re-voice.is-loud rect, .re-voice.is-loud path { stroke-width: 3; }
+.re-voice.is-loud .re-voice-mask { stroke: none; }
+.re-voice-t { font: italic 700 15px var(--font-body); fill: var(--b1-ink); }
+.re-main, .re-trio, .re-trio-f { transition: opacity 1s var(--ease); }
+.re-adult { transition: opacity 1.2s var(--ease), transform 1.2s var(--ease); }
+.re-move { transition: transform 1.1s var(--ease); }
+.re-label { animation: cap-in .6s var(--ease) both; }
+.re-adult-t { font: 800 13px var(--font-body); fill: var(--brand-ink); }
+.re-speed line { stroke: var(--ink-2); stroke-width: 2.5; stroke-linecap: round; opacity: .55; }
+
+/* ───────── Le chemin d'une thérapie ───────── */
+.th-road { fill: none; stroke: var(--edge-strong); stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; opacity: .7; }
+.th-road-done { fill: none; stroke: var(--brand); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 1; transition: stroke-dashoffset 1.6s var(--ease); }
+.th-stem { stroke: var(--edge-strong); stroke-width: 1.5; stroke-dasharray: 3 5; }
+.th-dot { fill: var(--surface); stroke: var(--edge-strong); stroke-width: 2; transition: fill .8s, stroke .8s; }
+.th-ring { fill: var(--surface); stroke: var(--edge-strong); stroke-width: 2; transition: fill .8s var(--ease), stroke .8s; }
+.th-icon { fill: none; stroke: var(--ink-2); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; opacity: .7; transition: stroke .8s, opacity .8s; }
+.th-label { font: 800 12.5px var(--font-body); fill: var(--ink-2); transition: fill .8s; }
+.th-badge { transition: transform 1s var(--ease); }
+.th-mile.is-lit .th-ring { fill: var(--accent-soft); stroke: var(--brand); }
+.th-mile.is-lit .th-icon { stroke: var(--brand); opacity: 1; }
+.th-mile.is-lit .th-dot { fill: var(--brand); stroke: var(--brand); }
+.th-mile.is-lit .th-label { fill: var(--brand-ink); }
+.th-mile:is(.is-cur, .is-all) .th-ring { fill: var(--brand); }
+.th-mile:is(.is-cur, .is-all) .th-icon { stroke: var(--on-brand); }
+.th-mile.is-cur .th-badge { transform: scale(1.14); }
+.th-who { font: 700 12px var(--font-body); fill: var(--ink-2); }
+/* pas de marche pendant un déplacement : le nom de l'animation change à chaque étape pour la relancer */
+.th-walk-0 .th-fig .fig-leg-a { animation: th-leg-a0 1.4s ease-in-out; } .th-walk-0 .th-fig .fig-leg-b { animation: th-leg-b0 1.4s ease-in-out; }
+.th-walk-1 .th-fig .fig-leg-a { animation: th-leg-a1 1.4s ease-in-out; } .th-walk-1 .th-fig .fig-leg-b { animation: th-leg-b1 1.4s ease-in-out; }
+@keyframes th-leg-a0 { 0%, 100% { transform: rotate(3deg); } 25%, 75% { transform: rotate(-22deg); } 50% { transform: rotate(22deg); } }
+@keyframes th-leg-b0 { 0%, 100% { transform: rotate(-3deg); } 25%, 75% { transform: rotate(22deg); } 50% { transform: rotate(-22deg); } }
+@keyframes th-leg-a1 { 0%, 100% { transform: rotate(3deg); } 25%, 75% { transform: rotate(-22deg); } 50% { transform: rotate(22deg); } }
+@keyframes th-leg-b1 { 0%, 100% { transform: rotate(-3deg); } 25%, 75% { transform: rotate(22deg); } 50% { transform: rotate(-22deg); } }
+.th-scene[data-step="0"] .th-fig .fig-leg { animation: none; }
+
+/* ───────── Mouvement réduit : boucles arrêtées, image fixe lisible ───────── */
+:root[data-motion="reduced"] .pa-drop { animation: none; opacity: .85; transform: translateY(calc(var(--fall) * var(--k))); }
+:root[data-motion="reduced"] .pa-rays { animation: none; }
+:root[data-motion="reduced"] .re-scene .fig-walk .fig-leg-a { animation: none; transform: rotate(-20deg); }
+:root[data-motion="reduced"] .re-scene .fig-walk .fig-leg-b { animation: none; transform: rotate(20deg); }
+:root[data-motion="reduced"] .th-scene .fig-leg { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  :root:not([data-motion="full"]) .pa-drop { animation: none; opacity: .85; transform: translateY(calc(var(--fall) * var(--k))); }
+  :root:not([data-motion="full"]) .pa-rays { animation: none; }
+  :root:not([data-motion="full"]) .re-scene .fig-walk .fig-leg-a { animation: none; transform: rotate(-20deg); }
+  :root:not([data-motion="full"]) .re-scene .fig-walk .fig-leg-b { animation: none; transform: rotate(20deg); }
+  :root:not([data-motion="full"]) .th-scene .fig-leg { animation: none; }
+}

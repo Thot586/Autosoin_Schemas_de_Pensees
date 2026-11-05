@@ -105,7 +105,7 @@ export default function PlanPage() {
       </Section>
 
       <Section>
-        <NextUp to="/schemas" label="Mes schémas, un par un" hint="Pour chaque schéma : le comprendre, dans le moment, au fil des semaines." eyebrow="Partie 7 sur 8" />
+        <NextUp to="/schemas" label="Mes schémas, un par un" hint="Pour chaque schéma : le comprendre, dans le moment, au fil des semaines." eyebrow="Pour choisir mon geste" />
       </Section>
     </Page>
   );

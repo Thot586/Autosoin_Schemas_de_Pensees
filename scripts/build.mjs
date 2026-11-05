@@ -95,7 +95,7 @@ export async function buildOptions({ dev = false, outDir, base }) {
 function entryFiles(meta, outDir) {
   const js = [], css = [];
   for (const [file, info] of Object.entries(meta.outputs)) {
-    if (!info.entryPoint) continue;
+    if (!info.entryPoint || !/src[\/]main\.tsx$/.test(info.entryPoint)) continue;
     const rel = path.relative(outDir, path.resolve(root, file)).split(path.sep).join("/");
     if (file.endsWith(".js")) { js.push(rel); if (info.cssBundle) css.push(path.relative(outDir, path.resolve(root, info.cssBundle)).split(path.sep).join("/")); }
   }

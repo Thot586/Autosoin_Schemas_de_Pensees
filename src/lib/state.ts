@@ -58,3 +58,7 @@ export function useReducedMotion(): boolean {
 export function markVisited(key: string) {
   if (!visited.get()[key]) visited.set((v) => ({ ...v, [key]: Date.now() }));
 }
+
+/** « Mes personnes ressources » (fiche « Quand demander de l'aide ») : nom et téléphone, sur l'appareil. */
+export interface Ressource { nom: string; tel: string }
+export const ressources = persisted<Record<string, Ressource>>("ressources", {});

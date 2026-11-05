@@ -1,31 +1,53 @@
-import { Page, Section, Reveal, Callout, Pro } from "../components/ui";
+import { Page, Callout } from "../components/ui";
 import { Icon } from "../components/Icon";
-import { SuiteHead } from "../components/Part8";
+import { Link } from "../lib/router";
 import { CONTENT } from "../data/content";
+import { LIENS } from "../data/liens";
 
+const S = CONTENT.p8.soutien;
+const L = CONTENT.p8.lectures;
+const LINKS: Record<string, { url: string; label: string } | undefined> = {
+  "Mon soutien psy": LIENS.monSoutienPsy,
+  "Un thérapeute formé aux schémas": LIENS.annuaire,
+};
+
+/** « Où trouver un soutien » (diapo 90) et « Pour aller plus loin » (diapo 93). */
 export default function Soutien() {
-  const c = CONTENT.p8.soutien;
   return (
     <Page title="Où trouver un soutien">
-      <SuiteHead title={c.titre} current="/pour-la-suite/soutien" lead={c.chapeau} />
-      <Section>
-        <div className="cards cards-2">
-          {c.portes.map((p, i) => (
-            <Reveal key={p.titre} delay={(i % 2) * 90}>
-              <article className="card porte">
-                <span className="badge-n">{i + 1}</span>
-                <h3>{p.titre}</h3>
+      <div className="wrap-narrow page-pad">
+        <Link to="/aide" className="back"><Icon name="arrowLeft" size={18} /> Besoin d’aide ?</Link>
+        <h1>Où trouver un soutien</h1>
+        <p className="lead">{S.chapeau}</p>
+        <Callout tone="alert" title="En danger, ou des pensées de me faire du mal">{S.danger.replace(/^Si je me sens en danger ou si j’ai des pensées de me faire du mal\s?:\s?/, "")} <Link to="/aide">Numéros d’aide</Link>.</Callout>
+
+        <ul className="doors">
+          {S.portes.map((p) => {
+            const l = LINKS[p.titre];
+            return (
+              <li key={p.titre} className="door">
+                <h2>{p.titre}</h2>
                 <p>{p.texte}</p>
-                {"lien" in p && p.lien && <a className="btn btn-soft btn-sm" href={p.lien} target="_blank" rel="noopener noreferrer"><span>{p.lienLabel}</span><Icon name="external" size={16} /><span className="sr-only"> (nouvel onglet)</span></a>}
-              </article>
-            </Reveal>
+                {l && <a href={l.url} target="_blank" rel="noopener noreferrer" className="btn btn-soft btn-sm"><Icon name="external" size={18} /><span>{l.label}<span className="sr-only"> (nouvel onglet)</span></span></a>}
+              </li>
+            );
+          })}
+        </ul>
+
+        <p><Link to="/therapie" className="btn btn-ghost"><Icon name="book" size={20} /><span>La thérapie des schémas, en détail</span></Link></p>
+
+        <h2 className="h-sec" id="lectures">Pour aller plus loin</h2>
+        <ul className="books">
+          {L.livres.map((b) => (
+            <li key={b.titre}>
+              <p className="book-t">{b.titre}</p>
+              <p className="small">{[b.auteurs, b.editeur].filter(Boolean).join(", ")}</p>
+              <p className="small muted">{b.note}</p>
+            </li>
           ))}
-        </div>
-        <div className="mt stack" style={{ ["--gap" as string]: "1.2rem" }}>
-          <Callout tone="alert" title="Si je suis en danger" icon="phone">{c.danger}</Callout>
-          <Pro>{c.pro}</Pro>
-        </div>
-      </Section>
+        </ul>
+        <p className="small muted">{L.invite}</p>
+      </div>
     </Page>
   );
 }

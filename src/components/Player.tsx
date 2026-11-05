@@ -3,13 +3,13 @@ import { Icon } from "./Icon";
 import { useInView } from "../lib/hooks";
 import { useReducedMotion } from "../lib/state";
 
-export function readingMs(caption: ReactNode, min = 3600): number {
+export function readingMs(caption: ReactNode, min = 5000): number {
   const len = typeof caption === "string" ? caption.length : 90;
-  return Math.max(min, 1800 + len * 52);
+  return Math.max(min, 2600 + len * 68);
 }
 
 /** Lecteur d'animation « par étapes » : lecture automatique douce, pause, précédent/suivant, texte complet. */
-export function Player({ label, captions, render, transcript, delays, className = "", autoplay = true, aspect }: {
+export function Player({ label, captions, render, transcript, delays, className = "", autoplay = false, aspect }: {
   label: string; captions: ReactNode[]; render: (step: number, playing: boolean) => ReactNode; transcript?: ReactNode; delays?: number[];
   className?: string; autoplay?: boolean; aspect?: string;
 }) {

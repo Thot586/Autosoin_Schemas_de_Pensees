@@ -1,0 +1,99 @@
+import { useState } from "react";
+import { Choice } from "../components/ui";
+import { Icon } from "../components/Icon";
+import { Breathing } from "../components/Breathing";
+import { CONTENT } from "../data/content";
+import { BASES } from "../data/bases";
+import { schemasOfBase } from "../data/schemas";
+import type { WidgetKey } from "./types";
+
+/** Le même message « ok », lu à travers quatre paires de lunettes. */
+function LunettesDemo() {
+  const d = CONTENT.p1.quoi.lunettesExemple;
+  const [v, setV] = useState<string>("aucune");
+  const cur = d.lectures.find((l) => l.id === v)!;
+  return (
+    <div className="w-lens">
+      <p className="w-lens-msg"><Icon name="chat" size={22} /> {d.message}</p>
+      <Choice label="Avec quelles lunettes je lis ce message ?" value={v} onChange={setV} options={d.lectures.map((l) => ({ id: l.id, label: l.label }))} className="choice-col" />
+      <div className={`w-lens-out ${v === "aucune" ? "is-clear" : "is-tint"}`} aria-live="polite">
+        <span className="w-lens-lab">Ce que je me dis</span>
+        <p key={v} className="w-lens-q">{cur.texte}</p>
+      </div>
+      <p className="w-foot">{d.conclusion}</p>
+    </div>
+  );
+}
+
+/** « Quel âge ai-je l'impression d'avoir, là, maintenant ? » */
+function AgeSlider() {
+  const s = CONTENT.p3.signes;
+  const [age, setAge] = useState<number | null>(null);
+  const child = age !== null && age <= 14;
+  return (
+    <div className="w-age">
+      <label htmlFor="w-age" className="sr-only">{s.question}</label>
+      <p className="w-age-n" aria-hidden="true">{age === null ? "…" : `${age} ans`}</p>
+      <input id="w-age" type="range" min={3} max={50} step={1} value={age ?? 27} onChange={(e) => setAge(Number(e.target.value))}
+        aria-valuetext={age === null ? "pas encore choisi" : `${age} ans`} className="range" />
+      <div className="range-scale" aria-hidden="true"><span>enfant</span><span>adulte d’aujourd’hui</span></div>
+      <p className="w-age-out" aria-live="polite">
+        {age === null ? <>Je bouge le curseur, sans réfléchir longtemps. {s.age.aide}</> : child ? s.age.enfant : s.age.adulte}
+      </p>
+    </div>
+  );
+}
+
+/** Numéros d'urgence : un geste pour appeler. */
+export function Numeros({ compact = false }: { compact?: boolean }) {
+  return (
+    <ul className={`numeros ${compact ? "is-compact" : ""}`}>
+      {CONTENT.p8.aide.numeros.map((n) => (
+        <li key={n.num}>
+          <a href={`tel:${n.tel}`} className="numero">
+            <span className="numero-n">{n.num}</span>
+            <span className="numero-t">{n.texte}</span>
+            <span className="numero-call"><Icon name="phone" size={18} /><span>Appeler</span></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function Bases() {
+  return (
+    <ol className="w-bases">
+      {BASES.map((b) => (
+        <li key={b.id} className={`tone-b${b.id}`}>
+          <span className="w-bases-n">{b.id}</span>
+          <span className="w-bases-t"><b>{b.name}</b><small>{b.besoins[0]}</small></span>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+function Quinze() {
+  return (
+    <div className="w-quinze">
+      {BASES.map((b) => (
+        <section key={b.id} className={`tone-b${b.id}`}>
+          <h3><span className="w-bases-n">{b.id}</span>{b.name}</h3>
+          <ul>{schemasOfBase(b.id).map((s) => <li key={s.slug}>{s.name}</li>)}</ul>
+        </section>
+      ))}
+    </div>
+  );
+}
+
+export function Widget({ k }: { k: WidgetKey }) {
+  switch (k) {
+    case "lunettes-demo": return <LunettesDemo />;
+    case "age": return <AgeSlider />;
+    case "numeros": return <Numeros />;
+    case "bases": return <Bases />;
+    case "quinze": return <Quinze />;
+    case "respiration": return <Breathing />;
+  }
+}

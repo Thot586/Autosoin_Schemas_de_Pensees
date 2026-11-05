@@ -1,65 +1,88 @@
-import { useMemo, useState } from "react";
-import { Page, PartHero, Section, Reveal, Pill, Callout, NextUp } from "../components/ui";
+import { Page } from "../components/ui";
 import { Icon } from "../components/Icon";
 import { Link } from "../lib/router";
 import { BASES } from "../data/bases";
 import { SCHEMAS, schemasOfBase } from "../data/schemas";
-import { SCHEMA_TABS } from "./SchemaPage";
-import { retained, ticks, tickCount, visited } from "../lib/state";
+import { focusSchema, retained, ticks, tickCount } from "../lib/state";
+import { lessonState } from "../learn/progress";
+import { SCHEMA_PARTS } from "../learn/schemaLessons";
 
-const norm = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
-
+/** « Mes schémas » : retrouver les miens, puis les lire un par un. */
 export default function Schemas() {
-  const kept = retained.use();
   const t = ticks.use();
-  const v = visited.use();
-  const [q, setQ] = useState("");
-  const seen = (slug: string) => SCHEMA_TABS.filter((x) => v[`/schemas/${slug}/${x.id}`] || (x.id === "comprendre" && v[`/schemas/${slug}`])).length;
-  const f = useMemo(() => norm(q.trim()), [q]);
-  const match = (s: (typeof SCHEMAS)[number]) => !f || norm(s.name).includes(f) || norm(s.phrase).includes(f);
-  const total = SCHEMAS.filter(match).length;
+  const kept = retained.use();
+  const focus = focusSchema.use();
+  const st = lessonState.use();
+  const ticked = SCHEMAS.filter((s) => tickCount(t[s.slug]) > 0).length;
+  const fichePos = st.fiche?.pos ?? 0;
+  const partsDone = (slug: string) => SCHEMA_PARTS.filter((p) => st[`schema:${slug}:${p.id}`]?.done).length;
+
   return (
     <Page title="Mes schémas">
-      <PartHero n={7} title="Mes schémas, un par un" intro="Pour chaque schéma : le comprendre, puis que faire dans le moment, puis comment avancer au fil des semaines." />
-      <Section>
-        <div className="sch-tools">
-          <div className="field sch-search">
-            <label htmlFor="sch-q">Chercher un schéma, un mot de sa phrase</label>
-            <input id="sch-q" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Par exemple : abandon, perfection, dire non…" autoComplete="off" />
-          </div>
-          <p className="small muted" aria-live="polite">{f ? `${total} schéma${total > 1 ? "s" : ""} trouvé${total > 1 ? "s" : ""}` : "15 schémas, regroupés en 5 bases."}</p>
-        </div>
-        {kept.length > 0 && !f && (
-          <Reveal><div className="sch-kept"><p className="eyebrow">Mes schémas gardés</p><div className="row">{kept.map((k) => { const s = SCHEMAS.find((x) => x.slug === k); return s ? <Link key={k} className={`btn btn-soft tone-b${s.base}`} to={`/schemas/${k}/comprendre`}>{s.name} <Icon name="arrowRight" size={18} /></Link> : null; })}</div></div></Reveal>
-        )}
-      </Section>
-      {BASES.map((b) => {
-        const list = schemasOfBase(b.id).filter(match);
-        if (!list.length) return null;
-        return (
-          <Section key={b.id} className={b.id % 2 === 0 ? "alt" : ""} tone={`b${b.id}`} eyebrow={`Base ${b.id} · ${b.domain}`} title={b.name}>
-            <ul className="schemacards">
-              {list.map((s, i) => {
-                const n = tickCount(t[s.slug]);
-                const k = seen(s.slug);
-                return (
-                  <Reveal as="li" key={s.slug} delay={i * 70}>
-                    <Link to={`/schemas/${s.slug}/comprendre`} className="schemacard">
-                      <span className="schemacard-top"><b>{s.name}</b>{kept.includes(s.slug) ? <Pill>Gardé</Pill> : n > 0 ? <Pill>{n}/3 cases</Pill> : null}</span>
-                      <span className="quote schemacard-q">{s.phrase}</span>
-                      <span className="schemacard-go">{k > 0 ? <><span className="fcard-dots" aria-hidden="true">{[0, 1, 2, 3].map((j) => <i key={j} className={j < k ? "on" : ""} />)}</span> {k} page{k > 1 ? "s" : ""} vue{k > 1 ? "s" : ""} sur 4</> : <>Ouvrir <Icon name="arrowRight" size={18} /></>}</span>
-                    </Link>
-                  </Reveal>
-                );
+      <div className="wrap page-pad">
+        <h1>Mes schémas</h1>
+        <p className="lead">Quinze schémas. Je repère ceux qui me parlent, puis je commence par un seul.</p>
+
+        <section className="hub-cards" aria-label="Retrouver mes schémas">
+          <Link to="/trouver" className="act-card tone-brand">
+            <span className="act-ic"><Icon name="check" size={26} /></span>
+            <span className="act-t">
+              <b>{st.fiche?.done ? "Revoir ma fiche à cocher" : fichePos > 0 ? "Reprendre ma fiche à cocher" : "Retrouver mes schémas"}</b>
+              <span>Un schéma par écran, trois cases. Environ 10 minutes. Ni test, ni diagnostic.</span>
+              {ticked > 0 && <small>{ticked} schéma{ticked > 1 ? "s" : ""} avec au moins une case.</small>}
+            </span>
+            <Icon name="arrowRight" size={24} className="act-go" />
+          </Link>
+          {(ticked > 0 || kept.length > 0) && (
+            <Link to="/trouver/priorites" className="act-card">
+              <span className="act-ic"><Icon name="flag" size={26} /></span>
+              <span className="act-t"><b>Mes priorités</b><span>Je garde un à trois schémas, et je choisis par lequel je commence.</span></span>
+              <Icon name="arrowRight" size={24} className="act-go" />
+            </Link>
+          )}
+        </section>
+
+        {kept.length > 0 && (
+          <section className="kept" aria-labelledby="kept-h">
+            <h2 id="kept-h" className="h-sec">Mes schémas gardés</h2>
+            <ul className="srows">
+              {kept.map((slug) => {
+                const s = SCHEMAS.find((x) => x.slug === slug)!;
+                return <SchemaRow key={slug} slug={slug} name={s.name} phrase={s.phrase} base={s.base} done={partsDone(slug)} focus={focus === slug} />;
               })}
             </ul>
-          </Section>
-        );
-      })}
-      {total === 0 && <Section><Callout title="Aucun schéma trouvé" icon="search">Je change un mot, ou je repars de la <Link to="/besoins">liste des cinq bases</Link>.</Callout></Section>}
-      <Section className="alt">
-        <NextUp to="/pour-la-suite" label="Pour la suite" hint="Quand demander de l’aide, où trouver un soutien, mon carnet, les lectures." eyebrow="Partie 8 sur 8" />
-      </Section>
+          </section>
+        )}
+
+        <h2 className="h-sec">Les 15 schémas</h2>
+        <p className="muted">Regroupés selon le besoin dont ils naissent. Chacun se lit en trois temps : comprendre, dans le moment, au fil des semaines.</p>
+        {BASES.map((b) => (
+          <section key={b.id} className={`sgroup tone-b${b.id}`} aria-labelledby={`sg-${b.id}`}>
+            <h3 id={`sg-${b.id}`} className="sgroup-h"><span className="w-bases-n">{b.id}</span>{b.name}</h3>
+            <ul className="srows">
+              {schemasOfBase(b.id).map((s) => <SchemaRow key={s.slug} slug={s.slug} name={s.name} phrase={s.phrase} base={s.base} done={partsDone(s.slug)} ticks={tickCount(t[s.slug])} />)}
+            </ul>
+          </section>
+        ))}
+      </div>
     </Page>
+  );
+}
+
+function SchemaRow({ slug, name, phrase, base, done, ticks: n, focus }: { slug: string; name: string; phrase: string; base: number; done: number; ticks?: number; focus?: boolean }) {
+  return (
+    <li>
+      <Link to={`/schemas/${slug}`} className={`srow tone-b${base}`}>
+        <span className="srow-t">
+          <b>{name}{focus && <span className="tag">Je commence par lui</span>}</b>
+          <span>{phrase}</span>
+        </span>
+        <span className="srow-s">
+          {n !== undefined && n > 0 && <span className="dots" role="img" aria-label={`${n} case${n > 1 ? "s" : ""} cochée${n > 1 ? "s" : ""} sur 3`}>{[0, 1, 2].map((j) => <i key={j} className={j < n ? "on" : ""} />)}</span>}
+          {done > 0 && <small>{done}/3 lu{done > 1 ? "s" : ""}</small>}
+          <Icon name="chevronRight" size={20} />
+        </span>
+      </Link>
+    </li>
   );
 }

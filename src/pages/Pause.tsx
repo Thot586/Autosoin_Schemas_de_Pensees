@@ -1,41 +1,13 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { Page, Section, Reveal, Callout, Invite, NextUp, Pro, Button, Quote } from "../components/ui";
 import { Icon } from "../components/Icon";
 import { ToolHead } from "../components/ToolBits";
 import { Link } from "../lib/router";
 import { CONTENT } from "../data/content";
 import { cartes, carnet } from "../lib/state";
-import { useReducedMotion } from "../lib/state";
+import { Breathing } from "../components/Breathing";
 
 const C = CONTENT.p6.pause;
-const IN_MS = 4000, OUT_MS = 6000, ROUNDS = 3;
-
-/** Trois respirations guidées : 4 s pour inspirer, 6 s pour expirer (l'expiration est plus longue). */
-function Breathing({ onDone }: { onDone: () => void }) {
-  const reduced = useReducedMotion();
-  const [state, setState] = useState<"idle" | "in" | "out" | "done">("idle");
-  const [round, setRound] = useState(0);
-  const timer = useRef<number | undefined>(undefined);
-  useEffect(() => () => window.clearTimeout(timer.current), []);
-  useEffect(() => {
-    window.clearTimeout(timer.current);
-    if (state === "in") timer.current = window.setTimeout(() => setState("out"), IN_MS);
-    else if (state === "out") timer.current = window.setTimeout(() => { if (round + 1 >= ROUNDS) { setRound(ROUNDS); setState("done"); onDone(); } else { setRound((r) => r + 1); setState("in"); } }, OUT_MS);
-  }, [state, round, onDone]);
-  const start = () => { setRound(0); setState("in"); };
-  const label = state === "idle" ? "Prêt(e) ?" : state === "in" ? "J’inspire…" : state === "out" ? "J’expire, plus longtemps…" : "C’est fait";
-  return (
-    <div className={`breath is-${state}`} data-reduced={reduced}>
-      <div className="breath-orb" aria-hidden="true"><div className="breath-core" /><div className="breath-ring" /></div>
-      <p className="breath-l" role="status" aria-live="polite">{label}</p>
-      <p className="breath-c" aria-hidden="true">{[0, 1, 2].map((i) => <i key={i} className={i < round || state === "done" ? "on" : ""} />)}</p>
-      {state === "idle" || state === "done" ? <Button variant={state === "done" ? "soft" : "primary"} icon={state === "done" ? "replay" : "wind"} onClick={start}>{state === "done" ? "Recommencer" : "Commencer : trois respirations"}</Button>
-        : <Button variant="ghost" onClick={() => { window.clearTimeout(timer.current); setState("idle"); setRound(0); }}>Arrêter</Button>}
-      <p className="small muted">Pieds au sol. Si je me sens mal à l’aise en respirant lentement, je respire normalement, ou je regarde autour de moi.</p>
-    </div>
-  );
-}
-
 export default function Pause() {
   const [step, setStep] = useState(0);
   const [level, setLevel] = useState(5);
@@ -107,7 +79,7 @@ export default function Pause() {
             </div>
           </div>
         </div>
-        <Reveal><Callout tone="care" className="mt" title="Si l’émotion déborde">Si une émotion déborde et ne redescend pas, je ne reste pas seul(e) : voir <Link to="/pour-la-suite/aide">« Quand demander de l’aide »</Link>.</Callout></Reveal>
+        <Reveal><Callout tone="care" className="mt" title="Si l’émotion déborde">Si une émotion déborde et ne redescend pas, je ne reste pas seul(e) : voir <Link to="/aide">« Quand demander de l’aide »</Link>.</Callout></Reveal>
       </Section>
 
       <Section className="alt" eyebrow="Un exemple" title="Au travail, devant l’équipe">

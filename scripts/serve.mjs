@@ -9,7 +9,7 @@ const TYPES = {
   ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8",
   ".json": "application/json; charset=utf-8", ".webmanifest": "application/manifest+json", ".svg": "image/svg+xml",
   ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".woff2": "font/woff2", ".woff": "font/woff",
-  ".ics": "text/calendar", ".txt": "text/plain; charset=utf-8", ".xml": "application/xml", ".mp4": "video/mp4",
+  ".ics": "text/calendar", ".pdf": "application/pdf", ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", ".txt": "text/plain; charset=utf-8", ".xml": "application/xml", ".mp4": "video/mp4",
 };
 
 export function serve(dir, port = 4173, rawBase = process.env.BASE_PATH || "/") {

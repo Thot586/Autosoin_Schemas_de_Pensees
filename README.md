@@ -27,7 +27,8 @@ Application web de psychoéducation et d’autosoin autour des **15 schémas de 
   - « À retenir » la termine ;
   - **« Mon rappel du jour »** pose trois questions, en revenant plus souvent sur ce qui est à revoir (boîtes de Leitner) ;
   - « Ce que j’ai retenu » dans Mon espace.
-- **Mots expliqués** : les termes techniques et les notions difficiles sont surlignés. Au survol (ou au clavier), une phrase simple ; au clic ou au toucher, le détail s’ouvre dans un volet, sans quitter la page. La page « Les mots du support » (53 mots) a un bouton « Revenir à ma page ». Un mot n’est surligné qu’une fois par carte ; la page « Besoin d’aide ? » n’en a aucun.
+- **Mots expliqués** : les termes techniques et les notions difficiles sont surlignés. Au survol (ou au clavier), une phrase simple ; au clic ou au toucher, le détail s’ouvre dans un volet, sans quitter la page. La page « Les mots du support » (55 mots) a un bouton « Revenir à ma page ». Un mot n’est surligné qu’une fois par carte ; la page « Besoin d’aide ? » n’en a aucun.
+- **Références** : chaque source est citée dans le texte au format APA 7 (adaptation française), par exemple « (Kip et al., 2023) ». Un clic mène à sa fiche dans la page « Références » (57 sources, vérifiées une à une), puis « Revenir à ma page » ramène à la même carte. Une pastille de couleur dit la fiabilité : preuve solide, modérée, préliminaire ou indirecte, avis d’experts, source officielle (échelle de la HAS ; GRADE seulement quand les auteurs l’ont utilisé). Les corrections publiées (errata) sont signalées.
 - **Mode accompagnant(e)** : activé par défaut, il affiche les repères pour le professionnel ; il se coupe dans les réglages.
 - **Questions** : 85 au total. Elles portent sur les idées, jamais sur la personne. Il n’y a ni note ni rouge, et une explication suit chaque réponse.
 - **Mes schémas** :
@@ -96,7 +97,8 @@ Le workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) constru
 | Les textes du diaporama (parties 1 à 8), les numéros d’aide | `src/data/content.ts` |
 | Les 5 bases | `src/data/bases.ts` |
 | Les liens externes (annuaire, ameli) | `src/data/liens.ts` |
-| Les références de la page « La thérapie des schémas » | `src/data/references.ts` |
+| Les références (entrées vérifiées, fiabilité, ce que le support en tire) | `src/data/references.list.ts` |
+| La façon de citer (APA 7), les niveaux de fiabilité, les thèmes | `src/data/references.ts` |
 | Le glossaire | `src/data/glossaire.ts` |
 | Crédits, statut, mentions légales | `src/data/meta.ts` |
 | Couleurs, typographie, paliers des écrans géants, longueur des lignes (`--measure`) | `src/styles/tokens.css` |
@@ -115,6 +117,8 @@ Une carte de leçon a un type parmi les suivants :
 - `quiz` : question.
 
 Dans les textes, `**gras**` met en avant. Les mots du glossaire sont repérés tout seuls grâce au champ `match` de `src/data/glossaire.ts` (une seule fois par carte, à leur première apparition) ; `[[id|mot]]` marque à la main un mot sans `match` (par exemple « mode »). Pour écarter un faux positif, utiliser `notAfter` (« les idées de base ») et jamais un *lookbehind* `(?<!…)`, que Safari avant 16.4 ne connaît pas : l’application ne se chargerait plus sur les iPhone restés en iOS 15. Les questions des quiz ne reçoivent pas de mot expliqué (l’infobulle soufflerait la réponse). Hors des leçons, `<Terms>` (`src/learn/Rich.tsx`) fait le même repérage dans du JSX, sans toucher aux titres, liens et boutons.
+
+Citer une source : `[@kip2023]` donne « (Kip et al., 2023) », `[@morina2017; @kip2023]` plusieurs sources par ordre alphabétique, `[n@kip2023]` « Kip et al. (2023) » dans la phrase. Cela marche dans les cartes, le glossaire et les encadrés pour l’accompagnant(e) ; dans du JSX, `<Cite ids={["kip2023"]} />` (`src/components/Cite.tsx`). Toute source citée doit exister dans `src/data/references.list.ts`, et toute source de la liste doit être citée quelque part (sauf les lectures conseillées) : le test de bout en bout le vérifie, et il échoue si un balisage `[@…]` reste visible à l’écran.
 
 ## Choix techniques
 

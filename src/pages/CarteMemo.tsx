@@ -1,13 +1,11 @@
 import { printPage } from "../lib/print";
 import { useEffect, useMemo, useState } from "react";
 import { Page, Section, Reveal, Callout, Invite, NextUp, Pro, Button } from "../components/ui";
-import { Icon } from "../components/Icon";
 import { ToolHead } from "../components/ToolBits";
 import { useLocation } from "../lib/router";
 import { SCHEMAS, schemaBySlug } from "../data/schemas";
 import { CONTENT } from "../data/content";
 import { cartes, retained, focusSchema, type Carte } from "../lib/state";
-import type { SchemaData } from "../data/types";
 import { CarteView, FIELDS, defaultCarte } from "../components/SchemaBits";
 
 const C = CONTENT.p6.carte;

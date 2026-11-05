@@ -21,10 +21,14 @@ Version 0.2 (novembre 2026) : le support est réorganisé en **leçons courtes, 
 - **Mots expliqués** : les termes techniques et les notions difficiles sont surlignés dans le texte.
   - Au survol de la souris (ou au clavier), une phrase simple s’affiche.
   - Au clic ou au toucher, le détail s’ouvre dans un volet, sans quitter la page ; « Revenir à ma lecture » le referme.
-  - La page « Les mots du support » les regroupe (53 mots). Son bouton « Revenir à ma page » ramène à la même carte de la leçon.
+  - La page « Les mots du support » les regroupe (55 mots). Son bouton « Revenir à ma page » ramène à la même carte de la leçon.
   - Un mot n’est surligné qu’une fois par carte. La page « Besoin d’aide ? » n’en a aucun, pour ne pas distraire.
   - Les questions des quiz n’ont pas de mot surligné, car l’infobulle pourrait souffler la réponse. L’explication qui suit la réponse en a.
   - Ce système remplace les « phrases-ponts » (une phrase de plus dans le texte pour préparer un mot entendu en séance) : le mot reste dans le texte, et seuls ceux qui le veulent ouvrent l’explication. Exemple : « mode », dans la leçon sur l’adulte sain.
+- **Références** : chaque source est citée au format APA 7, adaptation française (« et » entre deux auteurs, « et al. » à partir de trois ; guide des bibliothèques de l’Université de Montréal). Un clic mène à sa fiche dans la page « Références » ; « Revenir à ma page » ramène à la même carte.
+  - Dans les leçons, les citations sont dans le volet « Pour aller plus loin » (ou « Sources ») de la carte, pas dans le texte principal : il reste court.
+  - 57 sources, vérifiées une à une les 5 et 6 novembre 2026 (§ 5). Chacune a une **pastille de fiabilité** : preuve solide, modérée, préliminaire ou indirecte, avis d’experts, source officielle. La couleur suit le type d’étude (échelle de la HAS, 2013). GRADE n’est cité que si les auteurs l’ont utilisé : aucune des revues citées ne l’a fait.
+  - Seules trois sources sont classées « preuve solide » : les deux grands essais (Bamelis 2014, Arntz 2022) et la méta-analyse de Kip (2023).
 - **Mode accompagnant(e)** : il est maintenant activé par défaut, et les « Repères pour l’accompagnant(e) » s’affichent. Il se coupe dans les réglages.
 
 **À relire en priorité.**
@@ -33,6 +37,7 @@ Version 0.2 (novembre 2026) : le support est réorganisé en **leçons courtes, 
 3. Les **légendes** des trois nouvelles animations (§ 4).
 4. Les **corrections factuelles** issues de la vérification du 5 novembre 2026 (§ 5). Ce sont les numéros d’aide, *Mon soutien psy* et l’annuaire.
 5. Les **phrases simples** du glossaire, qui s’affichent au survol des mots (`src/data/glossaire.ts`, champ `short`), et les nouvelles définitions des soins (§ 5).
+6. Le **classement de fiabilité** de chaque source et la phrase « Ce que le support en tire » : page « Références » (`src/data/references.list.ts`).
 
 **Décisions qui vous appartiennent** : voir § 7. Il s’agit des mentions légales, du logo du CRR, de la licence, de la diffusion des fiches PDF et Word, et du retrait du bandeau « Version de travail ».
 
@@ -171,6 +176,16 @@ Les sept animations du diaporama sont gardées : lunettes, marches, verre, journ
 
 ## 5. Faits vérifiés le 5 novembre 2026
 
+**Depuis le 6 novembre 2026, la liste de référence est la page « Références » de l’application** (`src/data/references.list.ts`) : 57 sources, chacune avec son type d’étude, sa fiabilité, ce que le support en tire, ce qui a été lu (résumé ou texte intégral) et les corrections publiées. Le tableau ci-dessous garde l’historique de la première vérification.
+
+**Deuxième vérification (5 et 6 novembre 2026)**, une par une, dans Crossref, PubMed, Europe PMC, les catalogues (BnF, Library of Congress, Open Library) et les sites eux-mêmes. Ce qu’elle a changé :
+- **Corrections publiées**, signalées sur les fiches : rectificatif de Kip 2023 (2025 : un même essai compté deux fois ; l’effet face aux autres traitements reste nul, sans changement notable selon les auteurs) ; correction d’une figure d’Assmann 2024 (2025) ; erratum de Giesen-Bloo 2006 (tableau et figure ; contenu non lu).
+- **Retiré** : Brodowski 2026, qui ne décrit pas la méthode DESC (le sigle n’y apparaît qu’une fois, sans explication). La méthode DESC est citée d’après sa source, Bower et Bower 1976.
+- **Textes précisés** : une des études « de laboratoire » s’est faite en ligne (Aleksic 2024) → « chez des volontaires qui avaient vu un film pénible » ; Lieberman 2007 porte sur l’émotion d’un visage en photo, pas sur sa propre émotion ; dans Koetsier 2024, besoins comblés et envies d’agir ne comptaient qu’ensemble ; l’exclusion des troubles psychotiques n’est attestée que pour l’essai IREM (« par exemple ») ; le psychodrame est attribué à « Moreno » (la brochure Psycom ne donne pas le prénom).
+- **Livres** : le livre de Young de 1990 est retrouvé (Library of Congress) et cité ; le *Cambridge guide to schema therapy* a cinq auteurs, pas des directeurs ; *Transformational chairwork* est cité dans son édition de 2014 (Rowman & Littlefield), sans le DOI de Bloomsbury qui pourrait viser une autre édition.
+- **Sites** : la brochure Psycom « Psychothérapies » est l’édition de mars 2025 (texte de février 2021) ; la fiche NHS « 5-4-3-2-1 » est sans date (et non de 2020) ; service-public.fr est devenu service-public.gouv.fr.
+- **Le modèle complet compte 18 schémas** : vérifié sur la page de l’ISST (« The 18 schemas are grouped into these 5 categories »).
+
 Les références sont passées par PubMed, Crossref et Europe PMC, avec DOI, titre, auteurs et année ; aucune n’était dans Zotero. Les livres ont été vérifiés dans le catalogue BnF et sur Cambridge Core, les sites officiels ouverts directement. Seules des adresses réellement consultées sont utilisées.
 
 | Point | Ce qui est affiché | Source |
@@ -209,14 +224,15 @@ Les références sont passées par PubMed, Crossref et Europe PMC, avec DOI, tit
 
 1. Une méta-analyse en **préprint** (Arendt et coll., Research Square, août 2026, non relue par des pairs) ne trouve pas de différence nette avec les groupes témoins, avec une certitude très faible. Elle n’est pas citée dans l’application. Elle justifie le ton prudent de la carte « Ce qu’on ne sait pas encore ». À surveiller.
 2. L’ouverture 24 h/24 du 15 et du 112 repose sur une phrase officielle générale, pas sur chaque numéro. L’application ne l’écrit pas.
-3. Le titre exact du livre de Young de 1990 n’a pas été trouvé en catalogue. Il n’est pas cité.
+3. ~~Le titre exact du livre de Young de 1990 n’a pas été trouvé en catalogue.~~ **Réglé** : *Cognitive therapy for personality disorders: A schema-focused approach* (Professional Resource Exchange, 1990), notice de la Library of Congress. Il est cité avec Taylor et al. (2017), qui écrivent « Young (1990) first described schema therapy ».
 4. La durée d’une envie (« une dizaine de minutes environ », animation « vague ») est un ordre de grandeur pédagogique, pas une mesure.
 5. **Exercices faits seul(e)** : aucune étude n’a porté sur la réécriture d’un souvenir d’enfance ou d’un traumatisme faite seul(e), ni sur le dialogue des chaises sans thérapeute. Les deux exercices sont des adaptations prudentes, limitées à des scènes récentes et légères, et les leçons le disent. À valider par l’équipe clinique.
-6. **Psychose** et **trouble de la personnalité** : pas d’entrée de glossaire, faute de définition générale vérifiée (pour les troubles de la personnalité, Psycom ne décrit que le trouble borderline). Pour la psychose : les grands essais sur l’imagerie l’excluent ; de petites études ont été menées, toujours avec des thérapeutes spécialisés. D’où la mise en garde des exercices (voix entendues, impression d’irréalité).
+6. **Psychose** et **trouble de la personnalité** : **entrées ajoutées** au glossaire (« Trouble psychotique », « Trouble de la personnalité »). La phrase simple est écrite par nous ; le détail cite mot pour mot la CIM-11 de l’OMS (version française 2026-01), dont la licence (CC BY-ND) interdit d’adapter le texte. Pour « trouble psychotique », la CIM-11 définit le groupe « schizophrénie et autres troubles psychotiques primaires » : il n’existe pas de définition générale de la psychose, ni à l’OMS, ni chez Psycom, à la HAS ou à Santé publique France. Pour la psychose : les grands essais sur l’imagerie l’excluent ; de petites études ont été menées, toujours avec des thérapeutes spécialisés. D’où la mise en garde des exercices (voix entendues, impression d’irréalité).
 7. **Lieu calme** : il peut rendre triste ou faire peur à certaines personnes. Seuls des arguments indirects l’appuient (peur de la compassion, anxiété déclenchée par la relaxation). Une alternative est proposée.
 8. **Écrire ce que je ressens** (diaporama, levier « Ressentir ») : l’effet de l’écriture expressive est petit, et la détresse augmente juste après avoir écrit (Frattaroli 2006, doi:10.1037/0033-2909.132.6.823 ; Smyth 1998, doi:10.1037/0022-006X.66.1.174). Une phrase de cadre a été ajoutée.
-9. **Chiffres de la méta-analyse Kip 2023** : un rectificatif de 2025 n’a pas pu être lu. Aucun chiffre n’est donc affiché, seulement la conclusion.
+9. **Chiffres de la méta-analyse Kip 2023** : le rectificatif de 2025 a été lu (voir § 5). Aucun chiffre n’est affiché, seulement la conclusion, que le rectificatif ne change pas.
 10. Le statut « Version de travail · en attente de relecture » s’affiche toujours. Pour le retirer, il faut vider le champ `statut` dans `src/data/meta.ts`.
+11. **3919** : une page du site arretonslesviolences.gouv.fr annonce encore des horaires restreints (9 h-22 h en semaine), une autre « 24 heures sur 24 et 7 jours sur 7 ». Le support suit la seconde, à jour. À signaler au site, peut-être.
 
 ## 7. Décisions qui vous appartiennent
 

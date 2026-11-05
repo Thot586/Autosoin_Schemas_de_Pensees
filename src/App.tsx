@@ -23,6 +23,7 @@ const Soutien = lazy(() => import("./pages/Soutien"));
 const Therapie = lazy(() => import("./pages/Therapie"));
 const MonEspace = lazy(() => import("./pages/MonEspace"));
 const Glossaire = lazy(() => import("./pages/Glossaire"));
+const References = lazy(() => import("./pages/References"));
 const APropos = lazy(() => import("./pages/APropos"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -61,6 +62,7 @@ const routes: RouteDef[] = [
   { path: "/therapie", element: () => <Therapie /> },
   { path: "/mon-espace", element: () => <MonEspace /> },
   { path: "/glossaire", element: () => <Glossaire /> },
+  { path: "/references", element: () => <References /> },
   { path: "/a-propos", element: () => <APropos /> },
   { path: "/besoins/:base", element: (p) => <Redirect to={`/apprendre/base-${p.base}`} /> },
   ...OLD.map(([from, to]): RouteDef => ({ path: from, element: () => <Redirect to={to} /> })),

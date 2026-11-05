@@ -3,8 +3,7 @@
   @page { margin: 14mm; }
   :root { --bg: #fff; --surface: #fff; --ink: #111; --ink-2: #222; --ink-3: #444; --edge: #bbb; --edge-strong: #888; color-scheme: light; }
   html, body { background: #fff !important; color: #111 !important; font-size: 11.5pt; }
-  .header, .tabbar, .footer, .skip-link, .noprint, .toolnav, .crumbs, .planstrip, .btn, .invite-actions,
-  .subnav, .fbar, dialog, .sheet, .toast { display: none !important; }
+  .header, .tabbar, .footer, .skip-link, .noprint, .toolnav, .crumbs, .btn, dialog, .sheet, .toast { display: none !important; }
   .print-only { display: inline !important; }
   .carnet-ad textarea { display: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
@@ -17,8 +16,8 @@
   html, body, main, .page, .page > * { min-height: 0 !important; }
   body { padding-bottom: 0 !important; }
   /* pastilles numérotées : les fonds ne s'impriment pas toujours, donc pas de texte blanc sur fond */
-  .badge-n, .me-n, .planstrip-n, .num-c { background: none !important; color: #111 !important; border: 1px solid #111 !important; }
-  .plan-sug, .plan .hint, .field .hint, .invite-lock { display: none !important; }
+  .badge-n { background: none !important; color: #111 !important; border: 1px solid #111 !important; }
+  .plan-sug, .plan .hint, .field .hint { display: none !important; }
   select, textarea, input { border: 0 !important; background: none !important; appearance: none; -webkit-appearance: none; padding: 0 !important; resize: none; }
   .carnet-t, .carnet-t tbody, .carnet-t tr, .carnet-t td { display: revert !important; }
   .carnet-t { width: 100%; border-collapse: collapse; font-size: 9.5pt; }

@@ -4,6 +4,7 @@ import { Link } from "../lib/router";
 import { CONTENT } from "../data/content";
 import { Numeros } from "../learn/Widgets";
 import { ressources, type Ressource } from "../lib/state";
+import { Cite } from "../components/Cite";
 
 const A = CONTENT.p8.aide;
 
@@ -76,6 +77,8 @@ export default function Aide() {
           <Icon name="arrowRight" size={24} className="act-go" />
         </Link>
         <div className="row mt"><a className="btn btn-ghost" href={`${__BASE__}documents/quand-demander-de-l-aide.pdf`} download><Icon name="download" size={20} /><span>Télécharger la fiche « Quand demander de l’aide » (PDF)</span></a></div>
+        {/* tout en bas, discret : d’où viennent les numéros (rien de surligné sur cette page) */}
+        <p className="small muted mt">Numéros vérifiés sur les sites officiels <Cite ids={["n3114", "n114", "n3919", "masecurite-numeros", "servicepublic-urgences"]} />.</p>
       </div>
     </Page>
   );

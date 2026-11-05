@@ -23,15 +23,6 @@ export function phraseQuiz(slug: string): QuizItem {
     `C’est ce que répète le schéma « ${s.name} » : ${s.phrase} Cela sonne comme un fait, mais ce n’en est pas un.`);
 }
 
-/** « Le besoin derrière le schéma X, c'est… » */
-export function besoinQuiz(slug: string): QuizItem {
-  const s = schemaBySlug(slug)!;
-  const wrong = others(slug, 2, "besoin").filter((o) => o.besoin !== s.besoin).map((o) => o.besoin);
-  const cap = (x: string) => x.charAt(0).toUpperCase() + x.slice(1);
-  return make(`besoin-${slug}`, `Derrière le schéma « ${s.name} », de quoi ai-je besoin ?`, cap(s.besoin), wrong.map(cap),
-    `Derrière ce schéma se cache un besoin légitime : ${s.besoin}`);
-}
-
 /** Distinguer la petite voix (le schéma) de la phrase d'adulte sain. */
 export function adultQuiz(slug: string): QuizItem {
   const s = schemaBySlug(slug)!;

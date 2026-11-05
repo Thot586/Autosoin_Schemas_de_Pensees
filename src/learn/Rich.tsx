@@ -2,6 +2,8 @@ import { Children, cloneElement, createContext, Fragment, isValidElement, useCon
 import { Button, Term } from "../components/ui";
 import { Link, NavLink } from "../lib/router";
 import { findTerms, planCard, cardStrings } from "./terms";
+import { Cite } from "../components/Cite";
+import { citeIds } from "../data/references";
 import type { Card } from "./types";
 
 /** Plan de mise en évidence d'une carte : pour chaque texte, les mots du glossaire à marquer (une seule fois par carte). */
@@ -28,7 +30,8 @@ function auto(text: string, allow: Set<string> | null, done: Set<string>, key: {
 }
 
 /**
- * Rend le balisage minimal : [[id|mot]] (mot du glossaire, marqué à la main) et **gras**,
+ * Rend le balisage minimal : [[id|mot]] (mot du glossaire, marqué à la main), **gras**, et les citations
+ * [@id] / [@id1; @id2] / [n@id] (APA 7, cliquables vers la page « Références ») ;
  * et repère tout seul les autres mots du glossaire (survol : phrase simple ; clic : détail).
  * Dans une carte (TermScope), un mot n'est marqué qu'à sa première apparition.
  */
@@ -36,7 +39,7 @@ export function Rich({ text, terms = true }: { text: string; terms?: boolean }) 
   const plan = useContext(PlanCtx);
   const allow = terms ? (plan ? plan.get(text) ?? new Set<string>() : null) : new Set<string>();
   const out: ReactNode[] = [];
-  const re = /\[\[([^|\]]+)\|([^\]]+)\]\]|\*\*([^*]+)\*\*/g;
+  const re = /\[\[([^|\]]+)\|([^\]]+)\]\]|\*\*([^*]+)\*\*|\[(n?)@([^\]]+)\]/g;
   const done = new Set<string>();
   const key = { k: 0 };
   let last = 0;
@@ -44,7 +47,8 @@ export function Rich({ text, terms = true }: { text: string; terms?: boolean }) 
   while ((m = re.exec(text))) {
     if (m.index > last) out.push(...auto(text.slice(last, m.index), allow, done, key));
     if (m[1]) { done.add(m[1]); out.push(<Term key={key.k++} id={m[1]}>{m[2]}</Term>); }
-    else out.push(<b key={key.k++}>{auto(m[3], allow, done, key)}</b>);
+    else if (m[3] !== undefined) out.push(<b key={key.k++}>{auto(m[3], allow, done, key)}</b>);
+    else out.push(<Cite key={key.k++} ids={citeIds(m[5])} narrative={m[4] === "n"} />);
     last = m.index + m[0].length;
   }
   if (last < text.length) out.push(...auto(text.slice(last), allow, done, key));

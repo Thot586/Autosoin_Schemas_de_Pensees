@@ -1,5 +1,5 @@
 import {
-  createContext, useCallback, useContext, useEffect, useLayoutEffect, useRef, useSyncExternalStore,
+  createContext, useCallback, useLayoutEffect, useRef, useSyncExternalStore,
   type AnchorHTMLAttributes, type MouseEvent, type ReactElement, type ReactNode,
 } from "react";
 
@@ -54,7 +54,6 @@ export function navigate(to: string, opts: { replace?: boolean } = {}) {
 export function useLocation(): Loc {
   return useSyncExternalStore(subscribe, () => current, () => current);
 }
-export function useNavType() { return lastNav; }
 
 export interface RouteDef { path: string; element: (p: Record<string, string>) => ReactElement; title?: string }
 
@@ -138,9 +137,4 @@ export function NavLink({ to, end, className, children, ...rest }: Omit<LinkProp
   const active = end ? path === to : path === to || path.startsWith(to + "/");
   const cn = typeof className === "function" ? className({ active }) : className;
   return <Link to={to} className={cn} aria-current={active ? "page" : undefined} {...rest}>{children}</Link>;
-}
-
-export function useRouteEffect(fn: (loc: Loc) => void) {
-  const loc = useLocation();
-  useEffect(() => { fn(loc); /* eslint-disable-next-line */ }, [loc.path]);
 }

@@ -4,10 +4,10 @@ import { Link } from "../lib/router";
 import { lessonById } from "../learn/lessons";
 import { LessonFull } from "../learn/LessonFull";
 import { LIENS } from "../data/liens";
-import { REFERENCES } from "../data/references";
+import { Cite } from "../components/Cite";
 import { Terms } from "../learn/Rich";
 
-/** « La thérapie des schémas » : la leçon sur une page, les références vérifiées et l'annuaire. */
+/** « La thérapie des schémas » : la leçon sur une page, l'annuaire, et le lien vers les références vérifiées. */
 export default function Therapie() {
   const l = lessonById("therapie")!;
   return (
@@ -22,7 +22,7 @@ export default function Therapie() {
 
         <Terms><section className="full-card" aria-labelledby="annuaire-h">
           <h2 className="full-h" id="annuaire-h"><Icon name="users" size={22} /> Trouver un thérapeute formé</h2>
-          <p>L’annuaire de l’Institut Français de Thérapie des Schémas (IFTS) recense des thérapeutes formés à cette approche, en France, en Belgique, en Suisse et au Maroc ; certains sont aussi certifiés par la société internationale (ISST). Les informations sont données par les thérapeutes eux-mêmes. L’Institut est une association de formation : il ne soigne pas de patients.</p>
+          <p>L’annuaire de l’Institut Français de Thérapie des Schémas (IFTS) recense des thérapeutes formés à cette approche, en France, en Belgique, en Suisse et au Maroc ; certains sont aussi certifiés par la société internationale (ISST). Les informations sont données par les thérapeutes eux-mêmes. L’Institut est une association de formation : il ne soigne pas de patients <Cite ids={["ifts-annuaire", "isst-annuaire"]} />.</p>
           <div className="row">
             <a href={LIENS.annuaire.url} target="_blank" rel="noopener noreferrer" className="btn btn-soft"><Icon name="external" size={20} /><span>{LIENS.annuaire.label}<span className="sr-only"> (nouvel onglet)</span></span></a>
             <a href={LIENS.annuaireIsst.url} target="_blank" rel="noopener noreferrer" className="btn btn-ghost"><Icon name="external" size={20} /><span>{LIENS.annuaireIsst.label}<span className="sr-only"> (nouvel onglet)</span></span></a>
@@ -32,14 +32,8 @@ export default function Therapie() {
 
         <section className="full-card" aria-labelledby="refs-h">
           <h2 className="full-h" id="refs-h"><Icon name="book" size={22} /> Sources</h2>
-          <ol className="refs">
-            {REFERENCES.map((r) => (
-              <li key={r.id}>
-                <span>{r.text}</span>
-                {r.url && <> <a href={r.url} target="_blank" rel="noopener noreferrer">{r.urlLabel ?? "Lien"}<span className="sr-only"> (nouvel onglet)</span></a></>}
-              </li>
-            ))}
-          </ol>
+          <p>Chaque source est citée dans le texte ; un clic ouvre sa fiche. Toutes les études sur la thérapie des schémas, avec leur fiabilité, sont réunies sur la page des références.</p>
+          <p><Link to="/references#theme-therapie" className="btn btn-soft"><Icon name="book" size={20} /><span>Les références</span></Link></p>
         </section>
       </div>
     </Page>

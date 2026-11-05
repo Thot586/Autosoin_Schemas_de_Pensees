@@ -5,9 +5,10 @@ import { useDocTitle } from "../lib/hooks";
 import { last, markVisited, notes, prefs } from "../lib/state";
 import { useGlossary } from "./Glossary";
 import { termById } from "../data/glossaire";
+import { CiteText } from "./Cite";
 
 /* ───────── Page ───────── */
-const UTILITY = new Set(["/mon-espace", "/glossaire", "/a-propos", "/commencer"]);
+const UTILITY = new Set(["/mon-espace", "/glossaire", "/references", "/a-propos", "/commencer"]);
 export function Page({ title, tone, children, className = "" }: { title: string; tone?: string; children: ReactNode; className?: string }) {
   const { path } = useLocation();
   useDocTitle(title);
@@ -91,7 +92,7 @@ export function Pro({ children, title = "Repère pour l’accompagnant(e)" }: { 
   return (
     <details className="pro">
       <summary><Icon name="users" size={18} /> {title}</summary>
-      <div className="pro-body">{children}</div>
+      <div className="pro-body">{typeof children === "string" ? <CiteText text={children} /> : children}</div>
     </details>
   );
 }
@@ -190,27 +191,6 @@ export function NextUp({ to, label, hint, eyebrow = "Étape suivante", tone }: {
   );
 }
 
-export function PauseNote() {
-  return (
-    <Callout tone="care" icon="heart" title="Je peux m’arrêter ici">
-      C’est un bon moment pour faire une pause avant de continuer, ou pour s’arrêter ici et reprendre un autre jour.
-    </Callout>
-  );
-}
-
-/* ───────── Anneau de progression ───────── */
-export function Ring({ value, size = 64, stroke = 7, label }: { value: number; size?: number; stroke?: number; label?: string }) {
-  const r = (size - stroke) / 2;
-  const c = 2 * Math.PI * r;
-  return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label={label}>
-      <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--edge)" strokeWidth={stroke} />
-      <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--accent, var(--brand))" strokeWidth={stroke} strokeLinecap="round"
-        strokeDasharray={c} strokeDashoffset={c * (1 - Math.max(0, Math.min(1, value)))} transform={`rotate(-90 ${size / 2} ${size / 2})`} style={{ transition: "stroke-dashoffset .8s var(--ease)" }} />
-    </svg>
-  );
-}
-
 /* ───────── Onglets accessibles ───────── */
 export function Tabs<T extends string>({ idBase, tabs, value, onChange, label, className = "" }: { idBase: string; tabs: { id: T; label: ReactNode; tone?: string }[]; value: T; onChange: (v: T) => void; label: string; className?: string }) {
   const id = idBase;
@@ -231,28 +211,6 @@ export function Tabs<T extends string>({ idBase, tabs, value, onChange, label, c
 }
 export const tabPanelProps = (idBase: string, active: string) => ({ role: "tabpanel" as const, id: `${idBase}-panel`, "aria-labelledby": `${idBase}-${active}`, tabIndex: 0 });
 
-/* ───────── Pour retenir ───────── */
-export function Retain({ items, title = "Pour retenir" }: { items: ReactNode[]; title?: string }) {
-  return (
-    <Reveal>
-      <aside className="retain">
-        <p className="retain-t"><Icon name="star" size={18} /> {title}</p>
-        <ul>{items.map((t, i) => <li key={i}>{t}</li>)}</ul>
-      </aside>
-    </Reveal>
-  );
-}
-
-/* ───────── « Ce que montre l'animation » / « À essayer » ───────── */
-export function Explain({ title = "Ce que montre l’animation", children, tone = "brand" }: { title?: string; children: ReactNode; tone?: string }) {
-  return (
-    <div className={`explain tone-${tone}`}>
-      <p className="explain-t"><Icon name="eye" size={18} /> {title}</p>
-      <div>{children}</div>
-    </div>
-  );
-}
-
 /* ───────── Choix unique (boutons radio stylés) ───────── */
 export function Choice<T extends string>({ label, options, value, onChange, className = "" }: { label: string; options: { id: T; label: ReactNode }[]; value: T | ""; onChange: (v: T) => void; className?: string }) {
   const refs = useRef<Record<string, HTMLButtonElement | null>>({});
@@ -267,19 +225,6 @@ export function Choice<T extends string>({ label, options, value, onChange, clas
           {o.label}
         </button>
       ))}
-    </div>
-  );
-}
-
-/* ───────── Révélation simple (bouton + réponse) ───────── */
-export function Disclose({ question, button = "Voir la réponse", children, className = "" }: { question: ReactNode; button?: string; children: ReactNode; className?: string }) {
-  const [open, setOpen] = useState(false);
-  const id = useId();
-  return (
-    <div className={`disclose ${open ? "is-open" : ""} ${className}`}>
-      <div className="disclose-q">{question}</div>
-      <button type="button" className="btn btn-soft btn-sm" aria-expanded={open} aria-controls={id} onClick={() => setOpen((o) => !o)}>{open ? "Masquer" : button}</button>
-      <div id={id} className="disclose-a" role="region" hidden={!open}>{children}</div>
     </div>
   );
 }

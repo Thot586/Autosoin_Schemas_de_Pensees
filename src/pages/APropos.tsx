@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Page, Section, Reveal, Callout, Button, Card } from "../components/ui";
+import { Page, Section, Callout, Button, Card } from "../components/ui";
 import { Icon } from "../components/Icon";
 import { Link } from "../lib/router";
 import { META } from "../data/meta";

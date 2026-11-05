@@ -40,7 +40,8 @@ export function findTerms(text: string, allow?: ReadonlySet<string> | null): Hit
 }
 
 const MANUAL = /\[\[([^|\]]+)\|([^\]]+)\]\]/g;
-const strip = (s: string) => s.replace(MANUAL, (_, _id, w) => w).replace(/\*\*([^*]+)\*\*/g, "$1");
+// (les citations [@id] sont retirées : un identifiant de source ne doit jamais être pris pour un mot)
+const strip = (s: string) => s.replace(MANUAL, (_, _id, w) => w).replace(/\*\*([^*]+)\*\*/g, "$1").replace(/\[n?@[^\]]+\]/g, "");
 
 /** Textes d'une carte, dans l'ordre où ils s'affichent (pour ne marquer chaque mot qu'une fois par carte). */
 export function cardStrings(c: Card): string[] {

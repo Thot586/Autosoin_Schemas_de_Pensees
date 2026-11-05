@@ -41,7 +41,7 @@ export const AVANT: Lesson[] = [
     cards: [
       { id: "t1", kind: "text", icon: "users", title: "Une psychothérapie",
         body: ["La thérapie des schémas est une psychothérapie : un travail en séances, avec un thérapeute formé à cette approche.", "Elle a été créée par le psychologue américain Jeffrey Young, qui l’a décrite pour la première fois en 1990."],
-        more: { body: ["Jeffrey Young venait de la thérapie cognitive d’Aaron Beck. Il y a ajouté des idées venues d’autres approches : l’attachement, les thérapies psychodynamiques et un travail sur les émotions.", "Ouvrage de référence : J. Young, J. Klosko et M. Weishaar, La thérapie des schémas (De Boeck ; original : Schema Therapy, Guilford, 2003)."] } },
+        more: { body: ["Elle a d’abord été pensée pour des difficultés durables que la thérapie cognitive classique aidait peu [@taylor2017].", "Jeffrey Young venait de la thérapie cognitive d’Aaron Beck. Il y a ajouté des idées venues d’autres approches : l’attachement, les thérapies psychodynamiques et un travail sur les émotions [@kellogg2006].", "Ouvrage de référence : [n@young2024fr], traduction de [n@young2003]."] } },
       { id: "t2", kind: "text", icon: "clock", title: "Pour qui ?",
         body: ["Elle a été pensée pour des difficultés anciennes et durables, qui reviennent souvent : dans les relations, dans l’image de soi, dans les émotions.", "Par exemple un trouble de la personnalité, quand la thérapie cognitive classique n’aidait pas assez."] },
       { id: "t3", kind: "text", icon: "heart", title: "Son idée centrale",
@@ -52,9 +52,10 @@ export const AVANT: Lesson[] = [
         after: ["En séance, ces exercices se font avec le thérapeute. Deux leçons, plus loin dans le parcours, les expliquent, avec une version simple à essayer seul(e)."] },
       { id: "t6", kind: "text", icon: "check", title: "Est-ce que ça marche ?",
         body: ["Elle a surtout été étudiée chez des personnes ayant un trouble de la personnalité, en particulier le trouble borderline.", "Dans ces études, elle aide à réduire les difficultés et à mieux vivre au quotidien. Moins de personnes arrêtent en cours de route qu’avec les autres prises en charge étudiées."],
-        more: { body: ["Exemples d’études : Giesen-Bloo et coll., 2006 ; Bamelis et coll., 2014 ; Arntz et coll., 2022 ; méta-analyse de Zhang et coll., 2023. Références complètes sur la page « La thérapie des schémas »."] } },
+        more: { body: ["Trois essais randomisés [@giesenbloo2006; @bamelis2014; @arntz2022] et une méta-analyse [@zhang2023]. Un clic sur une source ouvre sa fiche, avec sa fiabilité."] } },
       { id: "t6b", kind: "text", icon: "info", title: "Ce qu’on ne sait pas encore",
-        body: ["Les études sont encore peu nombreuses. Pour la dépression, l’anxiété, les traumatismes ou les troubles alimentaires, les résultats sont encourageants mais encore fragiles.", "C’est une thérapie longue : souvent deux à trois ans dans les grandes études sur le trouble borderline.", "J’en parle avec un professionnel (mon médecin traitant, ou mon équipe de soins si j’en ai une) pour savoir si elle me convient."] },
+        body: ["Les études sont encore peu nombreuses. Pour la dépression, l’anxiété, les traumatismes ou les troubles alimentaires, les résultats sont encourageants mais encore fragiles.", "C’est une thérapie longue : souvent deux à trois ans dans les grandes études sur le trouble borderline.", "J’en parle avec un professionnel (mon médecin traitant, ou mon équipe de soins si j’en ai une) pour savoir si elle me convient."],
+        more: { label: "Sources", body: ["Études encore peu nombreuses : [n@taylor2017] ; [n@peeters2022].", "Durée : 3 ans de traitement dans un essai, 2 ans dans l’autre [@giesenbloo2006; @arntz2022]."] } },
       { id: "t7", kind: "text", icon: "book", title: "Et ce support ?",
         body: ["Ce support n’est pas une thérapie. Il en reprend les idées de base, avec des mots simples.", "Il peut aider à se préparer, à attendre un rendez-vous, ou à compléter un suivi."] },
       { id: "tq1", kind: "quiz", title: "Une question", quiz: {
@@ -64,7 +65,7 @@ export const AVANT: Lesson[] = [
       { id: "tq3", kind: "quiz", title: "Une question", quiz: {
         id: "therapie-duree", q: "Une thérapie des schémas dure en général…",
         options: ["Plusieurs mois, parfois plusieurs années", "Une seule séance", "Un week-end"], answer: 0,
-        explain: "C’est un travail long : souvent deux à trois ans dans les grandes études sur le trouble borderline." } },
+        explain: "C’est un travail long : souvent deux à trois ans dans les grandes études sur le trouble borderline [@giesenbloo2006; @arntz2022]." } },
       { id: "tq2", kind: "quiz", title: "Une question", quiz: {
         id: "therapie-support", q: "Ce support peut-il remplacer une thérapie ?",
         options: ["Non : il prépare ou complète un suivi", "Oui, si je fais toutes les leçons"], answer: 0,

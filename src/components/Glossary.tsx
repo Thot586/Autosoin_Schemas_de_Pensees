@@ -3,6 +3,7 @@ import { Sheet } from "./Sheet";
 import { Link, useLocation } from "../lib/router";
 import { Icon } from "./Icon";
 import { termById } from "../data/glossaire";
+import { CiteText } from "./Cite";
 
 interface Ctx { open: (id: string) => void }
 const GCtx = createContext<Ctx>({ open: () => {} });
@@ -25,12 +26,12 @@ export function GlossaryProvider({ children }: { children: ReactNode }) {
       {children}
       <Sheet open={!!e} onClose={close} label={e ? `Définition : ${e.term}` : "Définition"} side="bottom" className="glossary-sheet">
         {e && (
-          <div className="glossary">
+          <div className="glossary" onClick={(ev) => { if ((ev.target as Element).closest("a.cite")) close(); }}>
             <p className="glossary-k">Le mot</p>
             <h2>{e.term}</h2>
             <p className="glossary-short">{e.short}</p>
-            <p className="glossary-def">{e.def}</p>
-            {e.more && <p className="glossary-more">{e.more}</p>}
+            <p className="glossary-def"><CiteText text={e.def} /></p>
+            {e.more && <p className="glossary-more"><CiteText text={e.more} /></p>}
             <div className="glossary-actions">
               <button type="button" className="btn btn-primary" onClick={close}><Icon name="arrowLeft" size={18} /><span>Revenir à ma lecture</span></button>
               {e.to && !here && <Link to={e.to} className="btn btn-soft" onClick={close}><span>{e.toLabel || "En savoir plus"}</span><Icon name="arrowRight" size={18} /></Link>}

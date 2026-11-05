@@ -19,15 +19,12 @@
 .btn-danger { background: var(--danger); color: #fff; }
 :root[data-theme="dark"] .btn-danger { color: #1B0E0D; }
 .btn-sm { min-height: 44px; padding: 7px 14px; font-size: .9rem; border-radius: 12px; }
-.linklike { background: none; border: 0; padding: 2px 0; color: var(--brand); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; text-align: left; }
 
 /* ───────── Cartes ───────── */
 .card { background: var(--surface); border: 1px solid var(--edge); border-radius: var(--radius); padding: clamp(1.1rem, 3vw, 1.6rem); box-shadow: var(--shadow-1); }
 .card h3 { margin-bottom: .35em; }
 .card > :last-child { margin-bottom: 0; }
-.card-accent { border-top: 5px solid var(--accent); }
 .cards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); }
-.cards-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
 
 /* ───────── Encadrés ───────── */
 .callout { display: flex; gap: 14px; align-items: flex-start; padding: 16px 18px; border-radius: 18px; background: var(--brand-soft); color: var(--ink); border: 1px solid color-mix(in oklab, var(--brand) 22%, transparent); }
@@ -106,18 +103,6 @@
 .nextup-h { display: block; margin-top: .25rem; color: var(--ink-2); font-size: .98rem; }
 
 /* ───────── Plan en 8 parties ───────── */
-.planstrip { margin-top: 1.8rem; }
-.planstrip ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; }
-.planstrip li { margin: 0; }
-.planstrip a { display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--ink-3); font-size: .875rem; font-weight: 700; line-height: 1.2; }
-.planstrip a:hover { text-decoration: none; color: var(--ink); }
-.planstrip-n { height: 8px; border-radius: 999px; background: var(--edge); display: block; font-size: 0; overflow: hidden; transition: background .3s; }
-.planstrip-n svg { display: none; }
-.planstrip .is-done .planstrip-n { background: color-mix(in oklab, var(--ok) 55%, var(--edge)); }
-.planstrip .is-current .planstrip-n { background: var(--accent, var(--brand)); height: 10px; margin-top: -1px; }
-.planstrip .is-current a { color: var(--accent-ink, var(--brand-ink)); }
-.planstrip-t { display: none; }
-@media (min-width: 900px) { .planstrip-t { display: block; } }
 
 .parthero { padding: clamp(2rem, 6vw, 4.5rem) 0 clamp(1.4rem, 3vw, 2.4rem); background: radial-gradient(1200px 400px at 85% -10%, color-mix(in oklab, var(--accent) 16%, transparent), transparent 70%), linear-gradient(180deg, color-mix(in oklab, var(--accent-soft) 70%, var(--bg)), var(--bg)); }
 .parthero h1 { max-width: 20ch; }
@@ -133,7 +118,6 @@
 @media (min-width: 700px) { .tabs { margin: 0; padding: 4px 0; flex-wrap: wrap; overflow: visible; } }
 
 /* ───────── Divers ───────── */
-.divider-dots { text-align: center; color: var(--ink-3); letter-spacing: .5em; margin: 2rem 0; }
 .badge-n { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--accent, var(--brand)); color: #fff; font-weight: 800; font-size: .95rem; flex-shrink: 0; }
 :root[data-theme="dark"] .badge-n { color: #0E1B20; }
 @media (prefers-color-scheme: dark) { :root[data-theme="auto"] .badge-n { color: #0E1B20; } }
@@ -142,3 +126,16 @@
 .field .hint { color: var(--ink-3); font-size: .9rem; margin: 0; }
 .check { display: inline-flex; gap: 10px; align-items: center; cursor: pointer; font-weight: 600; min-height: 44px; }
 .check input { width: 22px; height: 22px; accent-color: var(--accent, var(--brand)); flex-shrink: 0; }
+
+/* ───────── Citations (APA 7) et fiabilité des sources ─────────
+   Une couleur par niveau, toujours doublée d'un mot (jamais la couleur seule). */
+.niv-solide { --niv: var(--ok); --niv-soft: var(--ok-soft); }
+.niv-moderee { --niv: var(--b4); --niv-soft: var(--b4-soft); }
+.niv-preliminaire { --niv: var(--b2); --niv-soft: var(--b2-soft); }
+.niv-indirecte { --niv: var(--b5); --niv-soft: var(--b5-soft); }
+.niv-experts { --niv: var(--ink-3); --niv-soft: var(--surface-2); }
+.niv-officielle { --niv: var(--brand); --niv-soft: var(--brand-soft); }
+.cite { color: inherit; text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.cite:hover { color: var(--brand); text-decoration-style: solid; }
+/* un caractère, et non une boîte : « ( » reste collé à la pastille en fin de ligne */
+.cite-dot { color: var(--niv); font-size: .8em; margin-right: .2em; text-decoration: none; display: inline; }

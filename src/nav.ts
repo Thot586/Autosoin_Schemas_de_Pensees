@@ -16,5 +16,6 @@ export const MENU: { to: string; label: string; icon: IconName }[] = [
   { to: "/therapie", label: "La thérapie des schémas", icon: "book" },
   { to: "/soutien", label: "Où trouver un soutien", icon: "users" },
   { to: "/glossaire", label: "Les mots du support", icon: "chat" },
+  { to: "/references", label: "Les références (sources)", icon: "book" },
   { to: "/a-propos", label: "À propos, limites et données", icon: "info" },
 ];

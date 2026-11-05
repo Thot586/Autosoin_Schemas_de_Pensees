@@ -1,7 +1,9 @@
 // Test de bout en bout : parcourt toutes les pages (téléphone et ordinateur) puis rejoue les parcours qui écrivent des données.
 //   npm run build && npm run test:e2e
 // Nécessite Playwright (non installé par défaut, pour garder le dépôt léger) :
-//   npm i -D playwright && npx playwright install chromium
+//   npm i --no-save playwright && npx playwright install chromium
+// Les vérifications tournent en parallèle (E2E_CONCURRENCY, 4 par défaut) ; chacune a son propre navigateur isolé
+// (stockage séparé) et ses résultats s'affichent dans l'ordre, à la fin. La progression s'écrit sur stderr.
 import { createRequire } from "node:module";
 import { readFileSync, writeFileSync, mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -12,20 +14,16 @@ import { layoutProblems, readingProblems, contrastProblems } from "./layout-chec
 
 let chromium;
 try { ({ chromium } = createRequire(import.meta.url)("playwright")); }
-catch { console.error("Playwright est absent : npm i -D playwright && npx playwright install chromium"); process.exit(2); }
+catch { console.error("Playwright est absent : npm i --no-save playwright && npx playwright install chromium"); process.exit(2); }
 
 const PORT = 4190;
 const server = await serve(fileURLToPath(new URL("../dist", import.meta.url)), PORT, "/");
 const origin = `http://127.0.0.1:${PORT}`;
 const browser = await chromium.launch();
 let failures = 0;
-const check = (cond, msg) => { if (!cond) failures++; console.log((cond ? "✔ " : "✗ ") + msg); };
-
-// 0. Motifs du glossaire : pas de « lookbehind » (Safari < 16.4 refuserait de charger l'application).
-{
-  const src = readFileSync(new URL("../src/data/glossaire.ts", import.meta.url), "utf8");
-  check(!src.includes("(?<=") && !src.includes("(?<!"), "glossaire : motifs lisibles par les anciens Safari (pas de lookbehind)");
-}
+const tasks = [];
+/** Une vérification indépendante : `fn(check)` ; ses lignes s'affichent groupées, dans l'ordre de déclaration. */
+const task = (name, fn) => tasks.push({ name, fn });
 
 // Mise en page (scripts/layout-check.mjs) : ce qui bloque. « cible<44 » (zone de clic sous les 44 px recommandés,
 // mais au-dessus des 24 px exigés) est seulement compté.
@@ -36,10 +34,28 @@ const layout = async (page, opts = {}) => {
 };
 const withTextSize = (ctx, size) => ctx.addInitScript((size) => { try { localStorage.setItem("autosoin:v1:prefs", JSON.stringify({ theme: "auto", motion: "auto", size, pro: true })); } catch {} }, size);
 
+// Les parcours de cartes : chaque leçon, chaque temps de chaque schéma, la fiche, les deux exercices guidés.
+const routes = await (async () => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const page = await ctx.newPage();
+  await page.goto(origin + "/apprendre", { waitUntil: "networkidle" });
+  const lessons = await page.$$eval("a.lrow", (as) => as.map((a) => a.getAttribute("href")));
+  await page.goto(origin + "/schemas", { waitUntil: "networkidle" });
+  const schemas = [...new Set(await page.$$eval(".sgroup a.srow", (as) => as.map((a) => a.getAttribute("href"))))];
+  await ctx.close();
+  return [...lessons, ...schemas.flatMap((h) => ["comprendre", "moment", "semaines"].map((p) => `${h}/${p}`)), "/trouver", "/outils/imagerie", "/outils/chaises"];
+})();
+
+// 0. Motifs du glossaire : pas de « lookbehind » (Safari < 16.4 refuserait de charger l'application).
+task("motifs du glossaire", async (check) => {
+  const src = readFileSync(new URL("../src/data/glossaire.ts", import.meta.url), "utf8");
+  check(!src.includes("(?<=") && !src.includes("(?<!"), "glossaire : motifs lisibles par les anciens Safari (pas de lookbehind)");
+});
+
 // 1. Toutes les pages : pas d'erreur console, pas de débordement horizontal, un titre h1, pas de page 404 ;
 //    et rien qui se chevauche, se colle, déborde ou se cache sous une barre, du petit téléphone à l'écran 4K, texte agrandi compris.
 //    Sur ordinateur et écran géant (thème sombre) : lignes de 80 signes au plus, contrastes du texte suffisants.
-for (const [name, w, h, size, scheme] of [["petit téléphone", 320, 640], ["téléphone", 390, 844], ["téléphone, texte agrandi (140 %)", 390, 844, 1.4], ["ordinateur", 1366, 900], ["écran géant, thème sombre", 3840, 2160, 0, "dark"]]) {
+for (const [name, w, h, size, scheme] of [["petit téléphone", 320, 640], ["téléphone", 390, 844], ["téléphone, texte agrandi (140 %)", 390, 844, 1.4], ["ordinateur", 1366, 900], ["écran géant, thème sombre", 3840, 2160, 0, "dark"]]) task(`pages, ${name}`, async (check) => {
   const ctx = await browser.newContext({ viewport: { width: w, height: h }, reducedMotion: "reduce", colorScheme: scheme ?? "light" });
   if (size) await withTextSize(ctx, size);
   const page = await ctx.newPage();
@@ -58,6 +74,8 @@ for (const [name, w, h, size, scheme] of [["petit téléphone", 320, 640], ["té
       h1: document.querySelector("h1")?.textContent?.trim(),
       overflow: document.documentElement.scrollWidth - innerWidth,
       notFound: !!document.querySelector(".notfound"),
+      // une citation [@id] doit toujours être rendue (lien APA), jamais affichée telle quelle
+      rawCite: /\[n?@[\w-]/.test(document.body.innerText),
       // un mot expliqué est un bouton : jamais dans un lien, un autre bouton ou une étiquette
       nested: document.querySelectorAll("a .term, button .term, label .term, summary .term").length,
       // … ni dans une boîte qui couperait son infobulle (overflow autre que visible)
@@ -70,14 +88,40 @@ for (const [name, w, h, size, scheme] of [["petit téléphone", 320, 640], ["té
     for (const l of info.links) { const p = l.split("#")[0].split("?")[0]; if (p && !seen.has(p) && !/\.(ics|json|csv|png|svg|webmanifest|pdf|docx)$/.test(p)) queue.push(p); }
     const lay = await layout(page); small += lay.small;
     if (w >= 1366) for (const p of [...(await page.evaluate(readingProblems, {})).filter((p) => p.type === "ligne longue"), ...(await page.evaluate(contrastProblems))]) lay.bad.push(`${p.type} : ${p.a} / ${p.b}`);
-    if (!info.h1 || info.overflow > 1 || info.notFound || info.nested || info.clipped.length || errs.length || lay.bad.length) { bad++; check(false, `${name} ${r} : ${JSON.stringify({ h1: info.h1, overflow: info.overflow, notFound: info.notFound, nested: info.nested, clipped: info.clipped, errs: errs.slice(0, 3), mise_en_page: lay.bad.slice(0, 4) })}`); }
+    if (!info.h1 || info.overflow > 1 || info.notFound || info.rawCite || info.nested || info.clipped.length || errs.length || lay.bad.length) { bad++; check(false, `${name} ${r} : ${JSON.stringify({ h1: info.h1, overflow: info.overflow, notFound: info.notFound, citationBrute: info.rawCite, nested: info.nested, clipped: info.clipped, errs: errs.slice(0, 3), mise_en_page: lay.bad.slice(0, 4) })}`); }
   }
   check(bad === 0, `${name} : ${seen.size} pages parcourues, ${bad} problème(s) (zones de clic entre 24 et 44 px : ${small})`);
   await ctx.close();
-}
+});
+
+// 1 bis. Panneaux ouverts (menu et réglages, détail d'un mot) : même contrôle de mise en page, à l'intérieur du panneau.
+task("panneaux ouverts", async (check) => {
+  let bad = 0, n = 0;
+  for (const [name, w, h, size] of [["petit téléphone", 320, 640], ["téléphone, texte agrandi", 390, 844, 1.4], ["ordinateur", 1366, 900]]) {
+    const ctx = await browser.newContext({ viewport: { width: w, height: h }, reducedMotion: "reduce" });
+    if (size) await withTextSize(ctx, size);
+    const page = await ctx.newPage();
+    const probe = async (what) => {
+      n++;
+      const lay = await layout(page, { scrollCheck: false });
+      if (lay.bad.length) { bad++; check(false, `${name}, ${what} : mise en page ${JSON.stringify(lay.bad.slice(0, 4))}`); }
+    };
+    await page.goto(origin + "/", { waitUntil: "networkidle" });
+    await page.click('button[aria-label="Menu et réglages"]');
+    await page.waitForSelector("dialog.menu-sheet[open]");
+    await probe("menu et réglages");
+    await page.keyboard.press("Escape");
+    await page.goto(origin + "/soutien", { waitUntil: "networkidle" });
+    await page.locator(".term").first().click();
+    await page.waitForSelector("dialog.glossary-sheet[open]");
+    await probe("détail d’un mot");
+    await ctx.close();
+  }
+  check(bad === 0, `panneaux ouverts : ${n} panneaux vérifiés (menu et réglages, détail d’un mot), ${bad} problème(s)`);
+});
 
 // 2. Une leçon en entier : questions, « À retenir », fin ; puis l'accueil et le rappel du jour.
-{
+task("une leçon en entier", async (check) => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await ctx.newPage();
   await page.goto(origin + "/apprendre/bienvenue", { waitUntil: "networkidle" });
@@ -104,20 +148,15 @@ for (const [name, w, h, size, scheme] of [["petit téléphone", 320, 640], ["té
   const t = await page.evaluate(() => JSON.parse(localStorage.getItem("autosoin:v1:ticks") || "{}"));
   check(t["carence-affective"]?.vrai && t["carence-affective"]?.cout && !t["carence-affective"]?.souvent, "fiche : deux repères cochés pour le premier schéma");
   await ctx.close();
-}
+});
 
 // 3. Toutes les cartes : chaque leçon, chaque temps de chaque schéma, la fiche, et chaque étape d'animation.
-{
+task("toutes les cartes, téléphone", async (check) => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await ctx.newPage();
   let errs = [];
   page.on("console", (m) => { if (["error", "warning"].includes(m.type())) errs.push(m.text()); });
   page.on("pageerror", (e) => errs.push(e.message));
-  await page.goto(origin + "/apprendre", { waitUntil: "networkidle" });
-  const lessons = await page.$$eval("a.lrow", (as) => as.map((a) => a.getAttribute("href")));
-  await page.goto(origin + "/schemas", { waitUntil: "networkidle" });
-  const schemas = [...new Set(await page.$$eval(".sgroup a.srow", (as) => as.map((a) => a.getAttribute("href"))))];
-  const routes = [...lessons, ...schemas.flatMap((h) => ["comprendre", "moment", "semaines"].map((p) => `${h}/${p}`)), "/trouver", "/outils/imagerie", "/outils/chaises"];
   let cards = 0, steps = 0, terms = 0, bad = 0;
   for (const r of routes) {
     errs = [];
@@ -158,32 +197,32 @@ for (const [name, w, h, size, scheme] of [["petit téléphone", 320, 640], ["té
   }
   check(bad === 0 && routes.length >= 22 + 45 + 3, `toutes les cartes : ${routes.length} parcours, ${cards} cartes, ${steps} étapes d’animation, ${terms} mots expliqués, ${bad} problème(s)`);
   await ctx.close();
+});
 
-  // Les mêmes cartes sur ordinateur, sur petit téléphone et avec le texte agrandi : mise en page seulement.
-  for (const [name, w, h, size] of [["ordinateur", 1366, 768], ["petit téléphone", 320, 640], ["téléphone, texte agrandi", 390, 844, 1.4]]) {
-    const c2 = await browser.newContext({ viewport: { width: w, height: h }, reducedMotion: "reduce" });
-    if (size) await withTextSize(c2, size);
-    const p2 = await c2.newPage();
-    let n = 0, b2 = 0;
-    for (const r of routes) {
-      await p2.goto(origin + r, { waitUntil: "networkidle" });
-      for (let k = 0; k < 60; k++) {
-        await p2.waitForSelector(".lcard"); n++;
-        const lay = await layout(p2);
-        if (await p2.locator(".lcard-gate").count()) for (const b of await p2.locator(".gate .fiche-c").all()) await b.click();
-        if (await p2.locator(".quiz-o").count()) { await p2.locator(".quiz-o").first().click(); lay.bad.push(...(await layout(p2)).bad); }
-        if (lay.bad.length) { b2++; check(false, `${name} ${r} carte ${k + 1} : mise en page ${JSON.stringify(lay.bad.slice(0, 4))}`); }
-        if (await p2.locator(".lcard-end").count()) break;
-        await p2.click(".lesson-next");
-      }
+// 3 (suite). Les mêmes cartes sur ordinateur, sur petit téléphone et avec le texte agrandi : mise en page seulement.
+for (const [name, w, h, size] of [["ordinateur", 1366, 768], ["petit téléphone", 320, 640], ["téléphone, texte agrandi", 390, 844, 1.4]]) task(`toutes les cartes, ${name}`, async (check) => {
+  const ctx = await browser.newContext({ viewport: { width: w, height: h }, reducedMotion: "reduce" });
+  if (size) await withTextSize(ctx, size);
+  const page = await ctx.newPage();
+  let n = 0, bad = 0;
+  for (const r of routes) {
+    await page.goto(origin + r, { waitUntil: "networkidle" });
+    for (let k = 0; k < 60; k++) {
+      await page.waitForSelector(".lcard"); n++;
+      const lay = await layout(page);
+      if (await page.locator(".lcard-gate").count()) for (const b of await page.locator(".gate .fiche-c").all()) await b.click();
+      if (await page.locator(".quiz-o").count()) { await page.locator(".quiz-o").first().click(); lay.bad.push(...(await layout(page)).bad); }
+      if (lay.bad.length) { bad++; check(false, `${name} ${r} carte ${k + 1} : mise en page ${JSON.stringify(lay.bad.slice(0, 4))}`); }
+      if (await page.locator(".lcard-end").count()) break;
+      await page.click(".lesson-next");
     }
-    check(b2 === 0, `toutes les cartes, ${name} : ${n} cartes, ${b2} problème(s) de mise en page`);
-    await c2.close();
   }
-}
+  check(bad === 0, `toutes les cartes, ${name} : ${n} cartes, ${bad} problème(s) de mise en page`);
+  await ctx.close();
+});
 
 // 3 bis. Exercice : à 8 sur 10 avant de commencer, « Suivant » est bloqué et propose la pause.
-{
+task("exercice guidé", async (check) => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await ctx.newPage();
   await page.goto(origin + "/outils/imagerie", { waitUntil: "networkidle" });
@@ -198,10 +237,10 @@ for (const [name, w, h, size, scheme] of [["petit téléphone", 320, 640], ["té
   await page.locator(".w-scale input[type=range]").fill("3");
   check(!(await page.locator(".lesson-next").isDisabled()), "exercice : à 3 sur 10, on peut continuer");
   await ctx.close();
-}
+});
 
 // 3 ter. Mots expliqués : survol = une phrase simple ; clic = le détail ; retour facile à la lecture.
-{
+task("mots expliqués et glossaire", async (check) => {
   const ctx = await browser.newContext({ viewport: { width: 1366, height: 900 } });
   const page = await ctx.newPage();
   await page.goto(origin + "/apprendre/therapie", { waitUntil: "networkidle" });
@@ -209,8 +248,9 @@ for (const [name, w, h, size, scheme] of [["petit téléphone", 320, 640], ["té
   const card = await page.locator(".lcard h2").innerText();
   const term = page.locator(".lcard .term").first();
   check(await term.count() === 1, "mots expliqués : un mot surligné sur la carte");
-  await term.hover(); await page.waitForTimeout(600);
+  await term.hover();
   const tip = page.locator(".lcard .term-tip").first();
+  await tip.waitFor({ state: "visible", timeout: 3000 }).catch(() => {});
   const tb = await tip.boundingBox();
   check(await tip.isVisible() && !!tb && tb.x >= 0 && tb.x + tb.width <= 1366, "mots expliqués : au survol, une phrase simple, dans l’écran");
   await term.click();
@@ -239,10 +279,10 @@ for (const [name, w, h, size, scheme] of [["petit téléphone", 320, 640], ["té
   await page.goto(origin + "/aide", { waitUntil: "networkidle" });
   check(await page.locator(".term").count() === 0, "page d’urgence : rien de surligné, rien pour distraire");
   await ctx.close();
-}
+});
 
 // 3 quater. Sur téléphone, au clavier : l'infobulle de chaque mot s'ouvre et reste dans l'écran.
-{
+task("infobulles au clavier", async (check) => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await ctx.newPage();
   await page.goto(origin + "/apprendre/therapie", { waitUntil: "networkidle" });
@@ -262,10 +302,56 @@ for (const [name, w, h, size, scheme] of [["petit téléphone", 320, 640], ["té
   }
   check(seen >= 5 && bad.length === 0, `téléphone, clavier : ${seen} infobulles ouvertes, toutes dans l’écran ${bad.length ? JSON.stringify(bad.slice(0, 3)) : ""}`);
   await ctx.close();
-}
+});
+
+// 3 quinquies. Références : chaque citation mène à une fiche qui existe ; chaque fiche est citée ; aller-retour facile.
+task("références et citations", async (check) => {
+  const { readdirSync, statSync } = await import("node:fs");
+  const walk = (d) => readdirSync(d).flatMap((f) => { const p = path.join(d, f); return statSync(p).isDirectory() ? walk(p) : [p]; });
+  const src = fileURLToPath(new URL("../src", import.meta.url));
+  const files = walk(src).filter((f) => /\.(ts|tsx)$/.test(f));
+  // (les commentaires sont retirés : ils donnent des exemples de balisage, comme [@id])
+  const text = files.map((f) => readFileSync(f, "utf8").replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "")).join("\n");
+  const list = readFileSync(path.join(src, "data", "references.list.ts"), "utf8");
+  const ids = new Set([...list.matchAll(/\bid: "([^"]+)"/g)].map((m) => m[1]));
+  const themes = new Map([...list.matchAll(/\bid: "([^"]+)"[^\n]*?\btheme: "([^"]+)"/g)].map((m) => [m[1], m[2]]));
+  const cited = new Set();
+  for (const m of text.matchAll(/\[n?@([^\]]+)\]/g)) for (const x of m[1].split(";")) cited.add(x.trim().replace(/^@/, ""));
+  for (const m of text.matchAll(/<Cite ids=\{\[([^\]]+)\]\}/g)) for (const x of m[1].matchAll(/"([^"]+)"/g)) cited.add(x[1]);
+  const unknown = [...cited].filter((x) => !ids.has(x));
+  check(unknown.length === 0, `citations : ${cited.size} sources citées, toutes dans la liste des références${unknown.length ? ` — inconnues : ${unknown.join(", ")}` : ""}`);
+  const orphan = [...ids].filter((x) => !cited.has(x) && themes.get(x) !== "lectures");
+  check(orphan.length === 0, `références : ${ids.size} fiches, chacune citée au moins une fois (sauf les lectures conseillées)${orphan.length ? ` — jamais citées : ${orphan.join(", ")}` : ""}`);
+  const old = files.filter((f) => /\bet coll\.,? (19|20)\d\d/.test(readFileSync(f, "utf8"))).map((f) => path.basename(f));
+  check(old.length === 0, `citations : plus aucune au format « et coll., année » ${old.length ? `— reste dans ${old.join(", ")}` : ""}`);
+
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const page = await ctx.newPage();
+  await page.goto(origin + "/references", { waitUntil: "networkidle" });
+  const n = await page.locator(".ref").count();
+  const badges = await page.locator(".ref .ref-badge").count();
+  check(n === ids.size && badges === n, `page Références : ${n} fiches affichées, chacune avec sa pastille de fiabilité`);
+  // depuis une carte de leçon : la citation mène à sa fiche, et « Revenir à ma page » ramène à la même carte
+  await page.goto(origin + "/apprendre/imagerie", { waitUntil: "networkidle" });
+  for (let k = 0; k < 12 && !(await page.locator(".lcard h2").innerText()).includes("Ce qu’on en sait"); k++) await page.click(".lesson-next");
+  const card = await page.locator(".lcard h2").innerText();
+  await page.locator(".lcard details summary").first().click();
+  const cite = page.locator(".lcard a.cite").first();
+  const href = await cite.getAttribute("href");
+  await cite.click();
+  await page.waitForURL(/\/references#/);
+  const id = new URL(page.url()).hash.slice(1);
+  await page.waitForFunction((x) => { const el = document.getElementById(x); if (!el) return false; const r = el.getBoundingClientRect(); return r.top >= 0 && r.top < innerHeight; }, id, { timeout: 4000 }).catch(() => {});
+  check(!!href && href.endsWith(`#${id}`) && await page.evaluate((x) => { const r = document.getElementById(x)?.getBoundingClientRect(); return !!r && r.top >= 0 && r.top < innerHeight; }, id), `citation : un clic mène à la fiche (#${id}), visible à l’écran`);
+  await page.click(".back-btn");
+  await page.waitForURL(/\/apprendre\/imagerie$/);
+  await page.waitForSelector(".lcard h2");
+  check(await page.locator(".lcard h2").innerText() === card, "références : « Revenir à ma page » ramène à la même carte");
+  await ctx.close();
+});
 
 // 4. Carnet, sauvegarde, restauration, effacement.
-{
+task("carnet et sauvegarde", async (check) => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, acceptDownloads: true });
   const page = await ctx.newPage();
   const tmp = mkdtempSync(path.join(tmpdir(), "autosoin-"));
@@ -294,8 +380,25 @@ for (const [name, w, h, size, scheme] of [["petit téléphone", 320, 640], ["té
   await page.setInputFiles("#me-file", bad); await page.click("text=Oui, restaurer");
   check(await page.locator("text=ne vient pas de ce site").isVisible(), "Mon espace : un fichier étranger est refusé");
   await ctx.close();
-}
+});
+
+// Exécution : les plus longues d'abord, CONC à la fois ; les résultats s'affichent dans l'ordre de déclaration.
+const CONC = Math.max(1, Number(process.env.E2E_CONCURRENCY) || 4);
+const order = tasks.map((_, i) => i).sort((a, b) => (/cartes/.test(tasks[b].name) - /cartes/.test(tasks[a].name)) || (/pages/.test(tasks[b].name) - /pages/.test(tasks[a].name)));
+const results = [];
+const t0 = Date.now();
+let next = 0;
+await Promise.all(Array.from({ length: CONC }, async () => {
+  while (next < order.length) {
+    const i = order[next++]; const t = tasks[i]; const lines = []; const start = Date.now();
+    const check = (cond, msg) => { if (!cond) failures++; lines.push((cond ? "✔ " : "✗ ") + msg); };
+    try { await t.fn(check); } catch (e) { failures++; lines.push(`✗ ${t.name} : arrêt sur erreur — ${String(e.message || e).split("\n")[0]}`); }
+    results[i] = lines;
+    process.stderr.write(`· ${t.name} : ${Math.round((Date.now() - start) / 1000)} s\n`);
+  }
+}));
+for (const lines of results) for (const l of lines) console.log(l);
 
 await browser.close(); server.close();
-console.log(failures ? `\n${failures} échec(s)` : "\nTout est vert.");
+console.log(`\n${failures ? `${failures} échec(s)` : "Tout est vert."} (${Math.round((Date.now() - t0) / 60000)} min)`);
 process.exit(failures ? 1 : 0);

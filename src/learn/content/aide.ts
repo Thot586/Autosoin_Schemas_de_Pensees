@@ -81,7 +81,7 @@ export const AIDE: Lesson[] = [
         tiles: P8.soutien.portes.map((p) => ({ title: p.titre, text: p.texte })), pro: P8.soutien.pro },
       { id: "h5", kind: "links", icon: "users", title: "Un thérapeute formé aux schémas",
         body: ["L’annuaire de l’Institut Français de Thérapie des Schémas recense des thérapeutes formés ; certains sont aussi certifiés par la société internationale (ISST).", "J’en parle d’abord avec mon médecin traitant, ou mon équipe de soins si j’en ai une. J’apporte ma carte-mémo et mon carnet."],
-        more: { body: ["Les informations de l’annuaire sont données par les thérapeutes eux-mêmes. L’Institut est une association de formation : il ne soigne pas de patients.", "Un annuaire international existe aussi, en anglais, sur le site de l’ISST."] },
+        more: { body: ["Les informations de l’annuaire sont données par les thérapeutes eux-mêmes. L’Institut est une association de formation : il ne soigne pas de patients [@ifts-annuaire].", "Un annuaire international existe aussi, en anglais, sur le site de l’ISST [@isst-annuaire]."] },
         links: [{ to: LIENS.annuaire.url, label: "Ouvrir l’annuaire", icon: "external" }, { to: "/soutien", label: "Toutes les portes d’entrée", icon: "arrowRight" }] },
       { id: "hq1", kind: "quiz", title: "Une question", quiz: {
         id: "aide-pensees", q: "J’ai des pensées de me faire du mal. Que faire ?",

@@ -84,4 +84,3 @@ const BASES_RAW: BaseData[] = [
 
 export const BASES: BaseData[] = deepFr(BASES_RAW);
 export const baseById = (id: BaseId): BaseData => BASES[id - 1];
-export const baseBySlug = (slug: string): BaseData | undefined => BASES.find((b) => b.slug === slug);

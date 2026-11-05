@@ -88,6 +88,7 @@ function Footer() {
           <li><Link to="/therapie">La thérapie des schémas</Link></li>
           <li><Link to="/mon-espace">Mon espace</Link></li>
           <li><Link to="/glossaire">Les mots du support</Link></li>
+          <li><Link to="/references">Les références</Link></li>
           <li><Link to="/a-propos">À propos, limites et données</Link></li>
         </ul>
       </div>

@@ -58,7 +58,7 @@ const imagerie: Card[] = [
     hint: "Je peux recopier sa phrase sur ma carte-mémo." },
   { id: "geste", kind: "text", icon: "flag", title: "Je répète mon geste en imagination",
     body: ["J’imagine la prochaine fois que cette situation arrivera.", "Je me vois faire mon geste, calmement, du début à la fin."],
-    why: "Imaginer les étapes d’une action, et pas seulement le résultat, aide à passer à l’acte : des études l’ont montré, notamment pour les plans « si… alors… ».",
+    why: "Imaginer les étapes d’une action, et pas seulement le résultat, aide à passer à l’acte : des études l’ont montré, notamment pour les plans « si… alors… » [@taylor1998; @gollwitzer2006; @toli2016].",
     ground: true },
   { id: "retour", kind: "steps", title: "Je reviens au présent",
     steps: [
@@ -66,7 +66,7 @@ const imagerie: Card[] = [
       { title: "J’ouvre les yeux", text: "Je bouge les doigts et les pieds." },
       { title: "Je regarde autour de moi", text: "Je nomme cinq choses que je vois." },
     ],
-    why: "Pour bien revenir ici et maintenant avant de reprendre ma journée." },
+    why: "Pour bien revenir ici et maintenant avant de reprendre ma journée. Nommer ce que je vois est le début de l’exercice des cinq sens [@nhs-grounding]." },
   { id: "apres", kind: "widget", widget: "echelle", param: "imagerie-apres", title: "Et maintenant ?",
     body: ["De 0 à 10, comment je me sens, là, maintenant ?"] },
   { id: "bilan", kind: "widget", widget: "bilan", param: "imagerie", title: "Ce qui a bougé" },

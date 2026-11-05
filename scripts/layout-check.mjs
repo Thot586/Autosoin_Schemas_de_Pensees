@@ -48,6 +48,9 @@ export async function layoutProblems(opts) {
     return `${el.localName}${cls}${t ? ` « ${t} »` : ""}`;
   };
   const related = (a, b) => a === b || a.contains(b) || b.contains(a);
+  // Un panneau modal ouvert (<dialog> en haut de la pile) cache la page : on ne contrôle que son contenu.
+  const modal = [...document.querySelectorAll("dialog[open]")].find((d) => { try { return d.matches(":modal"); } catch { return false; } }) || null;
+  const inScope = (el) => !modal || modal.contains(el);
   const px = (v) => Math.round(v / z);
 
   // 1. Ce qui « encre » l'écran : fragments de texte (une boîte par ligne), images et icônes, boîtes colorées.
@@ -58,7 +61,7 @@ export async function layoutProblems(opts) {
     for (let n; (n = walker.nextNode()); ) {
       const t = n.textContent; const a = t.search(/\S/); if (a < 0) continue;
       const el = n.parentElement;
-      if (!el || el.closest("svg, script, style, noscript, template, .sr-only, .visually-hidden") || !shown(el)) continue;
+      if (!el || !inScope(el) || el.closest("svg, script, style, noscript, template, .sr-only, .visually-hidden") || !shown(el)) continue;
       range.setStart(n, a); range.setEnd(n, t.length - t.match(/\s*$/)[0].length);
       for (const r of range.getClientRects()) {
         if (r.width < 1 || r.height < 1) continue;
@@ -71,7 +74,7 @@ export async function layoutProblems(opts) {
     for (const el of document.body.getElementsByTagName("*")) {
       const tag = el.localName;
       if (tag !== "svg" && el.closest("svg")) continue;
-      if (/^(script|style|template|noscript|br|wbr|dialog)$/.test(tag)) continue;
+      if (/^(script|style|template|noscript|br|wbr|dialog)$/.test(tag) || !inScope(el)) continue;
       const media = /^(svg|img|video|canvas|input|select|textarea|progress|meter|iframe)$/.test(tag);
       if (!media && !decorated(el)) continue;
       if (!shown(el)) continue;
@@ -120,7 +123,7 @@ export async function layoutProblems(opts) {
     }
   }
   for (const el of document.body.getElementsByTagName("*")) {
-    if (el.closest("svg") || !el.textContent.trim()) continue;
+    if (el.closest("svg") || !inScope(el) || !el.textContent.trim()) continue;
     const s = cs(el);
     const hx = /hidden|clip/.test(s.overflowX) && el.scrollWidth > el.clientWidth + 1;
     const hy = /hidden|clip/.test(s.overflowY) && el.scrollHeight > el.clientHeight + 1;
@@ -131,7 +134,7 @@ export async function layoutProblems(opts) {
 
   // 2 bis. Un paragraphe centré reste centré : sa largeur limitée (--measure) ne doit pas le pousser à gauche.
   for (const el of document.querySelectorAll("p, dd, li, blockquote")) {
-    if (cs(el).textAlign !== "center" || !shown(el) || !el.textContent.trim()) continue;
+    if (!inScope(el) || cs(el).textAlign !== "center" || !shown(el) || !el.textContent.trim()) continue;
     const pa = el.parentElement; if (!pa) continue;
     const r = el.getBoundingClientRect(), pr = pa.getBoundingClientRect(), ps = cs(pa);
     const l = r.left - (pr.left + parseFloat(ps.borderLeftWidth) * z + parseFloat(ps.paddingLeft) * z);
@@ -141,7 +144,7 @@ export async function layoutProblems(opts) {
 
   // 3. Zones de clic : assez grandes (hors liens dans une phrase), et jamais l'une sur l'autre.
   const targets = [...document.querySelectorAll('a[href], button, input:not([type="hidden"]), select, textarea, summary, [role="button"], [role="link"], [role="tab"], [role="checkbox"], [role="radio"], [role="switch"], [tabindex="0"]')]
-    .filter((el) => !el.disabled && shown(el) && !el.closest("[inert]") && !el.matches(".sr-only, .visually-hidden"));
+    .filter((el) => inScope(el) && !el.disabled && shown(el) && !el.closest("[inert]") && !el.matches(".sr-only, .visually-hidden"));
   const inSentence = (el) => {
     if (cs(el).display !== "inline" && !el.classList.contains("term")) return false;
     const c = containerOf(el.parentElement || el);
@@ -181,7 +184,7 @@ export async function layoutProblems(opts) {
   }
 
   // 4. Barres fixes : en haut de page et au bout du défilement, aucun contenu ne reste dessous.
-  if (scrollCheck) {
+  if (scrollCheck && !modal) {
     const y0 = scrollY;
     const bars = () => [...document.body.getElementsByTagName("*")].filter((el) => cs(el).position === "fixed" && shown(el) && el.localName !== "dialog" && !el.closest("dialog") && el.getBoundingClientRect().height > 4 && el.getBoundingClientRect().width > innerWidth / 2);
     for (const where of ["haut", "bas"]) {

@@ -1,0 +1,9 @@
+# Fins de ligne : LF dans le dépôt ; Git les convertit selon le poste (CRLF sous Windows avec core.autocrlf).
+* text=auto
+*.png binary
+*.jpg binary
+*.ico binary
+*.pdf binary
+*.docx binary
+*.pptx binary
+*.woff2 binary

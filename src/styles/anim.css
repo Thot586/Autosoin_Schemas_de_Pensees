@@ -1,17 +1,4 @@
 /* ───────── Constellation de l'accueil ───────── */
-.heroart { width: 100%; height: auto; overflow: visible; }
-.heroart a { outline-offset: 6px; }
-.ha-txt-center { font: 700 17px var(--font-title); fill: var(--ink); }
-.ha-txt-num { font: 800 24px var(--font-body); fill: #fff; pointer-events: none; }
-:root[data-theme="dark"] .ha-txt-num { fill: #10181B; }
-@media (prefers-color-scheme: dark) { :root[data-theme="auto"] .ha-txt-num { fill: #10181B; } }
-.ha-node { transform-box: fill-box; transform-origin: center; animation: ha-float 7s ease-in-out infinite; animation-delay: calc(var(--i) * -1.4s); transition: transform .3s var(--ease); cursor: pointer; }
-a:hover .ha-node, a:focus-visible .ha-node { transform: scale(1.12); }
-.ha-dot { transform-box: fill-box; transform-origin: center; animation: ha-twinkle 4.5s ease-in-out infinite; animation-delay: calc(var(--i) * -.7s); }
-.ha-glow { transform-box: fill-box; transform-origin: center; animation: ha-breathe 9s ease-in-out infinite; }
-@keyframes ha-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-@keyframes ha-twinkle { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.25); opacity: .75; } }
-@keyframes ha-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
 
 /* ───────── Lecteur d'animation par étapes ───────── */
 .player { margin: 0; background: var(--surface); border: 1px solid var(--edge); border-radius: var(--radius-l); box-shadow: var(--shadow-1); overflow: hidden; max-width: 760px; }
@@ -67,7 +54,6 @@ a:hover .ha-node, a:focus-visible .ha-node { transform: scale(1.12); }
 .sv-bubble { animation: pop .5s var(--ease) both; transform-box: fill-box; transform-origin: left center; }
 .sv-pop { animation: pop .55s var(--ease) both; transform-box: fill-box; transform-origin: center; }
 @keyframes pop { from { opacity: 0; transform: scale(.88) translateY(6px); } }
-.sv-veil { fill: transparent; }
 
 /* ───────── 1. Lunettes ───────── */
 .lens { display: grid; gap: 12px; justify-items: center; }

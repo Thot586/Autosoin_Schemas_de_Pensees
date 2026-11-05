@@ -71,9 +71,8 @@ const C = {
 
   // ───────── Partie 2 : Les 5 besoins (diapo 7)
   p2: {
-    chapeau: "Quand l’une de ces bases manque durablement, un groupe de schémas peut se former.",
-    ysq: "Le questionnaire abrégé de Young (YSQ-2) mesure ces 15 schémas ; le modèle complet en décrit 18.",
-    complet: "Les trois schémas du modèle complet absents du questionnaire abrégé : recherche d’approbation, négativité, punition.",
+    chapeau: "Quand l’une de ces bases manque durablement, un groupe de schémas peut se former.",
+    complet: "Les trois schémas du modèle complet absents du questionnaire abrégé : recherche d’approbation, négativité, punition [@isst-schema; @mauchand2011].",
     pro: "Diapositive pivot du cours. En haut, le besoin de l’enfant (la base) ; en bas, le domaine de schémas qui se développe quand ce besoin manque. Les besoins sont universels et légitimes : on ne « guérit » pas d’un besoin, on apprend à y répondre. La sécurité de l’attachement est la base des autres : c’est souvent là que se trouvent les schémas les plus profonds.",
     invite: "Repérer la base dont les phrases sonnent le plus vrai ; elle sert de point de départ, sans chercher à tout traiter.",
     // AJOUT WEB : mécanisme en trois temps, à relire
@@ -176,7 +175,7 @@ const C = {
         { id: "lien", titre: "Être en lien", texte: "Vivre avec le thérapeute, puis des proches sûrs, une relation qui répond au besoin.", seul: "En attendant ou en complément d’un suivi : m’appuyer sur un proche sûr, un groupe d’entraide, un atelier ou un club." },
       ],
       but: "Le but : renforcer l’adulte sain, la part de soi qui repère le besoin et y répond, avec bienveillance et fermeté.",
-      pro: "Les quatre leviers se combinent : comprendre seul ne suffit pas, car le schéma se ressent avant de se penser. Le travail émotionnel se fait d’abord en séance, dans un cadre sécurisant. L’adulte sain n’est pas un adulte « parfait » : c’est la part de soi qui sait reconnaître le besoin de l’enfant et poser des limites quand il le faut.",
+      pro: "Les quatre leviers se combinent : comprendre seul ne suffit pas, car le schéma se ressent avant de se penser. Le travail émotionnel se fait d’abord en séance, dans un cadre sécurisant. L’adulte sain n’est pas un adulte « parfait » : c’est la part de soi qui sait reconnaître le besoin de l’enfant et poser des limites quand il le faut. Écrire ce que l’on ressent : l’effet mesuré est petit [@frattaroli2006], et la détresse augmente juste après l’écriture [@smyth1998] ; d’où la phrase de cadre sur les souvenirs très douloureux.",
       autosoin: "« Ressentir » et « Être en lien » ne dépendent pas que du thérapeute. En attendant ou en complément : écrire ce que je ressens, s’appuyer sur un proche sûr ou un groupe d’entraide. Un souvenir très douloureux se travaille avec un professionnel.",
     },
   },
@@ -215,8 +214,7 @@ const C = {
         { id: "vrai", court: "Ça sonne vrai", def: "la phrase me parle" },
         { id: "souvent", court: "Ça revient souvent", def: "plusieurs fois ces derniers mois" },
         { id: "cout", court: "Ça me coûte", def: "ça me gêne au quotidien" },
-      ],
-      ysq: "Pour un vrai repérage : le questionnaire YSQ-2, avec un(e) professionnel(le).",
+      ],
       pro: "Le critère, c’est la phrase : on peut s’y reconnaître sans reconnaître les exemples, et un exemple banal ne suffit pas à retenir un schéma. La colonne « Par exemple » donne une situation et un ressenti ; la colonne « Il me pousse à… » décrit deux réflexes possibles du schéma (ce ne sont pas des conseils), car un même schéma peut produire des conduites opposées. Ce n’est ni un test ni un diagnostic : les cases aident à choisir où consacrer du temps, pas à étiqueter la personne. Ne pas commenter les choix en groupe, sauf si la personne le souhaite.",
       notesBase: [
         "Les cinq schémas de cette base se ressemblent : plusieurs peuvent sonner vrai. Le choix se fait ensuite sur ce qui coûte le plus.",
@@ -225,7 +223,7 @@ const C = {
         "Le contrôle des émotions et l’exigence sont souvent valorisés (sang-froid, sérieux). La case « ça me coûte » est ici la plus utile.",
         "Ces schémas sont plus souvent repérés par l’entourage que par la personne : partir d’une situation de frustration récente, sans reproche. Les droits exagérés protègent parfois d’un manque vécu ailleurs.",
       ],
-      ysqLong: "Pour un vrai repérage : le YSQ-2 (Young Schema Questionnaire, 2e version ; forme courte S2 : 75 questions et 15 schémas, comme ce support), passé et interprété avec un professionnel formé. C’est un auto-questionnaire de repérage, pas un diagnostic. Version française : Mauchand, Lachenal-Chevallet et Cottraux, L’Encéphale, 2011 ; 37 : 138-143. Ces pages servent à s’orienter, pas à mesurer.",
+      ysqLong: "Pour un vrai repérage : le YSQ-2 (Young Schema Questionnaire, 2e version ; forme courte S2 : 75 questions et 15 schémas, comme ce support), passé et interprété avec un professionnel formé. C’est un auto-questionnaire de repérage, pas un diagnostic. Version française validée [@mauchand2011]. Ces pages servent à s’orienter, pas à mesurer.",
     },
     priorites: {
       titre: "Mes priorités",
@@ -299,7 +297,7 @@ const C = {
       ],
       repetition: { titre: "Si cela se répète", texte: "Une critique isolée n’est pas du harcèlement moral. Si elle se répète et m’atteint, je ne reste pas seul(e) : je note les faits et j’en parle.", faire: "Noter la date, le lieu, les témoins et les mots exacts." },
       danger: "Si je me sens en danger ou sous l’emprise de l’autre, je ne le fais pas seul(e) : voir « Quand demander de l’aide ».",
-      pro: "Même méthode que la page « En parler avec mon chef », appliquée à trois situations : au travail, en couple, entre amis. Les quatre temps s’inspirent de la méthode DESC (décrire, exprimer, spécifier, conclure ; S. A. Bower et G. H. Bower, Asserting Yourself, Addison-Wesley, 1976), souvent utilisée pour recadrer ou pour exprimer un désaccord avec sa hiérarchie. Points de vigilance : ne pas la proposer telle quelle si la relation comporte de la peur, des menaces ou de l’emprise : dans ce cas, ne pas affronter seul(e) et s’appuyer sur la page « Quand demander de l’aide » (le 3919 est une écoute pour les victimes de violences sexistes et sexuelles). Une critique isolée, même maladroite, ne constitue pas un harcèlement moral ; celui-ci suppose des agissements répétés qui dégradent les conditions de travail et peuvent altérer la santé (service-public.gouv.fr, fiche « Harcèlement moral »). Si cela se répète : conserver des éléments datés (dates, lieux, témoins, messages), signaler par écrit à la hiérarchie, aux ressources humaines, à un représentant du personnel ou au médecin du travail, et ne pas rester seul(e). Cette page ne remplace pas un avis juridique. Les phrases sont des exemples : chacun les écrit avec ses mots.",
+      pro: "Même méthode que la page « En parler avec mon chef », appliquée à trois situations : au travail, en couple, entre amis. Les quatre temps s’inspirent de la méthode DESC (décrire, exprimer, spécifier, conclure [@bower1976]), souvent utilisée pour recadrer ou pour exprimer un désaccord avec sa hiérarchie. Points de vigilance : ne pas la proposer telle quelle si la relation comporte de la peur, des menaces ou de l’emprise : dans ce cas, ne pas affronter seul(e) et s’appuyer sur la page « Quand demander de l’aide » (le 3919 est une écoute pour les victimes de violences sexistes et sexuelles). Une critique isolée, même maladroite, ne constitue pas un harcèlement moral ; celui-ci suppose des agissements répétés qui dégradent les conditions de travail et peuvent altérer la santé (service-public.gouv.fr, fiche « Harcèlement moral »). Si cela se répète : conserver des éléments datés (dates, lieux, témoins, messages), signaler par écrit à la hiérarchie, aux ressources humaines, à un représentant du personnel ou au médecin du travail, et ne pas rester seul(e). Cette page ne remplace pas un avis juridique. Les phrases sont des exemples : chacun les écrit avec ses mots.",
       invite: "Choisir une seule situation, écrire les trois phrases, les lire à voix haute, puis choisir un moment calme. Noter ensuite ce qui s’est vraiment passé dans le carnet.",
     },
     plan: {
@@ -355,7 +353,7 @@ const C = {
         { titre: "Un proche sûr ou un groupe", texte: "Un groupe d’entraide, un atelier, une personne qui sait écouter : ils soutiennent, sans remplacer un suivi." },
       ],
       danger: "Si je me sens en danger ou si j’ai des pensées de me faire du mal : 3114 ou 15, sans attendre un rendez-vous.",
-      pro: "Page ajoutée pour les personnes qui utilisent ce support sans suivi en cours. Le médecin traitant est la porte d’entrée la plus simple. Mon soutien psy (ameli.fr, page du 16 septembre 2026) : 12 séances par année civile (une d’évaluation, puis jusqu’à 11 de suivi), 50 € la séance sans dépassement, remboursées à 60 % par l’Assurance Maladie, accès direct sans ordonnance depuis le 15 juin 2024, dès 3 ans, pour une souffrance psychique légère à modérée. Exclues en général : les personnes déjà suivies en psychiatrie, en ALD psychiatrique, avec des antécédents psychiatriques sévères récents, en situation de handicap psychique ou en arrêt de plus de 6 mois pour motif psychiatrique ; avis psychiatrique en cas de risque suicidaire ou de trouble sévère. Annuaire : Institut Français de Thérapie des Schémas (IFTS), association de formation qui ne prend pas en charge de patients ; thérapeutes formés, certains certifiés par l’ISST ; informations déclarées par les thérapeutes. Annuaire international : schematherapysociety.org (Find a Therapist).",
+      pro: "Page ajoutée pour les personnes qui utilisent ce support sans suivi en cours. Le médecin traitant est la porte d’entrée la plus simple. Mon soutien psy [@ameli-msp] : 12 séances par année civile (une d’évaluation, puis jusqu’à 11 de suivi), 50 € la séance sans dépassement, remboursées à 60 % par l’Assurance Maladie, accès direct sans ordonnance depuis le 15 juin 2024, dès 3 ans, pour une souffrance psychique légère à modérée. Exclues en général : les personnes déjà suivies en psychiatrie, en ALD psychiatrique, avec des antécédents psychiatriques sévères récents, en situation de handicap psychique ou en arrêt de plus de 6 mois pour motif psychiatrique ; avis psychiatrique en cas de risque suicidaire ou de trouble sévère. Annuaire : Institut Français de Thérapie des Schémas (IFTS), association de formation qui ne prend pas en charge de patients ; thérapeutes formés, certains certifiés par l’ISST ; informations déclarées par les thérapeutes. Annuaire international : schematherapysociety.org (Find a Therapist).",
     },
     retenir: {
       titre: "À retenir",

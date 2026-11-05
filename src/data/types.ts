@@ -23,5 +23,3 @@ export interface BaseData {
   pro: string; autosoin: string;
   anim: { id: AnimId; titre: string; explication: string; essai: string };
 }
-
-export interface Part { n: number; slug: string; path: string; title: string; short: string; intro: string; minutes: number }

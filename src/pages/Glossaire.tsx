@@ -3,6 +3,7 @@ import { Page } from "../components/ui";
 import { Icon } from "../components/Icon";
 import { Link, canGoBack } from "../lib/router";
 import { GLOSSAIRE, GROUPS } from "../data/glossaire";
+import { CiteText } from "../components/Cite";
 
 const norm = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
@@ -13,7 +14,7 @@ export default function Glossaire() {
   const n = norm(q.trim());
   const list = useMemo(() => {
     const sorted = [...GLOSSAIRE].sort((a, b) => a.term.localeCompare(b.term, "fr"));
-    return n ? sorted.filter((e) => norm(`${e.term} ${e.short} ${e.def} ${e.more || ""}`).includes(n)) : sorted;
+    return n ? sorted.filter((e) => norm(`${e.term} ${e.short} ${e.def} ${e.more || ""}`.replace(/\[n?@[^\]]+\]/g, "")).includes(n)) : sorted;
   }, [n]);
   return (
     <Page title="Les mots du support">
@@ -43,8 +44,8 @@ export default function Glossaire() {
                       <p className="gl-short">{e.short}</p>
                       <details className="gl-more">
                         <summary>Plus de détail</summary>
-                        <p>{e.def}</p>
-                        {e.more && <p className="muted">{e.more}</p>}
+                        <p><CiteText text={e.def} /></p>
+                        {e.more && <p className="muted"><CiteText text={e.more} /></p>}
                         {e.to && <p><Link to={e.to}>{e.toLabel || "En savoir plus"} <Icon name="arrowRight" size={16} /></Link></p>}
                       </details>
                     </dd>

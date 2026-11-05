@@ -1,6 +1,7 @@
 import { Page } from "../components/ui";
 import { Icon, type IconName } from "../components/Icon";
 import { Link } from "../lib/router";
+import { Terms } from "../learn/Rich";
 
 const TOOLS: { to: string; icon: IconName; title: string; when: string }[] = [
   { to: "/outils/pause", icon: "wind", title: "La pause en trois temps", when: "Quand une émotion monte : stop, nommer, choisir. Vingt secondes." },
@@ -42,7 +43,7 @@ export default function Outils() {
         </ul>
 
         <h2 className="h-sec">Exercices inspirés de la thérapie</h2>
-        <p className="tools-warn"><Icon name="info" size={18} /><span>Deux versions simplifiées de techniques de séance (l’imagerie, le dialogue des chaises). Elles ne remplacent pas un suivi. Chacune commence par un avertissement et par les adresses utiles : <Link to="/soutien">où trouver un soutien</Link>.</span></p>
+        <Terms><p className="tools-warn"><Icon name="info" size={18} /><span>Deux versions simplifiées de techniques de séance (l’imagerie, le dialogue des chaises). Elles ne remplacent pas un suivi. Chacune commence par un avertissement et par les adresses utiles : <Link to="/soutien">où trouver un soutien</Link>.</span></p></Terms>
         <ul className="tools">
           {EXERCICES.map((t) => (
             <li key={t.to}>

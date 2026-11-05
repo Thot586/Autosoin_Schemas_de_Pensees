@@ -5,6 +5,7 @@ import { chapterOf, dueToday, LESSONS, lessonIndex, nextToDo } from "../learn/le
 import { lessonState, quizState } from "../learn/progress";
 import { SCHEMAS } from "../data/schemas";
 import { focusSchema, isResumable, last, retained, ticks, tickCount } from "../lib/state";
+import { Terms } from "../learn/Rich";
 
 /** Accueil : où j'en étais, quoi ensuite, et que faire si ça ne va pas. */
 export default function Home() {
@@ -30,7 +31,7 @@ export default function Home() {
         <header className="home-hero">
           <BrandMark size={44} />
           <h1>Comprendre ses schémas</h1>
-          <p className="lead">Des leçons courtes pour comprendre ses façons de réagir, à son rythme. D’après la thérapie des schémas de Jeffrey Young.</p>
+          <Terms><p className="lead">Des leçons courtes pour comprendre ses façons de réagir, à son rythme. D’après la thérapie des schémas de Jeffrey Young.</p></Terms>
         </header>
 
         {next ? (

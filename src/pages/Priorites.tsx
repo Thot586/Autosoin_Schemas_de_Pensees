@@ -5,6 +5,7 @@ import { SCHEMAS, schemasOfBase } from "../data/schemas";
 import { BASES } from "../data/bases";
 import { CONTENT } from "../data/content";
 import { ticks, retained, focusSchema, situations, tickCount } from "../lib/state";
+import { Terms } from "../learn/Rich";
 
 const C = CONTENT.p5.priorites;
 
@@ -30,7 +31,7 @@ export default function Priorites() {
       <div className="wrap-narrow page-pad">
         <Link to="/schemas" className="back"><Icon name="arrowLeft" size={18} /> Mes schémas</Link>
         <h1>Mes priorités</h1>
-        <p className="lead">{C.consigne}</p>
+        <Terms><p className="lead">{C.consigne}</p></Terms>
 
         <ol className="mini-steps">
           {C.etapes.map((e, i) => <li key={e.titre}><span className="mini-n">{i + 1}</span><span><b>{e.titre}</b> {e.texte}</span></li>)}
@@ -94,7 +95,7 @@ export default function Priorites() {
           </Link>
         )}
         {kept.length > 0 && <p className="mt"><Button to="/outils/carte-memo" variant="soft" icon="copy">Faire ma carte-mémo</Button></p>}
-        <p className="small muted mt"><Icon name="info" size={15} /> {C.invite}</p>
+        <Terms><p className="small muted mt"><Icon name="info" size={15} /> {C.invite}</p></Terms>
         <Pro>{C.pro}</Pro>
       </div>
     </Page>

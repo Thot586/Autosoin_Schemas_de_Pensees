@@ -6,6 +6,7 @@ import { SCHEMAS, schemasOfBase } from "../data/schemas";
 import { focusSchema, retained, ticks, tickCount } from "../lib/state";
 import { lessonState } from "../learn/progress";
 import { SCHEMA_PARTS } from "../learn/schemaLessons";
+import { Terms } from "../learn/Rich";
 
 /** « Mes schémas » : retrouver les miens, puis les lire un par un. */
 export default function Schemas() {
@@ -21,7 +22,7 @@ export default function Schemas() {
     <Page title="Mes schémas">
       <div className="wrap page-pad">
         <h1>Mes schémas</h1>
-        <p className="lead">Quinze schémas. Je repère ceux qui me parlent, puis je commence par un seul.</p>
+        <Terms><p className="lead">Quinze schémas. Je repère ceux qui me parlent, puis je commence par un seul.</p></Terms>
 
         <section className="hub-cards" aria-label="Retrouver mes schémas">
           <Link to="/trouver" className="act-card tone-brand">

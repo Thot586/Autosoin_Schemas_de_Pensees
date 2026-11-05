@@ -5,6 +5,7 @@ import { lessonById } from "../learn/lessons";
 import { LessonFull } from "../learn/LessonFull";
 import { LIENS } from "../data/liens";
 import { REFERENCES } from "../data/references";
+import { Terms } from "../learn/Rich";
 
 /** « La thérapie des schémas » : la leçon sur une page, les références vérifiées et l'annuaire. */
 export default function Therapie() {
@@ -19,7 +20,7 @@ export default function Therapie() {
 
         <LessonFull lesson={l} />
 
-        <section className="full-card" aria-labelledby="annuaire-h">
+        <Terms><section className="full-card" aria-labelledby="annuaire-h">
           <h2 className="full-h" id="annuaire-h"><Icon name="users" size={22} /> Trouver un thérapeute formé</h2>
           <p>L’annuaire de l’Institut Français de Thérapie des Schémas (IFTS) recense des thérapeutes formés à cette approche, en France, en Belgique, en Suisse et au Maroc ; certains sont aussi certifiés par la société internationale (ISST). Les informations sont données par les thérapeutes eux-mêmes. L’Institut est une association de formation : il ne soigne pas de patients.</p>
           <div className="row">
@@ -27,7 +28,7 @@ export default function Therapie() {
             <a href={LIENS.annuaireIsst.url} target="_blank" rel="noopener noreferrer" className="btn btn-ghost"><Icon name="external" size={20} /><span>{LIENS.annuaireIsst.label}<span className="sr-only"> (nouvel onglet)</span></span></a>
           </div>
           <p className="small muted mt">J’en parle d’abord avec mon équipe de soins ou mon médecin traitant. J’apporte ma carte-mémo et mon carnet : ils aident à démarrer.</p>
-        </section>
+        </section></Terms>
 
         <section className="full-card" aria-labelledby="refs-h">
           <h2 className="full-h" id="refs-h"><Icon name="book" size={22} /> Sources</h2>

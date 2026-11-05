@@ -18,12 +18,20 @@ Version 0.2 (novembre 2026) : le support est réorganisé en **leçons courtes, 
   - les trois façons de réagir ;
   - le chemin d’une thérapie.
 - Les 15 schémas gardent leurs trois temps : comprendre, dans le moment, au fil des semaines. Ils sont découpés en cartes.
+- **Mots expliqués** : les termes techniques et les notions difficiles sont surlignés dans le texte.
+  - Au survol de la souris (ou au clavier), une phrase simple s’affiche.
+  - Au clic ou au toucher, le détail s’ouvre dans un volet, sans quitter la page ; « Revenir à ma lecture » le referme.
+  - La page « Les mots du support » les regroupe (53 mots). Son bouton « Revenir à ma page » ramène à la même carte de la leçon.
+  - Un mot n’est surligné qu’une fois par carte. La page « Besoin d’aide ? » n’en a aucun, pour ne pas distraire.
+  - Ce système remplace les « phrases-ponts » (une phrase de plus dans le texte pour préparer un mot entendu en séance) : le mot reste dans le texte, et seuls ceux qui le veulent ouvrent l’explication. Exemple : « mode », dans la leçon sur l’adulte sain.
+- **Mode accompagnant(e)** : il est maintenant activé par défaut, et les « Repères pour l’accompagnant(e) » s’affichent. Il se coupe dans les réglages.
 
 **À relire en priorité.**
 1. Les textes **nouveaux** du chapitre « Avant de commencer » (§ 2), en particulier la leçon sur la thérapie des schémas et celle sur les limites.
 2. Les **85 questions** et leurs explications : voir [`QUESTIONS.md`](QUESTIONS.md).
 3. Les **légendes** des trois nouvelles animations (§ 4).
 4. Les **corrections factuelles** issues de la vérification du 5 novembre 2026 (§ 5). Ce sont les numéros d’aide, *Mon soutien psy* et l’annuaire.
+5. Les **phrases simples** du glossaire, qui s’affichent au survol des mots (`src/data/glossaire.ts`, champ `short`), et les nouvelles définitions des soins (§ 5).
 
 **Décisions qui vous appartiennent** : voir § 7. Il s’agit des mentions légales, du logo du CRR, de la licence, de la diffusion des fiches PDF et Word, et du retrait du bandeau « Version de travail ».
 
@@ -187,6 +195,12 @@ Les références sont passées par PubMed, Crossref et Europe PMC, avec DOI, tit
 | Chaises : mécanismes | Ils sont présentés comme des **hypothèses** : mise à distance de la voix critique, émotion vécue, répétition de la réponse. Nommer son émotion apaise la réaction du cerveau à la peur, mais c’est un résultat de laboratoire. | Pugh 2017, doi:10.1007/s10608-016-9805-x ; Kroener 2024 ; Lieberman 2007, doi:10.1111/j.1467-9280.2007.01916.x |
 | Répéter son geste en imagination | Imaginer les étapes d’une action (et pas seulement le résultat) aide à passer à l’acte, notamment avec les plans « si… alors… ». | Taylor 1998, doi:10.1037/0003-066X.53.4.429 ; Gollwitzer & Sheeran 2006, doi:10.1016/S0065-2601(06)38002-1 ; Toli 2016, doi:10.1111/bjc.12086 |
 | CMP (ajouté aux portes d’entrée) | Lieu de soins public, organisé selon le lieu d’habitation, pour toute personne en difficulté psychique (CMP adultes, CMP enfants et adolescents). On peut le contacter directement ; les consultations sont gratuites, entièrement financées par la Sécurité sociale. | Psycom, fiche « Centre médico-psychologique (CMP) », mise à jour le 04/03/2024 |
+| Mode (glossaire) | « Un état du moment : ce que je ressens, et comment j’y fais face. » En détail : les états émotionnels et les façons de faire face que chacun traverse, d’un moment à l’autre. Le support n’en garde qu’un, l’adulte sain. | ISST, page « Schema Therapy » (schematherapysociety.org/Schema-Therapy, texte de J. Young, 2003) |
+| Trouble borderline (glossaire) | Aussi appelé trouble de l’état limite : un trouble de la personnalité caractérisé par une instabilité émotionnelle qui dure dans le temps. | Psycom, page « Trouble de la personnalité borderline », mise à jour le 15/09/2026 |
+| EMDR (glossaire) | Désensibilisation et retraitement par les mouvements des yeux, pour des souvenirs traumatiques que le cerveau n’a pas fini de traiter. | Psycom, page « Le trouble dissociatif de l’identité (TDI) », qui décrit l’EMDR, mise à jour le 01/09/2026 |
+| Psychoéducation (glossaire) | Aussi appelée éducation thérapeutique du patient (ETP) : recevoir des informations sur le trouble, ses symptômes et les moyens d’y faire face. | Psycom, page « Trouble de la personnalité borderline », mise à jour le 15/09/2026 |
+| TCC, exposition, psychodrame (glossaire) | TCC : comprendre et changer peu à peu les pensées à l’origine de comportements qui font souffrir. Exposition : s’exposer progressivement, d’abord en imagination. Psychodrame : créé par J. Moreno, rejouer des scènes de sa vie devant un groupe. | Psycom, brochure « Psychothérapies » (mise à jour en février 2021) |
+| Gestalt-thérapie, thérapie centrée sur les émotions (glossaire) | La Gestalt-thérapie est associée à F. Perls, qui a développé le travail avec les chaises. La thérapie centrée sur les émotions en fait un outil central contre l’autocritique. | Kroener 2024 ; Kellogg 2014 ; Wang, Douris et Timulak 2026, doi:10.1002/cpp.70346 |
 | Se recentrer | Les cinq sens : 5 choses que je vois, 4 que je touche, 3 que j’entends, 2 que je sens, 1 que je goûte. C’est une fiche de pratique clinique, pas un essai. | NHS Hull, fiche « Grounding 5-4-3-2-1 », 2020 |
 | Lectures | *La thérapie des schémas* : De Boeck, traduction B. Pascal, 3e édition 2024. *Je réinvente ma vie* : Éditions de l’Homme, 1995, traduction M. Perron, réédition 2018. *Cambridge Guide to Schema Therapy* : Brockman, Simpson, Hayes, van der Wijngaart, Smout, 2023. | Catalogue BnF ; Cambridge Core, doi:10.1017/9781108918145 |
 
@@ -197,7 +211,7 @@ Les références sont passées par PubMed, Crossref et Europe PMC, avec DOI, tit
 3. Le titre exact du livre de Young de 1990 n’a pas été trouvé en catalogue. Il n’est pas cité.
 4. La durée d’une envie (« une dizaine de minutes environ », animation « vague ») est un ordre de grandeur pédagogique, pas une mesure.
 5. **Exercices faits seul(e)** : aucune étude n’a porté sur la réécriture d’un souvenir d’enfance ou d’un traumatisme faite seul(e), ni sur le dialogue des chaises sans thérapeute. Les deux exercices sont des adaptations prudentes, limitées à des scènes récentes et légères, et les leçons le disent. À valider par l’équipe clinique.
-6. **Psychose** : les grands essais sur l’imagerie l’excluent ; de petites études ont été menées, toujours avec des thérapeutes spécialisés. D’où la mise en garde des exercices (voix entendues, impression d’irréalité).
+6. **Psychose** et **trouble de la personnalité** : pas d’entrée de glossaire, faute de définition générale vérifiée (pour les troubles de la personnalité, Psycom ne décrit que le trouble borderline). Pour la psychose : les grands essais sur l’imagerie l’excluent ; de petites études ont été menées, toujours avec des thérapeutes spécialisés. D’où la mise en garde des exercices (voix entendues, impression d’irréalité).
 7. **Lieu calme** : il peut rendre triste ou faire peur à certaines personnes. Seuls des arguments indirects l’appuient (peur de la compassion, anxiété déclenchée par la relaxation). Une alternative est proposée.
 8. **Écrire ce que je ressens** (diaporama, levier « Ressentir ») : l’effet de l’écriture expressive est petit, et la détresse augmente juste après avoir écrit (Frattaroli 2006, doi:10.1037/0033-2909.132.6.823 ; Smyth 1998, doi:10.1037/0022-006X.66.1.174). Une phrase de cadre a été ajoutée.
 9. **Chiffres de la méta-analyse Kip 2023** : un rectificatif de 2025 n’a pas pu être lu. Aucun chiffre n’est donc affiché, seulement la conclusion.

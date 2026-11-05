@@ -18,7 +18,7 @@ export const AIDE: Lesson[] = [
         body: ["L’adulte sain voit le besoin de l’enfant et y répond."],
         quote: "« Je comprends que tu aies peur. Et je fais quand même le pas. »" },
       { id: "a3", kind: "text", icon: "info", title: "L’adulte sain, ce n’est pas…", list: P4.adulte.pas,
-        after: [P4.adulte.muscle] },
+        after: [P4.adulte.muscle, "En thérapie, on dit que l’adulte sain est un [[mode|mode]] : un état dans lequel je peux me trouver, et que je peux renforcer."] },
       { id: "a4", kind: "reflect", title: "Ma phrase d’adulte sain", noteId: "phrase-adulte",
         prompt: "Une phrase que l’adulte d’aujourd’hui pourrait me dire, avec bienveillance et fermeté.",
         hint: "Exemple : « Je peux y aller, et repartir quand je veux. » Je pourrai la recopier sur ma carte-mémo." },

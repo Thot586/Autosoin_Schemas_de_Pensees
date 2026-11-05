@@ -12,7 +12,7 @@ export const AVANT: Lesson[] = [
       { id: "b1", kind: "text", icon: "sparkles", title: "Comprendre ses schémas",
         body: ["Ce support explique les [[schema|schémas]] : des façons de voir et de réagir, apprises tôt dans la vie.", "Il s’inspire de la thérapie des schémas de Jeffrey Young."] },
       { id: "b2", kind: "text", icon: "book", title: "Une idée par écran",
-        body: ["Je lis une carte, puis j’appuie sur « Suivant ».", "Je peux revenir en arrière, ou écouter le texte avec le bouton « Écouter »."] },
+        body: ["Je lis une carte, puis j’appuie sur « Suivant ».", "Je peux revenir en arrière, ou écouter le texte avec le bouton « Écouter ».", "Un mot surligné s’explique : je passe la souris dessus, ou je le touche pour lire le détail."] },
       { id: "b3", kind: "text", icon: "clock", title: "À mon rythme",
         body: ["Une leçon dure 2 à 5 minutes. Une par jour suffit.", "Je peux quitter à tout moment : je reprendrai au même endroit."] },
       { id: "b4", kind: "text", icon: "star", title: "Des questions pour retenir",

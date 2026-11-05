@@ -27,6 +27,8 @@ Application web de psychoéducation et d’autosoin autour des **15 schémas de 
   - « À retenir » la termine ;
   - **« Mon rappel du jour »** pose trois questions, en revenant plus souvent sur ce qui est à revoir (boîtes de Leitner) ;
   - « Ce que j’ai retenu » dans Mon espace.
+- **Mots expliqués** : les termes techniques et les notions difficiles sont surlignés. Au survol (ou au clavier), une phrase simple ; au clic ou au toucher, le détail s’ouvre dans un volet, sans quitter la page. La page « Les mots du support » (53 mots) a un bouton « Revenir à ma page ». Un mot n’est surligné qu’une fois par carte ; la page « Besoin d’aide ? » n’en a aucun.
+- **Mode accompagnant(e)** : activé par défaut, il affiche les repères pour le professionnel ; il se coupe dans les réglages.
 - **Questions** : 85 au total. Elles portent sur les idées, jamais sur la personne. Il n’y a ni note ni rouge, et une explication suit chaque réponse.
 - **Mes schémas** :
   - la fiche « Retrouver mes schémas », un schéma par écran ;
@@ -110,7 +112,7 @@ Une carte de leçon a un type parmi les suivants :
 - `links` : boutons ;
 - `quiz` : question.
 
-Dans les textes, `[[id|mot]]` ouvre la définition du glossaire et `**gras**` met en avant.
+Dans les textes, `**gras**` met en avant. Les mots du glossaire sont repérés tout seuls grâce au champ `match` de `src/data/glossaire.ts` (une seule fois par carte, à leur première apparition) ; `[[id|mot]]` marque à la main un mot sans `match` (par exemple « mode »). Hors des leçons, `<Terms>` (`src/learn/Rich.tsx`) fait le même repérage dans du JSX, sans toucher aux titres, liens et boutons.
 
 ## Choix techniques
 

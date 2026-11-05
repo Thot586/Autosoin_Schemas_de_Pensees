@@ -38,10 +38,17 @@ for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900]
       h1: document.querySelector("h1")?.textContent?.trim(),
       overflow: document.documentElement.scrollWidth - innerWidth,
       notFound: !!document.querySelector(".notfound"),
+      // un mot expliqué est un bouton : jamais dans un lien, un autre bouton ou une étiquette
+      nested: document.querySelectorAll("a .term, button .term, label .term, summary .term").length,
+      // … ni dans une boîte qui couperait son infobulle (overflow autre que visible)
+      clipped: [...document.querySelectorAll(".term")].filter((t) => {
+        for (let a = t.parentElement; a && a !== document.body; a = a.parentElement) { const o = getComputedStyle(a); if (o.overflowX !== "visible" || o.overflowY !== "visible") return true; }
+        return false;
+      }).map((t) => t.textContent).slice(0, 3),
       links: [...document.querySelectorAll("a[href]")].map((a) => a.getAttribute("href")).filter((x) => x && x.startsWith("/") && !x.startsWith("//")),
     }));
     for (const l of info.links) { const p = l.split("#")[0].split("?")[0]; if (p && !seen.has(p) && !/\.(ics|json|csv|png|svg|webmanifest|pdf|docx)$/.test(p)) queue.push(p); }
-    if (!info.h1 || info.overflow > 1 || info.notFound || errs.length) { bad++; check(false, `${name} ${r} : ${JSON.stringify({ h1: info.h1, overflow: info.overflow, notFound: info.notFound, errs: errs.slice(0, 3) })}`); }
+    if (!info.h1 || info.overflow > 1 || info.notFound || info.nested || info.clipped.length || errs.length) { bad++; check(false, `${name} ${r} : ${JSON.stringify({ h1: info.h1, overflow: info.overflow, notFound: info.notFound, nested: info.nested, clipped: info.clipped, errs: errs.slice(0, 3) })}`); }
   }
   check(bad === 0, `${name} : ${seen.size} pages parcourues, ${bad} problème(s)`);
   await ctx.close();
@@ -89,7 +96,7 @@ for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900]
   await page.goto(origin + "/schemas", { waitUntil: "networkidle" });
   const schemas = [...new Set(await page.$$eval(".sgroup a.srow", (as) => as.map((a) => a.getAttribute("href"))))];
   const routes = [...lessons, ...schemas.flatMap((h) => ["comprendre", "moment", "semaines"].map((p) => `${h}/${p}`)), "/trouver", "/outils/imagerie", "/outils/chaises"];
-  let cards = 0, steps = 0, bad = 0;
+  let cards = 0, steps = 0, terms = 0, bad = 0;
   for (const r of routes) {
     errs = [];
     await page.goto(origin + r, { waitUntil: "networkidle" });
@@ -109,11 +116,22 @@ for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900]
         for (const b of await page.locator(".gate .fiche-c").all()) await b.click();
       }
       if (await page.locator(".quiz-o").count()) await page.locator(".quiz-o").first().click();
+      const tw = await page.evaluate(() => ({
+        n: document.querySelectorAll(".lcard .term").length,
+        nested: document.querySelectorAll("a .term, button .term, label .term, summary .term").length,
+        dup: (() => { const ids = [...document.querySelectorAll(".lcard .term")].map((b) => b.closest(".term-w")?.querySelector(".term-tip")?.textContent); return ids.length - new Set(ids).size; })(),
+        clip: [...document.querySelectorAll(".lcard .term")].filter((t) => {
+          for (let a = t.parentElement; a && a !== document.body; a = a.parentElement) { const o = getComputedStyle(a); if (o.overflowX !== "visible" || o.overflowY !== "visible") return true; }
+          return false;
+        }).length,
+      }));
+      terms += tw.n;
+      if (tw.nested || tw.dup || tw.clip) { bad++; check(false, `${r} carte ${k + 1} : mot expliqué mal placé ou répété ${JSON.stringify(tw)}`); }
       await page.click(".lesson-next");
     }
     if (!reached || !navOk || errs.length) { bad++; check(false, `${r} : ${JSON.stringify({ fin: reached, barre: navOk, errs: errs.slice(0, 3) })}`); }
   }
-  check(bad === 0 && routes.length >= 22 + 45 + 3, `toutes les cartes : ${routes.length} parcours, ${cards} cartes, ${steps} étapes d’animation, ${bad} problème(s)`);
+  check(bad === 0 && routes.length >= 22 + 45 + 3, `toutes les cartes : ${routes.length} parcours, ${cards} cartes, ${steps} étapes d’animation, ${terms} mots expliqués, ${bad} problème(s)`);
   await ctx.close();
 }
 
@@ -132,6 +150,68 @@ for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900]
   check(await page.locator(".lesson-next").isDisabled() && (await page.locator(".lesson-next").innerText()).includes("pause"), "exercice : à 8 sur 10, « Suivant » bloqué, la pause est proposée");
   await page.locator(".w-scale input[type=range]").fill("3");
   check(!(await page.locator(".lesson-next").isDisabled()), "exercice : à 3 sur 10, on peut continuer");
+  await ctx.close();
+}
+
+// 3 ter. Mots expliqués : survol = une phrase simple ; clic = le détail ; retour facile à la lecture.
+{
+  const ctx = await browser.newContext({ viewport: { width: 1366, height: 900 } });
+  const page = await ctx.newPage();
+  await page.goto(origin + "/apprendre/therapie", { waitUntil: "networkidle" });
+  for (let k = 0; k < 8 && !(await page.locator(".lcard h2").innerText()).includes("Est-ce que ça marche"); k++) await page.click(".lesson-next");
+  const card = await page.locator(".lcard h2").innerText();
+  const term = page.locator(".lcard .term").first();
+  check(await term.count() === 1, "mots expliqués : un mot surligné sur la carte");
+  await term.hover(); await page.waitForTimeout(600);
+  const tip = page.locator(".lcard .term-tip").first();
+  const tb = await tip.boundingBox();
+  check(await tip.isVisible() && !!tb && tb.x >= 0 && tb.x + tb.width <= 1366, "mots expliqués : au survol, une phrase simple, dans l’écran");
+  await term.click();
+  const dlg = page.locator("dialog.glossary-sheet[open]");
+  check(await dlg.isVisible() && (await dlg.locator(".glossary-short").innerText()).length > 10, "mots expliqués : au clic, le détail s’ouvre sur la page");
+  await page.keyboard.press("Escape");
+  check(!(await dlg.count()) && (await page.evaluate(() => document.activeElement?.classList.contains("term"))), "mots expliqués : Échap referme, le focus revient sur le mot");
+  await term.click();
+  await dlg.locator("text=Tous les mots").click();
+  await page.waitForURL(/\/glossaire#/);
+  const id = new URL(page.url()).hash.slice(1);
+  await page.waitForFunction((x) => { const el = document.getElementById(x); if (!el) return false; const r = el.getBoundingClientRect(); return r.top >= 0 && r.top < innerHeight; }, id, { timeout: 4000 }).catch(() => {});
+  check(await page.evaluate((x) => { const r = document.getElementById(x)?.getBoundingClientRect(); return !!r && r.top >= 0 && r.top < innerHeight; }, id), `glossaire : arrive sur le mot (#${id})`);
+  await page.click(".back-btn");
+  await page.waitForURL(/\/apprendre\/therapie$/);
+  await page.waitForSelector(".lcard h2");
+  check(await page.locator(".lcard h2").innerText() === card, "glossaire : « Revenir à ma page » ramène à la même carte");
+  await page.goto(origin + "/glossaire", { waitUntil: "networkidle" });
+  check(await page.locator("a.back").innerText().then((t) => t.includes("Accueil")), "glossaire ouvert directement : le lien de retour mène à l’accueil");
+  await page.fill("#gl-q", "CMP");
+  check(await page.locator(".gl-item").count() >= 1 && await page.locator("#cmp").isVisible(), "glossaire : la recherche trouve « CMP »");
+  await page.goto(origin + "/soutien", { waitUntil: "networkidle" });
+  check(await page.locator(".door .term").count() >= 2, "pages : les mots techniques sont aussi surlignés hors des leçons (Soutien)");
+  await page.goto(origin + "/aide", { waitUntil: "networkidle" });
+  check(await page.locator(".term").count() === 0, "page d’urgence : rien de surligné, rien pour distraire");
+  await ctx.close();
+}
+
+// 3 quater. Sur téléphone, au clavier : l'infobulle de chaque mot s'ouvre et reste dans l'écran.
+{
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const page = await ctx.newPage();
+  await page.goto(origin + "/apprendre/therapie", { waitUntil: "networkidle" });
+  let seen = 0; const bad = [];
+  for (let c = 0; c < 8; c++) {
+    for (let k = 0; k < 12; k++) {
+      await page.keyboard.press("Tab");
+      const r = await page.evaluate(() => {
+        const a = document.activeElement;
+        if (!a?.classList.contains("term")) return null;
+        const tip = a.parentElement.querySelector(".term-tip"), b = tip.getBoundingClientRect();
+        return { w: a.textContent, shown: getComputedStyle(tip).display !== "none", l: Math.round(b.left), r: Math.round(b.right), t: Math.round(b.top) };
+      });
+      if (r) { seen++; if (!r.shown || r.l < 0 || r.r > 390 || r.t < 0) bad.push(r); }
+    }
+    await page.click(".lesson-next");
+  }
+  check(seen >= 5 && bad.length === 0, `téléphone, clavier : ${seen} infobulles ouvertes, toutes dans l’écran ${bad.length ? JSON.stringify(bad.slice(0, 3)) : ""}`);
   await ctx.close();
 }
 

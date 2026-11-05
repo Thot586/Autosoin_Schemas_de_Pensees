@@ -1,9 +1,10 @@
-import { useEffect, useId, useRef, useState, type CSSProperties, type ElementType, type ReactNode } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties, type ElementType, type ReactNode } from "react";
 import { Icon, type IconName } from "./Icon";
 import { Link, useLocation } from "../lib/router";
 import { useDocTitle } from "../lib/hooks";
 import { last, markVisited, notes, prefs } from "../lib/state";
 import { useGlossary } from "./Glossary";
+import { termById } from "../data/glossaire";
 
 /* ───────── Page ───────── */
 const UTILITY = new Set(["/mon-espace", "/glossaire", "/a-propos", "/commencer"]);
@@ -124,7 +125,53 @@ export function Invite({ id, title = "À faire maintenant", prompt, hint, placeh
 /* ───────── Terme du glossaire ───────── */
 export function Term({ id, children }: { id: string; children: ReactNode }) {
   const g = useGlossary();
-  return <button type="button" className="term" onClick={() => g.open(id)} aria-haspopup="dialog">{children}</button>;
+  const e = termById(id);
+  const tipId = useId();
+  const wrap = useRef<HTMLSpanElement>(null);
+  const timer = useRef<number | undefined>(undefined);
+  const [hover, setHover] = useState(false);  // souris posée sur le mot (après un court délai)
+  const [focus, setFocus] = useState(false);  // mot atteint au clavier
+  const [below, setBelow] = useState(false);
+  const open = (hover || focus) && !!e;
+  const clear = () => window.clearTimeout(timer.current);
+  useEffect(() => clear, []);
+
+  // L'infobulle n'existe à l'écran que si elle est ouverte (cachée, elle ne prend aucune place : pas de débordement).
+  // Ouverte, on la garde dans l'écran : décalée près des bords, posée sous le mot s'il n'y a pas la place au-dessus.
+  useLayoutEffect(() => {
+    const w = wrap.current, tip = w?.querySelector<HTMLElement>(".term-tip");
+    if (!open || !w || !tip) return;
+    tip.style.setProperty("--shift", "0px");
+    const r = tip.getBoundingClientRect(), t = w.getBoundingClientRect();
+    const zoom = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--zoom")) || 1;
+    const s = r.left < 8 ? 8 - r.left : r.right > window.innerWidth - 8 ? window.innerWidth - 8 - r.right : 0;
+    tip.style.setProperty("--shift", `${Math.round(s / zoom)}px`);
+    const top = Math.max(0, ...Array.from(document.querySelectorAll(".header, .lesson-top"), (b) => b.getBoundingClientRect().bottom));
+    setBelow(t.top - r.height - 14 < top && window.innerHeight - t.bottom > t.top - top);
+  }, [open]);
+
+  // Échap masque l'infobulle sans bouger la souris ni le focus (WCAG 1.4.13).
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (ev: KeyboardEvent) => { if (ev.key === "Escape") { clear(); setHover(false); setFocus(false); } };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  const enter = () => {
+    if (!window.matchMedia("(hover: hover)").matches) return;  // au toucher : pas d'infobulle, le clic ouvre le détail
+    clear(); timer.current = window.setTimeout(() => setHover(true), 300);
+  };
+  const leave = () => { clear(); timer.current = window.setTimeout(() => setHover(false), 120); };
+  const keyFocus = (el: HTMLElement) => { try { return el.matches(":focus-visible"); } catch { return true; } };
+  const detail = () => { clear(); setHover(false); setFocus(false); g.open(id); };
+  return (
+    <span className={`term-w${open ? " is-open" : ""}${below ? " is-below" : ""}`} ref={wrap} onMouseEnter={enter} onMouseLeave={leave}>
+      <button type="button" className="term" onClick={detail} onFocus={(ev) => setFocus(keyFocus(ev.currentTarget))} onBlur={() => setFocus(false)}
+        aria-haspopup="dialog" aria-describedby={e ? tipId : undefined}>{children}</button>
+      {e && <span id={tipId} role="tooltip" className="term-tip" onClick={detail}>{e.short}<span className="term-tip-more">Cliquer pour en savoir plus</span></span>}
+    </span>
+  );
 }
 
 /* ───────── Étape suivante ───────── */

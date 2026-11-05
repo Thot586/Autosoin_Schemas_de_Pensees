@@ -98,9 +98,10 @@ function Reflect({ id, prompt, hint }: { id: string; prompt: string; hint?: stri
   const fid = useId();
   return (
     <div className="reflect">
-      <label htmlFor={fid} className="reflect-q"><Rich text={prompt} /></label>
+      {/* un <p> plutôt qu’un <label> : la question peut contenir des mots expliqués (des boutons) */}
+      <p className="reflect-q" id={`${fid}-q`}><Rich text={prompt} /></p>
       {hint && <p className="reflect-h">{hint}</p>}
-      <textarea id={fid} rows={4} value={all[id] || ""} placeholder="Mes mots, rien que pour moi…"
+      <textarea id={fid} aria-labelledby={`${fid}-q`} rows={4} value={all[id] || ""} placeholder="Mes mots, rien que pour moi…"
         onChange={(e) => {
           const v = e.target.value;
           notes.set((n) => ({ ...n, [id]: v }));
@@ -179,7 +180,7 @@ export function CardBody({ card, picked, onPick, gate }: {
               return (
                 <button key={i} type="button" className={`fiche-c ${on ? "is-on" : ""}`} aria-pressed={on} onClick={() => gate?.toggle(i)}>
                   <span className="fiche-box" aria-hidden="true">{on && <Icon name="check" size={18} />}</span>
-                  <span><Rich text={it} /></span>
+                  <span><Rich text={it} terms={false} /></span>
                 </button>
               );
             })}

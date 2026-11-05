@@ -3,7 +3,11 @@ import { persisted } from "./store";
 
 // ───────────── préférences d'affichage (conservées si on efface les données)
 export interface Prefs { theme: "auto" | "light" | "dark"; motion: "auto" | "reduced" | "full"; size: number; pro: boolean }
-export const prefs = persisted<Prefs>("prefs", { theme: "auto", motion: "auto", size: 1, pro: false }, { keep: true });
+export const prefs = persisted<Prefs>("prefs", { theme: "auto", motion: "auto", size: 1, pro: true }, { keep: true });
+// Novembre 2026 : le mode accompagnant(e) devient actif par défaut. Une seule fois, on l’active aussi
+// là où des préférences étaient déjà enregistrées ; chacun peut ensuite le couper dans les réglages.
+const proParDefaut = persisted<boolean>("pro-par-defaut", false, { keep: true });
+if (!proParDefaut.get()) { if (!prefs.get().pro) prefs.set((p) => ({ ...p, pro: true })); proParDefaut.set(true); }
 
 export function applyPrefs(p: Prefs) {
   const r = document.documentElement;

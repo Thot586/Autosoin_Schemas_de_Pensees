@@ -4,7 +4,7 @@ import { Link } from "../lib/router";
 import { useDocTitle } from "../lib/hooks";
 import { last } from "../lib/state";
 import { CardBody, CardExtras, SpeakButton, speechOf } from "./Cards";
-import { Rich } from "./Rich";
+import { Rich, TermScope } from "./Rich";
 import { exoRatings, lessonState, markLessonDone, recordAnswer, setLessonPos } from "./progress";
 import { stopSpeaking } from "./speech";
 import type { Card, Tone } from "./types";
@@ -109,6 +109,7 @@ export function LessonPlayer({ storeKey, title, kicker, cards, tone = "brand", e
       </div>
 
       <div className="lesson-stage">
+        <TermScope card={card}>
         <article className={`lcard lcard-${card.kind} tone-${cardTone}`} key={card.id + i} aria-labelledby="lcard-h">
           <p className="lcard-count">{i + 1} sur {n}</p>
           {"icon" in card && card.icon && <span className="lcard-ic" aria-hidden="true"><Icon name={card.icon} size={28} /></span>}
@@ -123,6 +124,7 @@ export function LessonPlayer({ storeKey, title, kicker, cards, tone = "brand", e
           </div>
           <CardExtras card={card} />
         </article>
+        </TermScope>
       </div>
 
       {!isEnd && (

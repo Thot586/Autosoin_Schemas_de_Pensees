@@ -10,6 +10,7 @@ import { SCHEMA_PARTS, schemaLesson, type SchemaPartId } from "../learn/schemaLe
 import { LessonPlayer } from "../learn/LessonPlayer";
 import type { Card } from "../learn/types";
 import NotFound from "./NotFound";
+import { Terms } from "../learn/Rich";
 
 /** Page d'un schéma : sa phrase, son besoin, et ses trois temps. */
 export default function SchemaPage({ slug, tab }: { slug: string; tab?: string }) {
@@ -38,7 +39,7 @@ function SchemaHub({ slug }: { slug: string }) {
         <p className="base-tag"><span className="w-bases-n">{b.id}</span> {b.name}</p>
         <h1>{s.name}</h1>
         <blockquote className="lc-quote lc-quote-xl"><p>{s.phrase}</p></blockquote>
-        <p className="lead">Le besoin derrière : {s.besoin}</p>
+        <Terms><p className="lead">Le besoin derrière : {s.besoin}</p></Terms>
         {(n > 0 || kept.includes(slug)) && (
           <p className="small muted">
             {n > 0 && <>Sur ma fiche : {n} case{n > 1 ? "s" : ""} sur 3. </>}

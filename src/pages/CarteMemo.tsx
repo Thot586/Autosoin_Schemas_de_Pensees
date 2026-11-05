@@ -1,6 +1,6 @@
 import { printPage } from "../lib/print";
 import { useEffect, useMemo, useState } from "react";
-import { Page, Section, Reveal, Callout, Invite, NextUp, Pro, Button, Term } from "../components/ui";
+import { Page, Section, Reveal, Callout, Invite, NextUp, Pro, Button } from "../components/ui";
 import { Icon } from "../components/Icon";
 import { ToolHead } from "../components/ToolBits";
 import { useLocation } from "../lib/router";
@@ -89,7 +89,7 @@ export default function CarteMemo() {
       </Section>
 
       <Section>
-        <NextUp to="/outils/pause" label="La pause en trois temps" hint={<>Pour sortir ma <Term id="carte-memo">carte-mémo</Term> au bon moment : stop, nommer, choisir.</>} eyebrow="Outil suivant" />
+        <NextUp to="/outils/pause" label="La pause en trois temps" hint="Pour sortir ma carte-mémo au bon moment : stop, nommer, choisir." eyebrow="Outil suivant" />
       </Section>
     </Page>
   );

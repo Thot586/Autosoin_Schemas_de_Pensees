@@ -3,6 +3,7 @@ import { Icon } from "../components/Icon";
 import { Link } from "../lib/router";
 import { CONTENT } from "../data/content";
 import { LIENS } from "../data/liens";
+import { Terms } from "../learn/Rich";
 
 const S = CONTENT.p8.soutien;
 const L = CONTENT.p8.lectures;
@@ -19,6 +20,7 @@ export default function Soutien() {
       <div className="wrap-narrow page-pad">
         <Link to="/aide" className="back"><Icon name="arrowLeft" size={18} /> Besoin d’aide ?</Link>
         <h1>Où trouver un soutien</h1>
+        <Terms>
         <p className="lead">{S.chapeau}</p>
         <Callout tone="alert" title="En danger, ou des pensées de me faire du mal">{S.danger.replace(/^Si je me sens en danger ou si j’ai des pensées de me faire du mal\s?:\s?/, "")} <Link to="/aide">Numéros d’aide</Link>.</Callout>
 
@@ -41,13 +43,14 @@ export default function Soutien() {
         <ul className="books">
           {L.livres.map((b) => (
             <li key={b.titre}>
-              <p className="book-t">{b.titre}</p>
+              <p className="book-t" data-noterms>{b.titre}</p>
               <p className="small">{[b.auteurs, b.editeur].filter(Boolean).join(", ")}</p>
               <p className="small muted">{b.note}</p>
             </li>
           ))}
         </ul>
         <p className="small muted">{L.invite}</p>
+        </Terms>
       </div>
     </Page>
   );

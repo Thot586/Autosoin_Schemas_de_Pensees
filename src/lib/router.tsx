@@ -23,6 +23,9 @@ export function href(to: string): string {
 }
 
 let current: Loc = read();
+const depth = () => (history.state && typeof history.state.idx === "number" ? history.state.idx : 0);
+/** Vrai s’il y a une page du site avant celle-ci : un bouton « Revenir » peut alors faire un retour arrière. */
+export const canGoBack = () => depth() > 0;
 const subs = new Set<() => void>();
 let lastNav: "push" | "pop" | "init" = "init";
 let navCount = 0;
@@ -39,10 +42,10 @@ if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 export function navigate(to: string, opts: { replace?: boolean } = {}) {
   const url = new URL(href(to), window.location.href);
   if (url.origin !== window.location.origin) { window.location.href = url.href; return; }
-  const state = { y: 0 };
-  try { history.replaceState({ y: window.scrollY }, ""); } catch { /* ignore */ }
-  if (opts.replace) history.replaceState(state, "", url);
-  else history.pushState(state, "", url);
+  const idx = depth();
+  try { history.replaceState({ ...history.state, y: window.scrollY, idx }, ""); } catch { /* ignore */ }
+  if (opts.replace) history.replaceState({ y: 0, idx }, "", url);
+  else history.pushState({ y: 0, idx: idx + 1 }, "", url);
   lastNav = "push";
   current = read();
   emit();
@@ -103,10 +106,14 @@ export function Routes({ routes, notFound }: { routes: RouteDef[]; notFound: Rea
 
 function scrollToHash(hash: string) {
   const id = decodeURIComponent(hash.replace(/^#/, ""));
-  requestAnimationFrame(() => {
+  // Les pages se chargent à la demande : on attend que l’élément existe (3 secondes au plus).
+  let tries = 0;
+  const go = () => {
     const el = document.getElementById(id);
-    if (el) { el.scrollIntoView({ block: "start" }); (el as HTMLElement).focus?.({ preventScroll: true }); }
-  });
+    if (el) { el.scrollIntoView({ block: "start" }); (el as HTMLElement).focus?.({ preventScroll: true }); return; }
+    if (tries++ < 60) setTimeout(go, 50);
+  };
+  requestAnimationFrame(go);
 }
 
 interface LinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> { to: string; replace?: boolean; children?: ReactNode }

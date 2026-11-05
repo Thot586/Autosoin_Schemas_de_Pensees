@@ -62,14 +62,35 @@
 .invite textarea:focus, .field textarea:focus, .field input:focus { outline: 3px solid color-mix(in oklab, var(--brand) 35%, transparent); border-color: var(--brand); }
 .invite-foot { display: flex; gap: 6px; align-items: center; color: var(--ink-3); margin: .5rem 0 0; }
 
-/* Terme du glossaire */
-.term { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: help; text-decoration: underline dotted var(--brand); text-underline-offset: 4px; text-decoration-thickness: 2px; }
-.term:hover { color: var(--brand-ink); background: var(--brand-soft); border-radius: 4px; }
-.glossary h2 { margin-right: 48px; }
-.glossary-def { font-size: 1.15rem; }
-.glossary-actions { margin: 1.2rem 0; }
-.glossary-others ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: .6rem; }
-.glossary-others summary { cursor: pointer; font-weight: 700; color: var(--ink-2); }
+/* Mot expliqué : surligné dans le texte ; survol ou focus = une phrase simple ; clic = le détail */
+.term-w { position: relative; }
+.term { border: 0; margin: 0; padding: 0 2px; font: inherit; line-height: inherit; color: inherit; text-align: inherit; cursor: help; border-radius: 4px;
+  background: linear-gradient(to top, transparent 0 18%, color-mix(in oklab, var(--brand) 20%, transparent) 18% 58%, transparent 58%);
+  text-decoration: underline dotted color-mix(in oklab, var(--brand) 70%, transparent); text-underline-offset: 4px; text-decoration-thickness: 1.5px;
+  transition: background-color .15s; }
+.term:hover, .term:focus-visible { background-color: var(--brand-soft); color: var(--brand-ink); }
+.term-tip { position: absolute; z-index: 40; left: 50%; bottom: calc(100% + 10px); width: max-content; max-width: min(320px, calc(100vw / var(--zoom) - 32px));
+  transform: translateX(calc(-50% + var(--shift, 0px)));
+  padding: .65rem .85rem; border-radius: 12px; background: var(--ink); color: var(--bg); box-shadow: var(--shadow-2);
+  font-size: .95rem; font-weight: 500; line-height: 1.4; text-align: left; letter-spacing: 0; white-space: normal; cursor: pointer;
+  display: none; }  /* cachée, elle ne prend aucune place (sinon débordement sur téléphone) */
+.term-w.is-open .term-tip { display: block; animation: tip-in .15s ease both; }
+@keyframes tip-in { from { opacity: 0; } to { opacity: 1; } }
+.term-tip::before { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 12px; }  /* pont : la souris peut aller sur l'infobulle */
+.term-tip::after { content: ""; position: absolute; left: calc(50% - var(--shift, 0px) - 7px); top: 100%; border: 7px solid transparent; border-top-color: var(--ink); }
+.term-w.is-below .term-tip { bottom: auto; top: calc(100% + 10px); }
+.term-w.is-below .term-tip::before { top: auto; bottom: 100%; }
+.term-w.is-below .term-tip::after { top: auto; bottom: 100%; border-top-color: transparent; border-bottom-color: var(--ink); }
+.term-tip-more { display: block; margin-top: .35rem; font-size: .85rem; opacity: .75; }
+@media (forced-colors: active) { .term { text-decoration-color: LinkText; } .term-tip { border: 1px solid CanvasText; } }
+
+/* Le mot, en détail (volet) */
+.glossary h2 { margin: .1rem 48px .5rem 0; }
+.glossary-k { margin: 0; font-size: .9rem; font-weight: 800; color: var(--ink-3); }
+.glossary-short { font-size: 1.2rem; font-weight: 700; line-height: 1.4; margin: 0 0 .8rem; color: var(--ink); }
+.glossary-def { font-size: 1.05rem; margin: 0 0 .7rem; }
+.glossary-more { font-size: 1rem; color: var(--ink-2); margin: 0 0 .7rem; }
+.glossary-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 1.2rem 0 0; }
 
 /* Étape suivante */
 .nextup { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: clamp(1.1rem, 3vw, 1.6rem); border-radius: var(--radius); background: var(--accent-soft, var(--brand-soft)); color: var(--accent-ink, var(--brand-ink)); text-decoration: none; border: 1.5px solid color-mix(in oklab, var(--accent, var(--brand)) 30%, transparent); transition: transform .3s var(--ease), box-shadow .3s; }

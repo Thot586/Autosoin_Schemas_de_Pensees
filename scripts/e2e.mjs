@@ -122,6 +122,10 @@ for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900]
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await ctx.newPage();
   await page.goto(origin + "/outils/imagerie", { waitUntil: "networkidle" });
+  check(await page.locator(".lcard h2").innerText() === "À savoir avant d’essayer", "exercice : commence par un avertissement");
+  await page.click(".lesson-next");
+  check((await page.locator(".lc-links a").count()) >= 2, "exercice : puis une carte d’orientation (soutien, numéros)");
+  await page.click(".lesson-next");
   for (const b of await page.locator(".gate .fiche-c").all()) await b.click();
   await page.click(".lesson-next");
   await page.locator(".w-scale input[type=range]").fill("8");

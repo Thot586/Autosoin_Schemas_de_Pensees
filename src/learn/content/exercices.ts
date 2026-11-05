@@ -7,7 +7,20 @@ import { deepFr } from "../../lib/typo";
 
 const SOIN = "Si je suis suivi(e) en psychiatrie, j’en parle d’abord à mon équipe de soins. Un souvenir très douloureux se travaille avec un professionnel.";
 
+/** Les deux premières cartes de chaque exercice : un avertissement, puis où trouver de l'aide. */
+const avertissement = (technique: string): Card[] => [
+  { id: "avertissement", kind: "text", icon: "info", tone: "care", title: "À savoir avant d’essayer",
+    body: [`Cet exercice est une version simplifiée ${technique}. Personne ne l’a encore étudié fait seul(e).`, "Ce n’est pas une thérapie, et il ne remplace pas un suivi. Il n’est pas fait pour :"],
+    list: ["un souvenir de violence ou d’abus ;", "un moment de crise, ou une émotion déjà très forte ;", "si j’entends des voix, ou si je me sens souvent « ailleurs » : j’en parle d’abord à un professionnel."] },
+  { id: "orientation", kind: "links", icon: "users", title: "Pour être accompagné(e)",
+    body: ["Pour travailler ces techniques avec un thérapeute, ou si l’exercice réveille trop de choses, je peux m’adresser à :"],
+    list: ["mon médecin traitant, qui peut m’orienter ;", "un centre médico-psychologique (CMP), près de chez moi : les consultations sont gratuites ;", "un psychologue, ou un thérapeute formé aux schémas."],
+    after: ["En danger, ou avec des pensées de me faire du mal : 3114, 15 ou 112, sans attendre."],
+    links: [{ to: "/soutien", label: "Où trouver un soutien", icon: "users" }, { to: "/aide", label: "Numéros d’aide", icon: "phone" }] },
+];
+
 const imagerie: Card[] = [
+  ...avertissement("de la réécriture en imagination, qui se pratique en séance avec un thérapeute"),
   { id: "entree", kind: "gate", title: "Avant de commencer",
     body: ["Cet exercice dure une dizaine de minutes. Je coche chaque phrase si elle est vraie pour moi."],
     items: [
@@ -15,7 +28,7 @@ const imagerie: Card[] = [
       "Je choisis une scène **récente et légère**. Pas un souvenir d’enfance, pas un souvenir qui fait très mal.",
       "Je sais comment m’arrêter : j’ouvre les yeux, je pose les pieds au sol, je regarde autour de moi.",
     ],
-    after: ["Je n’y amène pas de souvenir de violence ou d’abus : cela se travaille en séance.", SOIN, "Si j’ai déjà eu l’impression que ce que je voyais ou entendais n’était pas réel, je fais cet exercice seulement avec mon équipe de soins."] },
+    after: [SOIN] },
   { id: "avant", kind: "widget", widget: "echelle", param: "imagerie-avant", title: "Comment je me sens, avant de commencer",
     body: ["De 0 à 10, comment je me sens, là, maintenant ?"] },
   { id: "lieu", kind: "steps", title: "Mon lieu calme",
@@ -60,6 +73,7 @@ const imagerie: Card[] = [
 ];
 
 const chaises: Card[] = [
+  ...avertissement("du dialogue des chaises, qui se pratique en séance avec un thérapeute"),
   { id: "entree", kind: "gate", title: "Avant de commencer",
     body: ["Cet exercice dure une dizaine de minutes. Je coche chaque phrase si elle est vraie pour moi."],
     items: [
@@ -67,7 +81,7 @@ const chaises: Card[] = [
       "Je choisis une situation **récente et légère**, où la petite voix m’a parlé durement.",
       "Je sais comment m’arrêter, et je termine toujours par l’adulte sain.",
     ],
-    after: ["La petite voix, ici, c’est une pensée que je me dis à moi-même. Si j’entends des voix qui viennent de l’extérieur, je ne fais pas cet exercice seul(e) : j’en parle à mon équipe de soins.", SOIN] },
+    after: ["La petite voix, ici, c’est une pensée que je me dis à moi-même, pas une voix que j’entends.", SOIN] },
   { id: "avant", kind: "widget", widget: "echelle", param: "chaises-avant", title: "Comment je me sens, avant de commencer",
     body: ["De 0 à 10, comment je me sens, là, maintenant ?"] },
   { id: "places", kind: "text", icon: "users", title: "Je prépare deux places",

@@ -17,7 +17,7 @@ export function speechOf(c: Card): string[] {
   const t: string[] = [c.title];
   if ("quote" in c && c.quote) t.push(c.quote);
   if ("body" in c && c.body) t.push(...c.body);
-  if ("list" in c && c.list) t.push(...c.list);
+  if ("list" in c && c.list) t.push(...c.list);  // texte, liens
   if ("after" in c && c.after) t.push(...c.after);
   if (c.kind === "tiles") t.push(...c.tiles.flatMap((x) => [x.title, x.text]));
   if (c.kind === "steps") { t.push(...c.steps.flatMap((x, i) => [`${i + 1}. ${x.title}`, x.text])); if (c.foot) t.push(c.foot); }
@@ -194,6 +194,8 @@ export function CardBody({ card, picked, onPick, gate }: {
       return (
         <>
           <Paras xs={card.body} />
+          <Bullets xs={card.list} />
+          <Paras xs={card.after} />
           <div className="lc-links">{card.links.map((l, i) => <LinkBtn key={l.to} l={l} variant={i === 0 ? "primary" : "soft"} />)}</div>
         </>
       );

@@ -101,6 +101,11 @@ Pour chaque base : le besoin, ce qui se passe quand il manque, ses schémas et l
 
 ### Exercices guidés — **Nouveau** (`/outils/imagerie`, `/outils/chaises`)
 - Ce sont des **adaptations prudentes**. Les deux leçons disent clairement qu’aucune étude n’a porté sur ces techniques faites seul(e).
+- **Accès libre, avec avertissement et orientation.** Le CRR ne prend pas en charge de patients : chaque exercice commence donc par deux cartes.
+  - « **À savoir avant d’essayer** » : c’est une version simplifiée d’une technique de séance, non étudiée faite seul(e) ; ce n’est pas une thérapie et elle ne remplace pas un suivi. Elle n’est pas faite pour un souvenir de violence ou d’abus, un moment de crise ou une émotion déjà très forte, ni si j’entends des voix ou me sens souvent « ailleurs ».
+  - « **Pour être accompagné(e)** » : mon médecin traitant, un centre médico-psychologique (CMP, gratuit), un psychologue ou un thérapeute formé aux schémas. En danger : 3114, 15 ou 112. Des liens mènent vers « Où trouver un soutien » et « Numéros d’aide ».
+  - Dans « Mes outils », les deux exercices sont regroupés sous « Exercices inspirés de la thérapie », avec le même avertissement.
+- Partout où le texte disait « mon équipe de soins », il ajoute désormais le médecin traitant ou un CMP, pour qui n’est pas suivi.
 - **Carte d’entrée** à cocher : « Suivant » reste bloqué tant que les trois phrases ne sont pas cochées.
   - Au calme, dix minutes.
   - Une scène **récente et légère**, jamais un souvenir de violence ou d’abus.
@@ -181,6 +186,7 @@ Les références sont passées par PubMed, Crossref et Europe PMC, avec DOI, tit
 | Chaises : efficacité | Des résultats « prometteurs », pas encore solides : moins d’autocritique, plus de douceur envers soi. | Paivio & Greenberg 1995, doi:10.1037/0022-006X.63.3.419 ; Shahar 2012, doi:10.1002/cpp.762 ; Wang 2026, doi:10.1002/cpp.70346 ; Ottingerová 2026, doi:10.3389/fpsyg.2025.1692630 |
 | Chaises : mécanismes | Ils sont présentés comme des **hypothèses** : mise à distance de la voix critique, émotion vécue, répétition de la réponse. Nommer son émotion apaise la réaction du cerveau à la peur, mais c’est un résultat de laboratoire. | Pugh 2017, doi:10.1007/s10608-016-9805-x ; Kroener 2024 ; Lieberman 2007, doi:10.1111/j.1467-9280.2007.01916.x |
 | Répéter son geste en imagination | Imaginer les étapes d’une action (et pas seulement le résultat) aide à passer à l’acte, notamment avec les plans « si… alors… ». | Taylor 1998, doi:10.1037/0003-066X.53.4.429 ; Gollwitzer & Sheeran 2006, doi:10.1016/S0065-2601(06)38002-1 ; Toli 2016, doi:10.1111/bjc.12086 |
+| CMP (ajouté aux portes d’entrée) | Lieu de soins public, organisé selon le lieu d’habitation, pour toute personne en difficulté psychique (CMP adultes, CMP enfants et adolescents). On peut le contacter directement ; les consultations sont gratuites, entièrement financées par la Sécurité sociale. | Psycom, fiche « Centre médico-psychologique (CMP) », mise à jour le 04/03/2024 |
 | Se recentrer | Les cinq sens : 5 choses que je vois, 4 que je touche, 3 que j’entends, 2 que je sens, 1 que je goûte. C’est une fiche de pratique clinique, pas un essai. | NHS Hull, fiche « Grounding 5-4-3-2-1 », 2020 |
 | Lectures | *La thérapie des schémas* : De Boeck, traduction B. Pascal, 3e édition 2024. *Je réinvente ma vie* : Éditions de l’Homme, 1995, traduction M. Perron, réédition 2018. *Cambridge Guide to Schema Therapy* : Brockman, Simpson, Hayes, van der Wijngaart, Smout, 2023. | Catalogue BnF ; Cambridge Core, doi:10.1017/9781108918145 |
 
@@ -199,6 +205,7 @@ Les références sont passées par PubMed, Crossref et Europe PMC, avec DOI, tit
 
 ## 7. Décisions qui vous appartiennent
 
+- **Le CRR ne prend pas en charge de patients** : le site oriente vers le médecin traitant, les CMP, les psychologues (dont Mon soutien psy) et les thérapeutes formés, et donne les numéros d’urgence.
 - **Site public ou rattaché au CRR ?** La réponse change les mentions légales (éditeur, directeur de la publication, hébergeur, contact), à remplir dans `src/data/meta.ts`. Elle change aussi l’indexation, qui est `noindex` par défaut.
 - **Logo du CRR** (pied de page, À propos) : à confirmer avant la diffusion.
 - **Fiches à imprimer** : les trois PDF et les deux documents Word de `Other_data` sont publiés dans « Mes outils », rubrique « Versions à imprimer ». Le diaporama, lui, n’est pas publié. Oui ou non ?

@@ -379,3 +379,5 @@
 .lesson-next:disabled { opacity: .55; }
 .lcard-kicker { margin: 0 0 .3rem; font-weight: 700; color: var(--accent-ink); font-size: 1rem; }
 .lcard-quiz h2, .lcard-rappel h2 { font-size: clamp(1.35rem, 1.15rem + 1vw, 1.75rem); line-height: 1.35; }
+.tools-warn { display: flex; gap: 8px; align-items: flex-start; padding: 12px 14px; border-radius: 14px; background: var(--care-soft); color: var(--ink); font-size: .98rem; line-height: 1.5; margin: 0 0 12px; }
+.tools-warn .icon { color: var(--care); flex-shrink: 0; margin-top: 3px; }

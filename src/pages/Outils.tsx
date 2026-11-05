@@ -8,8 +8,11 @@ const TOOLS: { to: string; icon: IconName; title: string; when: string }[] = [
   { to: "/outils/plan", icon: "calendar", title: "Mon plan de la semaine", when: "Le dimanche soir : un schéma, un geste, un moment." },
   { to: "/outils/carnet", icon: "pencil", title: "Mon carnet", when: "Une fois par jour : une situation où l’émotion a semblé trop forte." },
   { to: "/outils/dire", icon: "chat", title: "Dire ce qui ne va pas", when: "Préparer par écrit ce que je veux dire, sans attaquer." },
-  { to: "/outils/imagerie", icon: "eye", title: "Imaginer autrement", when: "Exercice guidé : une scène récente et légère, et mon adulte sain qui y répond. Dix minutes." },
-  { to: "/outils/chaises", icon: "users", title: "Deux places, deux voix", when: "Exercice guidé : faire répondre l’adulte sain à la petite voix. Dix minutes." },
+];
+
+const EXERCICES: { to: string; icon: IconName; title: string; when: string }[] = [
+  { to: "/outils/imagerie", icon: "eye", title: "Imaginer autrement", when: "Une scène récente et légère, et mon adulte sain qui y répond. Dix minutes." },
+  { to: "/outils/chaises", icon: "users", title: "Deux places, deux voix", when: "Faire répondre l’adulte sain à la petite voix. Dix minutes." },
 ];
 
 const DOCS: { file: string; title: string; kind: string }[] = [
@@ -28,6 +31,20 @@ export default function Outils() {
         <p className="lead">Pour passer à l’action, un petit pas à la fois. Ce que j’écris reste sur cet appareil.</p>
         <ul className="tools">
           {TOOLS.map((t) => (
+            <li key={t.to}>
+              <Link to={t.to} className="act-card">
+                <span className="act-ic"><Icon name={t.icon} size={26} /></span>
+                <span className="act-t"><b>{t.title}</b><span>{t.when}</span></span>
+                <Icon name="arrowRight" size={24} className="act-go" />
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <h2 className="h-sec">Exercices inspirés de la thérapie</h2>
+        <p className="tools-warn"><Icon name="info" size={18} /><span>Deux versions simplifiées de techniques de séance (l’imagerie, le dialogue des chaises). Elles ne remplacent pas un suivi. Chacune commence par un avertissement et par les adresses utiles : <Link to="/soutien">où trouver un soutien</Link>.</span></p>
+        <ul className="tools">
+          {EXERCICES.map((t) => (
             <li key={t.to}>
               <Link to={t.to} className="act-card">
                 <span className="act-ic"><Icon name={t.icon} size={26} /></span>

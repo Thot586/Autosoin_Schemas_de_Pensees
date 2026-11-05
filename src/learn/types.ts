@@ -62,7 +62,7 @@ export type Card =
   /** Carte d'entrée d'un exercice guidé : « Suivant » reste bloqué tant que toutes les cases ne sont pas cochées. */
   | (CardBase & { kind: "gate"; body?: string[]; items: string[]; after?: string[] })
   | (CardBase & { kind: "reflect"; body?: string[]; prompt: string; hint?: string; noteId: string })
-  | (CardBase & { kind: "links"; icon?: IconName; body?: string[]; links: LinkItem[] })
+  | (CardBase & { kind: "links"; icon?: IconName; body?: string[]; list?: string[]; after?: string[]; links: LinkItem[] })
   | (CardBase & { kind: "quiz"; quiz: QuizItem })
   | (CardBase & { kind: "fiche"; slug: string })
   | (CardBase & { kind: "retain"; items: string[] })

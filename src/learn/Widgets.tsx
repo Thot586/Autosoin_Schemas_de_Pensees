@@ -111,7 +111,7 @@ function Echelle({ id }: { id: string }) {
       <div className="range-scale" aria-hidden="true"><span>0 : calme</span><span>10 : très difficile</span></div>
       {before && v != null && v >= 7 && (
         <p className="w-scale-warn" role="status">
-          <Icon name="heart" size={18} /> C’est beaucoup. Aujourd’hui, je fais plutôt la pause en trois temps, et j’en parle à mon équipe de soins. <Link to="/outils/pause">La pause en trois temps</Link>
+          <Icon name="heart" size={18} /> C’est beaucoup. Aujourd’hui, je fais plutôt la pause en trois temps. Si ça ne passe pas, j’en parle à un professionnel. <Link to="/outils/pause">La pause en trois temps</Link> · <Link to="/soutien">Où trouver un soutien</Link>
         </p>
       )}
     </div>
@@ -128,7 +128,7 @@ function Bilan({ prefix }: { prefix: string }) {
       <p className="w-bilan-n"><span>Avant : <b>{a}</b> sur 10</span><span>Après : <b>{b}</b> sur 10</span></p>
       {b < a && <p>L’émotion a baissé. Je peux noter ce qui m’a aidé, pour le retrouver la prochaine fois.</p>}
       {b === a && <p>L’émotion n’a pas bougé : c’est possible, surtout les premières fois.</p>}
-      {b > a && <p><Icon name="heart" size={18} /> L’émotion est montée. Je m’arrête là pour aujourd’hui : je fais la pause en trois temps, et j’en parle à mon équipe de soins. <Link to="/outils/pause">La pause en trois temps</Link></p>}
+      {b > a && <p><Icon name="heart" size={18} /> L’émotion est montée. Je m’arrête là pour aujourd’hui : je fais la pause en trois temps, et j’en parle à un professionnel (mon médecin traitant, mon équipe de soins si j’en ai une). <Link to="/outils/pause">La pause en trois temps</Link> · <Link to="/soutien">Où trouver un soutien</Link></p>}
     </div>
   );
 }

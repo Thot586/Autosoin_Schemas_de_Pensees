@@ -7,6 +7,7 @@ import { LIENS } from "../data/liens";
 const S = CONTENT.p8.soutien;
 const L = CONTENT.p8.lectures;
 const LINKS: Record<string, { url: string; label: string } | undefined> = {
+  "Un centre médico-psychologique (CMP)": LIENS.cmp,
   "Mon soutien psy": LIENS.monSoutienPsy,
   "Un thérapeute formé aux schémas": LIENS.annuaire,
 };

@@ -10,7 +10,7 @@ Version 0.2 (novembre 2026) : le support est réorganisé en **leçons courtes, 
   - une question d’une leçon précédente ouvre chaque leçon ;
   - chaque leçon se termine par « À retenir » ;
   - « Mon rappel du jour » repose trois questions, en revenant plus souvent sur les idées à revoir (révisions espacées).
-- **Questions** : il y en a 78, et elles portent toujours sur une idée du support, jamais sur la personne. Il n’y a ni note ni rouge, et une explication suit chaque réponse. La liste complète est dans [`QUESTIONS.md`](QUESTIONS.md).
+- **Questions** : il y en a 79, et elles portent toujours sur une idée du support, jamais sur la personne. Il n’y a ni note ni rouge, et une explication suit chaque réponse. La liste complète est dans [`QUESTIONS.md`](QUESTIONS.md).
 - **Nouveaux contenus** (demandés) : ce qu’est la thérapie des schémas, les limites du support, demander de l’aide et trouver un thérapeute formé (annuaire).
 - **Trois nouvelles animations** :
   - un parapluie : d’où vient un schéma ;

@@ -115,7 +115,7 @@ export function LessonPlayer({ storeKey, title, kicker, cards, tone = "brand", e
           {"icon" in card && card.icon && <span className="lcard-ic" aria-hidden="true"><Icon name={card.icon} size={28} /></span>}
           {card.kind === "end" && <span className="lcard-ic lcard-ic-end" aria-hidden="true"><Icon name="check" size={30} /></span>}
           {isQuiz && <p className="lcard-kicker">{card.title}</p>}
-          <h2 id="lcard-h" ref={head} tabIndex={-1}>{isQuiz ? <Rich text={card.quiz.q} /> : card.title}</h2>
+          <h2 id="lcard-h" ref={head} tabIndex={-1}>{isQuiz ? <Rich text={card.quiz.q} terms={false} /> : card.title}</h2>
           <div className="lcard-body">
             <CardBody card={card} picked={picked[card.id]} onPick={pick} gate={{ checked: gates[card.id] ?? [], toggle: toggleGate }} />
           </div>

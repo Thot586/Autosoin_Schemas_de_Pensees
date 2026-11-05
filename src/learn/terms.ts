@@ -5,7 +5,8 @@ import type { Card } from "./types";
 // Règle de lisibilité : un mot n'est mis en évidence qu'une fois par carte, à sa première apparition.
 
 const LETTER = /[\p{L}\p{N}]/u;
-const COMPILED = GLOSSAIRE.flatMap((e) => (e.match ?? []).map((src) => ({ id: e.id, re: new RegExp(src, "giu") })));
+// Pas de « lookbehind » dans les motifs : Safari < 16.4 (iPhone restés en iOS 15) refuserait de charger l'application.
+const COMPILED = GLOSSAIRE.flatMap((e) => (e.match ?? []).map((src) => ({ id: e.id, re: new RegExp(src, "giu"), notAfter: e.notAfter ?? [] })));
 
 export interface Hit { start: number; end: number; id: string }
 
@@ -21,6 +22,8 @@ export function findTerms(text: string, allow?: ReadonlySet<string> | null): Hit
       const s = m.index, e = s + m[0].length;
       // limites de mot faites à la main (les accents ne sont pas des lettres pour \b)
       if ((s > 0 && LETTER.test(text[s - 1])) || (e < text.length && LETTER.test(text[e]))) continue;
+      const before = text.slice(0, s).replace(/\s/g, " ").toLowerCase();
+      if (c.notAfter.some((p) => before.endsWith(p))) continue;
       found.push({ start: s, end: e, id: c.id });
       break;
     }
@@ -42,7 +45,8 @@ const strip = (s: string) => s.replace(MANUAL, (_, _id, w) => w).replace(/\*\*([
 /** Textes d'une carte, dans l'ordre où ils s'affichent (pour ne marquer chaque mot qu'une fois par carte). */
 export function cardStrings(c: Card): string[] {
   const t: string[] = [];
-  if (c.kind === "quiz" || c.kind === "rappel") t.push(c.quiz.q, c.quiz.explain);
+  // La question n'a pas de mot expliqué (l'infobulle pourrait souffler la réponse) ; l'explication, si.
+  if (c.kind === "quiz" || c.kind === "rappel") t.push(c.quiz.explain);
   if ("quote" in c && c.quote) t.push(c.quote);
   if ("body" in c && c.body) t.push(...c.body);
   if ("list" in c && c.list) t.push(...c.list);

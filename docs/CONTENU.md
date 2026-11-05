@@ -23,6 +23,7 @@ Version 0.2 (novembre 2026) : le support est réorganisé en **leçons courtes, 
   - Au clic ou au toucher, le détail s’ouvre dans un volet, sans quitter la page ; « Revenir à ma lecture » le referme.
   - La page « Les mots du support » les regroupe (53 mots). Son bouton « Revenir à ma page » ramène à la même carte de la leçon.
   - Un mot n’est surligné qu’une fois par carte. La page « Besoin d’aide ? » n’en a aucun, pour ne pas distraire.
+  - Les questions des quiz n’ont pas de mot surligné, car l’infobulle pourrait souffler la réponse. L’explication qui suit la réponse en a.
   - Ce système remplace les « phrases-ponts » (une phrase de plus dans le texte pour préparer un mot entendu en séance) : le mot reste dans le texte, et seuls ceux qui le veulent ouvrent l’explication. Exemple : « mode », dans la leçon sur l’adulte sain.
 - **Mode accompagnant(e)** : il est maintenant activé par défaut, et les « Repères pour l’accompagnant(e) » s’affichent. Il se coupe dans les réglages.
 

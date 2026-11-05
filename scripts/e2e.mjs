@@ -20,6 +20,12 @@ const browser = await chromium.launch();
 let failures = 0;
 const check = (cond, msg) => { if (!cond) failures++; console.log((cond ? "✔ " : "✗ ") + msg); };
 
+// 0. Motifs du glossaire : pas de « lookbehind » (Safari < 16.4 refuserait de charger l'application).
+{
+  const src = readFileSync(new URL("../src/data/glossaire.ts", import.meta.url), "utf8");
+  check(!src.includes("(?<=") && !src.includes("(?<!"), "glossaire : motifs lisibles par les anciens Safari (pas de lookbehind)");
+}
+
 // 1. Toutes les pages : pas d'erreur console, pas de débordement horizontal, un titre h1, pas de page 404.
 for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900], ["écran géant", 3840, 2160]]) {
   const ctx = await browser.newContext({ viewport: { width: w, height: h } });
@@ -120,13 +126,14 @@ for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900]
         n: document.querySelectorAll(".lcard .term").length,
         nested: document.querySelectorAll("a .term, button .term, label .term, summary .term").length,
         dup: (() => { const ids = [...document.querySelectorAll(".lcard .term")].map((b) => b.closest(".term-w")?.querySelector(".term-tip")?.textContent); return ids.length - new Set(ids).size; })(),
+        quiz: document.querySelectorAll(".lcard h2 .term, .quiz-q .term").length,  // la question ne souffle pas la réponse
         clip: [...document.querySelectorAll(".lcard .term")].filter((t) => {
           for (let a = t.parentElement; a && a !== document.body; a = a.parentElement) { const o = getComputedStyle(a); if (o.overflowX !== "visible" || o.overflowY !== "visible") return true; }
           return false;
         }).length,
       }));
       terms += tw.n;
-      if (tw.nested || tw.dup || tw.clip) { bad++; check(false, `${r} carte ${k + 1} : mot expliqué mal placé ou répété ${JSON.stringify(tw)}`); }
+      if (tw.nested || tw.dup || tw.clip || tw.quiz) { bad++; check(false, `${r} carte ${k + 1} : mot expliqué mal placé ou répété ${JSON.stringify(tw)}`); }
       await page.click(".lesson-next");
     }
     if (!reached || !navOk || errs.length) { bad++; check(false, `${r} : ${JSON.stringify({ fin: reached, barre: navOk, errs: errs.slice(0, 3) })}`); }
@@ -181,6 +188,8 @@ for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900]
   await page.waitForURL(/\/apprendre\/therapie$/);
   await page.waitForSelector(".lcard h2");
   check(await page.locator(".lcard h2").innerText() === card, "glossaire : « Revenir à ma page » ramène à la même carte");
+  for (let k = 0; k < 6 && !(await page.locator(".lcard h2").innerText()).includes("Et ce support"); k++) await page.click(".lesson-next");
+  check(!(await page.locator(".lcard .term").allInnerTexts()).some((t) => /^bases?$/i.test(t)), "mots expliqués : « les idées de base » n’est pas pris pour une des 5 bases");
   await page.goto(origin + "/glossaire", { waitUntil: "networkidle" });
   check(await page.locator("a.back").innerText().then((t) => t.includes("Accueil")), "glossaire ouvert directement : le lien de retour mène à l’accueil");
   await page.fill("#gl-q", "CMP");

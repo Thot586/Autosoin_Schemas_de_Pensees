@@ -112,7 +112,7 @@ Une carte de leçon a un type parmi les suivants :
 - `links` : boutons ;
 - `quiz` : question.
 
-Dans les textes, `**gras**` met en avant. Les mots du glossaire sont repérés tout seuls grâce au champ `match` de `src/data/glossaire.ts` (une seule fois par carte, à leur première apparition) ; `[[id|mot]]` marque à la main un mot sans `match` (par exemple « mode »). Hors des leçons, `<Terms>` (`src/learn/Rich.tsx`) fait le même repérage dans du JSX, sans toucher aux titres, liens et boutons.
+Dans les textes, `**gras**` met en avant. Les mots du glossaire sont repérés tout seuls grâce au champ `match` de `src/data/glossaire.ts` (une seule fois par carte, à leur première apparition) ; `[[id|mot]]` marque à la main un mot sans `match` (par exemple « mode »). Pour écarter un faux positif, utiliser `notAfter` (« les idées de base ») et jamais un *lookbehind* `(?<!…)`, que Safari avant 16.4 ne connaît pas : l’application ne se chargerait plus sur les iPhone restés en iOS 15. Les questions des quiz ne reçoivent pas de mot expliqué (l’infobulle soufflerait la réponse). Hors des leçons, `<Terms>` (`src/learn/Rich.tsx`) fait le même repérage dans du JSX, sans toucher aux titres, liens et boutons.
 
 ## Choix techniques
 

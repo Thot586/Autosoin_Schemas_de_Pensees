@@ -63,7 +63,7 @@ export function QuizView({ quiz, picked, onPick, label, labelledBy }: { quiz: Qu
   return (
     <div className="quiz">
       {label && <p className="quiz-from">{label}</p>}
-      {!labelledBy && <p className="quiz-q" id={qid}><Rich text={quiz.q} /></p>}
+      {!labelledBy && <p className="quiz-q" id={qid}><Rich text={quiz.q} terms={false} /></p>}
       <div className="quiz-opts" role="group" aria-labelledby={labelledBy ?? qid}>
         {quiz.options.map((o, i) => {
           const state = !done ? "" : i === quiz.answer ? "is-good" : i === picked ? "is-picked" : "is-off";

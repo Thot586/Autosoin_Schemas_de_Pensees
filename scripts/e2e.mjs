@@ -33,6 +33,7 @@ for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900]
     const r = queue.shift();
     if (seen.has(r)) continue; seen.add(r); errs = [];
     await page.goto(origin + r, { waitUntil: "networkidle" });
+    await page.waitForSelector("h1", { timeout: 8000 }).catch(() => {}); // la page se charge à la demande : on attend son titre
     const info = await page.evaluate(() => ({
       h1: document.querySelector("h1")?.textContent?.trim(),
       overflow: document.documentElement.scrollWidth - innerWidth,

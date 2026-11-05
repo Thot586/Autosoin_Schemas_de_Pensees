@@ -5,14 +5,15 @@ Version 0.2 (novembre 2026) : le support est réorganisé en **leçons courtes, 
 ## L’essentiel
 
 **Ce qui change pour la personne.**
-- Les huit longues parties deviennent **22 leçons de 2 à 5 minutes**, en six étapes. Chaque écran porte une seule idée : un titre et deux ou trois phrases. Les boutons « Retour » et « Suivant » sont en bas de l’écran, sous le pouce. « Quitter » garde la position, et le bouton « Aide » reste toujours visible.
+- Les huit longues parties deviennent **24 leçons de 2 à 5 minutes**, en six étapes. Chaque écran porte une seule idée : un titre et deux ou trois phrases. Les boutons « Retour » et « Suivant » sont en bas de l’écran, sous le pouce. « Quitter » garde la position, et le bouton « Aide » reste toujours visible.
 - **Rappels** à trois niveaux :
   - une question d’une leçon précédente ouvre chaque leçon ;
   - chaque leçon se termine par « À retenir » ;
   - « Mon rappel du jour » repose trois questions, en revenant plus souvent sur les idées à revoir (révisions espacées).
-- **Questions** : il y en a 79, et elles portent toujours sur une idée du support, jamais sur la personne. Il n’y a ni note ni rouge, et une explication suit chaque réponse. La liste complète est dans [`QUESTIONS.md`](QUESTIONS.md).
+- **Questions** : il y en a 85, et elles portent toujours sur une idée du support, jamais sur la personne. Il n’y a ni note ni rouge, et une explication suit chaque réponse. La liste complète est dans [`QUESTIONS.md`](QUESTIONS.md).
 - **Nouveaux contenus** (demandés) : ce qu’est la thérapie des schémas, les limites du support, demander de l’aide et trouver un thérapeute formé (annuaire).
-- **Trois nouvelles animations** :
+- **L’imagerie et le dialogue des chaises** : deux leçons qui expliquent ces techniques de séance et pourquoi elles peuvent aider. Ce qui est démontré est dit comme tel, et ce qui reste une hypothèse commence par « On pense que… ». Deux **exercices guidés** les accompagnent, à faire seul(e), avec des garde-fous (§ 2).
+- **Cinq nouvelles animations** (dont l’imagerie et les chaises en séance) ; les textes qui défilent dessous ont été réécrits comme on raconte, sans étiquettes ni formules :
   - un parapluie : d’où vient un schéma ;
   - les trois façons de réagir ;
   - le chemin d’une thérapie.
@@ -20,7 +21,7 @@ Version 0.2 (novembre 2026) : le support est réorganisé en **leçons courtes, 
 
 **À relire en priorité.**
 1. Les textes **nouveaux** du chapitre « Avant de commencer » (§ 2), en particulier la leçon sur la thérapie des schémas et celle sur les limites.
-2. Les **79 questions** et leurs explications : voir [`QUESTIONS.md`](QUESTIONS.md).
+2. Les **85 questions** et leurs explications : voir [`QUESTIONS.md`](QUESTIONS.md).
 3. Les **légendes** des trois nouvelles animations (§ 4).
 4. Les **corrections factuelles** issues de la vérification du 5 novembre 2026 (§ 5). Ce sont les numéros d’aide, *Mon soutien psy* et l’annuaire.
 
@@ -47,6 +48,8 @@ Légende : **Nouveau** = écrit pour le web · **Adapté** = repris du diaporama
 | Liens externes (annuaire, ameli) | `src/data/liens.ts` |
 | Références de la page « La thérapie des schémas » | `src/data/references.ts` |
 | Glossaire | `src/data/glossaire.ts` |
+| Leçons « L’imagerie » et « Le dialogue des chaises » | `src/learn/content/techniques.ts` |
+| Exercices guidés « Imaginer autrement » et « Deux places, deux voix » | `src/learn/content/exercices.ts` |
 | Légendes des animations | `src/scenes/` (`BaseScenes.tsx`, `ConceptScenes.tsx`, `NewScenes.tsx`) |
 
 ## 2. Textes nouveaux, leçon par leçon
@@ -75,6 +78,48 @@ Pour chaque base : le besoin, ce qui se passe quand il manque, ses schémas et l
 ### Ce qui aide — **Adapté** (diapos 24, 25, 89, 90, 93)
 **Nouveau** : la carte « Un thérapeute formé aux schémas » (annuaire de l’IFTS, « j’en parle d’abord avec mon équipe de soins »).
 
+### Ce qui aide : l’imagerie et le dialogue des chaises — **Nouveau**
+- Placées juste après « Ce qui aide à s’en sortir ». La carte « Ressentir » des leviers y renvoie, ainsi que la leçon « La thérapie des schémas » et le glossaire.
+- **L’imagerie** (`imagerie`). Les cartes expliquent :
+  - comment se déroule une réécriture en imagination en séance : d’abord le thérapeute, puis l’adulte d’aujourd’hui ;
+  - pourquoi passer par des images ;
+  - que le passé ne change pas, mais que son sens peut changer ;
+  - que l’enfant reçoit enfin ce qui lui manquait ;
+  - ce qu’on en sait ;
+  - qu’un souvenir douloureux ne se revit pas seul(e).
+- **Le dialogue des chaises** (`chaises`). Les cartes expliquent :
+  - une place pour chaque part de soi, et l’origine de la technique ;
+  - que la petite voix n’est pas toute la vérité ;
+  - qu’on cherche à ressentir, pas seulement à en parler ;
+  - qu’on s’entraîne à répondre ;
+  - ce qu’on en sait ;
+  - que la petite voix est une pensée, pas une voix entendue (carte de prudence).
+- Chaque mécanisme a sa carte, et son détail sourcé se trouve dans « En savoir plus ». Ce sont des hypothèses, sauf pour l’effet plus fort des images sur l’émotion, établi en laboratoire pour l’anxiété.
+- Six nouvelles questions, dont une de prudence par leçon.
+
+### Exercices guidés — **Nouveau** (`/outils/imagerie`, `/outils/chaises`)
+- Ce sont des **adaptations prudentes**. Les deux leçons disent clairement qu’aucune étude n’a porté sur ces techniques faites seul(e).
+- **Carte d’entrée** à cocher : « Suivant » reste bloqué tant que les trois phrases ne sont pas cochées.
+  - Au calme, dix minutes.
+  - Une scène **récente et légère**, jamais un souvenir de violence ou d’abus.
+  - Je sais m’arrêter.
+  - S’y ajoutent : « Si je suis suivi(e) en psychiatrie, j’en parle d’abord à mon équipe de soins », et pour les chaises, « la petite voix est une pensée ; si j’entends des voix, je ne fais pas cet exercice seul(e) ».
+- Chaque étape porte une ligne **« Pourquoi cette étape ? »** et un rappel pour se recentrer : ouvrir les yeux, pieds au sol, cinq choses que je vois, avec un lien vers la pause en trois temps.
+- **Échelle de 0 à 10**, avant et après l’exercice. Si l’émotion est à 7 ou plus au départ, l’application propose plutôt la pause en trois temps. Si elle est montée à la fin, elle conseille de s’arrêter et d’en parler à l’équipe de soins.
+- **Imaginer autrement** :
+  - lieu calme (avec une alternative si ce lieu met mal à l’aise) ;
+  - une scène récente et légère, et ce dont j’avais besoin ;
+  - l’adulte sain qui entre dans la scène ;
+  - le geste répété en imagination ;
+  - le retour au présent.
+- **Deux places, deux voix** :
+  - deux places, ou deux colonnes sur une feuille ;
+  - la petite voix (courte) ;
+  - ce que ça me fait ;
+  - l’adulte sain debout, qui répond avec fermeté puis avec douceur ;
+  - l’adulte sain a toujours le dernier mot.
+- Leçon « Ce qui aide à s’en sortir », carte « Ressentir » : une phrase de cadre a été ajoutée au conseil d’écrire ce que je ressens. J’écris sur une situation d’aujourd’hui, pas sur un souvenir qui fait très mal, et je fais une pause si l’émotion monte (§ 6).
+
 ### Passer à l’action — **Adapté** (diapos 27, 28, 37 à 39)
 Les six mots de la méthode, la méthode en trois étapes, la pause en trois temps (avec trois respirations guidées), et dire ce qui ne va pas (méthode DESC). Les exemples de phrases DESC sont ceux de la situation « avec un ami ».
 
@@ -92,38 +137,21 @@ Les six mots de la méthode, la méthode en trois étapes, la pause en trois tem
 - Rappels espacés (boîtes de Leitner) :
   - une idée retrouvée du premier coup revient dans 3 jours, puis dans 7, 14 et 30 jours ;
   - une idée à revoir revient le lendemain.
-- 47 questions sont écrites à la main, dans les leçons. Les autres sont construites à partir des données du diaporama : la phrase de chaque schéma, le besoin de chaque base, et la phrase d’adulte sain opposée à la petite voix.
+- 53 questions sont écrites à la main, dans les leçons. Les autres sont construites à partir des données du diaporama : la phrase de chaque schéma, le besoin de chaque base, et la phrase d’adulte sain opposée à la petite voix.
 - **Toutes les questions** sont listées, avec leurs bonnes réponses et leurs explications, dans [`QUESTIONS.md`](QUESTIONS.md). Ce fichier se régénère avec `npm run docs:questions`.
 
 ## 4. Animations
 
 Les sept animations du diaporama sont gardées : lunettes, marches, verre, journée, vague, cercle, adulte sain. Le lecteur ne démarre plus tout seul ; on appuie sur « Lire », et le rythme est plus lent.
 
-**Nouvelles animations, légendes (Nouveau)** :
+**Textes réécrits pour sonner naturels.** Les textes du cercle, de l’adulte sain et des lunettes étaient assemblés automatiquement (« titre. texte. Exemple (abandon) : … »). Ils sont réécrits sans changer le sens : `ConceptScenes.tsx`, `BaseScenes.tsx`.
 
-**D’où vient un schéma (le parapluie)**, leçon « D’où viennent les schémas ? »
-1. Tout enfant a des besoins : être en sécurité, être aimé, être écouté.
-2. Parfois, un besoin manque. Pas une fois : souvent, pendant longtemps.
-3. L’enfant fait comme il peut pour se protéger. Il ouvre un parapluie.
-4. Ce parapluie l’aide à tenir. C’est une adaptation, pas un défaut.
-5. Adulte, le parapluie reste ouvert, même quand il fait beau. Il cache aussi le soleil.
-6. Le schéma ressemble à ce parapluie. Petit à petit, on peut apprendre à le baisser quand il n’est plus utile.
-
-**Trois façons de réagir**, leçon du même nom
-1. Le schéma s’allume. Sa petite voix dit : « Si on me connaissait vraiment, on ne m’aimerait pas. »
-2. Capituler, c’est faire comme si c’était vrai. Je me fais tout petit. C’est le réflexe de se figer.
-3. Éviter, c’est fuir ce qui réveille le schéma. Je m’éloigne. C’est le réflexe de fuir.
-4. Surcompenser, c’est faire l’inverse, en excès. Je me fais très grand. C’est le réflexe de combattre.
-5. Les trois soulagent sur le moment. Mais à chaque fois, la petite voix devient plus forte.
-6. Ce sont des réflexes à repérer, pas des conseils à suivre. L’adulte sain peut choisir un autre geste.
-
-**Le chemin d’une thérapie des schémas**, leçon « La thérapie des schémas »
-1. La thérapie des schémas se fait avec un thérapeute formé, en séances régulières.
-2. Comprendre : repérer ses schémas, et d’où ils viennent.
-3. Ressentir : revenir aux émotions anciennes, en sécurité, avec le thérapeute.
-4. Agir autrement : remplacer la réaction automatique par un petit pas.
-5. Être en lien : vivre une relation qui répond enfin au besoin.
-6. Le but : renforcer l’adulte sain, la part de soi qui prend soin de ses besoins.
+**Nouvelles animations, légendes (Nouveau)** : `src/scenes/NewScenes.tsx` (constantes `PARAPLUIE_CAPS`, `REACTIONS_CAPS`, `THERAPIE_CAPS`, `IMAGERIE_CAPS`, `CHAISES_CAPS`).
+- **D’où vient un schéma (le parapluie)**, leçon « D’où viennent les schémas ? ».
+- **Trois façons de réagir** : capituler, éviter, surcompenser, présentés comme des réflexes (se figer, fuir, combattre).
+- **Le chemin d’une thérapie des schémas** : comprendre, ressentir, agir autrement, être en lien.
+- **La réécriture en imagination, en séance** : déroulé seulement, sans mécanisme.
+- **Le dialogue des chaises, en séance** : la petite voix, ce que je ressens, l’adulte sain debout qui a le dernier mot.
 
 ## 5. Faits vérifiés le 5 novembre 2026
 
@@ -142,6 +170,16 @@ Les références sont passées par PubMed, Crossref et Europe PMC, avec DOI, tit
 | **114 (ajouté)** | Urgence pour les personnes sourdes, sourdaveugles, malentendantes ou aphasiques : SMS, visio, tchat, application. Gratuit, 24 h/24. | info.urgence114.fr |
 | 3919 | Violences Femmes Info : pour les **femmes** victimes de violences, leur entourage et les professionnels. Anonyme, gratuit, 24 h/24. **Ce n’est pas un numéro d’urgence.** **Corrigé** : la version précédente disait « violences sexistes et sexuelles ». | arretonslesviolences.gouv.fr ; masecurite.interieur.gouv.fr |
 | Méthode DESC | S. A. Bower et G. H. Bower, *Asserting Yourself*, Addison-Wesley, **1976**. | Open Library ; Brodowski 2026, doi:10.1177/23821205261431560 |
+| Imagerie : déroulé | La personne revoit la scène comme si elle y était. Le thérapeute y entre d’abord, puis l’adulte d’aujourd’hui ; l’enfant peut demander de l’aide jusqu’à ce que son besoin soit comblé. | Protocole de l’essai IREM, Boterhoven de Haan 2017, doi:10.1186/s12888-017-1330-2 ; Arntz 2025, doi:10.1016/j.brat.2025.104913 |
+| Imagerie : efficacité | Elle fait mieux que l’attente, et aussi bien, sans plus, que l’exposition, la TCC ou l’EMDR. Les études sont faites avec des thérapeutes formés. **Aucun chiffre n’est affiché** (voir § 6). | Morina 2017, doi:10.1016/j.jbtep.2016.11.003 ; Kip 2023, doi:10.1016/j.janxdis.2023.102772 ; Boterhoven de Haan 2020, doi:10.1192/bjp.2020.158 |
+| Images et émotion | Les images déclenchent plus d’émotion que les mots. C’est établi en laboratoire pour l’anxiété ; pour les autres émotions, la question reste ouverte. | Holmes & Mathews 2005, doi:10.1037/1528-3542.5.4.489 ; 2010, doi:10.1016/j.cpr.2010.01.001 |
+| « Le sens change, pas les faits » | C’est la théorie dominante, avec un appui partiel. En laboratoire, la mémoire des faits n’est pas altérée. | Rameckers 2024, doi:10.1016/j.brat.2024.104492 ; Assmann 2024, doi:10.1080/20008066.2024.2397890 ; Ganslmeier 2023, doi:10.1016/j.brat.2023.104409 ; Aleksic 2024, doi:10.1016/j.brat.2024.104495 |
+| Besoins comblés | Plus les besoins sont comblés pendant les séances, moins il reste de symptômes. C’est une étude **pilote** de 24 patients, présentée comme une piste. | Koetsier 2024, doi:10.1080/20008066.2024.2339702 |
+| Chaises : origine | Née dans le psychodrame, puis dans la Gestalt-thérapie ; reprise par la thérapie centrée sur les émotions et la thérapie des schémas. | Kroener 2024, doi:10.3389/fpsyt.2024.1397925 ; Kellogg 2014, doi:10.5040/9798216400042 |
+| Chaises : efficacité | Des résultats « prometteurs », pas encore solides : moins d’autocritique, plus de douceur envers soi. | Paivio & Greenberg 1995, doi:10.1037/0022-006X.63.3.419 ; Shahar 2012, doi:10.1002/cpp.762 ; Wang 2026, doi:10.1002/cpp.70346 ; Ottingerová 2026, doi:10.3389/fpsyg.2025.1692630 |
+| Chaises : mécanismes | Ils sont présentés comme des **hypothèses** : mise à distance de la voix critique, émotion vécue, répétition de la réponse. Nommer son émotion apaise la réaction du cerveau à la peur, mais c’est un résultat de laboratoire. | Pugh 2017, doi:10.1007/s10608-016-9805-x ; Kroener 2024 ; Lieberman 2007, doi:10.1111/j.1467-9280.2007.01916.x |
+| Répéter son geste en imagination | Imaginer les étapes d’une action (et pas seulement le résultat) aide à passer à l’acte, notamment avec les plans « si… alors… ». | Taylor 1998, doi:10.1037/0003-066X.53.4.429 ; Gollwitzer & Sheeran 2006, doi:10.1016/S0065-2601(06)38002-1 ; Toli 2016, doi:10.1111/bjc.12086 |
+| Se recentrer | Les cinq sens : 5 choses que je vois, 4 que je touche, 3 que j’entends, 2 que je sens, 1 que je goûte. C’est une fiche de pratique clinique, pas un essai. | NHS Hull, fiche « Grounding 5-4-3-2-1 », 2020 |
 | Lectures | *La thérapie des schémas* : De Boeck, traduction B. Pascal, 3e édition 2024. *Je réinvente ma vie* : Éditions de l’Homme, 1995, traduction M. Perron, réédition 2018. *Cambridge Guide to Schema Therapy* : Brockman, Simpson, Hayes, van der Wijngaart, Smout, 2023. | Catalogue BnF ; Cambridge Core, doi:10.1017/9781108918145 |
 
 ## 6. Encore à vérifier, ou à dire avec prudence
@@ -150,7 +188,12 @@ Les références sont passées par PubMed, Crossref et Europe PMC, avec DOI, tit
 2. L’ouverture 24 h/24 du 15 et du 112 repose sur une phrase officielle générale, pas sur chaque numéro. L’application ne l’écrit pas.
 3. Le titre exact du livre de Young de 1990 n’a pas été trouvé en catalogue. Il n’est pas cité.
 4. La durée d’une envie (« une dizaine de minutes environ », animation « vague ») est un ordre de grandeur pédagogique, pas une mesure.
-5. Le statut « Version de travail · en attente de relecture » s’affiche toujours. Pour le retirer, il faut vider le champ `statut` dans `src/data/meta.ts`.
+5. **Exercices faits seul(e)** : aucune étude n’a porté sur la réécriture d’un souvenir d’enfance ou d’un traumatisme faite seul(e), ni sur le dialogue des chaises sans thérapeute. Les deux exercices sont des adaptations prudentes, limitées à des scènes récentes et légères, et les leçons le disent. À valider par l’équipe clinique.
+6. **Psychose** : les grands essais sur l’imagerie l’excluent ; de petites études ont été menées, toujours avec des thérapeutes spécialisés. D’où la mise en garde des exercices (voix entendues, impression d’irréalité).
+7. **Lieu calme** : il peut rendre triste ou faire peur à certaines personnes. Seuls des arguments indirects l’appuient (peur de la compassion, anxiété déclenchée par la relaxation). Une alternative est proposée.
+8. **Écrire ce que je ressens** (diaporama, levier « Ressentir ») : l’effet de l’écriture expressive est petit, et la détresse augmente juste après avoir écrit (Frattaroli 2006, doi:10.1037/0033-2909.132.6.823 ; Smyth 1998, doi:10.1037/0022-006X.66.1.174). Une phrase de cadre a été ajoutée.
+9. **Chiffres de la méta-analyse Kip 2023** : un rectificatif de 2025 n’a pas pu être lu. Aucun chiffre n’est donc affiché, seulement la conclusion.
+10. Le statut « Version de travail · en attente de relecture » s’affiche toujours. Pour le retirer, il faut vider le champ `statut` dans `src/data/meta.ts`.
 
 ## 7. Décisions qui vous appartiennent
 

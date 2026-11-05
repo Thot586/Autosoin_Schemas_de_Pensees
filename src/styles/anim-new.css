@@ -84,3 +84,53 @@
   :root:not([data-motion="full"]) .re-scene .fig-walk .fig-leg-b { animation: none; transform: rotate(20deg); }
   :root:not([data-motion="full"]) .th-scene .fig-leg { animation: none; }
 }
+
+/* ───────── Jambes écartées pour « combattre » (Trois façons de réagir) ───────── */
+.re-puff .fig-leg-a { transform: rotate(15deg); }
+.re-puff .fig-leg-b { transform: rotate(-15deg); }
+
+/* ───────── Personnage assis et chaise (réécriture, dialogue des chaises) ───────── */
+.ch-chair { fill: none; stroke: var(--ink-2); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+.ch-eye { fill: none; stroke: var(--surface); stroke-width: 1.8; stroke-linecap: round; }
+.ch-eye-o { fill: var(--surface); }
+
+/* ───────── La réécriture en imagination ───────── */
+.im-film, .im-think, .im-who { transition: opacity 1.6s var(--ease); }
+.im-screen { fill: var(--surface-2); stroke: var(--edge-strong); stroke-width: 3; transition: fill 1.4s var(--ease); }
+.im-screen.is-warm { fill: color-mix(in oklab, var(--care-soft) 55%, var(--surface)); }
+.im-floor { stroke: var(--edge-strong); stroke-width: 2; stroke-linecap: round; }
+.im-cloud { transform-box: fill-box; transform-origin: center; transition: opacity 1.4s var(--ease), transform 1.6s var(--ease); }
+.im-cloud path { fill: color-mix(in oklab, var(--ink-2) 34%, var(--surface)); stroke: color-mix(in oklab, var(--ink-2) 55%, var(--surface)); stroke-width: 1.5; stroke-linejoin: round; }
+.im-bub, .im-think circle { fill: var(--surface); stroke: var(--edge-strong); stroke-width: 1.5; }
+.im-heart { fill: var(--care); transition: fill 1.2s var(--ease), opacity 1.2s var(--ease); }
+.im-heart.is-dim { fill: var(--ink-2); opacity: .3; }
+.im-adult { transition: transform 1.6s var(--ease), opacity 1s var(--ease); }
+.im-talk { fill: none; stroke: var(--brand); stroke-width: 2.5; stroke-linecap: round; }
+.im-pill, .ch-pill { fill: var(--surface); stroke: var(--brand); stroke-width: 1.5; }
+.im-pill-t, .ch-pill-t { font: 800 13px var(--font-body); fill: var(--brand-ink); }
+/* pas de marche à l'entrée dans l'image : une seule fois */
+.im-walking .im-adult .ch-thigh-a { animation: im-leg-a 1.6s ease-in-out; }
+.im-walking .im-adult .ch-thigh-b { animation: im-leg-b 1.6s ease-in-out; }
+@keyframes im-leg-a { 0%, 100% { transform: rotate(4deg); } 25%, 75% { transform: rotate(-22deg); } 50% { transform: rotate(22deg); } }
+@keyframes im-leg-b { 0%, 100% { transform: rotate(-4deg); } 25%, 75% { transform: rotate(22deg); } 50% { transform: rotate(-22deg); } }
+
+/* ───────── Le dialogue des chaises ───────── */
+.ch-lab { font: 800 12.5px var(--font-body); fill: var(--ink-2); }
+.ch-lab1 { fill: var(--b1-ink); }
+.ch-who { transition: transform 1.1s var(--ease), opacity 1s var(--ease); }
+.ch-say-b { stroke-width: 2; stroke-linejoin: round; }
+.ch-say-t { font: italic 700 15px var(--font-body); fill: var(--ink); }
+.ch-say-voice .ch-say-b { fill: var(--b1-soft); stroke: var(--b1); }
+.ch-say-voice .ch-say-t { fill: var(--b1-ink); }
+.ch-say-feel .ch-say-b { fill: var(--surface); stroke: var(--edge-strong); }
+.ch-say-firm .ch-say-b { fill: var(--brand); stroke: var(--brand); }
+.ch-say-firm .ch-say-t { font-style: normal; font-weight: 800; fill: var(--on-brand); }
+.ch-say-kind .ch-say-b { fill: var(--care-soft); stroke: var(--care); }
+.ch-say-kind .ch-say-t { fill: var(--care-ink); }
+.ch-heart { fill: var(--care); }
+
+/* ───────── Mouvement réduit (réécriture) ───────── */
+:root[data-motion="reduced"] .im-walking .im-adult :is(.ch-thigh-a, .ch-thigh-b) { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  :root:not([data-motion="full"]) .im-walking .im-adult :is(.ch-thigh-a, .ch-thigh-b) { animation: none; }
+}

@@ -8,11 +8,11 @@ type Vars = CSSProperties & Record<`--${string}`, string | number>;
 /* ═════════ 1. D'où vient un schéma : le parapluie ═════════ */
 export const PARAPLUIE_CAPS: ReactNode[] = deepFr([
   "Tout enfant a des besoins : être en sécurité, être aimé, être écouté.",
-  "Parfois, un besoin manque. Pas une fois : souvent, pendant longtemps.",
+  "Parfois, un besoin manque, et pas seulement une fois : souvent, pendant longtemps.",
   "L’enfant fait comme il peut pour se protéger. Il ouvre un parapluie.",
   "Ce parapluie l’aide à tenir. C’est une adaptation, pas un défaut.",
-  "Adulte, le parapluie reste ouvert, même quand il fait beau. Il cache aussi le soleil.",
-  "Le schéma ressemble à ce parapluie. Petit à petit, on peut apprendre à le baisser quand il n’est plus utile.",
+  "Devenu adulte, il garde le parapluie ouvert, même quand il fait beau. Et le parapluie lui cache aussi le soleil.",
+  "Un schéma ressemble à ce parapluie. Petit à petit, on peut apprendre à le baisser quand il n’est plus utile.",
 ]);
 
 const PA_G = 270;                       // ligne du sol
@@ -105,12 +105,12 @@ export function ParapluieAnimation() {
 
 /* ═════════ 2. Trois façons de réagir ═════════ */
 export const REACTIONS_CAPS: ReactNode[] = deepFr([
-  "Le schéma s’allume. Sa petite voix dit : “Si on me connaissait vraiment, on ne m’aimerait pas.”",
-  "Capituler, c’est faire comme si c’était vrai. Je me fais tout petit. C’est le réflexe de se figer.",
-  "Éviter, c’est fuir ce qui réveille le schéma. Je m’éloigne. C’est le réflexe de fuir.",
-  "Surcompenser, c’est faire l’inverse, en excès. Je me fais très grand. C’est le réflexe de combattre.",
-  "Les trois soulagent sur le moment. Mais à chaque fois, la petite voix devient plus forte.",
-  "Ce sont des réflexes à repérer, pas des conseils à suivre. L’adulte sain peut choisir un autre geste.",
+  "Le schéma s’allume, et sa petite voix murmure : “Si on me connaissait vraiment, on ne m’aimerait pas.”",
+  "Parfois, je la crois et je me fais tout(e) petit(e) : c’est capituler. Le corps se fige.",
+  "Parfois, je m’éloigne de tout ce qui pourrait la réveiller : c’est éviter. Je fuis.",
+  "Et parfois, je fais tout l’inverse, en trop : je me montre très sûr(e) de moi. C’est surcompenser, comme pour combattre.",
+  "Sur le moment, chacune soulage un peu. Mais à chaque fois, la petite voix parle plus fort.",
+  "Ce sont des réflexes : on les repère, on n’est pas obligé de les suivre. L’adulte sain peut choisir un autre geste.",
 ]);
 
 const RE_G = 262;
@@ -120,9 +120,9 @@ const RE_MAIN: { cx: number; s: number; pose: Pose; label: string }[] = [
   { cx: 180, s: 1.1, pose: "stand", label: "" },
   { cx: 180, s: 0.78, pose: "bow", label: "se figer" },
   { cx: 296, s: 1.1, pose: "walk", label: "fuir" },
-  { cx: 180, s: 1.5, pose: "fist", label: "combattre" },
+  { cx: 180, s: 1.55, pose: "puff", label: "combattre" },
 ];
-const RE_TRIO: { pose: Pose; label: string; walk?: boolean }[] = [{ pose: "bow", label: "se figer" }, { pose: "walk", label: "fuir", walk: true }, { pose: "fist", label: "combattre" }];
+const RE_TRIO: { pose: Pose; label: string; walk?: boolean }[] = [{ pose: "bow", label: "se figer" }, { pose: "walk", label: "fuir", walk: true }, { pose: "puff", label: "combattre" }];
 const RE_VOICE = deepFr("On ne m’aimerait pas.");
 
 function Speed({ x, y, s = 1 }: { x: number; y: number; s?: number }) {
@@ -138,7 +138,7 @@ function Reactions({ step }: { step: number }) {
   const ts = chosen ? 0.7 : 0.85;
   return (
     <svg viewBox="0 0 360 300" className="sv re-scene" data-step={step}>
-      <text x="180" y="20" textAnchor="middle" className="sv-cap">LA PETITE VOIX DU SCHÉMA</text>
+      <text x="180" y="22" textAnchor="middle" className="sv-label">la petite voix</text>
       <g className={`re-voice ${step === 4 ? "is-loud" : ""}`} style={{ transform: `scale(${vs})` }}>
         <rect x="86" y="54" width="188" height="40" rx="20" />
         <path d="M171 92 l9 14 l9 -14 z" />
@@ -150,7 +150,7 @@ function Reactions({ step }: { step: number }) {
 
       <g className="re-main" style={{ opacity: trio ? 0 : 1 }}>
         {step === 2 && <Speed x={main.cx - 26} y={RE_G - 58} />}
-        <Figure {...reAt(main.cx, main.s)} pose={main.pose} walking={step === 2} />
+        <Figure {...reAt(main.cx, main.s)} pose={main.pose} walking={step === 2} className={main.pose === "puff" ? "re-puff" : ""} />
         {main.label && <text key={step} x={main.cx} y="288" textAnchor="middle" className="sv-label re-label">{main.label}</text>}
       </g>
 
@@ -159,7 +159,7 @@ function Reactions({ step }: { step: number }) {
           <g key={i}>
             <g className="re-trio-f" style={{ opacity: chosen ? 0.5 : 1 }}>
               {f.walk && <g className="re-move" style={{ transform: `translateX(${tx[i]}px)` }}><Speed x={-24 * ts} y={RE_G - 52 * ts} s={ts} /></g>}
-              <Figure {...reAt(tx[i], ts)} pose={f.pose} walking={!!f.walk && trio} />
+              <Figure {...reAt(tx[i], ts)} pose={f.pose} walking={!!f.walk && trio} className={f.pose === "puff" ? "re-puff" : ""} />
             </g>
             <g className="re-move" style={{ transform: `translateX(${tx[i]}px)` }}>
               <text x="0" y="288" textAnchor="middle" className="sv-label re-label">{f.label}</text>
@@ -183,12 +183,12 @@ export function ReactionsAnimation() {
 
 /* ═════════ 3. Le chemin d'une thérapie des schémas ═════════ */
 export const THERAPIE_CAPS: ReactNode[] = deepFr([
-  "La thérapie des schémas se fait avec un thérapeute formé, en séances régulières.",
-  "Comprendre : repérer ses schémas, et d’où ils viennent.",
-  "Ressentir : revenir aux émotions anciennes, en sécurité, avec le thérapeute.",
-  "Agir autrement : remplacer la réaction automatique par un petit pas.",
-  "Être en lien : vivre une relation qui répond enfin au besoin.",
-  "Le but : renforcer l’adulte sain, la part de soi qui prend soin de ses besoins.",
+  "Une thérapie des schémas, c’est d’abord une rencontre régulière avec un thérapeute formé.",
+  "Ensemble, on commence par comprendre : quels sont mes schémas, et d’où ils viennent.",
+  "Puis on s’autorise à ressentir : on revient aux émotions anciennes, à l’abri, avec le thérapeute.",
+  "On s’entraîne à agir autrement : un petit pas, à la place de la réaction automatique.",
+  "Et la relation compte : on vit, avec le thérapeute puis avec d’autres, un lien qui répond enfin au besoin.",
+  "Pas à pas, l’adulte sain grandit : cette part de moi qui sait prendre soin de mes besoins.",
 ]);
 
 const TH_X0 = 12, TH_X1 = 348;
@@ -246,4 +246,202 @@ function Therapie({ step }: { step: number }) {
 export function TherapieAnimation() {
   return <Player label="Le chemin d’une thérapie des schémas" captions={THERAPIE_CAPS} aspect="360 / 290" render={(s) => <Therapie step={s} />}
     transcript={<ol>{THERAPIE_CAPS.map((c, i) => <li key={i}>{c}</li>)}</ol>} />;
+}
+
+/* ═════════ Personnage assis ou à genoux, et chaise (scènes 4 et 5) ═════════
+   Même dessin que Figure (40 × 80, hanche en 20 48), mais jambes en deux segments (cuisse, tibia)
+   pour pouvoir s'asseoir et s'agenouiller. « Devant » = vers la droite ; `flip` le tourne vers la gauche. */
+type Body = { t: number; al: number; ar: number; a: [number, number]; b: [number, number]; h?: number };
+const BODY = {
+  stand: { t: 0, al: 16, ar: -16, a: [4, 0], b: [-4, 0] },
+  sit: { t: 0, al: -26, ar: -40, a: [-86, 86], b: [-94, 94] },
+  sitBow: { t: 22, al: -42, ar: -58, a: [-86, 86], b: [-94, 94], h: 3 },
+  floor: { t: 14, al: -48, ar: -58, a: [-110, 50], b: [-116, 56], h: 2 },
+  kneel: { t: 12, al: -74, ar: -8, a: [-90, 90], b: [-4, 94] },
+  firm: { t: -3, al: 8, ar: -98, a: [7, 0], b: [-7, 0], h: -2 },
+  kind: { t: 8, al: 10, ar: -52, a: [4, 0], b: [-4, 0], h: 2 },
+} satisfies Record<string, Body>;
+type BodyName = keyof typeof BODY;
+const LEG = 16; // cuisse = tibia : 16 unités
+const SEAT = LEG + 1.5; // hanche assise un peu au-dessus du tibia : le pied (bout arrondi) ne passe pas sous le sol
+
+/** Place la hanche en (hx, hy). Debout : hy = sol − 32 s ; à genoux : hy = sol − 16 s ; assis : voir seatHip. */
+function Person({ hx, hy, s, body = "stand", color = "var(--ink)", flip = false, eyes, className = "", style }: {
+  hx: number; hy: number; s: number; body?: BodyName; color?: string; flip?: boolean; eyes?: "closed" | "open"; className?: string; style?: CSSProperties;
+}) {
+  const p: Body = BODY[body];
+  const leg = (tk: [number, number], k: string) => (
+    <g key={k} className={`fig-leg ch-thigh ch-thigh-${k}`} style={{ transformOrigin: "20px 48px", transform: `rotate(${tk[0]}deg)` }}>
+      <line x1="20" y1="48" x2="20" y2={48 + LEG} stroke={color} strokeWidth="4.5" strokeLinecap="round" />
+      <g className="fig-leg" style={{ transformOrigin: `20px ${48 + LEG}px`, transform: `rotate(${tk[1]}deg)` }}>
+        <line x1="20" y1={48 + LEG} x2="20" y2={48 + 2 * LEG} stroke={color} strokeWidth="4.5" strokeLinecap="round" />
+      </g>
+    </g>
+  );
+  return (
+    <g className={`fig ${className}`} color={color}
+      style={{ transform: `translate(${hx}px, ${hy}px) scale(${flip ? -s : s}, ${s}) translate(-20px, -48px)`, ...style }}>
+      {leg(p.b, "b")}{leg(p.a, "a")}
+      <g className="fig-upper" style={{ transform: `rotate(${p.t}deg)`, transformOrigin: "20px 48px" }}>
+        <g className="fig-head" style={{ transform: `translateY(${p.h ?? 0}px)` }}>
+          <circle cx="20" cy="10" r="8.5" fill={color} />
+          {eyes === "closed" && <path d="M21.5 10.5 q2.6 2.4 5.2 0" className="ch-eye" />}
+          {eyes === "open" && <circle cx="24.2" cy="9.4" r="1.6" className="ch-eye-o" />}
+        </g>
+        <line x1="20" y1="20" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" />
+        <g className="fig-arm" style={{ transformOrigin: "20px 26px", transform: `rotate(${p.ar}deg)` }}><line x1="20" y1="26" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" /></g>
+        <g className="fig-arm" style={{ transformOrigin: "20px 26px", transform: `rotate(${p.al}deg)` }}><line x1="20" y1="26" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" /></g>
+      </g>
+    </g>
+  );
+}
+
+/** Chaise vue de profil, dossier en x, tournée vers la droite (dir = 1) ou la gauche (dir = −1), pour un personnage d'échelle s. */
+function Chair({ x, g, s, dir = 1, className = "" }: { x: number; g: number; s: number; dir?: 1 | -1; className?: string }) {
+  const seat = g - SEAT * s + 3.5 * s, d = 19 * s * dir;
+  return <path d={`M${x} ${g} V${seat - 30 * s} M${x} ${seat} H${x + d} V${g}`} className={`ch-chair ${className}`} />;
+}
+/** Hanche d'un personnage assis sur la chaise de dossier x. */
+const seatHip = (x: number, g: number, s: number, dir: 1 | -1 = 1) => ({ hx: x + 8 * s * dir, hy: g - SEAT * s, s, flip: dir < 0 });
+
+/* ═════════ 4. La réécriture en imagination ═════════ */
+export const IMAGERIE_CAPS: ReactNode[] = deepFr([
+  "En séance, je ferme les yeux et je laisse revenir une scène ancienne, comme un film.",
+  "Je regarde ce qui se passe, et ce que ressent l’enfant que j’étais. Le thérapeute est là, il me parle.",
+  "Puis quelqu’un entre dans la scène : le thérapeute, ou l’adulte que je suis devenu(e).",
+  "Il se met à côté de l’enfant. Il le protège, l’écoute, et lui donne enfin ce qui lui manquait.",
+  "Ensuite, on revient doucement au présent, et on parle de ce qui a changé.",
+  "C’est un travail qui se fait avec un thérapeute formé : un souvenir très douloureux, on ne le revit pas seul(e).",
+]);
+
+const IM_G = 284;                         // sol de la séance
+const IM_FG = 138;                        // sol à l'intérieur du film
+const IM_S = 1.05, IM_TX = 100, IM_PX = 262;
+const IM_THER = seatHip(IM_TX, IM_G, IM_S, 1);
+const IM_ME = seatHip(IM_PX, IM_G, IM_S, -1);
+const IM_CS = 0.85, IM_AS = 0.78;          // enfant, adulte dans le film
+// adulte du film : position et posture selon l'étape (invisible avant l'étape 3)
+const imAdult = (step: number): { hx: number; body: BodyName } =>
+  step <= 1 ? { hx: 288, body: "stand" } : step === 2 ? { hx: 236, body: "stand" } : { hx: 190, body: "kneel" };
+const IM_TXT = deepFr({ ther: "thérapeute", eyes: "les yeux fermés", end: "avec un thérapeute formé" });
+
+function Imagerie({ step }: { step: number }) {
+  const film = step <= 3;
+  const warm = step >= 3;
+  const ad = imAdult(step);
+  const adY = IM_FG - (ad.body === "kneel" ? LEG : 2 * LEG) * IM_AS;
+  return (
+    <svg viewBox="0 0 360 310" className={`sv im-scene ${step === 2 ? "im-walking" : ""}`} data-step={step}>
+      {/* le souvenir, comme un film */}
+      <g className="im-film" style={{ opacity: film ? 1 : 0 }}>
+        <rect x="56" y="12" width="248" height="142" rx="18" className={`im-screen ${warm ? "is-warm" : ""}`} />
+        <line x1="76" y1={IM_FG} x2="284" y2={IM_FG} className="im-floor" />
+        <g className="im-cloud" style={{ opacity: warm ? 0 : 1, transform: warm ? "translateY(-8px) scale(.7)" : "none" }}>
+          <path d="M-30 14 Q-44 14 -42 2 Q-40 -10 -26 -8 Q-22 -24 -4 -22 Q8 -32 24 -22 Q42 -22 40 -4 Q48 8 34 14 Z" transform="translate(228 50)" />
+        </g>
+        <g className="im-need">
+          <circle cx="129" cy="92" r="3" className="im-bub" /><circle cx="121" cy="83" r="4.5" className="im-bub" />
+          <circle cx="104" cy="58" r="22" className="im-bub" />
+          <path d={HEART} transform="translate(104 60) scale(1.05)" className={`im-heart ${warm ? "" : "is-dim"}`} />
+        </g>
+        <Person hx={146} hy={IM_FG - 3 * IM_CS} s={IM_CS} body="floor" color="var(--ink-2)" />
+        <Person hx={ad.hx} hy={adY} s={IM_AS} body={ad.body} color="var(--brand)" flip
+          className="im-adult" style={{ opacity: step >= 2 ? 1 : 0 }} />
+      </g>
+      {/* le film se passe « dans la tête » de la personne assise */}
+      <g className="im-think" style={{ opacity: film ? 1 : 0 }}>
+        <circle cx="248" cy="200" r="3" /><circle cx="241" cy="185" r="4.5" /><circle cx="233" cy="168" r="6" />
+      </g>
+
+      <line x1="12" y1={IM_G} x2="348" y2={IM_G} className="sv-ground" />
+      <Chair x={IM_TX} g={IM_G} s={IM_S} dir={1} />
+      <Chair x={IM_PX} g={IM_G} s={IM_S} dir={-1} />
+      <Person {...IM_THER} body="sit" color="var(--brand)" eyes="open" />
+      <Person {...IM_ME} body="sit" eyes={step >= 4 ? "open" : "closed"} />
+      {step === 1 && <path d="M125 214 q5 8 0 16 M132 209 q8 13 0 26" className="im-talk sv-pop" />}
+
+      {step === 4 && <g className="sv-pop">
+        <circle cx="270" cy="204" r="3" className="im-bub" /><circle cx="279" cy="192" r="4.5" className="im-bub" />
+        <circle cx="296" cy="166" r="22" className="im-bub" />
+        <path d={HEART} transform="translate(296 168) scale(1.05)" className="im-heart" />
+      </g>}
+      {step === 5 && <g className="sv-pop">
+        <rect x="88" y="128" width="184" height="32" rx="16" className="im-pill" />
+        <text x="180" y="149" textAnchor="middle" className="im-pill-t">{IM_TXT.end}</text>
+      </g>}
+
+      <text x={IM_THER.hx + 6} y="303" textAnchor="middle" className="sv-label im-who" style={{ opacity: step <= 1 ? 1 : 0 }}>{IM_TXT.ther}</text>
+      <text x={IM_ME.hx - 6} y="303" textAnchor="middle" className="sv-label im-who" style={{ opacity: step <= 3 ? 1 : 0 }}>{IM_TXT.eyes}</text>
+    </svg>
+  );
+}
+
+export function ImagerieAnimation() {
+  return <Player label="La réécriture en imagination, en séance" captions={IMAGERIE_CAPS} aspect="360 / 310" render={(s) => <Imagerie step={s} />}
+    transcript={<ol>{IMAGERIE_CAPS.map((c, i) => <li key={i}>{c}</li>)}</ol>} />;
+}
+
+/* ═════════ 5. Le dialogue des chaises ═════════ */
+export const CHAISES_CAPS: ReactNode[] = deepFr([
+  "Deux chaises se font face. Chacune va donner la parole à une part de moi.",
+  "Assis(e) sur la première, je laisse parler la petite voix : « Tu vas encore tout rater. »",
+  "Je passe sur l’autre chaise. De là, je dis ce que ça me fait : « Ça me fait mal. J’ai peur. »",
+  "Puis je me lève. C’est l’adulte sain qui parle, et il dit stop : « Tu me parles trop durement. »",
+  "Il se tourne vers l’enfant, avec douceur : « Tu as le droit d’essayer. Je suis là. »",
+  "On finit toujours avec l’adulte sain. Le thérapeute guide, et dit quand changer de place.",
+]);
+
+const CH_G = 254, CH_S = 1.45, CH_X1 = 58, CH_X2 = 302, CH_AS = 1.45;
+const CH_TXT = deepFr({
+  chair1: "la petite voix", chair2: "ce que je ressens", end: "l’adulte sain a le dernier mot",
+  voice: ["Tu vas encore tout rater."], feel: ["Ça me fait mal. J’ai peur."],
+  firm: ["Stop.", "Tu me parles trop durement."], kind: ["Tu as le droit d’essayer.", "Je suis là."],
+});
+// bulle : rectangle arrondi et pointe (base en bx, pointe en tx ty), d'un seul tracé
+const bubblePath = (x: number, y: number, w: number, h: number, bx: number, tx: number, ty: number) => {
+  const r = Math.min(20, h / 2);
+  return `M${x + r} ${y} H${x + w - r} A${r} ${r} 0 0 1 ${x + w} ${y + r} V${y + h - r} A${r} ${r} 0 0 1 ${x + w - r} ${y + h} `
+    + `H${bx + 9} L${tx} ${ty} L${bx - 9} ${y + h} H${x + r} A${r} ${r} 0 0 1 ${x} ${y + h - r} V${y + r} A${r} ${r} 0 0 1 ${x + r} ${y} Z`;
+};
+const CH_BUBBLES: { x: number; y: number; w: number; h: number; bx: number; tx: number; ty: number; lines: string[]; cls: string }[] = [
+  { x: 14, y: 74, w: 226, h: 44, bx: 74, tx: 72, ty: 140, lines: CH_TXT.voice, cls: "ch-say-voice" },
+  { x: 120, y: 74, w: 226, h: 44, bx: 282, tx: 284, ty: 150, lines: CH_TXT.feel, cls: "ch-say-feel" },
+  { x: 12, y: 34, w: 248, h: 62, bx: 166, tx: 176, ty: 120, lines: CH_TXT.firm, cls: "ch-say-firm" },
+  { x: 100, y: 34, w: 248, h: 62, bx: 194, tx: 184, ty: 120, lines: CH_TXT.kind, cls: "ch-say-kind" },
+];
+
+function Chaises({ step }: { step: number }) {
+  const b = step >= 1 && step <= 4 ? CH_BUBBLES[step - 1] : null;
+  return (
+    <svg viewBox="0 0 360 300" className="sv ch-scene" data-step={step}>
+      <line x1="12" y1={CH_G} x2="348" y2={CH_G} className="sv-ground" />
+      <Chair x={CH_X1} g={CH_G} s={CH_S} dir={1} />
+      <Chair x={CH_X2} g={CH_G} s={CH_S} dir={-1} />
+      <text x={CH_X1 + 16} y="280" textAnchor="middle" className="ch-lab ch-lab1">{CH_TXT.chair1}</text>
+      <text x={CH_X2 - 16} y="280" textAnchor="middle" className="ch-lab">{CH_TXT.chair2}</text>
+
+      {/* une seule personne : elle change de place (fondu), puis se lève */}
+      <Person {...seatHip(CH_X1, CH_G, CH_S, 1)} body="sit" className="ch-who" style={{ opacity: step === 1 ? 1 : 0 }} />
+      <Person {...seatHip(CH_X2, CH_G, 1.3, -1)} body="sitBow" className="ch-who" style={{ opacity: step === 2 ? 1 : 0 }} />
+      <Person hx={180} hy={CH_G - 2 * LEG * CH_AS} s={CH_AS} body={step === 3 ? "firm" : step === 4 ? "kind" : "stand"} flip={step === 3}
+        color="var(--brand)" className="ch-who" style={{ opacity: step >= 3 ? 1 : 0 }} />
+
+      {b && <g key={step} className={`ch-say ${b.cls} sv-pop`}>
+        <path d={bubblePath(b.x, b.y, b.w, b.h, b.bx, b.tx, b.ty)} className="ch-say-b" />
+        <text x={b.x + b.w / 2} y={b.y + (b.lines.length > 1 ? 26 : 28)} textAnchor="middle" className="ch-say-t">
+          {b.lines.map((l, k) => <tspan key={k} x={b.x + b.w / 2 - (step === 4 && k === 1 ? 10 : 0)} dy={k === 0 ? 0 : 21}>{l}</tspan>)}
+        </text>
+        {step === 4 && <path d={HEART} transform={`translate(${b.x + b.w / 2 + 50} ${b.y + 44}) scale(.62)`} className="ch-heart" />}
+      </g>}
+      {step === 5 && <g className="sv-pop">
+        <rect x="70" y="74" width="220" height="32" rx="16" className="ch-pill" />
+        <text x="180" y="95" textAnchor="middle" className="ch-pill-t">{CH_TXT.end}</text>
+      </g>}
+    </svg>
+  );
+}
+
+export function ChaisesAnimation() {
+  return <Player label="Le dialogue des chaises, en séance" captions={CHAISES_CAPS} aspect="360 / 300" render={(s) => <Chaises step={s} />}
+    transcript={<ol>{CHAISES_CAPS.map((c, i) => <li key={i}>{c}</li>)}</ol>} />;
 }

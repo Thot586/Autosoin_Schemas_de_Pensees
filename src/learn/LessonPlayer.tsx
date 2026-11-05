@@ -4,6 +4,7 @@ import { Link } from "../lib/router";
 import { useDocTitle } from "../lib/hooks";
 import { last } from "../lib/state";
 import { CardBody, CardExtras, SpeakButton, speechOf } from "./Cards";
+import { Rich } from "./Rich";
 import { lessonState, markLessonDone, recordAnswer, setLessonPos } from "./progress";
 import { stopSpeaking } from "./speech";
 import type { Card, Tone } from "./types";
@@ -24,6 +25,7 @@ export function LessonPlayer({ storeKey, title, kicker, cards, tone = "brand", e
     return Math.max(0, Math.min(n - 2, pos));
   });
   const [picked, setPicked] = useState<Record<string, number>>({});
+  const [gates, setGates] = useState<Record<string, boolean[]>>({});
   const head = useRef<HTMLHeadingElement>(null);
   const first = useRef(true);
   const card = cards[Math.min(i, n - 1)];
@@ -53,19 +55,26 @@ export function LessonPlayer({ storeKey, title, kicker, cards, tone = "brand", e
   }, [i]);
   useEffect(() => () => stopSpeaking(), []);
 
+  // Carte d'entrée d'un exercice : on n'avance qu'une fois toutes les cases cochées.
+  const blocked = card.kind === "gate" && !card.items.every((_, k) => gates[card.id]?.[k]);
   const go = useCallback((d: number) => setI((x) => Math.max(0, Math.min(n - 1, x + d))), [n]);
+  const toggleGate = (k: number) => setGates((g) => {
+    const cur = (g[card.id] ?? []).slice();
+    cur[k] = !cur[k];
+    return { ...g, [card.id]: cur };
+  });
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const t = e.target as HTMLElement;
       if (t.closest("input, textarea, select, [contenteditable], dialog")) return;
       if (e.altKey || e.ctrlKey || e.metaKey) return;
-      if (e.key === "ArrowRight") { e.preventDefault(); go(1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); if (!blocked) go(1); }
       else if (e.key === "ArrowLeft") { e.preventDefault(); go(-1); }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [go]);
+  }, [go, blocked]);
 
   const pick = (k: number) => {
     if (card.kind !== "quiz" && card.kind !== "rappel") return;
@@ -100,9 +109,10 @@ export function LessonPlayer({ storeKey, title, kicker, cards, tone = "brand", e
           <p className="lcard-count">{i + 1} sur {n}</p>
           {"icon" in card && card.icon && <span className="lcard-ic" aria-hidden="true"><Icon name={card.icon} size={28} /></span>}
           {card.kind === "end" && <span className="lcard-ic lcard-ic-end" aria-hidden="true"><Icon name="check" size={30} /></span>}
-          <h2 id="lcard-h" ref={head} tabIndex={-1}>{card.title}</h2>
+          {isQuiz && <p className="lcard-kicker">{card.title}</p>}
+          <h2 id="lcard-h" ref={head} tabIndex={-1}>{isQuiz ? <Rich text={card.quiz.q} /> : card.title}</h2>
           <div className="lcard-body">
-            <CardBody card={card} picked={picked[card.id]} onPick={pick} />
+            <CardBody card={card} picked={picked[card.id]} onPick={pick} gate={{ checked: gates[card.id] ?? [], toggle: toggleGate }} />
           </div>
           <div className="lcard-tools">
             {card.kind !== "end" && card.kind !== "fiche" && <SpeakButton k={`${storeKey}:${card.id}`} parts={speechOf(card)} />}
@@ -116,8 +126,8 @@ export function LessonPlayer({ storeKey, title, kicker, cards, tone = "brand", e
           <button type="button" className="btn btn-ghost lesson-prev" onClick={() => go(-1)} disabled={i === 0}>
             <Icon name="arrowLeft" size={22} /><span>Retour</span>
           </button>
-          <button type="button" className={`btn ${unanswered ? "btn-soft" : "btn-primary"} lesson-next`} onClick={() => go(1)}>
-            <span>{unanswered ? "Passer" : i === n - 2 ? "Terminer" : "Suivant"}</span><Icon name="arrowRight" size={22} />
+          <button type="button" className={`btn ${unanswered ? "btn-soft" : "btn-primary"} lesson-next`} onClick={() => go(1)} disabled={blocked}>
+            <span>{blocked ? "Je coche les cases pour commencer" : unanswered ? "Passer" : i === n - 2 ? "Terminer" : "Suivant"}</span>{!blocked && <Icon name="arrowRight" size={22} />}
           </button>
         </nav>
       )}

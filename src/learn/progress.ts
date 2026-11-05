@@ -59,3 +59,6 @@ export function shuffle<T>(xs: T[], seed: string): T[] {
   for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
   return a;
 }
+
+/** Notes de 0 à 10 des exercices guidés (avant / après), gardées sur l'appareil. */
+export const exoRatings = persisted<Record<string, number | null>>("exercices", {});

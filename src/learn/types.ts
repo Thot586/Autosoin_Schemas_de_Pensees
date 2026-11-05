@@ -8,10 +8,15 @@ export type Tone = "brand" | "care" | `b${BaseId}`;
 export type AnimKey =
   | "lunettes" | "marches" | "verre" | "journee" | "vague"
   | "cercle" | "adulte"
-  | "parapluie" | "reactions" | "therapie";
+  | "parapluie" | "reactions" | "therapie"
+  | "imagerie" | "chaises";
 
-/** Petits exercices interactifs intégrés à une carte. */
-export type WidgetKey = "lunettes-demo" | "age" | "numeros" | "bases" | "quinze" | "respiration";
+/**
+ * Petits exercices interactifs intégrés à une carte.
+ * « echelle » : note de 0 à 10 (paramètre = clé, ex. « imagerie-avant ») ;
+ * « bilan » : compare avant / après (paramètre = préfixe, ex. « imagerie »).
+ */
+export type WidgetKey = "lunettes-demo" | "age" | "numeros" | "bases" | "quinze" | "respiration" | "echelle" | "bilan";
 
 /** Une question de quiz : elle porte sur une idée du support, jamais sur la personne. */
 export interface QuizItem {
@@ -33,6 +38,10 @@ interface CardBase {
   pro?: string;
   /** Détail facultatif, replié par défaut (« En savoir plus »). */
   more?: { label?: string; body: string[] };
+  /** Exercices guidés : une ligne « Pourquoi cette étape ? », pour comprendre ce qu'on fait. */
+  why?: string;
+  /** Exercices guidés : rappel pour se recentrer (« Si c'est trop fort… »). */
+  ground?: boolean;
 }
 
 /**
@@ -49,7 +58,9 @@ export type Card =
   | (CardBase & { kind: "tiles"; body?: string[]; tiles: { icon?: IconName; title: string; text: string; tone?: Tone }[] })
   | (CardBase & { kind: "steps"; body?: string[]; steps: { title: string; text: string }[]; foot?: string })
   | (CardBase & { kind: "anim"; anim: AnimKey; body?: string[] })
-  | (CardBase & { kind: "widget"; widget: WidgetKey; body?: string[] })
+  | (CardBase & { kind: "widget"; widget: WidgetKey; param?: string; body?: string[] })
+  /** Carte d'entrée d'un exercice guidé : « Suivant » reste bloqué tant que toutes les cases ne sont pas cochées. */
+  | (CardBase & { kind: "gate"; body?: string[]; items: string[]; after?: string[] })
   | (CardBase & { kind: "reflect"; body?: string[]; prompt: string; hint?: string; noteId: string })
   | (CardBase & { kind: "links"; icon?: IconName; body?: string[]; links: LinkItem[] })
   | (CardBase & { kind: "quiz"; quiz: QuizItem })

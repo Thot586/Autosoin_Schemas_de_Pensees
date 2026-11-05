@@ -17,6 +17,7 @@ const Pause = lazy(() => import("./pages/Pause"));
 const Dire = lazy(() => import("./pages/Dire"));
 const Plan = lazy(() => import("./pages/Plan"));
 const Carnet = lazy(() => import("./pages/Carnet"));
+const Exercice = lazy(() => import("./pages/Exercice"));
 const Aide = lazy(() => import("./pages/Aide"));
 const Soutien = lazy(() => import("./pages/Soutien"));
 const Therapie = lazy(() => import("./pages/Therapie"));
@@ -53,6 +54,8 @@ const routes: RouteDef[] = [
   { path: "/outils/dire", element: () => <Dire /> },
   { path: "/outils/plan", element: () => <Plan /> },
   { path: "/outils/carnet", element: () => <Carnet /> },
+  { path: "/outils/imagerie", element: () => <Exercice key="imagerie" kind="imagerie" /> },
+  { path: "/outils/chaises", element: () => <Exercice key="chaises" kind="chaises" /> },
   { path: "/aide", element: () => <Aide /> },
   { path: "/soutien", element: () => <Soutien /> },
   { path: "/therapie", element: () => <Therapie /> },

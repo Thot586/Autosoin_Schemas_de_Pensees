@@ -356,3 +356,26 @@
   .lcard h2 { font-size: 2.3rem; }
   .lesson-title { font-size: 1.15rem; }
 }
+
+/* ───────── Exercices guidés : entrée, pourquoi, se recentrer, échelle, bilan ───────── */
+.gate { display: grid; gap: 10px; margin: .4rem 0 1rem; }
+.gate .fiche-c b { display: inline; }
+.gate-out { font-size: .92em; margin: .4rem 0 0; }
+.gate-out a { display: inline-flex; gap: 6px; align-items: center; font-weight: 700; min-height: 44px; }
+.lc-why { margin: 1.1rem 0 0; padding: 12px 14px; border-radius: 14px; background: var(--surface-2); font-size: 1rem; line-height: 1.5; color: var(--ink-2); }
+.lc-why b { color: var(--ink); }
+.lc-ground { display: flex; gap: 8px; align-items: flex-start; margin: .9rem 0 0; font-size: .95rem; color: var(--ink-2); line-height: 1.5; }
+.lc-ground .icon { color: var(--care); flex-shrink: 0; margin-top: 3px; }
+.lc-ground a { font-weight: 700; white-space: nowrap; }
+.w-scale-warn { display: flex; gap: 8px; align-items: flex-start; margin: 12px 0 0; padding: 12px 14px; border-radius: 14px; background: var(--care-soft); color: var(--ink); font-size: 1rem; }
+.w-scale-warn .icon { color: var(--care); flex-shrink: 0; margin-top: 3px; }
+.w-scale-warn a { font-weight: 700; }
+.w-bilan { padding: 14px 16px; border-radius: 16px; background: var(--ok-soft); font-size: 1.05rem; }
+.w-bilan.is-up { background: var(--care-soft); }
+.w-bilan p { margin: 0 0 .5em; }
+.w-bilan p:last-child { margin-bottom: 0; }
+.w-bilan-n { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 1.1em; }
+.w-bilan .icon { color: var(--care); vertical-align: -3px; }
+.lesson-next:disabled { opacity: .55; }
+.lcard-kicker { margin: 0 0 .3rem; font-weight: 700; color: var(--accent-ink); font-size: 1rem; }
+.lcard-quiz h2, .lcard-rappel h2 { font-size: clamp(1.35rem, 1.15rem + 1vw, 1.75rem); line-height: 1.35; }

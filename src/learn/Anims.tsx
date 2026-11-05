@@ -1,6 +1,6 @@
 import { BaseAnimation } from "../scenes/BaseScenes";
 import { AdulteAnimation, CycleAnimation } from "../scenes/ConceptScenes";
-import { ParapluieAnimation, ReactionsAnimation, TherapieAnimation } from "../scenes/NewScenes";
+import { ChaisesAnimation, ImagerieAnimation, ParapluieAnimation, ReactionsAnimation, TherapieAnimation } from "../scenes/NewScenes";
 import type { AnimKey } from "./types";
 
 export function Anim({ k, label }: { k: AnimKey; label: string }) {
@@ -12,5 +12,7 @@ export function Anim({ k, label }: { k: AnimKey; label: string }) {
     case "parapluie": return <ParapluieAnimation />;
     case "reactions": return <ReactionsAnimation />;
     case "therapie": return <TherapieAnimation />;
+    case "imagerie": return <ImagerieAnimation />;
+    case "chaises": return <ChaisesAnimation />;
   }
 }

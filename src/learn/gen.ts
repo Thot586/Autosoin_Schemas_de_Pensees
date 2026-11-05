@@ -19,8 +19,8 @@ const others = (slug: string, n: number, salt: string) => shuffle(SCHEMAS.filter
 export function phraseQuiz(slug: string): QuizItem {
   const s = schemaBySlug(slug)!;
   const wrong = others(slug, 2, "phrase").map((o) => o.phrase);
-  return make(`phrase-${slug}`, `Quelle phrase va avec le schéma « ${s.name} » ?`, s.phrase, wrong,
-    `La phrase du schéma « ${s.name} » : ${s.phrase} Ce n’est pas un fait : c’est ce que le schéma répète.`);
+  return make(`phrase-${slug}`, `Quand le schéma « ${s.name} » s’allume, que me souffle-t-il ?`, s.phrase, wrong,
+    `C’est ce que répète le schéma « ${s.name} » : ${s.phrase} Cela sonne comme un fait, mais ce n’en est pas un.`);
 }
 
 /** « Le besoin derrière le schéma X, c'est… » */
@@ -28,16 +28,16 @@ export function besoinQuiz(slug: string): QuizItem {
   const s = schemaBySlug(slug)!;
   const wrong = others(slug, 2, "besoin").filter((o) => o.besoin !== s.besoin).map((o) => o.besoin);
   const cap = (x: string) => x.charAt(0).toUpperCase() + x.slice(1);
-  return make(`besoin-${slug}`, `Derrière le schéma « ${s.name} », il y a le besoin…`, cap(s.besoin), wrong.map(cap),
-    `Derrière ce schéma, un besoin légitime : ${s.besoin}`);
+  return make(`besoin-${slug}`, `Derrière le schéma « ${s.name} », de quoi ai-je besoin ?`, cap(s.besoin), wrong.map(cap),
+    `Derrière ce schéma se cache un besoin légitime : ${s.besoin}`);
 }
 
 /** Distinguer la petite voix (le schéma) de la phrase d'adulte sain. */
 export function adultQuiz(slug: string): QuizItem {
   const s = schemaBySlug(slug)!;
   const other = others(slug, 1, "voix")[0];
-  return make(`adulte-${slug}`, "Laquelle est une phrase d’adulte sain ?", s.moment.phrase, [s.moment.voice, other.moment.voice],
-    "La petite voix parle comme si c’était un fait. L’adulte sain répond au besoin, avec bienveillance et fermeté.");
+  return make(`adulte-${slug}`, "Laquelle de ces phrases vient de l’adulte sain ?", s.moment.phrase, [s.moment.voice, other.moment.voice],
+    "La petite voix parle comme si c’était un fait. L’adulte sain, lui, répond au besoin, avec douceur et fermeté.");
 }
 
 /** Même question pour tous les schémas : elle n'apparaît qu'une fois dans les rappels. */
@@ -53,6 +53,6 @@ export const STEPS_QUIZ: QuizItem = {
 export function baseNeedQuiz(id: number): QuizItem {
   const b = BASES[id - 1];
   const wrong = shuffle(BASES.filter((x) => x.id !== b.id), `need${id}`).slice(0, 2).map((x) => x.besoins[0]);
-  return make(`base-${id}-besoin`, `Base « ${b.name} » : de quoi l’enfant a-t-il besoin ?`, b.besoins[0], wrong,
-    `${b.name} : ${b.besoins.map(lc).join(" ; ")}.`);
+  return make(`base-${id}-besoin`, `Pour la base « ${lc(b.name)} », de quoi un enfant a-t-il besoin ?`, b.besoins[0], wrong,
+    `Pour cette base, un enfant a besoin de ceci : ${b.besoins.map(lc).join(" ; ")}.`);
 }

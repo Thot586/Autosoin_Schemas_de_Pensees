@@ -6,6 +6,7 @@ import { BESOINS } from "./content/besoins";
 import { CERCLE } from "./content/cercle";
 import { AIDE } from "./content/aide";
 import { ACTION } from "./content/action";
+import { TECHNIQUES } from "./content/techniques";
 import { dayNumber, lessonState, quizState, shuffle, type LessonState, type QState } from "./progress";
 import { SCHEMA_PARTS, schemaQuizzes } from "./schemaLessons";
 import { SCHEMAS } from "../data/schemas";
@@ -15,7 +16,7 @@ export const CHAPTERS: Chapter[] = deepFr<Chapter[]>([
   { id: "comprendre", title: "Comprendre un schéma", short: "Ce que c’est, d’où ça vient, les 5 besoins.", icon: "eye" },
   { id: "besoins", title: "Les 5 besoins, un par un", short: "Chaque besoin, ses schémas, son animation.", icon: "layers" },
   { id: "cercle", title: "Comment un schéma agit", short: "Le cercle, les trois réactions, les signes.", icon: "replay" },
-  { id: "aide", title: "Ce qui aide", short: "L’adulte sain, les leviers, l’aide.", icon: "heart" },
+  { id: "aide", title: "Ce qui aide", short: "L’adulte sain, les leviers, l’imagerie, les chaises, l’aide.", icon: "heart" },
   { id: "action", title: "Passer à l’action", short: "La méthode et les outils, pas à pas.", icon: "sparkles" },
 ]);
 
@@ -36,7 +37,8 @@ function mixQuiz(q: QuizItem): QuizItem {
   return { ...q, options, answer: at };
 }
 
-export const LESSONS: Lesson[] = deepFr<Lesson[]>([...AVANT, ...COMPRENDRE, ...BESOINS, ...CERCLE, ...AIDE, ...ACTION])
+const AIDE_ET_TECHNIQUES = [...AIDE.slice(0, 2), ...TECHNIQUES, ...AIDE.slice(2)]; // adulte sain, leviers, imagerie, chaises, demander de l’aide
+export const LESSONS: Lesson[] = deepFr<Lesson[]>([...AVANT, ...COMPRENDRE, ...BESOINS, ...CERCLE, ...AIDE_ET_TECHNIQUES, ...ACTION])
   .map((l) => ({ ...l, cards: l.cards.map((c) => (c.kind === "quiz" ? { ...c, quiz: mixQuiz(c.quiz) } : c)) }));
 
 export const lessonById = (id: string): Lesson | undefined => LESSONS.find((l) => l.id === id);

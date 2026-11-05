@@ -8,12 +8,12 @@ Application web de psychoéducation et d’autosoin autour des **15 schémas de 
 
 ## Ce que fait l’application
 
-- **Parcours** : **22 leçons de 2 à 5 minutes**, en six étapes :
+- **Parcours** : **24 leçons de 2 à 5 minutes**, en six étapes :
   - avant de commencer (dont la thérapie des schémas et les limites du support) ;
   - comprendre un schéma ;
   - les 5 besoins, un par un ;
   - comment un schéma agit ;
-  - ce qui aide ;
+  - ce qui aide (dont l’imagerie et le dialogue des chaises : ce que c’est, pourquoi ça peut aider) ;
   - passer à l’action.
 - **Lecteur « une idée par écran »** :
   - une carte à la fois ;
@@ -27,7 +27,7 @@ Application web de psychoéducation et d’autosoin autour des **15 schémas de 
   - « À retenir » la termine ;
   - **« Mon rappel du jour »** pose trois questions, en revenant plus souvent sur ce qui est à revoir (boîtes de Leitner) ;
   - « Ce que j’ai retenu » dans Mon espace.
-- **Questions** : 79 au total. Elles portent sur les idées, jamais sur la personne. Il n’y a ni note ni rouge, et une explication suit chaque réponse.
+- **Questions** : 85 au total. Elles portent sur les idées, jamais sur la personne. Il n’y a ni note ni rouge, et une explication suit chaque réponse.
 - **Mes schémas** :
   - la fiche « Retrouver mes schémas », un schéma par écran ;
   - mes priorités (un à trois schémas) ;
@@ -39,6 +39,7 @@ Application web de psychoéducation et d’autosoin autour des **15 schémas de 
   - dire ce qui ne va pas (méthode DESC) ;
   - le plan de la semaine, avec un rappel d’agenda `.ics` ;
   - le carnet, avec export CSV ;
+  - deux **exercices guidés** à faire seul(e) : « Imaginer autrement » (imagerie) et « Deux places, deux voix » (chaises). Ils commencent par une carte d’entrée à cocher, expliquent « Pourquoi cette étape ? » et notent l’émotion de 0 à 10, avant et après ;
   - des versions à imprimer (PDF, Word).
 - **Aide** : numéros à un geste (3114, 15, 112, 114, 3919) et « Mes personnes ressources ».
 - **Mon espace** : sauvegarde et restauration par fichier, impression, effacement.
@@ -64,7 +65,7 @@ npm run typecheck   # tsc --noEmit
 npm run docs:questions   # régénère docs/QUESTIONS.md après une modification des questions
 ```
 
-Test de bout en bout : il parcourt toutes les pages à 390 px, 1 366 px et 3 840 px, chaque carte des 22 leçons, des 45 temps de schémas et de la fiche (avec chaque étape d’animation), puis les rappels, le carnet, la sauvegarde et la restauration.
+Test de bout en bout : il parcourt toutes les pages à 390 px, 1 366 px et 3 840 px, chaque carte des 24 leçons, des 45 temps de schémas, de la fiche et des deux exercices guidés (avec chaque étape d’animation), puis les rappels, le carnet, la sauvegarde et la restauration.
 
 ```bash
 npm i --no-save playwright && npx playwright install chromium

@@ -14,9 +14,9 @@ const WORDS: { t: string; k: "n" | "c" | "x"; s?: string }[] = [
 const LENS_CAPS = deepFr([
   "Chaque jour, des événements variés et souvent ambigus : un message bref, un silence, une invitation.",
   "Quand la sécurité a manqué, le schéma devient une paire de lunettes teintées.",
-  "Ce qui confirme le schéma ressort : « Sans réponse », « Annulé », « Critique »… et chacun renvoie à un schéma de la base 1.",
-  "Les événements qui le contredisent étaient pourtant là : un câlin, un merci, l’appel d’un ami… mais ils passent inaperçus.",
-  "Les lunettes ne changent pas la réalité : elles changent ce qu’on en retient. Pour voir autrement : repérer les lunettes, puis chercher aussi ce qui les contredit.",
+  "Avec ces lunettes, ce qui confirme le schéma saute aux yeux : « Sans réponse », « Annulé », « Critique »…",
+  "Pourtant, ce qui le contredit était là aussi : un câlin, un merci, l’appel d’un ami… On ne le voit tout simplement plus.",
+  "Les lunettes ne changent pas la réalité, seulement ce qu’on en retient. Pour voir autrement, on repère ses lunettes, puis on cherche aussi ce qui les contredit.",
 ]);
 
 function Glasses() {

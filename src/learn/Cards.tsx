@@ -12,8 +12,9 @@ import type { Card, LinkItem, QuizItem } from "./types";
 
 /** Texte lisible à voix haute pour une carte (jamais les notes personnelles). */
 export function speechOf(c: Card): string[] {
+  const ORD = ["Première", "Deuxième", "Troisième", "Quatrième", "Cinquième"];
+  if (c.kind === "quiz" || c.kind === "rappel") return [c.quiz.q, ...c.quiz.options.map((o, i) => `${ORD[i] ?? "Autre"} possibilité : ${o}`)];
   const t: string[] = [c.title];
-  if (c.kind === "quiz" || c.kind === "rappel") t.push(c.quiz.q, ...c.quiz.options.map((o, i) => `Réponse ${i + 1} : ${o}`));
   if ("quote" in c && c.quote) t.push(c.quote);
   if ("body" in c && c.body) t.push(...c.body);
   if ("list" in c && c.list) t.push(...c.list);
@@ -22,6 +23,8 @@ export function speechOf(c: Card): string[] {
   if (c.kind === "steps") { t.push(...c.steps.flatMap((x, i) => [`${i + 1}. ${x.title}`, x.text])); if (c.foot) t.push(c.foot); }
   if (c.kind === "reflect") t.push(c.prompt, c.hint ?? "");
   if (c.kind === "retain") t.push(...c.items);
+  if (c.kind === "gate") t.push(...c.items, ...(c.after ?? []));
+  if (c.why) t.push(`Pourquoi cette étape ? ${c.why}`);
   return t;
 }
 
@@ -53,15 +56,15 @@ export function LinkBtn({ l, variant = "soft" }: { l: LinkItem; variant?: "prima
 }
 
 /* ───────── Quiz ───────── */
-export function QuizView({ quiz, picked, onPick, label }: { quiz: QuizItem; picked: number | undefined; onPick: (i: number) => void; label?: string }) {
+export function QuizView({ quiz, picked, onPick, label, labelledBy }: { quiz: QuizItem; picked: number | undefined; onPick: (i: number) => void; label?: string; labelledBy?: string }) {
   const done = picked !== undefined;
   const ok = done && picked === quiz.answer;
   const qid = useId();
   return (
     <div className="quiz">
       {label && <p className="quiz-from">{label}</p>}
-      <p className="quiz-q" id={qid}><Rich text={quiz.q} /></p>
-      <div className="quiz-opts" role="group" aria-labelledby={qid}>
+      {!labelledBy && <p className="quiz-q" id={qid}><Rich text={quiz.q} /></p>}
+      <div className="quiz-opts" role="group" aria-labelledby={labelledBy ?? qid}>
         {quiz.options.map((o, i) => {
           const state = !done ? "" : i === quiz.answer ? "is-good" : i === picked ? "is-picked" : "is-off";
           return (
@@ -123,7 +126,10 @@ function PlanButton({ slug, geste }: { slug: string; geste: string }) {
 }
 
 /** Contenu d'une carte (sans le titre ni les outils, gérés par le lecteur). */
-export function CardBody({ card, picked, onPick }: { card: Card; picked?: number; onPick: (i: number) => void }): ReactNode {
+export function CardBody({ card, picked, onPick, gate }: {
+  card: Card; picked?: number; onPick: (i: number) => void;
+  gate?: { checked: boolean[]; toggle: (i: number) => void };
+}): ReactNode {
   switch (card.kind) {
     case "text":
       return (
@@ -162,7 +168,26 @@ export function CardBody({ card, picked, onPick }: { card: Card; picked?: number
     case "anim":
       return <><Paras xs={card.body} /><Anim k={card.anim} label={card.title} /></>;
     case "widget":
-      return <><Paras xs={card.body} /><Widget k={card.widget} /></>;
+      return <><Paras xs={card.body} /><Widget k={card.widget} param={card.param} /></>;
+    case "gate":
+      return (
+        <>
+          <Paras xs={card.body} />
+          <div className="gate" role="group" aria-label="Avant de commencer">
+            {card.items.map((it, i) => {
+              const on = !!gate?.checked[i];
+              return (
+                <button key={i} type="button" className={`fiche-c ${on ? "is-on" : ""}`} aria-pressed={on} onClick={() => gate?.toggle(i)}>
+                  <span className="fiche-box" aria-hidden="true">{on && <Icon name="check" size={18} />}</span>
+                  <span><Rich text={it} /></span>
+                </button>
+              );
+            })}
+          </div>
+          <Paras xs={card.after} />
+          <p className="gate-out"><Link to="/outils/pause"><Icon name="wind" size={18} /> Pas maintenant : je fais plutôt la pause en trois temps</Link></p>
+        </>
+      );
     case "reflect":
       return <><Paras xs={card.body} /><Reflect id={card.noteId} prompt={card.prompt} hint={card.hint} /></>;
     case "links":
@@ -173,9 +198,9 @@ export function CardBody({ card, picked, onPick }: { card: Card; picked?: number
         </>
       );
     case "quiz":
-      return <QuizView quiz={card.quiz} picked={picked} onPick={onPick} />;
+      return <QuizView quiz={card.quiz} picked={picked} onPick={onPick} labelledBy="lcard-h" />;
     case "rappel":
-      return <QuizView quiz={card.quiz} picked={picked} onPick={onPick} label={`D’après la leçon « ${card.from} »`} />;
+      return <QuizView quiz={card.quiz} picked={picked} onPick={onPick} labelledBy="lcard-h" label={`Une idée de la leçon « ${card.from} »`} />;
     case "fiche":
       return <FicheItem slug={card.slug} />;
     case "retain":
@@ -196,6 +221,10 @@ export function CardBody({ card, picked, onPick }: { card: Card; picked?: number
 export function CardExtras({ card }: { card: Card }) {
   return (
     <>
+      {card.why && <p className="lc-why"><b>Pourquoi cette étape ?</b> <Rich text={card.why} /></p>}
+      {card.ground && (
+        <p className="lc-ground"><Icon name="heart" size={18} /><span>Si c’est trop fort : j’ouvre les yeux, je pose les pieds au sol, je nomme cinq choses que je vois. <Link to="/outils/pause">Je m’arrête et je me pose</Link></span></p>
+      )}
       {card.more && (
         <details className="lc-more">
           <summary><Icon name="plus" size={18} /> {card.more.label ?? "En savoir plus"}</summary>

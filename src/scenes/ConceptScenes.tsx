@@ -13,15 +13,17 @@ const NODES = [
   { x: 180, y: 290, t: ["Une réaction", "automatique"], a: ["Choisir une", "autre réaction"] },
   { x: 58, y: 168, t: ["Le schéma", "se confirme"], a: ["", ""] },
 ];
+// Légendes écrites comme on raconte (et non assemblées automatiquement) : reprennent la diapo 20 et son exemple.
 const CYCLE_CAPS: ReactNode[] = deepFr([
-  "Un schéma s’entretient comme un cercle : on peut en comprendre chaque étape, et en sortir.",
-  `${C3.etapes[0].titre} ${C3.etapes[0].texte}. Exemple (abandon) : ${C3.exempleEtapes[0].toLowerCase()}`,
-  `${C3.etapes[1].titre} : ${C3.etapes[1].texte}. ${C3.exempleEtapes[1]}`,
-  `${C3.etapes[2].titre} : ${C3.etapes[2].texte}. ${C3.exempleEtapes[2]}`,
-  `${C3.etapes[3].titre} : ${C3.etapes[3].texte} ${C3.exempleEtapes[3]}`,
-  C3.boucle,
-  `${C3.agir.titre} : ${C3.agir.items.map((s) => s.toLowerCase()).join(", ")}.`,
+  "Un schéma s’entretient comme un cercle. On peut en comprendre chaque étape… et en sortir.",
+  "Tout commence par une situation qui ressemble à une ancienne blessure. Par exemple, un message reste sans réponse.",
+  "Le schéma s’allume : l’émotion monte, plus forte que la situation. Ici, c’est l’angoisse.",
+  "Vient la réaction automatique : on relance, encore et encore, avec insistance.",
+  "L’autre finit par s’agacer… et le schéma se confirme : « Je le savais. »",
+  "Puis le cercle recommence. À chaque tour, le schéma se renforce un peu plus.",
+  "Mais on peut l’interrompre à chaque étape : repérer la situation, nommer l’émotion, choisir une autre réaction.",
 ]);
+void C3;
 const R = 122;
 const pt = (a: number) => [180 + R * Math.cos((a * Math.PI) / 180), 168 + R * Math.sin((a * Math.PI) / 180)];
 function arc(a0: number, a1: number) {
@@ -79,7 +81,16 @@ export function CycleAnimation() {
 
 /* ═════════ L'adulte sain (partie 4) ═════════ */
 const C4 = CONTENT.p4.adulte;
-const ADULTE_CAPS: ReactNode[] = C4.etapes.map((e) => deepFr(`${e.titre}. ${e.texte}${"citation" in e && e.citation ? ` ${e.citation}` : ""}${"bienveillance" in e && e.bienveillance ? ` ${e.bienveillance} ${e.fermete}` : ""}`));
+// Légendes écrites comme on raconte : reprennent la diapo 24, sans les titres d'étape lus à voix haute.
+const ADULTE_CAPS: ReactNode[] = deepFr([
+  "Petit(e), il m’a manqué quelque chose d’important : faire partie d’un groupe. Cette part de moi le ressent encore aujourd’hui.",
+  "Une invitation à un anniversaire arrive, et le schéma s’allume. Sa petite voix répète, comme si c’était vrai : « Je ne suis pas comme eux. »",
+  "Pour me protéger, je réagis sans réfléchir : je ne réponds pas. Et le besoin reste sans réponse.",
+  "C’est là qu’intervient l’adulte sain, la part de moi qui a mon âge d’aujourd’hui. Avec douceur : « Je comprends que tu aies peur. » Et avec fermeté : « Et je fais quand même le pas. »",
+  "Pour le retrouver, je me demande : « Quel âge ai-je l’impression d’avoir, là, maintenant ? » Si c’est l’âge de l’enfant, l’adulte prend le relais.",
+  "Ce que l’adulte sain dit à l’enfant, je l’écris sur ma carte-mémo : « Je peux y aller, et repartir quand je veux. »",
+]);
+void C4;
 
 function Pill({ x, y, w, children, cls = "" }: { x: number; y: number; w: number; children: ReactNode; cls?: string }) {
   return <g className={`sv-pop ${cls}`}><rect x={x} y={y} width={w} height="28" rx="14" className="ad-pill" /><text x={x + w / 2} y={y + 18.5} textAnchor="middle" className="ad-pill-t">{children}</text></g>;

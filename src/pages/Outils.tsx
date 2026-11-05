@@ -8,6 +8,8 @@ const TOOLS: { to: string; icon: IconName; title: string; when: string }[] = [
   { to: "/outils/plan", icon: "calendar", title: "Mon plan de la semaine", when: "Le dimanche soir : un schéma, un geste, un moment." },
   { to: "/outils/carnet", icon: "pencil", title: "Mon carnet", when: "Une fois par jour : une situation où l’émotion a semblé trop forte." },
   { to: "/outils/dire", icon: "chat", title: "Dire ce qui ne va pas", when: "Préparer par écrit ce que je veux dire, sans attaquer." },
+  { to: "/outils/imagerie", icon: "eye", title: "Imaginer autrement", when: "Exercice guidé : une scène récente et légère, et mon adulte sain qui y répond. Dix minutes." },
+  { to: "/outils/chaises", icon: "users", title: "Deux places, deux voix", when: "Exercice guidé : faire répondre l’adulte sain à la petite voix. Dix minutes." },
 ];
 
 const DOCS: { file: string; title: string; kind: string }[] = [

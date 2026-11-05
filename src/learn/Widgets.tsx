@@ -6,6 +6,8 @@ import { CONTENT } from "../data/content";
 import { BASES } from "../data/bases";
 import { schemasOfBase } from "../data/schemas";
 import type { WidgetKey } from "./types";
+import { exoRatings } from "./progress";
+import { Link } from "../lib/router";
 
 /** Le même message « ok », lu à travers quatre paires de lunettes. */
 function LunettesDemo() {
@@ -94,8 +96,47 @@ function Quinze() {
   );
 }
 
-export function Widget({ k }: { k: WidgetKey }) {
+/** Note de 0 à 10, gardée sur l'appareil (avant / après un exercice guidé). */
+function Echelle({ id }: { id: string }) {
+  const all = exoRatings.use();
+  const v = all[id];
+  const before = id.endsWith("-avant");
+  return (
+    <div className="w-scale">
+      <label htmlFor={`sc-${id}`} className="sr-only">De 0 (calme) à 10 (très difficile)</label>
+      <p className="w-age-n" aria-hidden="true">{v == null ? "…" : `${v} sur 10`}</p>
+      <input id={`sc-${id}`} type="range" min={0} max={10} step={1} value={v ?? 5} className="range"
+        aria-valuetext={v == null ? "pas encore choisi" : `${v} sur 10`}
+        onChange={(e) => exoRatings.set((x) => ({ ...x, [id]: Number(e.target.value) }))} />
+      <div className="range-scale" aria-hidden="true"><span>0 : calme</span><span>10 : très difficile</span></div>
+      {before && v != null && v >= 7 && (
+        <p className="w-scale-warn" role="status">
+          <Icon name="heart" size={18} /> C’est beaucoup. Aujourd’hui, je fais plutôt la pause en trois temps, et j’en parle à mon équipe de soins. <Link to="/outils/pause">La pause en trois temps</Link>
+        </p>
+      )}
+    </div>
+  );
+}
+
+/** Avant / après : ce qui a bougé. Si l'émotion monte, on s'arrête. */
+function Bilan({ prefix }: { prefix: string }) {
+  const all = exoRatings.use();
+  const a = all[`${prefix}-avant`], b = all[`${prefix}-apres`];
+  if (a == null || b == null) return <p className="w-bilan">Je n’ai pas noté avant ou après : ce n’est pas grave. Ce qui compte, c’est d’avoir essayé.</p>;
+  return (
+    <div className={`w-bilan ${b > a ? "is-up" : ""}`} role="status">
+      <p className="w-bilan-n"><span>Avant : <b>{a}</b> sur 10</span><span>Après : <b>{b}</b> sur 10</span></p>
+      {b < a && <p>L’émotion a baissé. Je peux noter ce qui m’a aidé, pour le retrouver la prochaine fois.</p>}
+      {b === a && <p>L’émotion n’a pas bougé : c’est possible, surtout les premières fois.</p>}
+      {b > a && <p><Icon name="heart" size={18} /> L’émotion est montée. Je m’arrête là pour aujourd’hui : je fais la pause en trois temps, et j’en parle à mon équipe de soins. <Link to="/outils/pause">La pause en trois temps</Link></p>}
+    </div>
+  );
+}
+
+export function Widget({ k, param }: { k: WidgetKey; param?: string }) {
   switch (k) {
+    case "echelle": return <Echelle id={param ?? "note"} />;
+    case "bilan": return <Bilan prefix={param ?? "note"} />;
     case "lunettes-demo": return <LunettesDemo />;
     case "age": return <AgeSlider />;
     case "numeros": return <Numeros />;

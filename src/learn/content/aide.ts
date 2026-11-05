@@ -46,9 +46,13 @@ export const AIDE: Lesson[] = [
         body: ["Comprendre seul ne suffit pas : le schéma se ressent avant de se penser.", "Quatre leviers se combinent."], pro: P4.leviers.pro },
       ...P4.leviers.items.map((l) => ({
         id: `v-${l.id}`, kind: "text" as const, icon: LEV_ICONS[l.id as keyof typeof LEV_ICONS], title: l.titre,
-        body: [l.texte, `**De mon côté :** ${l.seul.charAt(0).toLowerCase()}${l.seul.slice(1)}`],
+        body: [l.texte, `**De mon côté :** ${l.seul.charAt(0).toLowerCase()}${l.seul.slice(1)}`,
+          ...(l.id === "ressentir" ? ["J’écris sur une situation d’aujourd’hui, pas sur un souvenir qui fait très mal. Écrire peut faire monter l’émotion sur le moment : si c’est trop, je fais une pause."] : [])],
       })),
       { id: "v5", kind: "text", icon: "user", title: "Le but", body: [P4.leviers.but] },
+      { id: "v6", kind: "links", icon: "eye", title: "Ressentir : deux techniques de séance",
+        body: ["L’imagerie et le dialogue des chaises servent à « ressentir » : revenir aux émotions, pas seulement en parler.", "Deux leçons les expliquent, avec une version simple à essayer seul(e)."],
+        links: [{ to: "/apprendre/imagerie", label: "L’imagerie", icon: "eye" }, { to: "/apprendre/chaises", label: "Le dialogue des chaises", icon: "users" }] },
       { id: "vq1", kind: "quiz", title: "Une question", quiz: {
         id: "leviers-seance", q: "Quel levier se travaille d’abord en séance, avec un professionnel ?",
         options: ["Ressentir : revenir aux émotions d’origine", "Comprendre : lire ce support"], answer: 0,

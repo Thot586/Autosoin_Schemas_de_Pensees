@@ -88,7 +88,7 @@ for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900]
   const lessons = await page.$$eval("a.lrow", (as) => as.map((a) => a.getAttribute("href")));
   await page.goto(origin + "/schemas", { waitUntil: "networkidle" });
   const schemas = [...new Set(await page.$$eval(".sgroup a.srow", (as) => as.map((a) => a.getAttribute("href"))))];
-  const routes = [...lessons, ...schemas.flatMap((h) => ["comprendre", "moment", "semaines"].map((p) => `${h}/${p}`)), "/trouver"];
+  const routes = [...lessons, ...schemas.flatMap((h) => ["comprendre", "moment", "semaines"].map((p) => `${h}/${p}`)), "/trouver", "/outils/imagerie", "/outils/chaises"];
   let cards = 0, steps = 0, bad = 0;
   for (const r of routes) {
     errs = [];
@@ -105,11 +105,15 @@ for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900]
         for (let j = 0; j < 9 && (await fwd.isEnabled()); j++) { await fwd.click(); steps++; }
       }
       if (await page.locator(".quiz-o").count()) await page.locator(".quiz-o").first().click();
+      if (await page.locator(".lcard-gate").count()) {
+        if (!(await page.locator(".lesson-next").isDisabled())) { bad++; check(false, `${r} : la carte d’entrée laisse passer sans cocher`); }
+        for (const b of await page.locator(".gate .fiche-c").all()) await b.click();
+      }
       await page.click(".lesson-next");
     }
     if (!reached || !navOk || errs.length) { bad++; check(false, `${r} : ${JSON.stringify({ fin: reached, barre: navOk, errs: errs.slice(0, 3) })}`); }
   }
-  check(bad === 0 && routes.length >= 22 + 45 + 1, `toutes les cartes : ${routes.length} parcours, ${cards} cartes, ${steps} étapes d’animation, ${bad} problème(s)`);
+  check(bad === 0 && routes.length >= 22 + 45 + 3, `toutes les cartes : ${routes.length} parcours, ${cards} cartes, ${steps} étapes d’animation, ${bad} problème(s)`);
   await ctx.close();
 }
 

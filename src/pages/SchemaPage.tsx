@@ -91,7 +91,7 @@ function SchemaPart({ slug, part }: { slug: string; part: SchemaPartId }) {
       links: [{ to: `/schemas/${slug}`, label: `Retour à « ${s.name} »`, icon: "arrowLeft" }, { to: "/", label: "M’arrêter là pour aujourd’hui", icon: "home" }] },
   ], [lesson, meta, nextPart, slug, s.name]);
   return (
-    <LessonPlayer storeKey={`schema:${slug}:${part}`} path={`/schemas/${slug}/${part}`} title={s.name} kicker={`${meta.label} · temps ${idx + 1} sur 3`}
+    <LessonPlayer storeKey={`schema:${slug}:${part}`} path={`/schemas/${slug}/${part}`} title={s.name} kicker={`Temps ${idx + 1} sur 3 : ${meta.label.charAt(0).toLowerCase()}${meta.label.slice(1)}`}
       cards={cards} tone={lesson.tone} exitTo={`/schemas/${slug}`} />
   );
 }

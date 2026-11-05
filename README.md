@@ -67,7 +67,9 @@ npm run typecheck   # tsc --noEmit
 npm run docs:questions   # régénère docs/QUESTIONS.md après une modification des questions
 ```
 
-Test de bout en bout : il parcourt toutes les pages à 390 px, 1 366 px et 3 840 px, chaque carte des 24 leçons, des 45 temps de schémas, de la fiche et des deux exercices guidés (avec chaque étape d’animation), puis les rappels, le carnet, la sauvegarde et la restauration.
+Test de bout en bout : il parcourt toutes les pages à 320 px, 390 px (texte normal et agrandi à 140 %), 1 366 px et 3 840 px, chaque carte des 24 leçons, des 45 temps de schémas, de la fiche et des deux exercices guidés (avec chaque étape d’animation, et de nouveau sur ordinateur, petit téléphone et texte agrandi), puis les rappels, le carnet, la sauvegarde et la restauration.
+
+Sur chaque page et chaque carte, [`scripts/layout-check.mjs`](scripts/layout-check.mjs) vérifie la mise en page et fait échouer le test si deux éléments se chevauchent ou se collent (moins de 3 px), si un texte déborde de sa boîte ou est coupé, si un paragraphe centré est décalé, si une zone de clic fait moins de 24 px ou en recouvre une autre, ou si un contenu reste caché sous une barre fixe. Les zones de clic entre 24 et 44 px (taille recommandée) sont seulement comptées. Le même fichier mesure aussi la longueur des lignes (80 signes au plus), la taille minimale du texte et les contrastes.
 
 ```bash
 npm i --no-save playwright && npx playwright install chromium
@@ -97,7 +99,7 @@ Le workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) constru
 | Les références de la page « La thérapie des schémas » | `src/data/references.ts` |
 | Le glossaire | `src/data/glossaire.ts` |
 | Crédits, statut, mentions légales | `src/data/meta.ts` |
-| Couleurs, typographie, paliers des écrans géants | `src/styles/tokens.css` |
+| Couleurs, typographie, paliers des écrans géants, longueur des lignes (`--measure`) | `src/styles/tokens.css` |
 | Le lecteur de leçons et ses styles | `src/learn/LessonPlayer.tsx`, `src/learn/Cards.tsx`, `src/styles/learn.css` |
 | Les animations | `src/scenes/` et `src/styles/anim.css`, `anim-new.css` (les personnages assis ou à genoux de `NewScenes.tsx` utilisent un composant local `Person`, à côté du `Figure` commun) |
 | Les versions à imprimer | `public/documents/` |

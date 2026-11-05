@@ -1,10 +1,11 @@
 import type { IconName } from "./components/Icon";
 
-/** Quatre onglets, toujours les mêmes, au même endroit (barre du bas sur téléphone, en-tête sur ordinateur). */
-export const TABS: { to: string; label: string; icon: IconName; match: (p: string) => boolean }[] = [
+/** Quatre onglets, toujours les mêmes, au même endroit (barre du bas sur téléphone, en-tête sur ordinateur).
+ *  `short` : le nom dans la barre du bas, où un onglet ne fait que 78 px de large sur un petit téléphone. */
+export const TABS: { to: string; label: string; short?: string; icon: IconName; match: (p: string) => boolean }[] = [
   { to: "/", label: "Accueil", icon: "home", match: (p) => p === "/" || p === "/rappel" },
   { to: "/apprendre", label: "Apprendre", icon: "route", match: (p) => p === "/apprendre" || p.startsWith("/apprendre/") || p === "/therapie" },
-  { to: "/schemas", label: "Mes schémas", icon: "layers", match: (p) => p === "/schemas" || p.startsWith("/schemas/") || p.startsWith("/trouver") },
+  { to: "/schemas", label: "Mes schémas", short: "Schémas", icon: "layers", match: (p) => p === "/schemas" || p.startsWith("/schemas/") || p.startsWith("/trouver") },
   { to: "/outils", label: "Outils", icon: "sliders", match: (p) => p === "/outils" || p.startsWith("/outils/") || p === "/mon-espace" },
 ];
 

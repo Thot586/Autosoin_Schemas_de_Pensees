@@ -18,7 +18,7 @@
 .btn-ghost:hover { background: var(--surface-2); }
 .btn-danger { background: var(--danger); color: #fff; }
 :root[data-theme="dark"] .btn-danger { color: #1B0E0D; }
-.btn-sm { min-height: 40px; padding: 7px 14px; font-size: .9rem; border-radius: 12px; }
+.btn-sm { min-height: 44px; padding: 7px 14px; font-size: .9rem; border-radius: 12px; }
 .linklike { background: none; border: 0; padding: 2px 0; color: var(--brand); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; text-align: left; }
 
 /* ───────── Cartes ───────── */
@@ -31,6 +31,8 @@
 
 /* ───────── Encadrés ───────── */
 .callout { display: flex; gap: 14px; align-items: flex-start; padding: 16px 18px; border-radius: 18px; background: var(--brand-soft); color: var(--ink); border: 1px solid color-mix(in oklab, var(--brand) 22%, transparent); }
+/* l'encadré épouse la largeur de lecture de son texte : pas de grand vide à droite sur ordinateur */
+.callout { max-width: calc(var(--measure) * .98 + 80px); }
 .callout-ic { flex-shrink: 0; margin-top: 2px; color: var(--brand); }
 .callout-t { font-weight: 800; margin: 0 0 .15em; }
 .callout-b > :last-child { margin-bottom: 0; }
@@ -43,6 +45,7 @@
 
 /* Bulle de pensée (petite voix) */
 .bubble { position: relative; background: var(--surface); border: 1.5px solid var(--accent, var(--brand)); border-radius: 22px; padding: 16px 20px; font-size: 1.12rem; box-shadow: var(--shadow-1); }
+.bubble { max-width: calc(var(--measure) + 44px); }
 .bubble .quote { margin: 0; font-weight: 500; }
 .bubble::after { content: ""; position: absolute; left: 28px; bottom: -11px; width: 18px; height: 18px; background: var(--surface); border-right: 1.5px solid var(--accent, var(--brand)); border-bottom: 1.5px solid var(--accent, var(--brand)); transform: rotate(45deg); }
 .bubble footer { margin-top: .4rem; font-size: .88rem; color: var(--ink-3); }
@@ -106,7 +109,7 @@
 .planstrip { margin-top: 1.8rem; }
 .planstrip ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; }
 .planstrip li { margin: 0; }
-.planstrip a { display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--ink-3); font-size: .78rem; font-weight: 700; line-height: 1.2; }
+.planstrip a { display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--ink-3); font-size: .875rem; font-weight: 700; line-height: 1.2; }
 .planstrip a:hover { text-decoration: none; color: var(--ink); }
 .planstrip-n { height: 8px; border-radius: 999px; background: var(--edge); display: block; font-size: 0; overflow: hidden; transition: background .3s; }
 .planstrip-n svg { display: none; }
@@ -114,7 +117,7 @@
 .planstrip .is-current .planstrip-n { background: var(--accent, var(--brand)); height: 10px; margin-top: -1px; }
 .planstrip .is-current a { color: var(--accent-ink, var(--brand-ink)); }
 .planstrip-t { display: none; }
-@media (min-width: 900px) { .planstrip-t { display: block; } .planstrip a { font-size: .8rem; } }
+@media (min-width: 900px) { .planstrip-t { display: block; } }
 
 .parthero { padding: clamp(2rem, 6vw, 4.5rem) 0 clamp(1.4rem, 3vw, 2.4rem); background: radial-gradient(1200px 400px at 85% -10%, color-mix(in oklab, var(--accent) 16%, transparent), transparent 70%), linear-gradient(180deg, color-mix(in oklab, var(--accent-soft) 70%, var(--bg)), var(--bg)); }
 .parthero h1 { max-width: 20ch; }

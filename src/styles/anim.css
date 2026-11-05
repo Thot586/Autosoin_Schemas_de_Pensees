@@ -27,13 +27,14 @@ a:hover .ha-node, a:focus-visible .ha-node { transform: scale(1.12); }
 .pc-btn:disabled { opacity: .4; cursor: default; }
 .pc-main { background: var(--accent); border-color: var(--accent); color: var(--on-brand); padding: 0 20px; min-width: 112px; }
 .pc-main:hover:not(:disabled) { background: var(--accent-ink); border-color: var(--accent-ink); }
-.player-dots { list-style: none; margin: 14px 0 0; padding: 0; display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+.player-dots { list-style: none; margin: 14px 0 0; padding: 0; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 .player-dots button { appearance: none; width: 12px; height: 12px; padding: 0; border-radius: 999px; border: 0; background: var(--edge-strong); cursor: pointer; position: relative; transition: width .3s var(--ease), background .3s; }
+/* zone de clic 24 × 40 px autour du point ; l'écart de 12 px évite que deux zones se recouvrent */
 .player-dots button::after { content: ""; position: absolute; inset: -14px -6px; }
 .player-dots button.is-past { background: var(--accent); opacity: .55; }
 .player-dots button.is-on { width: 28px; background: var(--accent); }
 .player-transcript { margin-top: 14px; border-top: 1px dashed var(--edge); padding-top: 10px; font-size: .94rem; color: var(--ink-2); }
-.player-transcript summary { cursor: pointer; font-weight: 700; color: var(--accent-ink); padding: 6px 0; }
+.player-transcript summary { cursor: pointer; font-weight: 700; color: var(--accent-ink); padding: 10px 0; min-height: 44px; }
 .player-transcript ol { margin: 8px 0 0; padding-left: 1.2em; display: grid; gap: 6px; }
 
 /* ───────── Personnages ───────── */
@@ -86,7 +87,7 @@ a:hover .ha-node, a:focus-visible .ha-node { transform: scale(1.12); }
 .lens[data-step="4"] .lw-c { opacity: .5; }
 .lens[data-step="4"] .lw-x { background: var(--ok-soft); border-color: var(--ok); color: var(--ok); transform: scale(1.06); }
 :root[data-theme="dark"] .lens[data-step="4"] .lw-x { color: var(--ink); }
-.scene-quote { margin: 4px 0 0; text-align: center; min-height: 3em; transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.scene-quote { margin: 4px auto 0; text-align: center; min-height: 3em; transition: opacity .8s var(--ease), transform .8s var(--ease); }
 .scene-quote .quote { font-family: var(--font-title); font-size: 1rem; line-height: 1.4; color: var(--accent-ink); }
 .lens .scene-quote, .jour .scene-quote { opacity: 0; transform: translateY(6px); }
 .lens[data-step="4"] .scene-quote, .jour[data-step="4"] .scene-quote { opacity: 1; transform: none; }
@@ -119,12 +120,12 @@ a:hover .ha-node, a:focus-visible .ha-node { transform: scale(1.12); }
 .jchips li { margin: 0; padding: 5px 11px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--edge); font-size: .86rem; font-weight: 700; animation: lw-in .5s var(--ease) both; animation-delay: calc(var(--i) * 60ms); transition: background .5s, color .5s, border-color .5s, transform .5s var(--ease); }
 .jchips li.jc-new { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-ink); }
 .jchips li[data-hot="true"] { background: var(--accent); color: var(--on-brand); transform: scale(1.08); }
-.jbar { display: grid; grid-template-columns: minmax(0, 8.4em) 1fr; gap: 10px; align-items: center; font-size: .8rem; font-weight: 700; color: var(--ink-2); margin-top: 8px; }
+.jbar { display: grid; grid-template-columns: minmax(0, 8.4em) 1fr; gap: 10px; align-items: center; font-size: .875rem; font-weight: 700; color: var(--ink-2); margin-top: 8px; }
 .jbar i { position: relative; display: block; height: 12px; border-radius: 99px; background: var(--surface-2); border: 1px solid var(--edge); }
 .jbar b { display: block; height: 100%; border-radius: 99px; transition: width 1.4s var(--ease); }
 .jb-e { background: var(--ok); } .jb-t { background: var(--b1); }
 .jb-ghost { position: absolute; top: -4px; bottom: -4px; width: 3px; margin-left: -1px; border-radius: 2px; background: var(--ink-2); text-decoration: none; transition: left 1s var(--ease); animation: cap-in .6s var(--ease); }
-.jlegend { margin: 10px 0 0; font-size: .75rem; color: var(--ink-2); display: flex; align-items: center; gap: 8px; transition: opacity .6s; }
+.jlegend { margin: 10px 0 0; font-size: .875rem; color: var(--ink-2); display: flex; align-items: center; gap: 8px; transition: opacity .6s; }
 .jlegend .jb-ghost { position: static; display: inline-block; width: 3px; height: 12px; animation: none; }
 
 /* ───────── 5. Vague ───────── */

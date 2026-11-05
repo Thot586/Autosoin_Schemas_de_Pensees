@@ -61,7 +61,7 @@ function TabBar() {
         return (
           <Link key={t.to} to={t.to} className={`tab-item ${on ? "is-on" : ""}`} aria-current={on ? "page" : undefined}>
             <span className="tab-ic"><Icon name={t.icon} size={24} /></span>
-            <span className="tab-l">{t.label}</span>
+            <span className="tab-l">{t.short ?? t.label}</span>
           </Link>
         );
       })}

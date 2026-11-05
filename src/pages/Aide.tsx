@@ -75,7 +75,7 @@ export default function Aide() {
           <span className="act-t"><b>Où trouver un soutien</b><span>Médecin traitant, Mon soutien psy, thérapeute formé aux schémas, proche ou groupe.</span></span>
           <Icon name="arrowRight" size={24} className="act-go" />
         </Link>
-        <p className="small muted mt"><a href={`${__BASE__}documents/quand-demander-de-l-aide.pdf`} download>Télécharger la fiche « Quand demander de l’aide » (PDF)</a></p>
+        <div className="row mt"><a className="btn btn-ghost" href={`${__BASE__}documents/quand-demander-de-l-aide.pdf`} download><Icon name="download" size={20} /><span>Télécharger la fiche « Quand demander de l’aide » (PDF)</span></a></div>
       </div>
     </Page>
   );

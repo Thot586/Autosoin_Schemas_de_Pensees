@@ -13,6 +13,11 @@ h2 { font-size: clamp(1.45rem, 1.2rem + 1.2vw, 1.95rem); }
 h3 { font-size: clamp(1.2rem, 1.05rem + .7vw, 1.45rem); }
 h4 { font-size: 1.1rem; }
 p { margin: 0 0 1em; text-wrap: pretty; }
+/* texte courant : environ 70 signes par ligne, 80 au plus, sur tous les écrans (sans priorité : une règle de composant l'emporte) */
+:where(p, dd, ul:not([class]) > li, ol:not([class]) > li) { max-width: var(--measure); }
+/* blocs de texte de composants (texte posé directement dans une liste ou un encadré) */
+:where(.callout-b, .numero-t, .lc-step-t, .lc-list li, .mini-steps li > span, .a-list li > span, .refs li) { max-width: var(--measure); }
+.center > :where(p, dd) { margin-inline: auto; }
 ul, ol { margin: 0 0 1em; padding-left: 1.25em; }
 li { margin-bottom: .35em; }
 a { color: var(--brand); text-decoration-thickness: 1px; text-underline-offset: 3px; }
@@ -34,7 +39,7 @@ hr { border: 0; border-top: 1px solid var(--edge); margin: 2rem 0; }
 
 .wrap { width: min(100% - 2 * var(--gutter), 1120px); margin-inline: auto; }
 .wrap-narrow { width: min(100% - 2 * var(--gutter), 760px); margin-inline: auto; }
-.prose { max-width: 68ch; }
+.prose { max-width: var(--measure); }
 .muted { color: var(--ink-2); }
 .small { font-size: .9rem; }
 .center { text-align: center; }
@@ -43,7 +48,7 @@ hr { border: 0; border-top: 1px solid var(--edge); margin: 2rem 0; }
 .row { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
 .grid { display: grid; gap: var(--gap, 1rem); }
 .eyebrow { font-size: .95rem; font-weight: 700; color: var(--accent-ink, var(--brand-ink)); margin: 0 0 .5rem; }
-.lead { font-size: clamp(1.1rem, 1rem + .5vw, 1.3rem); color: var(--ink-2); line-height: 1.55; max-width: 60ch; }
+.lead { font-size: clamp(1.1rem, 1rem + .5vw, 1.3rem); color: var(--ink-2); line-height: 1.55; max-width: var(--measure); }
 .quote { font-weight: 700; }
 
 /* Apparition au défilement */

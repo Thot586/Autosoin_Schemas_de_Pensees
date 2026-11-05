@@ -3,11 +3,11 @@
 /* ───────── En-tête ───────── */
 .header { position: sticky; top: 0; z-index: 50; background: var(--glass); -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--edge); padding-top: env(safe-area-inset-top); }
 .header-in { position: relative; height: var(--header-h); display: flex; align-items: center; gap: 10px; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 800; font-size: 1rem; line-height: 1.1; flex-shrink: 1; min-width: 0; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 800; font-size: 1rem; line-height: 1.1; flex-shrink: 1; min-width: 0; min-height: 44px; }
 .brand:hover { text-decoration: none; }
 .brand-t { white-space: nowrap; }
 @media (max-width: 520px) { .brand-t { white-space: normal; max-width: 7.5em; font-size: .92rem; line-height: 1.15; } }
-@media (max-width: 340px) { .brand-t { display: none; } }
+@media (max-width: 340px) { .brand-t { display: none; } .brand { min-width: 44px; justify-content: center; } }
 .brandmark { flex-shrink: 0; }
 .nav { display: none; margin-left: 18px; gap: 4px; align-items: center; }
 .nav-btn { display: inline-flex; align-items: center; padding: 10px 14px; border-radius: 12px; font-weight: 700; font-size: 1rem; color: var(--ink-2); text-decoration: none; white-space: nowrap; }
@@ -18,13 +18,14 @@
 .help-pill { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 8px 16px; border-radius: 999px; background: var(--care-soft); color: var(--care-ink); font-weight: 800; font-size: 1rem; text-decoration: none; white-space: nowrap; border: 1.5px solid color-mix(in oklab, var(--care) 35%, transparent); }
 .help-pill:hover { text-decoration: none; background: color-mix(in oklab, var(--care-soft) 70%, var(--care) 30%); }
 .help-pill.is-here { outline: 2px solid var(--care); outline-offset: 2px; }
-.help-pill-sm { min-height: 40px; padding: 6px 12px; font-size: .95rem; }
+.help-pill-sm { min-height: 44px; padding: 6px 12px; font-size: .95rem; }
 .icon-btn { display: inline-grid; place-items: center; width: 46px; height: 46px; border-radius: 14px; border: 0; background: transparent; color: var(--ink); }
 .icon-btn:hover { background: var(--surface-2); }
 
 /* ───────── Barre du bas (téléphone et tablette) ───────── */
 .tabbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: flex; justify-content: space-around; background: var(--surface); border-top: 1px solid var(--edge); padding: 6px 4px calc(6px + env(safe-area-inset-bottom)); box-shadow: 0 -2px 12px rgb(0 0 0 / .04); }
-.tab-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 4px 2px; border-radius: 14px; text-decoration: none; color: var(--ink-3); font-size: .8rem; font-weight: 700; min-width: 0; max-width: 140px; }
+.tab-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 4px 2px; border-radius: 14px; text-decoration: none; color: var(--ink-3); font-size: min(.8rem, max(12.8px, 4.4vw)); font-weight: 700; min-width: 0; max-width: 140px; }
+/* le nom grandit avec « A+ » tant qu'il tient dans l'onglet, et ne descend jamais sous la taille normale (12,8 px) */
 .tab-item:hover { text-decoration: none; color: var(--ink); }
 .tab-ic { display: grid; place-items: center; width: 56px; height: 32px; border-radius: 999px; transition: background .25s var(--ease), color .25s; }
 .tab-item.is-on { color: var(--brand-ink); }
@@ -87,5 +88,6 @@ dialog.sheet::backdrop { background: var(--scrim); animation: fade .25s both; }
 .footer-logo { display: block; background: #fff; border-radius: 14px; padding: 6px 10px; margin-bottom: .8rem; height: auto; width: 128px; }
 .footer p { margin: 0 0 .6rem; }
 .footer-links { list-style: none; padding: 0; margin: 0; }
-.footer-links li { margin: 0 0 .5rem; }
+.footer-links li { margin: 0; }
+.footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
 .status-tag { display: inline-block; padding: 4px 12px; border-radius: 999px; background: var(--b2-soft); color: var(--b2-ink); font-weight: 800; font-size: .85rem; }

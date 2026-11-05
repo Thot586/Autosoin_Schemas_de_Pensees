@@ -48,6 +48,9 @@
   --font-title: var(--font-body);
 
   --text-scale: 1;
+  /* Longueur de ligne du texte courant : 70 signes environ, 80 au plus (recommandation : moins de 80).
+     En em, pas en ch : dans cette police, 1ch (la largeur du « 0 ») vaut environ 1,5 signe. */
+  --measure: 31em;
   --gutter: clamp(16px, 4.5vw, 36px);
   --header-h: 60px;
   --tabbar-h: 66px;

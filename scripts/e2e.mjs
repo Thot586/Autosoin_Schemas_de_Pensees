@@ -8,6 +8,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { serve } from "./serve.mjs";
+import { layoutProblems, readingProblems, contrastProblems } from "./layout-check.mjs";
 
 let chromium;
 try { ({ chromium } = createRequire(import.meta.url)("playwright")); }
@@ -26,10 +27,23 @@ const check = (cond, msg) => { if (!cond) failures++; console.log((cond ? "✔ "
   check(!src.includes("(?<=") && !src.includes("(?<!"), "glossaire : motifs lisibles par les anciens Safari (pas de lookbehind)");
 }
 
-// 1. Toutes les pages : pas d'erreur console, pas de débordement horizontal, un titre h1, pas de page 404.
-for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900], ["écran géant", 3840, 2160]]) {
-  const ctx = await browser.newContext({ viewport: { width: w, height: h } });
+// Mise en page (scripts/layout-check.mjs) : ce qui bloque. « cible<44 » (zone de clic sous les 44 px recommandés,
+// mais au-dessus des 24 px exigés) est seulement compté.
+const BLOCK = new Set(["chevauchement", "collé", "déborde", "coupé", "décentré", "cible", "cibles", "sous-barre"]);
+const layout = async (page, opts = {}) => {
+  const all = await page.evaluate(layoutProblems, { minGap: 3, ...opts });
+  return { bad: all.filter((p) => BLOCK.has(p.type)).map((p) => `${p.type} : ${p.a} / ${p.b}`), small: all.filter((p) => p.type === "cible<44").length };
+};
+const withTextSize = (ctx, size) => ctx.addInitScript((size) => { try { localStorage.setItem("autosoin:v1:prefs", JSON.stringify({ theme: "auto", motion: "auto", size, pro: true })); } catch {} }, size);
+
+// 1. Toutes les pages : pas d'erreur console, pas de débordement horizontal, un titre h1, pas de page 404 ;
+//    et rien qui se chevauche, se colle, déborde ou se cache sous une barre, du petit téléphone à l'écran 4K, texte agrandi compris.
+//    Sur ordinateur et écran géant (thème sombre) : lignes de 80 signes au plus, contrastes du texte suffisants.
+for (const [name, w, h, size, scheme] of [["petit téléphone", 320, 640], ["téléphone", 390, 844], ["téléphone, texte agrandi (140 %)", 390, 844, 1.4], ["ordinateur", 1366, 900], ["écran géant, thème sombre", 3840, 2160, 0, "dark"]]) {
+  const ctx = await browser.newContext({ viewport: { width: w, height: h }, reducedMotion: "reduce", colorScheme: scheme ?? "light" });
+  if (size) await withTextSize(ctx, size);
   const page = await ctx.newPage();
+  let small = 0;
   let errs = [];
   page.on("console", (m) => { if (["error", "warning"].includes(m.type())) errs.push(m.text()); });
   page.on("pageerror", (e) => errs.push(e.message));
@@ -54,9 +68,11 @@ for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900]
       links: [...document.querySelectorAll("a[href]")].map((a) => a.getAttribute("href")).filter((x) => x && x.startsWith("/") && !x.startsWith("//")),
     }));
     for (const l of info.links) { const p = l.split("#")[0].split("?")[0]; if (p && !seen.has(p) && !/\.(ics|json|csv|png|svg|webmanifest|pdf|docx)$/.test(p)) queue.push(p); }
-    if (!info.h1 || info.overflow > 1 || info.notFound || info.nested || info.clipped.length || errs.length) { bad++; check(false, `${name} ${r} : ${JSON.stringify({ h1: info.h1, overflow: info.overflow, notFound: info.notFound, nested: info.nested, clipped: info.clipped, errs: errs.slice(0, 3) })}`); }
+    const lay = await layout(page); small += lay.small;
+    if (w >= 1366) for (const p of [...(await page.evaluate(readingProblems, {})).filter((p) => p.type === "ligne longue"), ...(await page.evaluate(contrastProblems))]) lay.bad.push(`${p.type} : ${p.a} / ${p.b}`);
+    if (!info.h1 || info.overflow > 1 || info.notFound || info.nested || info.clipped.length || errs.length || lay.bad.length) { bad++; check(false, `${name} ${r} : ${JSON.stringify({ h1: info.h1, overflow: info.overflow, notFound: info.notFound, nested: info.nested, clipped: info.clipped, errs: errs.slice(0, 3), mise_en_page: lay.bad.slice(0, 4) })}`); }
   }
-  check(bad === 0, `${name} : ${seen.size} pages parcourues, ${bad} problème(s)`);
+  check(bad === 0, `${name} : ${seen.size} pages parcourues, ${bad} problème(s) (zones de clic entre 24 et 44 px : ${small})`);
   await ctx.close();
 }
 
@@ -121,7 +137,9 @@ for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900]
         if (!(await page.locator(".lesson-next").isDisabled())) { bad++; check(false, `${r} : la carte d’entrée laisse passer sans cocher`); }
         for (const b of await page.locator(".gate .fiche-c").all()) await b.click();
       }
-      if (await page.locator(".quiz-o").count()) await page.locator(".quiz-o").first().click();
+      const lay = await layout(page);
+      if (await page.locator(".quiz-o").count()) { await page.locator(".quiz-o").first().click(); lay.bad.push(...(await layout(page)).bad); }
+      if (lay.bad.length) { bad++; check(false, `${r} carte ${k + 1} : mise en page ${JSON.stringify(lay.bad.slice(0, 4))}`); }
       const tw = await page.evaluate(() => ({
         n: document.querySelectorAll(".lcard .term").length,
         nested: document.querySelectorAll("a .term, button .term, label .term, summary .term").length,
@@ -140,6 +158,28 @@ for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900]
   }
   check(bad === 0 && routes.length >= 22 + 45 + 3, `toutes les cartes : ${routes.length} parcours, ${cards} cartes, ${steps} étapes d’animation, ${terms} mots expliqués, ${bad} problème(s)`);
   await ctx.close();
+
+  // Les mêmes cartes sur ordinateur, sur petit téléphone et avec le texte agrandi : mise en page seulement.
+  for (const [name, w, h, size] of [["ordinateur", 1366, 768], ["petit téléphone", 320, 640], ["téléphone, texte agrandi", 390, 844, 1.4]]) {
+    const c2 = await browser.newContext({ viewport: { width: w, height: h }, reducedMotion: "reduce" });
+    if (size) await withTextSize(c2, size);
+    const p2 = await c2.newPage();
+    let n = 0, b2 = 0;
+    for (const r of routes) {
+      await p2.goto(origin + r, { waitUntil: "networkidle" });
+      for (let k = 0; k < 60; k++) {
+        await p2.waitForSelector(".lcard"); n++;
+        const lay = await layout(p2);
+        if (await p2.locator(".lcard-gate").count()) for (const b of await p2.locator(".gate .fiche-c").all()) await b.click();
+        if (await p2.locator(".quiz-o").count()) { await p2.locator(".quiz-o").first().click(); lay.bad.push(...(await layout(p2)).bad); }
+        if (lay.bad.length) { b2++; check(false, `${name} ${r} carte ${k + 1} : mise en page ${JSON.stringify(lay.bad.slice(0, 4))}`); }
+        if (await p2.locator(".lcard-end").count()) break;
+        await p2.click(".lesson-next");
+      }
+    }
+    check(b2 === 0, `toutes les cartes, ${name} : ${n} cartes, ${b2} problème(s) de mise en page`);
+    await c2.close();
+  }
 }
 
 // 3 bis. Exercice : à 8 sur 10 avant de commencer, « Suivant » est bloqué et propose la pause.

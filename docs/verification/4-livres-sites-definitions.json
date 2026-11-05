@@ -1,0 +1,788 @@
+[
+  {
+    "id": "young2003",
+    "kind": "book",
+    "authors": [
+      {"family": "Young", "given": "Jeffrey E."},
+      {"family": "Klosko", "given": "Janet S."},
+      {"family": "Weishaar", "given": "Marjorie E."}
+    ],
+    "org": null,
+    "year": 2003,
+    "date": "2003-03-28",
+    "title": "Schema therapy",
+    "subtitle": "A practitioner's guide",
+    "edition": null,
+    "publisher": "The Guilford Press",
+    "place": "New York",
+    "isbn": ["9781572308381 (hardcover, 2003-03-28; ISBN-10 1572308389)", "9781593853723 (paperback, 2006-11-03)", "9781462533923 (e-book, 2017-06-06)"],
+    "doi": null,
+    "translator": null,
+    "url": "https://www.guilford.com/books/Schema-Therapy/Young-Klosko-Weishaar/9781593853723",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "LoC MARC 245: Schema therapy : a practitioner's guide / Jeffrey E. Young, Janet S. Klosko, Marjorie E. Weishaar.",
+      "LoC MARC 260: New York : The Guilford Press, 2003.",
+      "LoC MARC 300: xii, 436 p. ; 24 cm."
+    ],
+    "verifiedVia": [
+      "https://openlibrary.org/isbn/9781572308381.json (LCCN 2002153858, OCLC 51053419)",
+      "https://openlibrary.org/show-records/marc_loc_2016/BooksAll.2016.part29.utf8:225630003:1609 (Library of Congress MARC record)",
+      "https://www.guilford.com/books/Schema-Therapy/Young-Klosko-Weishaar/9781593853723 (publisher page: formats and dates)"
+    ],
+    "mismatch": null,
+    "notFound": null
+  },
+  {
+    "id": "young2024fr",
+    "kind": "book",
+    "authors": [
+      {"family": "Young", "given": "Jeffrey E."},
+      {"family": "Klosko", "given": "Janet S."},
+      {"family": "Weishaar", "given": "Marjorie E."}
+    ],
+    "org": null,
+    "year": 2024,
+    "date": "2024-04",
+    "title": "La thérapie des schémas",
+    "subtitle": "Approche cognitive des troubles de la personnalité",
+    "edition": "3e éd.",
+    "publisher": "De Boeck Supérieur",
+    "place": "Louvain-la-Neuve (Belgique)",
+    "isbn": ["9782807361386 (broché, 480 p.)"],
+    "doi": null,
+    "translator": "Bernard Pascal",
+    "url": "https://www.deboecksuperieur.com/ouvrage/9782807361386-la-therapie-des-schemas",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "BnF 245: La thérapie des schémas : approche cognitive des troubles de la personnalité / Jeffrey E. Young, Janet S. Klosko et Marjorie E. Weishaar ; préface de Jean Cottraux ; traduction de Bernard Pascal",
+      "BnF 250: 3e éd.",
+      "BnF 260: Louvain-la-Neuve (Belgique) : De Boeck supérieur, DL 2024",
+      "BnF 142 (titre original): Schema therapy : a practicioner's guide (français) [sic]",
+      "Éditeur : « 3e édition » ; « Date de parution : avril 2024 » ; « Traducteur : Bernard Pascal » ; « Préface de : Jean Cottraux » ; « Révisé par : Sylvia Martin » ; collection « Carrefour des psychothérapies »"
+    ],
+    "verifiedVia": [
+      "https://catalogue.bnf.fr/ark:/12148/cb47420966z (BnF record, via SRU API dublincore + intermarcXchange)",
+      "https://www.deboecksuperieur.com/ouvrage/9782807361386-la-therapie-des-schemas"
+    ],
+    "mismatch": null,
+    "notFound": "'Révisé par Sylvia Martin' appears only on the publisher page, not in the BnF record. Translator's dates in BnF: Pascal, Bernard (1954-....); préfacier: Cottraux, Jean (1942-....)."
+  },
+  {
+    "id": "kellogg2014",
+    "kind": "book",
+    "authors": [
+      {"family": "Kellogg", "given": "Scott"}
+    ],
+    "org": null,
+    "year": 2014,
+    "date": null,
+    "title": "Transformational chairwork",
+    "subtitle": "Using psychotherapeutic dialogues in clinical practice",
+    "edition": null,
+    "publisher": "Rowman & Littlefield",
+    "place": "Lanham",
+    "isbn": ["9781442229532 (cloth, LoC)", "9781442229549 (electronic, LoC)", "9781442248007 (print ISBN in the Crossref record of the DOI; Open Library dates this ISBN Jul 27, 2018)", "9798216400042 (electronic ISBN in the Crossref record of the DOI)"],
+    "doi": "10.5040/9798216400042",
+    "translator": null,
+    "url": "https://doi.org/10.5040/9798216400042",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "Crossref: title \"Transformational Chairwork\", subtitle \"Using Psychotherapeutic Dialogues in Clinical Practice\", author Scott Kellogg, publisher \"Rowman & Littlefield Publishers\", issued 2014, type book, edition-number 1",
+      "LoC MARC 245: Transformational chairwork : using psychotherapeutic dialogues in clinical practice / Scott Kellogg.",
+      "LoC MARC 264: Lanham : Rowman & Littlefield, [2014]"
+    ],
+    "verifiedVia": [
+      "https://api.crossref.org/works/10.5040/9798216400042",
+      "mcp__paper-search__get_crossref_paper_by_doi (10.5040/9798216400042)",
+      "https://api.crossref.org/members/2984 (member = Bloomsbury Academic, prefix 10.5040)",
+      "https://doi.org/10.5040/9798216400042 -> 302 to https://www.bloomsburycollections.com/monograph?docid=b-9798216400042",
+      "https://openlibrary.org/show-records/marc_loc_2016/BooksAll.2016.part41.utf8:200533367:1527 (LoC CIP record, LCCN 2014039924)",
+      "https://openlibrary.org/isbn/9781442248007.json"
+    ],
+    "mismatch": "Real publisher/year of the book: Rowman & Littlefield, Lanham, [2014] (LoC). The DOI 10.5040/9798216400042 is a Bloomsbury Academic DOI (Crossref member 2984) resolving to bloomsburycollections.com, but its Crossref record names the publisher 'Rowman & Littlefield Publishers' and the year 2014. The 'print' ISBN attached to the DOI (9781442248007) is not the 2014 cloth ISBN (9781442229532); Open Library dates 9781442248007 to Jul 27, 2018. Open Library also dates 9781442229532 to 2015 (bookseller data) while LoC says [2014].",
+    "notFound": "Rowman/Bloomsbury publisher page (rowman.com now redirects to bloomsbury.com) could not be read (HTTP 403), so format names/dates of 9781442248007 were not confirmed by the publisher."
+  },
+  {
+    "id": "brockman2023",
+    "kind": "book",
+    "authors": [
+      {"family": "Brockman", "given": "Robert N."},
+      {"family": "Simpson", "given": "Susan"},
+      {"family": "Hayes", "given": "Christopher"},
+      {"family": "van der Wijngaart", "given": "Remco"},
+      {"family": "Smout", "given": "Matthew"}
+    ],
+    "org": null,
+    "year": 2023,
+    "date": "2023-06-29",
+    "title": "Cambridge guide to schema therapy",
+    "subtitle": null,
+    "edition": null,
+    "publisher": "Cambridge University Press",
+    "place": null,
+    "isbn": ["9781108927475 (print/paperback, 2023-06-29)", "9781108918145 (electronic, online 2023-07-27)"],
+    "doi": "10.1017/9781108918145",
+    "translator": null,
+    "url": "https://doi.org/10.1017/9781108918145",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "Crossref: type \"monograph\"; contributors listed under \"author\": Robert N. Brockman (first), Susan Simpson, Christopher Hayes, Remco van der Wijngaart, Matthew Smout; no \"editor\" field; published-print 2023-06-29; published-online 2023-07-27",
+      "Crossref abstract: Part of the Cambridge Guides to the Psychological Therapies series, offering all the latest scientifically rigorous, and practical information on a range of key, evidence-based psychological interventions for clinicians."
+    ],
+    "verifiedVia": [
+      "https://api.crossref.org/works/10.1017/9781108918145",
+      "mcp__paper-search__get_crossref_paper_by_doi (10.1017/9781108918145)",
+      "https://www.cambridge.org/core/product/identifier/9781108918145/type/book (Cambridge Core: same 5 names in same order, no 'Edited by'; series Cambridge Guides to the Psychological Therapies)"
+    ],
+    "mismatch": "The app calls them editors. Crossref lists all five as AUTHORS (type monograph, no editor field) and Cambridge Core shows no 'Edited by'. Cite as an authored book with 5 authors, not '(Eds.)'.",
+    "notFound": "Place of publication not shown in Crossref or on Cambridge Core (not verified)."
+  },
+  {
+    "id": "young1995fr",
+    "kind": "book",
+    "authors": [
+      {"family": "Young", "given": "Jeffrey E."},
+      {"family": "Klosko", "given": "Janet S."}
+    ],
+    "org": null,
+    "year": 1995,
+    "date": null,
+    "title": "Je réinvente ma vie",
+    "subtitle": "Vous valez mieux que vous ne pensez",
+    "edition": null,
+    "publisher": "Les Éditions de l'Homme",
+    "place": "Montréal",
+    "isbn": ["2761912438 (broché, 360 p.)"],
+    "doi": null,
+    "translator": "Marie Perron",
+    "url": "https://catalogue.bnf.fr/ark:/12148/cb35799597w",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "BnF: Je réinvente ma vie : vous valez mieux que vous ne pensez / J. E. Young et J. S. Klosko ; préf. de Pierre Cousineau ; trad. de l'américain par Marie Perron",
+      "BnF 260: [Montréal] : les Éd. de l'Homme ; Ivry : diff. Interforum, 1995",
+      "BnF 142 (titre original): Reinventing your life (français)"
+    ],
+    "verifiedVia": [
+      "https://catalogue.bnf.fr/ark:/12148/cb35799597w (BnF SRU dublincore + intermarcXchange)"
+    ],
+    "mismatch": null,
+    "notFound": "No edition statement in either the 1995 or the 2018 BnF record. BnF also holds a 2002 edition: Paris : le Grand livre du mois, ISBN 270284927X (ark:/12148/cb38812013w). Préfacier: Pierre Cousineau; translator: Perron, Marie (1945-....)."
+  },
+  {
+    "id": "young1995fr_2018",
+    "kind": "book",
+    "authors": [
+      {"family": "Young", "given": "Jeffrey E."},
+      {"family": "Klosko", "given": "Janet S."}
+    ],
+    "org": null,
+    "year": 2018,
+    "date": null,
+    "title": "Je réinvente ma vie",
+    "subtitle": "Vous valez mieux que vous ne pensez",
+    "edition": null,
+    "publisher": "Les Éditions de l'Homme",
+    "place": "Montréal (Québec)",
+    "isbn": ["9782761950756 (broché, 361 p.)"],
+    "doi": null,
+    "translator": "Marie Perron",
+    "url": "https://catalogue.bnf.fr/ark:/12148/cb45667300z",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "BnF: Je réinvente ma vie : vous valez mieux que vous ne pensez / Jeffrey E. Young, Janet S. Klosko ; préface de Pierre Cousineau,... ; traduit de l'anglais (États-Unis) par Marie Perron",
+      "BnF 260: Montréal (Québec) : les Éditions de l'Homme, 2018 ; [Ivry-sur-Seine] : Interforum Editis"
+    ],
+    "verifiedVia": [
+      "https://catalogue.bnf.fr/ark:/12148/cb45667300z (BnF SRU dublincore + intermarcXchange)"
+    ],
+    "mismatch": null,
+    "notFound": "Reissue of the 1995 translation (same translator); BnF gives no edition statement (not labelled 'nouvelle édition')."
+  },
+  {
+    "id": "young1993en",
+    "kind": "book",
+    "authors": [
+      {"family": "Young", "given": "Jeffrey E."},
+      {"family": "Klosko", "given": "Janet S."}
+    ],
+    "org": null,
+    "year": 1993,
+    "date": null,
+    "title": "Reinventing your life",
+    "subtitle": "How to break free from negative life patterns",
+    "edition": null,
+    "publisher": "Dutton",
+    "place": "New York, N.Y.",
+    "isbn": ["0525935843 (hardcover per LoC price note)"],
+    "doi": null,
+    "translator": null,
+    "url": "https://openlibrary.org/isbn/0525935843",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "LoC MARC 245: Reinventing your life : how to break free from negative life patterns / Jeffrey E. Young and Janet S. Klosko.",
+      "LoC MARC 260: New York, N.Y., U.S.A. : Dutton, [1993]",
+      "LoC MARC 300: xvi, 365 p. : ill. ; 24 cm."
+    ],
+    "verifiedVia": [
+      "https://openlibrary.org/isbn/0525935843.json (LCCN 92034584, OCLC 26851096)",
+      "https://openlibrary.org/show-records/marc_loc_2016/BooksAll.2016.part21.utf8:208339176:717 (Library of Congress MARC record)"
+    ],
+    "mismatch": null,
+    "notFound": "English original of young1995fr. Open Library also lists a Plume edition dated 1994 (ISBN 0452272041) - not checked further."
+  },
+  {
+    "id": "bower1976",
+    "kind": "book",
+    "authors": [
+      {"family": "Bower", "given": "Sharon Anthony"},
+      {"family": "Bower", "given": "Gordon H."}
+    ],
+    "org": null,
+    "year": 1976,
+    "date": null,
+    "title": "Asserting yourself",
+    "subtitle": "A practical guide for positive change",
+    "edition": null,
+    "publisher": "Addison-Wesley",
+    "place": "Reading, Mass.",
+    "isbn": ["0201008378", "0201008386 (pbk.)"],
+    "doi": null,
+    "translator": null,
+    "url": "https://openlibrary.org/isbn/0201008378",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "LoC MARC 245: Asserting yourself : a practical guide for positive change / Sharon Anthony Bower, Gordon H. Bower.",
+      "LoC MARC 260: Reading, Mass. : Addison-Wesley Pub. Co., c1976, 1978 printing.",
+      "LoC MARC 300: xii, 244 p. : ill. ; 24 cm."
+    ],
+    "verifiedVia": [
+      "https://openlibrary.org/isbn/0201008378.json (LCCN 76005077)",
+      "https://openlibrary.org/show-records/marc_loc_2016/BooksAll.2016.part09.utf8:170122235:826 (Library of Congress MARC record)"
+    ],
+    "mismatch": null,
+    "notFound": "LoC copy described is the 1978 printing of the c1976 edition. Publisher name as printed in the record: 'Addison-Wesley Pub. Co.'."
+  },
+  {
+    "id": "young1990",
+    "kind": "book",
+    "authors": [
+      {"family": "Young", "given": "Jeffrey E."}
+    ],
+    "org": null,
+    "year": 1990,
+    "date": null,
+    "title": "Cognitive therapy for personality disorders",
+    "subtitle": "A schema-focused approach",
+    "edition": null,
+    "publisher": "Professional Resource Exchange",
+    "place": "Sarasota, Fla.",
+    "isbn": ["094315846X"],
+    "doi": null,
+    "translator": null,
+    "url": "https://openlibrary.org/isbn/094315846X",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "LoC MARC 245: Cognitive therapy for personality disorders : a schema-focused approach / Jeffrey E. Young.",
+      "LoC MARC 260: Sarasota, Fla. : Professional Resource Exchange, c1990.",
+      "LoC MARC 300: xi, 79 p. ; 23 cm.",
+      "LoC MARC 440: Practitioner's resource series"
+    ],
+    "verifiedVia": [
+      "https://openlibrary.org/isbn/094315846X.json (LCCN 89043704, OCLC 22210572)",
+      "https://openlibrary.org/show-records/marc_loc_2016/BooksAll.2016.part19.utf8:117936401:767 (Library of Congress MARC record)",
+      "https://openlibrary.org/works/OL2000924W/editions.json"
+    ],
+    "mismatch": null,
+    "notFound": "Catalogue record found (LoC). Later editions in Open Library: 'Rev. ed.' 1994, Professional Resource Press, ISBN 156887006X (LCCN 94013880); '3rd ed.' 1999, Professional Resource Press, ISBN 1568870477 (LCCN 98050869). A catalogue cannot confirm the app's claim that this was the first description of schema therapy; it only confirms a 1990 book exists."
+  },
+  {
+    "id": "psycom-borderline",
+    "kind": "web",
+    "authors": null,
+    "org": "Psycom",
+    "year": 2026,
+    "date": "2026-09-15",
+    "title": "Trouble de la personnalité borderline",
+    "subtitle": null,
+    "edition": null,
+    "publisher": null,
+    "place": null,
+    "isbn": null,
+    "doi": null,
+    "translator": null,
+    "url": "https://www.psycom.org/sinformer/la-sante-mentale/les-troubles-psy/trouble-de-la-personnalite-borderline/",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "Il s’agit d’un trouble de la personnalité caractérisé par une instabilité émotionnelle qui dure dans le temps.",
+      "La psychoéducation, ou éducation thérapeutique du patient (ETP), est très importante dans le trouble borderline.",
+      "Cela consiste à recevoir des informations sur le trouble, ses symptômes et les moyens d’y faire face, de la part de professionnels spécialistes de ce trouble."
+    ],
+    "verifiedVia": [
+      "curl + HTML text extraction of the page (\"Mise à jour : 15/09/2026\")",
+      "WebFetch of the same URL"
+    ],
+    "mismatch": null,
+    "notFound": null
+  },
+  {
+    "id": "psycom-tdi",
+    "kind": "web",
+    "authors": null,
+    "org": "Psycom",
+    "year": 2026,
+    "date": "2026-09-01",
+    "title": "Trouble dissociatif de l’identité (TDI)",
+    "subtitle": null,
+    "edition": null,
+    "publisher": null,
+    "place": null,
+    "isbn": null,
+    "doi": null,
+    "translator": null,
+    "url": "https://www.psycom.org/sinformer/la-sante-mentale/les-troubles-psy/le-trouble-dissociatif-de-lidentite-tdi/",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "L’EMDR (pour eye movement desensitization and reprocessing) est une technique de désensibilisation et de retraitement par les mouvements des yeux.",
+      "Elle repose sur l’idée que certaines pensées, sentiments ou comportements négatifs de la personne découlent de souvenirs d’un ou plusieurs événements traumatisants que le cerveau n’a pas pu assimiler correctement.",
+      "Les thérapeutes insistent sur la nécessité d’attendre que l’étape de stabilisation soit franchie (voir plus haut) pour commencer les séances d’EMDR."
+    ],
+    "verifiedVia": [
+      "WebSearch (allowed_domains psycom.org) to find the URL",
+      "curl + HTML text extraction (\"Mise à jour : 01/09/2026\")"
+    ],
+    "mismatch": null,
+    "notFound": null
+  },
+  {
+    "id": "psycom-brochure-psychotherapies",
+    "kind": "web",
+    "authors": null,
+    "org": "Psycom",
+    "year": 2025,
+    "date": "2025-03",
+    "title": "Psychothérapies",
+    "subtitle": "Brochure, collection Psychothérapies (réf. PSY1)",
+    "edition": null,
+    "publisher": "Psycom",
+    "place": null,
+    "isbn": null,
+    "doi": null,
+    "translator": null,
+    "url": "https://www.psycom.org/wp-content/uploads/2024/04/PSYCOM_Brochures-A5_P_Psychotherapies_2025_WEB.pdf",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "But : aider la personne à mieux comprendre les schémas de pensées négatives à l’origine de comportements inadaptés (ex : phobie) qui peuvent être source de détresse psychique.",
+      "Principes : fondées sur les théories de l’apprentissage, de la neuropsychologie cognitive et de la théorie de l’information, appliquées aux pensées et aux comportements. Elles consistent à exposer progressivement la personne aux situations sources d’angoisse, après les avoir affrontées en imagination (désensibilisation).",
+      "Psychodrame de Moreno [...] Principes : la personne rejoue, devant un public, des scènes traumatisantes de sa vie passée, pour s’en libérer.",
+      "Elle a été mise à jour en février 2021 par Aude Caria et Céline Loubières (Psycom).",
+      "Rédaction : Dr Alain Braconnier, Dr Vassili Kapsambelis (ASM 13) et Céline Loubières (Psycom)",
+      "PSY1 / ©Psycom mars 2025"
+    ],
+    "verifiedVia": [
+      "https://www.psycom.org/sinformer/le-retablissement/les-psychotherapies/ (article 'Les psychothérapies', Mise à jour : 11/12/2024; 'A télécharger : Brochure Psychothérapies' links to the _2025_WEB.pdf)",
+      "https://www.psycom.org/sinformer/nos-supports-dinformation/les-brochures/ (links to ..._P_Psychotherapies_WEB.pdf, which redirects to the _2025_WEB.pdf)",
+      "PDF downloaded and text extracted with pdftotext (12 pages; HTTP Last-Modified 2025-04-02; PDF created 2025-03-13)"
+    ],
+    "mismatch": "Two dates: brochure edition '©Psycom mars 2025' vs content 'mise à jour en février 2021'. The brochure says 'Psychodrame de Moreno' with no first name or initial (the app says 'J. Moreno'). The older URL https://www.psycom.org/wp-content/uploads/2020/10/Psychotherapies-2021.pdf no longer serves a PDF (redirects to the brochures index page). TCC is introduced under the heading 'Psychothérapies comportementales et cognitives (TCC)'.",
+    "notFound": null
+  },
+  {
+    "id": "psycom-cmp",
+    "kind": "web",
+    "authors": null,
+    "org": "Psycom",
+    "year": 2024,
+    "date": "2024-03-04",
+    "title": "Centre médico-psychologique (CMP)",
+    "subtitle": null,
+    "edition": null,
+    "publisher": null,
+    "place": null,
+    "isbn": null,
+    "doi": null,
+    "translator": null,
+    "url": "https://www.psycom.org/sorienter/le-dictionnaire-des-lieux/centre-medico-psychologique-cmp/",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "Le Centre médico-psychologique (CMP) est un lieu de soin public sectorisé proposant des consultations médico-psychologiques et sociales à toute personne en difficulté psychique.",
+      "Chaque personne, en fonction de son lieu d’habitation, dépend d’un CMP particulier avec qui elle peut prendre contact directement.",
+      "Les consultations en CMP sont gratuites ; elles sont entièrement financées par la sécurité sociale."
+    ],
+    "verifiedVia": [
+      "curl + HTML text extraction (\"Mise à jour : 04/03/2024\"; \"Cette fiche a été écrite par Maud Meylan (Psycom)\")"
+    ],
+    "mismatch": null,
+    "notFound": null
+  },
+  {
+    "id": "isst-schema-therapy",
+    "kind": "web",
+    "authors": null,
+    "org": "International Society of Schema Therapy (ISST)",
+    "year": null,
+    "date": null,
+    "title": "Schema Therapy Central Concepts",
+    "subtitle": null,
+    "edition": null,
+    "publisher": null,
+    "place": null,
+    "isbn": null,
+    "doi": null,
+    "translator": null,
+    "url": "https://schematherapysociety.org/Schema-Therapy",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "The four main concepts in the Schema Therapy model are: Early Maladaptive Schemas, Schema Domains, Coping Styles, and Schema Modes.",
+      "Schema Modes are the moment-to-moment emotional states and coping responses that we all experience.",
+      "Our maladaptive schema modes are triggered by life situations that we are oversensitive to (our \"emotional buttons\")."
+    ],
+    "verifiedVia": [
+      "curl + HTML text extraction (HTML <title>: 'Schema Therapy Society e.V.  (ISST) - Schema Therapy Central Concepts')"
+    ],
+    "mismatch": null,
+    "notFound": "No update date on the page. Shown on page: '©2021 International Society of Schema Therapy e.V.'; under the schema list: 'COPYRIGHT 2003, Jeffrey Young, Ph.D.' and '(By George Lockwood, from Dec 21, 2008)'."
+  },
+  {
+    "id": "isst-find-a-therapist",
+    "kind": "web",
+    "authors": null,
+    "org": "International Society of Schema Therapy (ISST)",
+    "year": null,
+    "date": null,
+    "title": "Find a Therapist",
+    "subtitle": null,
+    "edition": null,
+    "publisher": null,
+    "place": null,
+    "isbn": null,
+    "doi": null,
+    "translator": null,
+    "url": "https://schematherapysociety.org/Find-a-Therapist",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "Use our \"Find a Therapist\" feature to locate a schema therapist or supervisor near you.",
+      "You can use the data base and the search function free of charge.",
+      "The respective members fill in the search forms on their own responsibility without ISST's influence. The members are thus personally responsible for the contents."
+    ],
+    "verifiedVia": [
+      "curl + HTML text extraction (HTML <title>: 'Schema Therapy Society e.V.  (ISST) - Find a Therapist')"
+    ],
+    "mismatch": null,
+    "notFound": "No update date ('©2021 International Society of Schema Therapy e.V.' in footer). Access to the directory requires accepting a user agreement; the page states that the German version of the terms is legally binding."
+  },
+  {
+    "id": "ifts-annuaire",
+    "kind": "web",
+    "authors": null,
+    "org": "Institut Français de Thérapie des Schémas (IFTS)",
+    "year": null,
+    "date": null,
+    "title": "Annuaire des thérapeutes",
+    "subtitle": null,
+    "edition": null,
+    "publisher": null,
+    "place": null,
+    "isbn": null,
+    "doi": null,
+    "translator": null,
+    "url": "https://www.schematherapie.fr/annuaire-therapeutes",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "Cet annuaire recense des thérapeutes formés à la thérapie des schémas par l’Institut Français de Thérapie des Schémas (IFTS), et pour certains, certifiés par l’International Society for Schema Therapy (ISST).",
+      "Les informations présentées (niveau de formation, éventuelle certification ISST, coordonnées, lieu d’exercice, modalités de consultation) sont déclarées par les thérapeutes eux-mêmes et actualisées régulièrement, en lien avec l’IFTS.",
+      "L’IFTS ne remplace pas l’appréciation clinique personnelle ni la relation de confiance que vous établirez avec votre thérapeute."
+    ],
+    "verifiedVia": [
+      "curl + HTML text extraction (HTML <title>: 'ANNUAIRE DES THERAPEUTES | Institut Français de Thérapie des Schémas')"
+    ],
+    "mismatch": null,
+    "notFound": "No update date shown. Minor naming difference: IFTS writes 'International Society for Schema Therapy', while ISST's own site footer reads 'International Society of Schema Therapy e.V.'."
+  },
+  {
+    "id": "ameli-mon-soutien-psy",
+    "kind": "web",
+    "authors": null,
+    "org": "Assurance Maladie (ameli.fr)",
+    "year": 2026,
+    "date": "2026-09-16",
+    "title": "Remboursement de séances chez le psychologue : dispositif Mon soutien psy",
+    "subtitle": null,
+    "edition": null,
+    "publisher": null,
+    "place": null,
+    "isbn": null,
+    "doi": null,
+    "translator": null,
+    "url": "https://www.ameli.fr/assure/remboursements/rembourse/remboursement-seance-psychologue-mon-soutien-psy",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "Toutefois, l’Assurance Maladie ne prend en charge que 12 séances par année civile et par patient.",
+      "Vous pouvez intégrer le dispositif Mon soutien psy en prenant directement rendez-vous avec un psychologue.",
+      "Mon soutien psy est un dispositif qui s’adresse aux personnes dès l’âge de 3 ans (enfants, adolescents et adultes) en souffrance psychique d’intensité légère à modérée.",
+      "L’accompagnement proposé par le dispositif Mon soutien psy ne convient pas à certaines personnes qui nécessitent d’emblée un avis spécialisé par un psychiatre.",
+      "Le dispositif Mon soutien psy n’est pas non plus adapté si vous avez des antécédents psychiatriques sévères lors des 3 dernières années."
+    ],
+    "verifiedVia": [
+      "curl + HTML text extraction"
+    ],
+    "mismatch": "Nuance to reflect: 'Pour les mineurs atteints d’affection de longue durée (hors ALD 23 et hors critères de non inclusion), le nombre de séances n’est plus plafonné, lorsque ces séances s'inscrivent dans un protocole de soin.' Also: 'La séance coûte 50 euros. Elle est remboursée à 60 % par l’Assurance Maladie.' The page lists two routes: via a doctor/midwife (courrier d'accompagnement) or directly with a partner psychologist.",
+    "notFound": "The date '16 septembre 2026' is displayed under the title without a label (not explicitly called 'mise à jour')."
+  },
+  {
+    "id": "3114",
+    "kind": "web",
+    "authors": null,
+    "org": "3114 - Numéro national de prévention du suicide (piloté par le Ministère en charge de la santé)",
+    "year": null,
+    "date": null,
+    "title": "Numéro national de prévention du suicide - 3114",
+    "subtitle": null,
+    "edition": null,
+    "publisher": null,
+    "place": null,
+    "isbn": null,
+    "doi": null,
+    "translator": null,
+    "url": "https://3114.fr/",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "Si vous êtes en détresse et/ou avez des pensées suicidaires, si vous voulez aider une personne en souffrance, vous pouvez contacter le numéro national de prévention du suicide, le 3114.",
+      "Le 3114 est accessible 24h/24 et 7j/7, gratuitement, en France entière.",
+      "Le 3114 est piloté par le Ministère en charge de la santé."
+    ],
+    "verifiedVia": [
+      "curl + HTML text extraction (https://3114.fr -> https://3114.fr/)"
+    ],
+    "mismatch": null,
+    "notFound": "No visible update date; HTML metadata only: dateModified 2026-10-20T10:33:17+02:00 (datePublished 2021-07-05)."
+  },
+  {
+    "id": "114",
+    "kind": "web",
+    "authors": null,
+    "org": "Urgence 114 (service public)",
+    "year": null,
+    "date": null,
+    "title": "Urgence114 | Appel d'urgence pour sourds et malentendants",
+    "subtitle": null,
+    "edition": null,
+    "publisher": null,
+    "place": null,
+    "isbn": null,
+    "doi": null,
+    "translator": null,
+    "url": "https://info.urgence114.fr/",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "Le 114 est le service public gratuit réservé aux personnes sourdes, sourdaveugles, malentendantes et aphasiques, pour toutes les urgences, 24h/24, 7j/7.",
+      "Le 114 est le numéro d’urgence unique, national et gratuit, accessible en visio, tchat, images et SMS."
+    ],
+    "verifiedVia": [
+      "curl + HTML text extraction (https://info.urgence114.fr -> https://info.urgence114.fr/)"
+    ],
+    "mismatch": "Scope is wider than 'deaf/hard-of-hearing': the page says 'personnes sourdes, sourdaveugles, malentendantes et aphasiques'. Channels named: visio, tchat, images, SMS (plus a smartphone application).",
+    "notFound": "No page update date (the '18 juillet 2025' dates on the page belong to news teasers). Operator not named in page text (Government logo; contact address @chu-grenoble.fr)."
+  },
+  {
+    "id": "3919",
+    "kind": "web",
+    "authors": null,
+    "org": "Arrêtons les violences (site gouvernemental, arretonslesviolences.gouv.fr)",
+    "year": null,
+    "date": null,
+    "title": "Violences au sein du couple",
+    "subtitle": null,
+    "edition": null,
+    "publisher": null,
+    "place": null,
+    "isbn": null,
+    "doi": null,
+    "translator": null,
+    "url": "https://arretonslesviolences.gouv.fr/besoin-d-aide/violences-au-sein-du-couple",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "Anonyme et gratuit, il est accessible depuis un poste fixe et un mobile en métropole et dans les DROM.",
+      "Le 3919 n’est pas un numéro d’appel d’urgence. En cas d'urgence, appelez les forces de sécurité.",
+      "Le 3919 est à votre disposition 24 heures sur 24 et 7 jours sur 7 pour vous écouter et vous guider, y compris dans les DROM."
+    ],
+    "verifiedVia": [
+      "curl + HTML text extraction of https://arretonslesviolences.gouv.fr/besoin-d-aide/violences-au-sein-du-couple (block 'Le numéro d’écoute, d’information et d’orientation 3919 Violences Femmes Info')",
+      "https://arretonslesviolences.gouv.fr/besoin-d-aide ('J'ai besoin d'aide': same 3919 block, without the 24/7 sentence)",
+      "https://arretonslesviolences.gouv.fr/mentions-legales (suivi éditorial: Cabinet de la Ministre et DICOM)"
+    ],
+    "mismatch": "No dedicated 3919 page exists on the site; the 3919 block appears on /besoin-d-aide and its sub-pages. The same site contradicts itself: https://arretonslesviolences.gouv.fr/l-etat-vous-protege/comment-l-etat-me-protege still says 'Accessible du lundi au vendredi de 9h à 22h, les samedi, dimanche et jours fériés de 9h à 18h, le 3919 garantit une écoute anonyme et est gratuit depuis un poste fixe ou mobile, en métropole comme dans les DOM.' (outdated vs. 24/7 on the couple-violence page).",
+    "notFound": "No update date shown on the pages."
+  },
+  {
+    "id": "urgences-15-112-masecurite",
+    "kind": "web",
+    "authors": null,
+    "org": "Ma Sécurité (masecurite.interieur.gouv.fr)",
+    "year": 2026,
+    "date": "2026-07-13",
+    "title": "Les numéros utiles nationaux",
+    "subtitle": null,
+    "edition": null,
+    "publisher": null,
+    "place": null,
+    "isbn": null,
+    "doi": null,
+    "translator": null,
+    "url": "https://www.masecurite.interieur.gouv.fr/fr/fiches-pratiques/famille-et-aides-aux-victimes/numeros-utiles-nationaux",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "Le 112 est réservé aux appels d’urgence dans l’ensemble de l’Union européenne.",
+      "Le 15 est le numéro de téléphone unique par département. Il donne directement accès au Samu (service d'aide médicale urgente).",
+      "Le 114, numéro d’urgence français pour les personnes sourdes et malentendantes, un numéro unique, national, gratuit, accessible en permanence par visiophonie, tchat, SMS ou fax."
+    ],
+    "verifiedVia": [
+      "WebSearch (allowed_domains masecurite.interieur.gouv.fr) to find the URL",
+      "curl + HTML text extraction ('Informations mises à jour le 13/07/2026')"
+    ],
+    "mismatch": "The page's infographic lists '3919 Violences conjugales' and '114 par SMS pour les personnes malentendantes' (narrower wording than urgence114.fr).",
+    "notFound": null
+  },
+  {
+    "id": "urgences-15-112-servicepublic",
+    "kind": "web",
+    "authors": null,
+    "org": "Service Public / Direction de l'information légale et administrative (Premier ministre)",
+    "year": 2026,
+    "date": "2026-08-25",
+    "title": "Quels sont les numéros en cas d'urgence (Samu, pompiers...) et les numéros d'écoute ?",
+    "subtitle": null,
+    "edition": null,
+    "publisher": null,
+    "place": null,
+    "isbn": null,
+    "doi": null,
+    "translator": null,
+    "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F33954",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "Urgence médicale : le 15 (Samu)",
+      "Urgence médicale - Infraction - Péril : le 112 Europe.",
+      "Dans tous les cas, vous pouvez aussi composer le 112. Vous serez alors orienté vers le bon service selon votre cas.",
+      "Les services sont joignables 24 heures sur 24 et 7 jours sur 7."
+    ],
+    "verifiedVia": [
+      "WebSearch to find the URL",
+      "curl + HTML text extraction ('Vérifié le 25 août 2026 - Service Public / Direction de l'information légale et administrative (Premier ministre)')"
+    ],
+    "mismatch": "URL changed: https://www.service-public.fr/particuliers/vosdroits/F33954 now redirects to https://www.service-public.gouv.fr/particuliers/vosdroits/F33954.",
+    "notFound": null
+  },
+  {
+    "id": "nhs-hull-grounding",
+    "kind": "web",
+    "authors": null,
+    "org": "Hull University Teaching Hospitals NHS Trust (inferred from hosting domain hey.nhs.uk; not printed on the leaflet)",
+    "year": null,
+    "date": null,
+    "title": "5-4-3-2-1 Grounding Technique",
+    "subtitle": null,
+    "edition": null,
+    "publisher": null,
+    "place": null,
+    "isbn": null,
+    "doi": null,
+    "translator": null,
+    "url": "https://www.hey.nhs.uk/wp/wp-content/uploads/2023/02/HEY1318-2022-5-4-3-2-1-Grounding-Technique.pdf",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "Wherever you are when you feel you are becoming distressed, try to take a moment to focus on each of your senses and try to come up with the following number of things you notice.",
+      "5 Things you can see (e.g. birds, trees, a spot on the ceiling, pictures hung on the wall)",
+      "4 Things you can feel or touch (e.g. your hair, your hands, the chair you are sitting on)",
+      "3 Things you can hear (e.g. a clock ticking, a car, a dog barking)",
+      "2 Things you can smell (e.g. soap, your clothes, air freshener)",
+      "1 Thing you can taste (e.g. chewing gum, coffee)"
+    ],
+    "verifiedVia": [
+      "WebSearch (extended) to find the PDF URL",
+      "PDF downloaded (1 page) and text extracted with pdftotext; PDF metadata: Title '5-4-3-2-1', Creator Canva, CreationDate 2021-08-25; HTTP Last-Modified 2023-02-03",
+      "https://www.hey.nhs.uk/patient-leaflet/5-4-3-2-1-grounding-technique/ -> 301 to https://www.hey.nhs.uk/ (lands on https://www.hull.nhs.uk/, 'Hull University Teaching Hospitals NHS Trust')"
+    ],
+    "mismatch": "The app's '2020' is not supported: the only leaflet found carries reference HEY1318-2022 (in the file name), PDF created 2021-08-25, uploaded 2023-02. No 2020 version found (Hull/HEY/Humber searches). The former landing page now redirects to the homepage; only the PDF URL works. For APA, the year could be given as 2022 (reference code) or n.d.; the PDF body itself shows no organisation, date or reference.",
+    "notFound": "'Psychology Services' and 'last updated 31 December 2022' appear only in search-engine snippets of the dead landing page; not verified on a fetched page. Wayback Machine unreachable from this session."
+  },
+  {
+    "id": "psychose",
+    "kind": "definition",
+    "authors": null,
+    "org": "Organisation mondiale de la Santé (OMS) - CIM-11 MMS, version française",
+    "year": 2026,
+    "date": "2026-01",
+    "title": "Schizophrénie ou autres troubles psychotiques primaires (6A20-6A2Z)",
+    "subtitle": "Classification Internationale des Maladies pour les statistiques de mortalité et de morbidité, onzième révision (CIM-11), version 2026-01",
+    "edition": "2026-01",
+    "publisher": "Organisation mondiale de la Santé",
+    "place": "Genève",
+    "isbn": null,
+    "doi": null,
+    "translator": null,
+    "url": "https://icd.who.int/browse/2026-01/mms/fr#405565289",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "La schizophrénie et les autres troubles psychotiques primaires se caractérisent par des déficiences significatives dans l’épreuve de réalité et les altérations du comportement se manifestent sous forme de symptômes positifs tels que des idées délirantes persistantes, des hallucinations persistantes, une pensée désorganisée (se traduisant généralement par un discours désorganisé), un comportement globalement désorganisé et des expériences de passivité et de contrôle, et de symptômes négatifs tels qu’un affect émoussé ou une absence d’émotions, un manque de volonté, ainsi que des troubles psychomoteurs.",
+      "Les symptômes surviennent avec une fréquence et une intensité suffisantes pour s’écarter des normes culturelles ou sous-culturelles attendues.",
+      "Ces symptômes n’apparaissent pas en tant que caractéristique d’un autre trouble mental et comportemental (p. ex. un trouble de l’humeur, un délire ou un trouble due à la consommation d’une substance)."
+    ],
+    "secondaryQuotes": [
+      {
+        "source": "Psycom, brochure 'Troubles schizophréniques' (TP6 / ©Psycom mars 2025)",
+        "url": "https://www.psycom.org/wp-content/uploads/2024/04/PSYCOM_Brochures-A5_TP_Troubles-schizophreniques_2025_WEB.pdf",
+        "quote": "Selon la classification internationale des maladies (CIM-10) de l’Organisation mondiale de la Santé (OMS), les troubles schizophréniques font partie des troubles dits psychotiques."
+      },
+      {
+        "source": "Psycom, même brochure",
+        "url": "https://www.psycom.org/wp-content/uploads/2024/04/PSYCOM_Brochures-A5_TP_Troubles-schizophreniques_2025_WEB.pdf",
+        "quote": "Ces symptômes modifient la perception de la réalité : la personne voit, entend, sent ou ressent des choses qui n’existent pas pour son entourage"
+      },
+      {
+        "source": "HAS, note de cadrage 'Repérage et prise en charge des personnes présentant un premier épisode psychotique ou un risque d’évolution vers une psychose' (adoptée par le Collège le 9 juillet 2025)",
+        "url": "https://www.has-sante.fr/upload/docs/application/pdf/2025-07/note_cadrage_hrp_pep.pdf",
+        "quote": "Le repérage des personnes présentant un PEP est facilité lorsque les personnes présentent des symptômes psychotiques avérés (hallucinations auditives et/ou délire et/ou désorganisation de la pensée et du comportement) ; il vise notamment à limiter la durée de psychose non traitée et les conséquences négatives des symptômes sur la vie quotidienne des personnes concernées."
+      }
+    ],
+    "verifiedVia": [
+      "https://icdcdn.who.int/static/releasefiles/2026-01/print-ICD-11-MMS-fr.zip (official WHO French print PDF, created 2026-01-27; definition on print page 431), text extracted with pdfplumber",
+      "https://icdcdn.who.int/static/releasefiles/2026-01/SimpleTabulation-ICD-11-MMS-fr.zip ('Version:2026 Jan 17'; BlockL1-6A2 = entity 405565289)",
+      "https://icdcdn.who.int/static/releasefiles/2024-01/print-ICD-11-MMS-fr.zip (text identical in release 2024-01)"
+    ],
+    "mismatch": "This is the ICD-11 definition of the group 'schizophrénie et autres troubles psychotiques primaires', not a general entry for 'psychose' (none exists in ICD-11, Psycom, HAS or Santé publique France as far as searched). Source typo quoted verbatim: 'un trouble due à' [sic]. Licence of the WHO text: CC BY-ND 3.0 IGO (no adaptations) - quote verbatim with attribution.",
+    "notFound": "The ICD-11 online browser is JavaScript-rendered and could not be rendered in this session; the text comes from WHO's official print release of the same version (2026-01). The PDF's copyright page reads 'Organisation mondiale de la santé 2025' and suggests the citation 'Classification internationale des maladies, onzième révision (CIM-11). Genève : Organisation mondiale de la santé ; 2025.' monparcourshandicap.gouv.fr page on troubles psychotiques returned 'Site indisponible'."
+  },
+  {
+    "id": "trouble-personnalite",
+    "kind": "definition",
+    "authors": null,
+    "org": "Organisation mondiale de la Santé (OMS) - CIM-11 MMS, version française",
+    "year": 2026,
+    "date": "2026-01",
+    "title": "6D10 Trouble de la personnalité",
+    "subtitle": "Classification Internationale des Maladies pour les statistiques de mortalité et de morbidité, onzième révision (CIM-11), version 2026-01",
+    "edition": "2026-01",
+    "publisher": "Organisation mondiale de la Santé",
+    "place": "Genève",
+    "isbn": null,
+    "doi": null,
+    "translator": null,
+    "url": "https://icd.who.int/browse/2026-01/mms/fr#941859884",
+    "consulted": "2026-11-05",
+    "quotes": [
+      "Le trouble de la personnalité se caractérise par des problèmes de fonctionnement des aspects du soi (p. ex. identité, estime de soi, exactitude de l’image de soi, auto-direction), et/ou un dysfonctionnement interpersonnel (p. ex. capacité à nouer et à entretenir des relations étroites et mutuellement satisfaisants, capacité à comprendre le point de vue des autres et à gérer les conflits dans les relations) qui ont persisté sur une longue période (p. ex. 2 ans ou plus).",
+      "Ce trouble est manifeste dans des schémas de cognition, d’expérience émotionnelle, d’expression émotionnelle et de comportement qui sont inadaptés (p. ex. inflexibles ou mal régulés) ainsi que dans tout un éventail de situations personnelles et sociales (c.-à-d. pas limité à des relations ou rôles sociaux spécifiques).",
+      "Les schémas de comportement caractérisant le trouble ne sont pas appropriés pour le stade de développement et ne peuvent pas s’expliquer principalement par des facteurs sociaux ou culturels, y compris un conflit socio-politique.",
+      "Ce trouble est associé à une détresse importante ou à une déficience significative dans les domaines personnel, familial, social, scolaire, professionnel ou d’autres domaines de fonctionnement importants."
+    ],
+    "verifiedVia": [
+      "https://icdcdn.who.int/static/releasefiles/2026-01/print-ICD-11-MMS-fr.zip (official WHO French print PDF; 6D10 on print page 623), text extracted with pdfplumber",
+      "https://icdcdn.who.int/static/releasefiles/2026-01/SimpleTabulation-ICD-11-MMS-fr.zip (6D10 = entity 941859884; 6D11.5 'État limite' = 2006821354)",
+      "https://icdcdn.who.int/static/releasefiles/2024-01/print-ICD-11-MMS-fr.zip (text identical in release 2024-01)",
+      "Psycom borderline page links to https://icd.who.int/browse/2024-01/mms/fr#941859884 and #2006821354"
+    ],
+    "mismatch": "Source typo quoted verbatim: 'mutuellement satisfaisants' [sic]. Hyphens in 'auto-direction' and 'c.-à-d.' are genuine (pdftotext drops them at line ends; checked with pdfplumber). Licence CC BY-ND 3.0 IGO (no adaptations) - quote verbatim with attribution.",
+    "notFound": "No general (non-borderline) 'trouble de la personnalité' definition page found on Psycom or HAS. ICD-11 online browser not rendered in this session (JavaScript); text from WHO's official print release of the same version. PDF copyright page: 'Organisation mondiale de la santé 2025'."
+  }
+]

@@ -1,0 +1,7 @@
+[
+  { "id": "kellogg2006", "doi": "10.1002/jclp.20240", "pmid": "16470629",
+    "authors": [{ "family": "Kellogg", "given": "Scott H." }, { "family": "Young", "given": "Jeffrey E." }],
+    "year": 2006, "title": "Schema therapy for borderline personality disorder", "container": "Journal of Clinical Psychology",
+    "volume": "62", "issue": "4", "pages": "445-458", "pubTypes": ["Journal Article"], "grade": "sans objet", "read": "résumé",
+    "sources": ["mcp__paper-search__get_crossref_paper_by_doi", "mcp__claude_ai_PubMed__get_article_metadata (PMID 16470629)"] }
+]

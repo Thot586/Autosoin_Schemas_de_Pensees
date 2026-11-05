@@ -176,7 +176,7 @@ Les sept animations du diaporama sont gardées : lunettes, marches, verre, journ
 
 ## 5. Faits vérifiés le 5 novembre 2026
 
-**Depuis le 6 novembre 2026, la liste de référence est la page « Références » de l’application** (`src/data/references.list.ts`) : 57 sources, chacune avec son type d’étude, sa fiabilité, ce que le support en tire, ce qui a été lu (résumé ou texte intégral) et les corrections publiées. Le tableau ci-dessous garde l’historique de la première vérification.
+**Depuis le 6 novembre 2026, la liste de référence est la page « Références » de l’application** (`src/data/references.list.ts`, tenue à la main ; le détail de chaque vérification, avec les phrases citées mot pour mot, est dans [`verification/`](verification/)) : 57 sources, chacune avec son type d’étude, sa fiabilité, ce que le support en tire, ce qui a été lu (résumé ou texte intégral) et les corrections publiées. Le tableau ci-dessous garde l’historique de la première vérification.
 
 **Deuxième vérification (5 et 6 novembre 2026)**, une par une, dans Crossref, PubMed, Europe PMC, les catalogues (BnF, Library of Congress, Open Library) et les sites eux-mêmes. Ce qu’elle a changé :
 - **Corrections publiées**, signalées sur les fiches : rectificatif de Kip 2023 (2025 : un même essai compté deux fois ; l’effet face aux autres traitements reste nul, sans changement notable selon les auteurs) ; correction d’une figure d’Assmann 2024 (2025) ; erratum de Giesen-Bloo 2006 (tableau et figure ; contenu non lu).

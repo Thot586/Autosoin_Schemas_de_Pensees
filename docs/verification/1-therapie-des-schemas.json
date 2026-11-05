@@ -1,0 +1,957 @@
+[
+  {
+    "id": "taylor2017",
+    "doi": "10.1111/papt.12112",
+    "pmid": "28035734",
+    "pmcid": "PMC5573974",
+    "authors": [
+      {
+        "family": "Taylor",
+        "given": "Christopher D. J."
+      },
+      {
+        "family": "Bee",
+        "given": "Penny"
+      },
+      {
+        "family": "Haddock",
+        "given": "Gillian"
+      }
+    ],
+    "year": 2017,
+    "title": "Does schema therapy change schemas and symptoms? A systematic review across mental health disorders",
+    "container": "Psychology and Psychotherapy: Theory, Research and Practice",
+    "volume": "90",
+    "issue": "3",
+    "pages": "456-479",
+    "pubTypes": [
+      "Journal Article",
+      "Systematic Review"
+    ],
+    "design_fr": "Revue systématique sans méta-analyse : 12 études (3 séries de cas, 8 essais ouverts, 1 essai randomisé), 316 participants",
+    "n": 316,
+    "population_fr": "Adultes suivis pour un trouble psychique (10 études en ambulatoire, 1 en hospitalisation, 1 mixte) : trouble de la personnalité borderline (7 études), troubles des conduites alimentaires (2), agoraphobie avec trouble de la personnalité (1), TSPT chez des vétérans (1), dépression (1)",
+    "volunteers": false,
+    "grade": "non utilisé par les auteurs (texte intégral lu)",
+    "conclusion_fr": "La thérapie des schémas donne des premiers résultats significatifs (baisse des schémas précoces inadaptés et des symptômes) dans les troubles de la personnalité, mais les études de médiation manquent et les preuves rigoureuses pour les autres troubles sont rares.",
+    "read": "texte intégral",
+    "corrections": null,
+    "comments": null,
+    "mismatch": "Mineur : l'app attribue à cet article « décrite pour la première fois par Jeffrey Young en 1990 ». L'article dit bien « Young (1990) first described schema therapy », mais ne donne que les initiales (« Young, J. E. (1990) ») : le prénom « Jeffrey » ne figure pas dans cette source.",
+    "note": "Année retenue = année du numéro (sept. 2017, vol. 90 n° 3) ; publié en ligne le 30 décembre 2016 (date que PubMed affiche comme date de publication). Qualité évaluée par la CTAM : une seule étude au-dessus du seuil de 65 (Nadort et al., 2009). Le total de 316 participants est le même nombre que dans Peeters 2022 (coïncidence vérifiée dans les deux textes intégraux).",
+    "origin_quote": "Young (1990) first described schema therapy to help treat pervasive, long‐term psychological difficulties unresponsive to traditional cognitive therapy, such as personality disorders.",
+    "origin_quote_source": "Texte intégral PMC5573974, section « Background » (texte lu : texte intégral PMC, hors références)",
+    "origin_quote_extra": [
+      "Méthodes (« Searches ») : The search time frame was from 1990 to January 2016, the time frame over which schema therapy was first described.",
+      "Résumé (« Purpose ») : Schema therapy was first applied to individuals with borderline personality disorder (BPD) over 20 years ago, and more recent work has suggested efficacy across a range of disorders.",
+      "Référence citée par Taylor et al. (liste de références, telle quelle) : Young, J. E. (1990). Schema‐focused cognitive therapy for personality disorders: A schema focused approach. Sarasota, FL: Professional Resource Exchange."
+    ],
+    "sources": [
+      "https://api.crossref.org/works/10.1111/papt.12112",
+      "https://api.crossref.org/works?filter=updates:10.1111/papt.12112",
+      "https://pubmed.ncbi.nlm.nih.gov/28035734/",
+      "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=28035734&retmode=xml",
+      "mcp__claude_ai_PubMed__get_article_metadata",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC5573974/ (texte intégral via efetch db=pmc)"
+    ]
+  },
+  {
+    "id": "giesenbloo2006",
+    "doi": "10.1001/archpsyc.63.6.649",
+    "pmid": "16754838",
+    "pmcid": null,
+    "authors": [
+      {
+        "family": "Giesen-Bloo",
+        "given": "Josephine"
+      },
+      {
+        "family": "van Dyck",
+        "given": "Richard"
+      },
+      {
+        "family": "Spinhoven",
+        "given": "Philip"
+      },
+      {
+        "family": "van Tilburg",
+        "given": "Willem"
+      },
+      {
+        "family": "Dirksen",
+        "given": "Carmen"
+      },
+      {
+        "family": "van Asselt",
+        "given": "Thea"
+      },
+      {
+        "family": "Kremers",
+        "given": "Ismay"
+      },
+      {
+        "family": "Nadort",
+        "given": "Marjon"
+      },
+      {
+        "family": "Arntz",
+        "given": "Arnoud"
+      }
+    ],
+    "year": 2006,
+    "title": "Outpatient Psychotherapy for Borderline Personality Disorder: Randomized Trial of Schema-Focused Therapy vs Transference-Focused Psychotherapy",
+    "container": "Archives of General Psychiatry",
+    "volume": "63",
+    "issue": "6",
+    "pages": "649-658",
+    "pubTypes": [
+      "Comparative Study",
+      "Journal Article",
+      "Multicenter Study",
+      "Randomized Controlled Trial",
+      "Research Support, Non-U.S. Gov't"
+    ],
+    "design_fr": "Essai randomisé multicentrique à 2 groupes (thérapie centrée sur les schémas vs psychothérapie focalisée sur le transfert, 3 ans, 2 séances par semaine), 88 patients",
+    "n": 88,
+    "population_fr": "Patients avec trouble de la personnalité borderline (score BPDSI-IV au-dessus d'un seuil), 4 centres de santé mentale communautaires ; données disponibles pour 44 + 42 patients",
+    "volunteers": false,
+    "grade": "sans objet",
+    "conclusion_fr": "Trois ans de thérapie centrée sur les schémas ou de psychothérapie focalisée sur le transfert sont efficaces ; la thérapie centrée sur les schémas est plus efficace sur toutes les mesures.",
+    "read": "résumé",
+    "corrections": "Erratum : « Errors in Table and Figure in: Outpatient Psychotherapy for Borderline Personality Disorder: Randomized Trial of Schema-Focused Therapy vs Transference-Focused Psychotherapy », Archives of General Psychiatry, 63(9), 1008, 1er septembre 2006, DOI 10.1001/archpsyc.63.9.1008. Signalé par PubMed (« Erratum in », sans PMID propre) ; non relié dans les métadonnées Crossref de l'article ; contenu de l'erratum non lu (seul son titre est connu).",
+    "comments": "Lettres publiées (PubMed « Comment in ») : Arch Gen Psychiatry 2007;64(5):609 (doi:10.1001/archpsyc.64.5.609-a, PMID 17485615) ; 609 (doi:10.1001/archpsyc.64.5.609-b, PMID 17485614) ; 609-10, réponse des auteurs 610-1 (doi:10.1001/archpsyc.64.5.609-c, PMID 17485613).",
+    "mismatch": null,
+    "note": "Pages : Crossref ne donne que « 649 » ; PubMed donne 649-58.",
+    "sources": [
+      "https://api.crossref.org/works/10.1001/archpsyc.63.6.649",
+      "https://api.crossref.org/works?filter=updates:10.1001/archpsyc.63.6.649",
+      "https://api.crossref.org/works/10.1001/archpsyc.63.9.1008",
+      "https://pubmed.ncbi.nlm.nih.gov/16754838/",
+      "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=16754838&retmode=xml",
+      "mcp__claude_ai_PubMed__get_article_metadata",
+      "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:\"10.1001/archpsyc.63.6.649\"&resultType=core&format=json"
+    ]
+  },
+  {
+    "id": "bamelis2014",
+    "doi": "10.1176/appi.ajp.2013.12040518",
+    "pmid": "24322378",
+    "pmcid": null,
+    "authors": [
+      {
+        "family": "Bamelis",
+        "given": "Lotte L.M."
+      },
+      {
+        "family": "Evers",
+        "given": "Silvia M.A.A."
+      },
+      {
+        "family": "Spinhoven",
+        "given": "Philip"
+      },
+      {
+        "family": "Arntz",
+        "given": "Arnoud"
+      }
+    ],
+    "year": 2014,
+    "title": "Results of a Multicenter Randomized Controlled Trial of the Clinical Effectiveness of Schema Therapy for Personality Disorders",
+    "container": "American Journal of Psychiatry",
+    "volume": "171",
+    "issue": "3",
+    "pages": "305-322",
+    "pubTypes": [
+      "Journal Article",
+      "Multicenter Study",
+      "Randomized Controlled Trial",
+      "Research Support, Non-U.S. Gov't"
+    ],
+    "design_fr": "Essai contrôlé randomisé multicentrique, simple aveugle, 3 bras (thérapie des schémas, traitement habituel, psychothérapie de clarification), 323 patients",
+    "n": 323,
+    "population_fr": "Patients avec trouble de la personnalité du cluster C, paranoïaque, histrionique ou narcissique, dans 12 institutions de santé mentale néerlandaises (2006-2011)",
+    "volunteers": false,
+    "grade": "sans objet",
+    "conclusion_fr": "La thérapie des schémas est supérieure au traitement habituel pour le rétablissement du trouble de la personnalité, les autres mesures par entretien et les abandons ; la formation des thérapeutes par exercices fait mieux que la formation par cours.",
+    "read": "résumé",
+    "corrections": null,
+    "comments": "Commentaire (PubMed « Comment in ») : Evid Based Ment Health 2014;17(3):90-1, doi:10.1136/eb-2014-101858 (PMID 25009174).",
+    "mismatch": null,
+    "note": "Troubles étudiés : cluster C, paranoïaque, histrionique, narcissique (pas le trouble borderline). Les différences entre traitements apparaissent aux mesures par entretien, pas aux auto-questionnaires.",
+    "population_quote": "The authors compared the effectiveness of 50 sessions of schema therapy with clarification-oriented psychotherapy and with treatment as usual among patients with cluster C, paranoid, histrionic, or narcissistic personality disorder.",
+    "population_quote_source": "Résumé PubMed (PMID 24322378) ; texte intégral non lu (pas en accès libre : Europe PMC « Subscription required »)",
+    "population_quote_extra": [
+      "A total of 323 patients with personality disorders were randomly assigned (schema therapy, N=147; treatment as usual, N=135; clarification-oriented psychotherapy, N=41).",
+      "Findings did not vary with specific personality disorder diagnosis."
+    ],
+    "sources": [
+      "https://api.crossref.org/works/10.1176/appi.ajp.2013.12040518",
+      "https://api.crossref.org/works?filter=updates:10.1176/appi.ajp.2013.12040518",
+      "https://pubmed.ncbi.nlm.nih.gov/24322378/",
+      "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=24322378&retmode=xml",
+      "mcp__claude_ai_PubMed__get_article_metadata",
+      "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:\"10.1176/appi.ajp.2013.12040518\"&resultType=core&format=json"
+    ]
+  },
+  {
+    "id": "arntz2022",
+    "doi": "10.1001/jamapsychiatry.2022.0010",
+    "pmid": "35234828",
+    "pmcid": "PMC8892362",
+    "authors": [
+      {
+        "family": "Arntz",
+        "given": "Arnoud"
+      },
+      {
+        "family": "Jacob",
+        "given": "Gitta A."
+      },
+      {
+        "family": "Lee",
+        "given": "Christopher W."
+      },
+      {
+        "family": "Brand-de Wilde",
+        "given": "Odette Manon"
+      },
+      {
+        "family": "Fassbinder",
+        "given": "Eva"
+      },
+      {
+        "family": "Harper",
+        "given": "R. Patrick"
+      },
+      {
+        "family": "Lavender",
+        "given": "Anna"
+      },
+      {
+        "family": "Lockwood",
+        "given": "George"
+      },
+      {
+        "family": "Malogiannis",
+        "given": "Ioannis A."
+      },
+      {
+        "family": "Ruths",
+        "given": "Florian A."
+      },
+      {
+        "family": "Schweiger",
+        "given": "Ulrich"
+      },
+      {
+        "family": "Shaw",
+        "given": "Ida A."
+      },
+      {
+        "family": "Zarbock",
+        "given": "Gerhard"
+      },
+      {
+        "family": "Farrell",
+        "given": "Joan M."
+      }
+    ],
+    "year": 2022,
+    "title": "Effectiveness of Predominantly Group Schema Therapy and Combined Individual and Group Schema Therapy for Borderline Personality Disorder: A Randomized Clinical Trial",
+    "container": "JAMA Psychiatry",
+    "volume": "79",
+    "issue": "4",
+    "pages": "287-299",
+    "pubTypes": [
+      "Journal Article",
+      "Multicenter Study",
+      "Randomized Controlled Trial",
+      "Research Support, Non-U.S. Gov't"
+    ],
+    "design_fr": "Essai clinique randomisé multicentrique à 3 bras (15 sites, 5 pays), 495 participants",
+    "n": 495,
+    "population_fr": "Patients ambulatoires de 18 à 65 ans avec trouble de la personnalité borderline (Australie, Allemagne, Grèce, Pays-Bas, Royaume-Uni) ; 86,2 % de femmes",
+    "volunteers": false,
+    "grade": "sans objet",
+    "conclusion_fr": "La thérapie des schémas combinant séances individuelles et de groupe est plus efficace et mieux suivie que le traitement habituel optimisé et que le format surtout en groupe ; ce dernier ne diffère pas significativement du traitement habituel.",
+    "read": "résumé",
+    "corrections": null,
+    "comments": null,
+    "mismatch": null,
+    "note": "Registre : trialregister.nl NTR2392. Texte intégral disponible dans PMC (non lu ici).",
+    "sources": [
+      "https://api.crossref.org/works/10.1001/jamapsychiatry.2022.0010",
+      "https://api.crossref.org/works?filter=updates:10.1001/jamapsychiatry.2022.0010",
+      "https://pubmed.ncbi.nlm.nih.gov/35234828/",
+      "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=35234828&retmode=xml",
+      "mcp__claude_ai_PubMed__get_article_metadata"
+    ]
+  },
+  {
+    "id": "zhang2023",
+    "doi": "10.1080/08039488.2023.2228304",
+    "pmid": "37402124",
+    "pmcid": null,
+    "authors": [
+      {
+        "family": "Zhang",
+        "given": "Kaiyuan"
+      },
+      {
+        "family": "Hu",
+        "given": "Xinyang"
+      },
+      {
+        "family": "Ma",
+        "given": "Lijun"
+      },
+      {
+        "family": "Xie",
+        "given": "Qihang"
+      },
+      {
+        "family": "Wang",
+        "given": "Zhipeng"
+      },
+      {
+        "family": "Fan",
+        "given": "Chuan"
+      },
+      {
+        "family": "Li",
+        "given": "Xiaoming"
+      }
+    ],
+    "year": 2023,
+    "title": "The efficacy of schema therapy for personality disorders: a systematic review and meta-analysis",
+    "container": "Nordic Journal of Psychiatry",
+    "volume": "77",
+    "issue": "7",
+    "pages": "641-650",
+    "pubTypes": [
+      "Meta-Analysis",
+      "Systematic Review",
+      "Journal Article"
+    ],
+    "design_fr": "Revue systématique et méta-analyse : 8 essais contrôlés randomisés (587 participants) + 7 essais à groupe unique (163 participants)",
+    "n": 750,
+    "population_fr": "Patients avec troubles de la personnalité (études incluses)",
+    "volunteers": false,
+    "grade": "non trouvé dans le résumé",
+    "conclusion_fr": "La thérapie des schémas semble efficace dans les troubles de la personnalité : elle réduit les symptômes (effet qualifié de modéré par les auteurs, g = 0,359 contre conditions contrôles) et améliore la qualité de vie.",
+    "read": "résumé",
+    "corrections": null,
+    "comments": null,
+    "mismatch": null,
+    "note": "n = 587 + 163. Texte intégral payant (Unpaywall : fermé ; page éditeur : accès refusé 403), donc usage de GRADE non vérifiable. Tailles d'effet = g de Hedges (XML PubMed). Publié en ligne le 4 juillet 2023 ; numéro d'octobre 2023.",
+    "sources": [
+      "https://api.crossref.org/works/10.1080/08039488.2023.2228304",
+      "https://api.crossref.org/works?filter=updates:10.1080/08039488.2023.2228304",
+      "https://pubmed.ncbi.nlm.nih.gov/37402124/",
+      "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=37402124&retmode=xml",
+      "mcp__claude_ai_PubMed__get_article_metadata",
+      "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:\"10.1080/08039488.2023.2228304\"&resultType=core&format=json",
+      "https://api.unpaywall.org/v2/10.1080/08039488.2023.2228304"
+    ]
+  },
+  {
+    "id": "peeters2022",
+    "doi": "10.1111/bjc.12324",
+    "pmid": "34296767",
+    "pmcid": "PMC9544733",
+    "authors": [
+      {
+        "family": "Peeters",
+        "given": "Nancy"
+      },
+      {
+        "family": "van Passel",
+        "given": "Boris"
+      },
+      {
+        "family": "Krans",
+        "given": "Julie"
+      }
+    ],
+    "year": 2022,
+    "title": "The effectiveness of schema therapy for patients with anxiety disorders, OCD, or PTSD: A systematic review and research agenda",
+    "container": "British Journal of Clinical Psychology",
+    "volume": "61",
+    "issue": "3",
+    "pages": "579-597",
+    "pubTypes": [
+      "Journal Article",
+      "Systematic Review"
+    ],
+    "design_fr": "Revue systématique sans méta-analyse, suivie d'un programme de recherche (protocole PROSPERO, PRISMA) : 6 études, 316 patients",
+    "n": 316,
+    "population_fr": "Adultes avec diagnostic DSM de trouble anxieux (panique et/ou agoraphobie, anxiété généralisée), de TOC ou de TSPT",
+    "volunteers": false,
+    "grade": "non utilisé par les auteurs (texte intégral lu)",
+    "conclusion_fr": "La thérapie des schémas est prometteuse pour les troubles anxieux, le TOC et le TSPT, mais les preuves restent préliminaires et limitées, avec un problème systématique de qualité des études.",
+    "read": "texte intégral",
+    "corrections": null,
+    "comments": null,
+    "mismatch": null,
+    "note": "Nature exacte : revue systématique (« a meta-analysis was not appropriate » : pas d'effet moyen calculé) + programme de recherche. 41 études éligibles sur le thème, 6 incluses (2 panique/agoraphobie, 1 anxiété généralisée, 1 TOC, 2 TSPT). Qualité évaluée par le POMRF : 5 à 22 sur 40 (moyenne 14). Publié en ligne le 23 juillet 2021 ; numéro de septembre 2022. Le total de 316 est le même nombre que dans Taylor 2017 (coïncidence vérifiée).",
+    "sources": [
+      "https://api.crossref.org/works/10.1111/bjc.12324",
+      "https://api.crossref.org/works?filter=updates:10.1111/bjc.12324",
+      "https://pubmed.ncbi.nlm.nih.gov/34296767/",
+      "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=34296767&retmode=xml",
+      "mcp__claude_ai_PubMed__get_article_metadata",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC9544733/ (texte intégral via efetch db=pmc)"
+    ]
+  },
+  {
+    "id": "mauchand2011",
+    "doi": "10.1016/j.encep.2010.04.014",
+    "pmid": "21482232",
+    "pmcid": null,
+    "authors": [
+      {
+        "family": "Mauchand",
+        "given": "P."
+      },
+      {
+        "family": "Lachenal-Chevallet",
+        "given": "K."
+      },
+      {
+        "family": "Cottraux",
+        "given": "J."
+      }
+    ],
+    "year": 2011,
+    "title": "Validation empirique du questionnaire abrégé des schémas de Young (YSQ-S2) sur une population de patients présentant un trouble de la personnalité borderline et de sujets témoins",
+    "container": "L'Encéphale",
+    "volume": "37",
+    "issue": "2",
+    "pages": "138-143",
+    "pubTypes": [
+      "Journal Article",
+      "Validation Study"
+    ],
+    "design_fr": "Étude de validation (comparaison de groupes) : 37 patients avec trouble de la personnalité borderline vs 263 sujets non cliniques",
+    "n": 300,
+    "population_fr": "Échantillon mixte : 37 patients avec trouble de la personnalité borderline (Lyon, Marseille) + 263 sujets non cliniques, surtout des étudiants",
+    "volunteers": true,
+    "grade": "sans objet",
+    "conclusion_fr": "Malgré le petit échantillon de patients (N = 37), la version française du YSQ-S2 (initiale ou modifiée) paraît valide pour décrire les schémas précoces inadaptés et assez efficace pour mesurer les symptômes borderline ; seuils proposés : 181 et 161.",
+    "read": "résumé",
+    "corrections": null,
+    "comments": null,
+    "mismatch": null,
+    "note": "Article en français (titre anglais PubMed : « Empirical validation of the Young Schema Questionnaire-Short Form (YSQ-S2) in borderline personality disorder and control subjects »). Les réponses au YSQ-S2 ont été extraites de la version française du YSQ-L2 (205 items) remplie par tous ; deux versions testées : initiale (75 items, 15 schémas) et modifiée (68 items, 14 facteurs). Publié en ligne le 3 juillet 2010 (date affichée par PubMed) ; numéro d'avril 2011. Prénoms des auteurs non donnés par Crossref ni PubMed (initiales seulement).",
+    "sources": [
+      "https://api.crossref.org/works/10.1016/j.encep.2010.04.014",
+      "https://api.crossref.org/works?filter=updates:10.1016/j.encep.2010.04.014",
+      "https://pubmed.ncbi.nlm.nih.gov/21482232/",
+      "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=21482232&retmode=xml",
+      "mcp__claude_ai_PubMed__get_article_metadata",
+      "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:\"10.1016/j.encep.2010.04.014\"&resultType=core&format=json"
+    ]
+  },
+  {
+    "id": "boterhoven2017",
+    "doi": "10.1186/s12888-017-1330-2",
+    "pmid": "28472933",
+    "pmcid": "PMC5418842",
+    "authors": [
+      {
+        "family": "Boterhoven de Haan",
+        "given": "Katrina L."
+      },
+      {
+        "family": "Lee",
+        "given": "Christopher W."
+      },
+      {
+        "family": "Fassbinder",
+        "given": "Eva"
+      },
+      {
+        "family": "Voncken",
+        "given": "Marisol J."
+      },
+      {
+        "family": "Meewisse",
+        "given": "Mariel"
+      },
+      {
+        "family": "Van Es",
+        "given": "Saskia M."
+      },
+      {
+        "family": "Menninga",
+        "given": "Simone"
+      },
+      {
+        "family": "Kousemaker",
+        "given": "Margriet"
+      },
+      {
+        "family": "Arntz",
+        "given": "Arnoud"
+      }
+    ],
+    "year": 2017,
+    "title": "Imagery rescripting and eye movement desensitisation and reprocessing for treatment of adults with childhood trauma-related post-traumatic stress disorder: IREM study design",
+    "container": "BMC Psychiatry",
+    "volume": "17",
+    "issue": "1",
+    "pages": "165",
+    "article_number": true,
+    "pubTypes": [
+      "Journal Article",
+      "Randomized Controlled Trial"
+    ],
+    "design_fr": "Protocole d'un essai contrôlé randomisé multicentrique international (7 sites : Australie, Allemagne, Pays-Bas) ; 142 participants prévus ; pas de résultats",
+    "n": 142,
+    "population_fr": "Adultes avec TSPT lié à des traumatismes de l'enfance (effectif prévu par le protocole)",
+    "volunteers": false,
+    "grade": "sans objet",
+    "conclusion_fr": "Protocole : l'essai comparera l'efficacité de la réécriture en imagerie et de l'EMDR dans le TSPT lié à l'enfance et étudiera leurs mécanismes ; l'article ne contient pas de résultats.",
+    "exclusion_quote": "Participants will be excluded if they have comorbid psychotic disorder, bipolar disorder type 1, alcohol or drug dependence, IQ below 80, acute suicide risk, acute PTSD from trauma within the past 6 months, PTSD focused treatment within the past 3 months or scheduled to begin another form of PTSD treatment.",
+    "exclusion_quote_source": "Texte intégral PMC5418842, section « Method » > « Participants » (critères prévus par le protocole)",
+    "exclusion_note": "Confirme l'exclusion prévue des troubles psychotiques comorbides pour l'essai IREM. L'affirmation de l'app est au pluriel (« les grands essais de réécriture en imagerie ») : cette source ne l'étaye que pour IREM, et au stade du protocole ; les critères appliqués dans l'article de résultats (BJP 2020) n'ont pas été vérifiés.",
+    "read": "texte intégral",
+    "corrections": null,
+    "comments": null,
+    "mismatch": null,
+    "note": "PubMed classe l'article en « Randomized Controlled Trial », mais c'est un protocole sans résultats. Registre ACTRN12614000750684. Résultats publiés ensuite (vérifié dans PubMed) : Boterhoven de Haan, K. L., et al. (2020). Imagery rescripting and eye movement desensitisation and reprocessing as treatment for adults with post-traumatic stress disorder from childhood trauma: randomised clinical trial. The British Journal of Psychiatry, 217(5), 609-615. https://doi.org/10.1192/bjp.2020.158 (PMID 32892758 ; 155 participants analysés en intention de traiter ; pas de différence significative entre les deux traitements).",
+    "sources": [
+      "https://api.crossref.org/works/10.1186/s12888-017-1330-2",
+      "https://api.crossref.org/works?filter=updates:10.1186/s12888-017-1330-2",
+      "https://pubmed.ncbi.nlm.nih.gov/28472933/",
+      "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=28472933&retmode=xml",
+      "mcp__claude_ai_PubMed__get_article_metadata",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC5418842/ (texte intégral via efetch db=pmc ; résumé + méthodes lus)",
+      "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=32892758&retmode=xml"
+    ]
+  },
+  {
+    "id": "arntz2025",
+    "doi": "10.1016/j.brat.2025.104913",
+    "pmid": "41270523",
+    "pmcid": null,
+    "authors": [
+      {
+        "family": "Arntz",
+        "given": "Arnoud"
+      }
+    ],
+    "year": 2025,
+    "title": "Imagery Rescripting: an update of the treatment protocol",
+    "container": "Behaviour Research and Therapy",
+    "volume": "195",
+    "issue": null,
+    "pages": "104913",
+    "article_number": true,
+    "pubTypes": [
+      "Journal Article"
+    ],
+    "design_fr": "Article clinique présentant et discutant le protocole mis à jour de la réécriture en imagerie (aucune donnée nouvelle décrite dans le résumé)",
+    "n": null,
+    "population_fr": "Sans objet (article de protocole ; protocole développé et testé dans le traitement des traumatismes de l'enfance)",
+    "volunteers": null,
+    "grade": "sans objet",
+    "conclusion_fr": "Le protocole mis à jour recommande que le thérapeute fasse la réécriture dans les premières séances puis le patient, en commençant au moment le plus difficile du souvenir ; le mécanisme ne repose pas sur l'implantation de faux souvenirs.",
+    "read": "résumé",
+    "corrections": null,
+    "comments": null,
+    "mismatch": null,
+    "note": "Volume 195, décembre 2025 ; publié en ligne le 10 novembre 2025. Accès libre sous licence CC BY chez l'éditeur (Unpaywall, Europe PMC). Met à jour le protocole publié en 1999 par Arntz et Weertman (cité dans le résumé).",
+    "sources": [
+      "https://api.crossref.org/works/10.1016/j.brat.2025.104913",
+      "https://api.crossref.org/works?filter=updates:10.1016/j.brat.2025.104913",
+      "https://pubmed.ncbi.nlm.nih.gov/41270523/",
+      "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=41270523&retmode=xml",
+      "mcp__claude_ai_PubMed__get_article_metadata",
+      "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:\"10.1016/j.brat.2025.104913\"&resultType=core&format=json",
+      "https://api.unpaywall.org/v2/10.1016/j.brat.2025.104913"
+    ]
+  },
+  {
+    "id": "guyatt2008",
+    "doi": "10.1136/bmj.39489.470347.AD",
+    "pmid": "18436948",
+    "pmcid": "PMC2335261",
+    "authors": [
+      {
+        "family": "Guyatt",
+        "given": "Gordon H"
+      },
+      {
+        "family": "Oxman",
+        "given": "Andrew D"
+      },
+      {
+        "family": "Vist",
+        "given": "Gunn E"
+      },
+      {
+        "family": "Kunz",
+        "given": "Regina"
+      },
+      {
+        "family": "Falck-Ytter",
+        "given": "Yngve"
+      },
+      {
+        "family": "Alonso-Coello",
+        "given": "Pablo"
+      },
+      {
+        "family": "Schünemann",
+        "given": "Holger J"
+      }
+    ],
+    "year": 2008,
+    "title": "GRADE: an emerging consensus on rating quality of evidence and strength of recommendations",
+    "container": "BMJ",
+    "volume": "336",
+    "issue": "7650",
+    "pages": "924-926",
+    "pubTypes": [
+      "Journal Article"
+    ],
+    "design_fr": "Article méthodologique (rubrique « Analysis » du BMJ, série « Rating Quality of Evidence and Strength of Recommendations ») présentant le système GRADE",
+    "n": null,
+    "population_fr": "Sans objet",
+    "volunteers": null,
+    "grade": "sans objet",
+    "conclusion_fr": "Les recommandations évaluent de façon incohérente la qualité des preuves et la force des recommandations ; l'article expose les avantages du système GRADE, de plus en plus adopté par les organisations.",
+    "read": "texte intégral",
+    "corrections": null,
+    "comments": null,
+    "mismatch": null,
+    "note": "PubMed ajoute l'auteur collectif « GRADE Working Group » (absent de Crossref). Crossref écrit la DOI en minuscules (10.1136/bmj.39489.470347.ad) ; les DOI ne distinguent pas la casse. Publié en ligne le 24 avril 2008 ; numéro du 26 avril 2008. Deux jeux de définitions différents ci-dessous : l'article de 2008 (« quality of evidence ») et le manuel GRADE mis à jour en octobre 2013 ; ne pas les mélanger.",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2335261/",
+    "quotes": {
+      "bmj2008_box2": {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2335261/",
+        "heading": "Box 2 Quality of evidence and definitions",
+        "levels": [
+          {
+            "level": "High quality",
+            "definition": "Further research is very unlikely to change our confidence in the estimate of effect"
+          },
+          {
+            "level": "Moderate quality",
+            "definition": "Further research is likely to have an important impact on our confidence in the estimate of effect and may change the estimate"
+          },
+          {
+            "level": "Low quality",
+            "definition": "Further research is very likely to have an important impact on our confidence in the estimate of effect and is likely to change the estimate"
+          },
+          {
+            "level": "Very low quality",
+            "definition": "Any estimate of effect is very uncertain"
+          }
+        ],
+        "context": [
+          "To achieve transparency and simplicity, the GRADE system classifies the quality of evidence in one of four levels—high, moderate, low, and very low (box 2).",
+          "Some of the organisations using the GRADE system have chosen to combine the low and very low categories.",
+          "Evidence based on randomised controlled trials begins as high quality evidence, but our confidence in the evidence may be decreased for several reasons, including:",
+          "Although observational studies (for example, cohort and case-control studies) start with a “low quality” rating, grading upwards may be warranted if the magnitude of the treatment effect is very large (such as severe hip osteoarthritis and hip replacement), if there is evidence of a dose-response relation or if all plausible biases would decrease the magnitude of an apparent treatment effect."
+        ],
+        "context_list_items": [
+          "Study limitations",
+          "Inconsistency of results",
+          "Indirectness of evidence",
+          "Imprecision",
+          "Reporting bias."
+        ]
+      },
+      "handbook_table_5_1": {
+        "url": "https://gdt.gradepro.org/app/handbook/handbook.html",
+        "source": "GRADE Handbook — Handbook for grading the quality of evidence and the strength of recommendations using the GRADE approach. Updated October 2013. Editors: Holger Schünemann, Jan Brożek, Gordon Guyatt, and Andrew Oxman — section 5. Quality of evidence",
+        "lead_in": "Although the quality of evidence represents a continuum, the GRADE approach results in an assessment of the quality of a body of evidence in one of four grades:",
+        "heading": "Table 5.1: Quality of Evidence Grades",
+        "levels": [
+          {
+            "level": "High",
+            "definition": "We are very confident that the true effect lies close to that of the estimate of the effect."
+          },
+          {
+            "level": "Moderate",
+            "definition": "We are moderately confident in the effect estimate: The true effect is likely to be close to the estimate of the effect, but there is a possibility that it is substantially different"
+          },
+          {
+            "level": "Low",
+            "definition": "Our confidence in the effect estimate is limited: The true effect may be substantially different from the estimate of the effect."
+          },
+          {
+            "level": "Very Low",
+            "definition": "We have very little confidence in the effect estimate: The true effect is likely to be substantially different from the estimate of effect"
+          }
+        ],
+        "after_table": "Quality of evidence is a continuum; any discrete categorisation involves some degree of arbitrariness. Nevertheless, advantages of simplicity, transparency, and vividness outweigh these limitations."
+      }
+    },
+    "sources": [
+      "https://api.crossref.org/works/10.1136/bmj.39489.470347.AD",
+      "https://api.crossref.org/works?filter=updates:10.1136/bmj.39489.470347.ad",
+      "https://pubmed.ncbi.nlm.nih.gov/18436948/",
+      "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=18436948&retmode=xml",
+      "mcp__claude_ai_PubMed__search_articles",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC2335261/",
+      "https://gdt.gradepro.org/app/handbook/handbook.html"
+    ]
+  },
+  {
+    "id": "has2013",
+    "doi": null,
+    "pmid": null,
+    "pmcid": null,
+    "authors": [
+      {
+        "family": "Haute Autorité de Santé",
+        "given": null
+      }
+    ],
+    "year": 2013,
+    "title": "Niveau de preuve et gradation des recommandations de bonne pratique - État des lieux",
+    "container": "Haute Autorité de Santé (Service des bonnes pratiques professionnelles)",
+    "volume": null,
+    "issue": null,
+    "pages": null,
+    "pubTypes": [],
+    "date": "Avril 2013 (date du document ; « Ce document a été validé par le Collège de la Haute Autorité de Santé en avril 2013. ») ; « Mis en ligne le 14 juin 2013 » (page HAS)",
+    "design_fr": "État des lieux méthodologique : revue des systèmes de niveau de preuve et de gradation des recommandations en vigueur (HAS, SOR, GRADE, SIGN, NICE, etc.)",
+    "n": null,
+    "population_fr": "Sans objet",
+    "volunteers": null,
+    "grade": "sans objet",
+    "conclusion_fr": "Document qui fait l'état des lieux des systèmes de niveau de preuve et de gradation des recommandations de bonne pratique, à partir de manuels d'organismes et d'articles publiés en français ou en anglais.",
+    "read": "texte intégral",
+    "corrections": null,
+    "comments": null,
+    "mismatch": null,
+    "note": "Le tableau de gradation de la section 1.1 est « rédigé à partir du Guide d'analyse de la littérature et gradation des recommandations publié par l’Anaes en 2000 » : ce document de 2013 est un état des lieux, pas la norme d'origine. Le Tableau 2 n'a pas de ligne « accord d'experts » ; l'accord d'experts est défini dans le texte (p. 7-8) et apparaît dans la synthèse de l'annexe 7 (p. 73). Dans le tableau, la case « C » couvre les niveaux 3 et 4 (cellule fusionnée, confirmée par l'annexe 7). Le titre de la page HAS utilise un tiret simple « - » ; la couverture du PDF porte « ÉTAT DES LIEUX » au-dessus du titre. Numéros de page = pages du PDF (identiques à la pagination imprimée). Le PDF fait 92 pages.",
+    "url": "https://www.has-sante.fr/jcms/c_1600564/fr/niveau-de-preuve-et-gradation-des-recommandations-de-bonne-pratique-etat-des-lieux",
+    "pdf_url": "https://www.has-sante.fr/upload/docs/application/pdf/2013-06/etat_des_lieux_niveau_preuve_gradation.pdf",
+    "quotes": {
+      "page_has": {
+        "url": "https://www.has-sante.fr/jcms/c_1600564/fr/niveau-de-preuve-et-gradation-des-recommandations-de-bonne-pratique-etat-des-lieux",
+        "text": "Article HAS - Mis en ligne le 14 juin 2013 L'objectif du document est de proposer un état des lieux sur le niveau de preuve et gradations des recommandations de bonne pratique (RBP)."
+      },
+      "origine_p6": {
+        "url": "https://www.has-sante.fr/upload/docs/application/pdf/2013-06/etat_des_lieux_niveau_preuve_gradation.pdf",
+        "page": 6,
+        "text": "Ce paragraphe a été rédigé à partir du Guide d'analyse de la littérature et gradation des recommandations publié par l’Anaes en 2000 (2)."
+      },
+      "accord_experts_p7": {
+        "url": "https://www.has-sante.fr/upload/docs/application/pdf/2013-06/etat_des_lieux_niveau_preuve_gradation.pdf",
+        "page": 7,
+        "text": "En 2010, l’accord d’experts a été précisé lors de l’actualisation des méthodes d’élaboration des recommandations de bonne pratique. L’accord d’experts correspond, en l’absence de données scientifiques disponibles, à l’approbation d’au moins 80 % des membres du groupe de travail."
+      },
+      "grades_texte_p7_8": {
+        "url": "https://www.has-sante.fr/upload/docs/application/pdf/2013-06/etat_des_lieux_niveau_preuve_gradation.pdf",
+        "page": "7-8",
+        "intro": "Les recommandations proposées sont classées en grade A, B ou C selon les modalités suivantes (tableau 2) :",
+        "items": [
+          "une recommandation de grade A est fondée sur une preuve scientifique établie par des études de fort niveau de preuve : PAR EXEMPLE, essais comparatifs randomisés de forte puissance et sans biais majeur, méta-analyse d’essais contrôlés randomisés, analyse de décision fondée sur des études bien menées ;",
+          "une recommandation de grade B est fondée sur une présomption scientifique fournie par des études de niveau intermédiaire de preuve : PAR EXEMPLE, essais comparatifs randomisés de faible puissance, études comparatives non randomisées bien menées, études de cohortes ;",
+          "une recommandation de grade C est fondée sur des études de moindre niveau de preuve : PAR EXEMPLE, études cas-témoin, séries de cas."
+        ],
+        "after": "En l'absence de précision, les recommandations proposées ne correspondent qu'à un accord d’experts."
+      },
+      "tableau_2_p8": {
+        "url": "https://www.has-sante.fr/upload/docs/application/pdf/2013-06/etat_des_lieux_niveau_preuve_gradation.pdf",
+        "page": 8,
+        "caption": "Tableau 2. Grade des recommandations",
+        "columns": [
+          "Grade des recommandations",
+          "Niveau de preuve scientifique fourni par la littérature"
+        ],
+        "rows": [
+          {
+            "grade": "A",
+            "grade_label": "Preuve scientifique établie",
+            "niveau": "Niveau 1",
+            "etudes": [
+              "- essais comparatifs randomisés de forte puissance ;",
+              "- méta-analyse d’essais comparatifs randomisés ;",
+              "- analyse de décision fondée sur des études bien menées."
+            ]
+          },
+          {
+            "grade": "B",
+            "grade_label": "Présomption scientifique",
+            "niveau": "Niveau 2",
+            "etudes": [
+              "- essais comparatifs randomisés de faible puissance ;",
+              "- études comparatives non randomisées bien menées ;",
+              "- études de cohortes."
+            ]
+          },
+          {
+            "grade": "C",
+            "grade_label": "Faible niveau de preuve scientifique",
+            "niveau": "Niveau 3",
+            "etudes": [
+              "- études cas-témoins."
+            ]
+          },
+          {
+            "grade": "C",
+            "grade_cell_merged_with_previous": true,
+            "grade_label": "Faible niveau de preuve scientifique",
+            "niveau": "Niveau 4",
+            "etudes": [
+              "- études comparatives comportant des biais importants ;",
+              "- études rétrospectives ;",
+              "- séries de cas ;",
+              "- études épidémiologiques descriptives (transversale, longitudinale)."
+            ]
+          }
+        ],
+        "after_table": "Cette gradation des recommandations fondée sur le niveau de preuve scientifique de la littérature venant à l’appui de ces recommandations ne présume pas obligatoirement du degré de force de ces recommandations."
+      },
+      "annexe7_tableau46_p73": {
+        "url": "https://www.has-sante.fr/upload/docs/application/pdf/2013-06/etat_des_lieux_niveau_preuve_gradation.pdf",
+        "page": 73,
+        "column": "HAS (2)",
+        "text": "Gradation fondée sur le niveau de preuve scientifique de la littérature venant à l’appui des recommandations :",
+        "items": [
+          "grade A (niveau de preuve 1) ;",
+          "grade B (niveau de preuve 2) ;",
+          "grade C (niveau de preuve 3 et 4) ;",
+          "accord d’experts."
+        ]
+      },
+      "grade_sans_accord_experts_p19": {
+        "url": "https://www.has-sante.fr/upload/docs/application/pdf/2013-06/etat_des_lieux_niveau_preuve_gradation.pdf",
+        "page": 19,
+        "text": "Dans le système GRADE, la catégorie « accord d’experts » n’existe pas."
+      }
+    },
+    "sources": [
+      "https://www.has-sante.fr/jcms/c_1600564/fr/niveau-de-preuve-et-gradation-des-recommandations-de-bonne-pratique-etat-des-lieux",
+      "https://www.has-sante.fr/upload/docs/application/pdf/2013-06/etat_des_lieux_niveau_preuve_gradation.pdf",
+      "https://www.has-sante.fr/jcms/c_1600563/fr/etat-des-lieux-niveau-preuve-gradation (lien « Etat des lieux Niveau Preuve Gradation » de la page)",
+      "WebSearch"
+    ]
+  },
+  {
+    "id": "apa-fr",
+    "doi": null,
+    "pmid": null,
+    "pmcid": null,
+    "authors": [
+      {
+        "family": "Bibliothèques de l'Université de Montréal",
+        "given": null
+      }
+    ],
+    "year": null,
+    "title": "Citer selon les normes de l'APA, 7e édition",
+    "container": "La boîte à outils — Bibliothèques de l'Université de Montréal",
+    "volume": null,
+    "issue": null,
+    "pages": null,
+    "pubTypes": [],
+    "date": "s. d. (sans date, selon la citation recommandée par le guide) ; « Dernière mise à jour: Oct 8, 2026 10:11 AM » (pied de page de l'onglet « Dans le texte »)",
+    "design_fr": "Guide documentaire universitaire en ligne : adaptation française non officielle des normes APA (7e éd.)",
+    "n": null,
+    "population_fr": "Sans objet",
+    "volunteers": null,
+    "grade": "sans objet",
+    "conclusion_fr": "Selon ce guide : « et » entre deux auteurs (aussi entre parenthèses et en bibliographie), « et al. » dès trois auteurs, plusieurs sources dans une même parenthèse classées par ordre alphabétique et séparées par un point-virgule.",
+    "read": "texte intégral",
+    "corrections": null,
+    "comments": null,
+    "mismatch": null,
+    "note": "Cette adaptation française utilise « et » (jamais « & ») entre deux auteurs, dans le texte comme en bibliographie (le « & » de l'exemple Raymond fait partie du titre de revue). Mise en forme vue dans le code HTML : titre de la revue et volume en italique ; titre de la page web en italique ; titre du rapport en italique. Licence : la page « À propos » dit que le guide n'est pas sous licence CC BY et ne peut être reproduit (renvoyer par lien et le citer), alors que le pied de page du site indique CC BY 4.0 pour les guides des bibliothèques UdeM : contradiction ; prudence avant de reproduire des passages dans l'application.",
+    "url": "https://boite-outils.bib.umontreal.ca/citer/apa",
+    "quotes": {
+      "dans_le_texte": {
+        "url": "https://boite-outils.bib.umontreal.ca/c.php?g=730967&p=5248895",
+        "principe": "Quel que soit le type de document à citer, les informations bibliographiques à inclure dans le texte sont toujours les mêmes, soit le nom de famille de l’auteur (ou le nom de la collectivité) et l’année de publication. La source dans le texte peut prendre deux formes : entre parenthèses ou narrative.",
+        "tableau": [
+          {
+            "auteurs": "Un auteur",
+            "entre_parentheses": "(Damasio, 2017)",
+            "narrative": "Damasio (2017)"
+          },
+          {
+            "auteurs": "Deux auteurs",
+            "entre_parentheses": "(Bechara et Damasio, 2019)",
+            "narrative": "Bechara et Damasio (2019)"
+          },
+          {
+            "auteurs": "Trois auteurs et plus",
+            "entre_parentheses": "(Damasio et al., 2018)",
+            "narrative": "Damasio et al. (2018)"
+          },
+          {
+            "auteurs": "Collectivité sans abréviation",
+            "entre_parentheses": "(Statistique Canada, 2020)",
+            "narrative": "Statistique Canada (2020)"
+          },
+          {
+            "auteurs": "Collectivité avec abréviation",
+            "entre_parentheses": "Première citation : (Organisation mondiale de la santé [OMS], 2019) Citations suivantes : (OMS, 2019)",
+            "narrative": "Première citation : Organisation mondiale de la santé (OMS, 2019) Citations suivantes : OMS (2019)"
+          }
+        ],
+        "plusieurs_sources": {
+          "titre": "Plusieurs sources citées simultanément",
+          "exemple": "(Delage et Labrecque, 2015; Poulin, 2014; Veilleux et al., 2018)",
+          "regle": "Dans la parenthèse, placer les sources en ordre alphabétique."
+        },
+        "meme_auteur_meme_annee": "(Veilleux, 2003a, 2003b)",
+        "avec_page": "(Veilleux, 2018, p. 23)"
+      },
+      "bibliographie": {
+        "url": "https://boite-outils.bib.umontreal.ca/c.php?g=730967&p=5248896",
+        "ordre": "Ordre de présentation. La liste de références doit être présentée dans une liste intégrée, sur une page séparée à la fin, selon l'ordre alphabétique des noms d'auteurs.",
+        "article_avec_doi": {
+          "modele": "Auteur, A., Auteur, B. et Auteur, C. (année). Titre de l'article. Titre du périodique, volume(numéro), xxx-yyy. DOI",
+          "exemple": "Raymond, C., Marin, M.-F., Juster, R.-P. et Lupien, S. J. (2019). Should we suppress or reappraise our stress?: The moderating role of reappraisal on cortisol reactivity and recovery in healthy adults. Anxiety, Stress, & Coping, 32(3), 286‑297. https://doi.org/10.1080/10615806.2019.1596676",
+          "italique": "« Titre du périodique, volume » dans le modèle ; « Anxiety, Stress, & Coping » et « 32 » dans l'exemple"
+        },
+        "page_web": {
+          "titre": "11.1 Page html spécifique à l'intérieur d'un site web",
+          "modele": "Auteur, A. (date). Titre de la page. Nom du site. URL",
+          "note": "Si le nom de l'auteur et le nom du site sont les mêmes, ne pas répéter l'information après le titre de la page.",
+          "italique": "« Titre de la page »"
+        },
+        "organisme_auteur": {
+          "titre": "3.2 Publication gouvernementale — Organisme identifié comme auteur",
+          "modele": "Nom du ministère ou de l'organisme. (date). Titre (publication no xxxx [si disponible]). Éditeur [si différent de l'auteur]. DOI ou URL",
+          "exemple": "Agence de la santé publique du Canada. (2016, mai). Rapport du système canadien de surveillance des maladies chroniques : les troubles anxieux et de l’humeur au Canada, 2016 (publication no HP35-70/2016F-PDF). https://publications.gc.ca/collections/collection_2016/aspc-phac/HP35-70-2016-fra.pdf",
+          "note_auteur_editeur": "Note : Si l'auteur et l'éditeur sont les mêmes, inscrire l'information seulement à la position d'auteur.",
+          "italique": "le titre du document"
+        },
+        "date_formes": [
+          "(2019).",
+          "(2019, novembre).",
+          "(2019, 16 novembre).",
+          "(2019, automne).",
+          "(s. d.)."
+        ]
+      },
+      "faq": {
+        "url": "https://boite-outils.bib.umontreal.ca/c.php?g=730967&p=5248898",
+        "auteur_en_ligne": "Un auteur n’est pas nécessairement une personne physique; ce peut être un groupe, un ministère ou une collectivité (ex. Statistiques Canada).",
+        "collectivite_en_bibliographie": "On note qu’en bibliographie, le nom d’une collectivité (en position d’auteur) s’inscrit toujours dans sa forme au long seulement."
+      },
+      "a_propos": {
+        "url": "https://boite-outils.bib.umontreal.ca/citer/apa",
+        "traduction": "Il n'existe pas de traduction officielle des normes de l'APA en français. Ce guide est une adaptation visant à répondre à certains besoins propres à la communauté de l'UdeM.",
+        "licence_et_citation": "Ce guide n'est pas sous licence CC BY et ne peut donc être reproduit. Il est recommandé de pointer vers ce guide en utilisant son hyperlien, et en le citant de cette façon : Bibliothèques de l'Université de Montréal. (s. d.). Citer selon les normes de l'APA, 7e édition. https://boite-outils.bib.umontreal.ca/citer/apa",
+        "pied_de_page_site": "Les guides créés par les bibliothèques UdeM sont sous licence CC BY 4.0"
+      }
+    },
+    "sources": [
+      "https://boite-outils.bib.umontreal.ca/citer/apa",
+      "https://boite-outils.bib.umontreal.ca/c.php?g=730967&p=5248895",
+      "https://boite-outils.bib.umontreal.ca/c.php?g=730967&p=5248896",
+      "https://boite-outils.bib.umontreal.ca/c.php?g=730967&p=5248898",
+      "WebSearch"
+    ]
+  }
+]

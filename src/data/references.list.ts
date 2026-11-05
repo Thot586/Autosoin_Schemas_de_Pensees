@@ -1,4 +1,5 @@
-// Généré à partir des vérifications du 5 novembre 2026 (scratchpad : refs/gen.mjs) — voir docs/CONTENU.md, § 5.
+// Liste des sources, tenue à la main. Première version générée le 6 novembre 2026 à partir des vérifications
+// (docs/verification/*.json : ce qui a été lu, phrases citées mot pour mot, adresses) — voir docs/CONTENU.md, § 5.
 // Pour corriger une entrée : modifier directement ce fichier ; garder DOI, titre, auteurs et année vérifiés.
 import type { Ref } from "./references";
 

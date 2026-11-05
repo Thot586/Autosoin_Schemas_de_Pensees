@@ -27,7 +27,7 @@ Application web de psychoéducation et d’autosoin autour des **15 schémas de 
   - « À retenir » la termine ;
   - **« Mon rappel du jour »** pose trois questions, en revenant plus souvent sur ce qui est à revoir (boîtes de Leitner) ;
   - « Ce que j’ai retenu » dans Mon espace.
-- **Questions** : 78 au total. Elles portent sur les idées, jamais sur la personne. Il n’y a ni note ni rouge, et une explication suit chaque réponse.
+- **Questions** : 79 au total. Elles portent sur les idées, jamais sur la personne. Il n’y a ni note ni rouge, et une explication suit chaque réponse.
 - **Mes schémas** :
   - la fiche « Retrouver mes schémas », un schéma par écran ;
   - mes priorités (un à trois schémas) ;
@@ -64,7 +64,7 @@ npm run typecheck   # tsc --noEmit
 npm run docs:questions   # régénère docs/QUESTIONS.md après une modification des questions
 ```
 
-Test de bout en bout : il parcourt toutes les pages à 390 px, 1 366 px et 3 840 px, puis une leçon complète, les rappels, la fiche, le carnet, la sauvegarde et la restauration.
+Test de bout en bout : il parcourt toutes les pages à 390 px, 1 366 px et 3 840 px, chaque carte des 22 leçons, des 45 temps de schémas et de la fiche (avec chaque étape d’animation), puis les rappels, le carnet, la sauvegarde et la restauration.
 
 ```bash
 npm i --no-save playwright && npx playwright install chromium

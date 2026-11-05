@@ -24,6 +24,9 @@ export const notes = persisted<Record<string, string>>("notes", {});
 export const stepsDone = persisted<Record<string, boolean[]>>("steps", {});
 export const onboarded = persisted<boolean>("onboarded", false);
 export const last = persisted<{ path: string; title: string; at: number } | null>("last", null);
+/** Une page où « Reprendre » a un sens : une leçon, un temps de schéma, la fiche, un outil. */
+export const isResumable = (p: string) =>
+  /^\/apprendre\/[^/]+$/.test(p) || /^\/schemas\/[^/]+\/(comprendre|moment|semaines)$/.test(p) || p === "/trouver" || p === "/trouver/priorites" || /^\/outils\/[^/]+$/.test(p);
 
 export interface Carte { schema: string; quand: string; voix: string; besoin: string; geste: string; phrase: string }
 export const cartes = persisted<Record<string, Carte>>("cartes", {});

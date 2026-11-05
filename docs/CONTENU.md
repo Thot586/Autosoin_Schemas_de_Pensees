@@ -20,7 +20,7 @@ Version 0.2 (novembre 2026) : le support est réorganisé en **leçons courtes, 
 
 **À relire en priorité.**
 1. Les textes **nouveaux** du chapitre « Avant de commencer » (§ 2), en particulier la leçon sur la thérapie des schémas et celle sur les limites.
-2. Les **78 questions** et leurs explications : voir [`QUESTIONS.md`](QUESTIONS.md).
+2. Les **79 questions** et leurs explications : voir [`QUESTIONS.md`](QUESTIONS.md).
 3. Les **légendes** des trois nouvelles animations (§ 4).
 4. Les **corrections factuelles** issues de la vérification du 5 novembre 2026 (§ 5). Ce sont les numéros d’aide, *Mon soutien psy* et l’annuaire.
 
@@ -92,7 +92,7 @@ Les six mots de la méthode, la méthode en trois étapes, la pause en trois tem
 - Rappels espacés (boîtes de Leitner) :
   - une idée retrouvée du premier coup revient dans 3 jours, puis dans 7, 14 et 30 jours ;
   - une idée à revoir revient le lendemain.
-- 46 questions sont écrites à la main, dans les leçons. Les autres sont construites à partir des données du diaporama : la phrase de chaque schéma, le besoin de chaque base, et la phrase d’adulte sain opposée à la petite voix.
+- 47 questions sont écrites à la main, dans les leçons. Les autres sont construites à partir des données du diaporama : la phrase de chaque schéma, le besoin de chaque base, et la phrase d’adulte sain opposée à la petite voix.
 - **Toutes les questions** sont listées, avec leurs bonnes réponses et leurs explications, dans [`QUESTIONS.md`](QUESTIONS.md). Ce fichier se régénère avec `npm run docs:questions`.
 
 ## 4. Animations

@@ -45,10 +45,14 @@ function AgeSlider() {
 }
 
 /** Numéros d'urgence : un geste pour appeler. */
-export function Numeros({ compact = false }: { compact?: boolean }) {
+export function Numeros({ compact = false, only }: { compact?: boolean; only?: "urgence" | "autres" }) {
+  const list = CONTENT.p8.aide.numeros.filter((n) => {
+    const hors = "horsUrgence" in n && n.horsUrgence;
+    return only === "urgence" ? !hors : only === "autres" ? hors : true;
+  });
   return (
     <ul className={`numeros ${compact ? "is-compact" : ""}`}>
-      {CONTENT.p8.aide.numeros.map((n) => {
+      {list.map((n) => {
         const sms = "sms" in n && n.sms;
         return (
           <li key={n.num}>

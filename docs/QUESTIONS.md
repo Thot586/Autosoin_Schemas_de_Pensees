@@ -91,6 +91,12 @@ Les questions portent sur les idées du support, jamais sur la personne. Après 
 - C. Était choisi par l’enfant
 
 > Le schéma était une adaptation : il aidait à tenir dans l’environnement d’alors.
+**On peut avoir un schéma sans en avoir de souvenir précis.**
+
+- A. Vrai ✔
+- B. Faux
+
+> C’est vrai : un schéma peut venir d’un manque répété, jour après jour, sans événement marquant dont on se souvienne.
 **Quand on cherche d’où vient un schéma, on cherche…**
 
 - A. Un coupable

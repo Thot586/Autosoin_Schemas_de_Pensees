@@ -4,7 +4,7 @@ import { Link } from "../lib/router";
 import { chapterOf, dueToday, LESSONS, lessonIndex, nextToDo } from "../learn/lessons";
 import { lessonState, quizState } from "../learn/progress";
 import { SCHEMAS } from "../data/schemas";
-import { focusSchema, last, retained, ticks, tickCount } from "../lib/state";
+import { focusSchema, isResumable, last, retained, ticks, tickCount } from "../lib/state";
 
 /** Accueil : où j'en étais, quoi ensuite, et que faire si ça ne va pas. */
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
   const ticked = SCHEMAS.filter((s) => tickCount(t[s.slug]) > 0).length;
   const focusS = SCHEMAS.find((s) => s.slug === focus);
   const pos = next ? st[next.id]?.pos ?? 0 : 0;
-  const resumeOther = lastV && lastV.path !== "/" && !lastV.path.startsWith("/apprendre/") && lastV.path !== "/rappel" && Date.now() - lastV.at < 1000 * 60 * 60 * 24 * 14;
+  const resumeOther = lastV && isResumable(lastV.path) && !lastV.path.startsWith("/apprendre/") && Date.now() - lastV.at < 1000 * 60 * 60 * 24 * 14;
 
   return (
     <Page title="">

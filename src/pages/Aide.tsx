@@ -25,9 +25,12 @@ export default function Aide() {
 
         <section className="sos" aria-labelledby="sos-urgence">
           <h2 id="sos-urgence">En danger, ou des pensées de me faire du mal : j’appelle maintenant.</h2>
-          <Numeros />
+          <Numeros only="urgence" />
           <p className="small">{A.horsFrance} Sur téléphone, je touche le numéro pour appeler.</p>
         </section>
+
+        <h2 className="h-sec">Autres numéros utiles</h2>
+        <Numeros only="autres" />
 
         <h2 className="h-sec">Pour me poser, tout de suite</h2>
         <div className="row">

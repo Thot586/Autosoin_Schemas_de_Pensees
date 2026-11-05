@@ -5,7 +5,7 @@ import { Icon } from "../components/Icon";
 import { Link, navigate } from "../lib/router";
 import { schemaBySlug } from "../data/schemas";
 import { CarteView } from "../components/SchemaBits";
-import { ticks, retained, focusSchema, situations, notes, cartes, plan, carnet, last, tickCount } from "../lib/state";
+import { ticks, retained, focusSchema, situations, notes, cartes, plan, carnet, last, tickCount, isResumable } from "../lib/state";
 import { clearPersonalData } from "../lib/store";
 import { collectBackup, backupFileName, restoreBackup } from "../lib/backup";
 import { downloadText } from "../lib/ics";
@@ -91,7 +91,7 @@ export default function MonEspace() {
         <div className="meter" role="img" aria-label={`${nPartsDone} leçons terminées sur ${LESSONS.length}`}><i style={{ width: `${(nPartsDone / LESSONS.length) * 100}%` }} /></div>
         <p>{nPartsDone === 0 ? "Je n’ai pas encore terminé de leçon." : `J’ai terminé ${nPartsDone} leçon${nPartsDone > 1 ? "s" : ""} sur ${LESSONS.length}.`}</p>
         <div className="row noprint">
-          {lst && lst.path !== "/mon-espace" && <Button to={lst.path} icon="play">Reprendre : {lst.title}</Button>}
+          {lst && isResumable(lst.path) && <Button to={lst.path} icon="play">Reprendre : {lst.title}</Button>}
           <Button to="/apprendre" variant="soft" icon="route">Mon parcours</Button>
         </div>
         {doneLessons.length > 0 && (

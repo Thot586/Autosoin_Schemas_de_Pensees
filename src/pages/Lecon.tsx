@@ -23,7 +23,7 @@ export default function Lecon({ id }: { id: string }) {
         ? ["Je peux continuer, ou m’arrêter là pour aujourd’hui.", "Les questions de cette leçon reviendront dans « Mon rappel du jour »."]
         : ["C’était la dernière leçon du parcours.", "Je peux maintenant retrouver mes schémas, un à la fois."],
       primary: next ? { to: `/apprendre/${next.id}`, label: `Leçon suivante : ${next.title}`, icon: "arrowRight" } : { to: "/trouver", label: "Retrouver mes schémas", icon: "search" },
-      links: [{ to: "/", label: "M’arrêter là pour aujourd’hui", icon: "home" }, { to: "/apprendre", label: "Voir mon parcours", icon: "route" }],
+      links: [{ to: "/", label: "M’arrêter là pour aujourd’hui", icon: "home" }, { to: "/apprendre", label: "Voir mon parcours", icon: "route" }, { to: `/apprendre/${lesson.id}/tout`, label: "Relire toute la leçon sur une page", icon: "book" }],
     }));
     return out;
   }, [lesson]);

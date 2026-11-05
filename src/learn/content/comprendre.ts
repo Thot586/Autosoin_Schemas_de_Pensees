@@ -60,6 +60,9 @@ export const COMPRENDRE: Lesson[] = [
         id: "origines-adaptation", q: "À l’époque, le schéma…",
         options: ["Aidait l’enfant à tenir", "Était un défaut de caractère", "Était choisi par l’enfant"], answer: 0,
         explain: "Le schéma était une adaptation : il aidait à tenir dans l’environnement d’alors." } },
+      { id: "oq3", kind: "quiz", title: "Vrai ou faux ?", quiz: {
+        id: "origines-souvenir", q: "On peut avoir un schéma sans en avoir de souvenir précis.", options: ["Vrai", "Faux"], answer: 0,
+        explain: "C’est vrai : un schéma peut venir d’un manque répété, jour après jour, sans événement marquant dont on se souvienne." } },
       { id: "oq2", kind: "quiz", title: "Une question", quiz: {
         id: "origines-coupable", q: "Quand on cherche d’où vient un schéma, on cherche…",
         options: ["Le besoin qui n’a pas été comblé", "Un coupable"], answer: 0,

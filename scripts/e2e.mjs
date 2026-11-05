@@ -76,7 +76,43 @@ for (const [name, w, h] of [["téléphone", 390, 844], ["ordinateur", 1366, 900]
   await ctx.close();
 }
 
-// 3. Carnet, sauvegarde, restauration, effacement.
+// 3. Toutes les cartes : chaque leçon, chaque temps de chaque schéma, la fiche, et chaque étape d'animation.
+{
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const page = await ctx.newPage();
+  let errs = [];
+  page.on("console", (m) => { if (["error", "warning"].includes(m.type())) errs.push(m.text()); });
+  page.on("pageerror", (e) => errs.push(e.message));
+  await page.goto(origin + "/apprendre", { waitUntil: "networkidle" });
+  const lessons = await page.$$eval("a.lrow", (as) => as.map((a) => a.getAttribute("href")));
+  await page.goto(origin + "/schemas", { waitUntil: "networkidle" });
+  const schemas = [...new Set(await page.$$eval(".sgroup a.srow", (as) => as.map((a) => a.getAttribute("href"))))];
+  const routes = [...lessons, ...schemas.flatMap((h) => ["comprendre", "moment", "semaines"].map((p) => `${h}/${p}`)), "/trouver"];
+  let cards = 0, steps = 0, bad = 0;
+  for (const r of routes) {
+    errs = [];
+    await page.goto(origin + r, { waitUntil: "networkidle" });
+    let navOk = true, reached = false;
+    for (let k = 0; k < 60; k++) {
+      await page.waitForSelector(".lcard");
+      cards++;
+      if (await page.locator(".lcard-end").count()) { reached = true; break; }
+      const nav = await page.locator(".lesson-nav").boundingBox();
+      if (!nav || nav.y + nav.height > 844 + 1) navOk = false;
+      if (await page.locator(".lcard-anim, .lcard-widget .player").count()) {
+        const fwd = page.locator('.pc-btn[aria-label="Étape suivante"]');
+        for (let j = 0; j < 9 && (await fwd.isEnabled()); j++) { await fwd.click(); steps++; }
+      }
+      if (await page.locator(".quiz-o").count()) await page.locator(".quiz-o").first().click();
+      await page.click(".lesson-next");
+    }
+    if (!reached || !navOk || errs.length) { bad++; check(false, `${r} : ${JSON.stringify({ fin: reached, barre: navOk, errs: errs.slice(0, 3) })}`); }
+  }
+  check(bad === 0 && routes.length >= 22 + 45 + 1, `toutes les cartes : ${routes.length} parcours, ${cards} cartes, ${steps} étapes d’animation, ${bad} problème(s)`);
+  await ctx.close();
+}
+
+// 4. Carnet, sauvegarde, restauration, effacement.
 {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, acceptDownloads: true });
   const page = await ctx.newPage();

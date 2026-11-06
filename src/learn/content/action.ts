@@ -82,7 +82,7 @@ export const ACTION: Lesson[] = [
         ],
         foot: "Plus tard, j’en parle à mon chef en tête-à-tête." },
       { id: "p3", kind: "widget", widget: "respiration", title: "J’essaie maintenant, à froid",
-        body: ["Trois respirations lentes : j’expire plus longtemps que j’inspire."] },
+        body: ["Trois respirations lentes : j’expire plus longtemps que j’inspire."], pro: "Le son de la respiration est coupé par défaut ; avec une personne gênée par les bruits, ou qui entend des voix, préférer l’exercice sans son." },
       { id: "p4", kind: "text", icon: "info", title: "Elle me laisse le choix",
         body: [P6.pause.resume, "Je m’exerce d’abord à froid, deux ou trois fois, avant d’en avoir besoin."] },
       { id: "pq1", kind: "quiz", title: "Une question", quiz: {

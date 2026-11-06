@@ -377,6 +377,30 @@ task("respiration guidée", async (check) => {
   await ctx.close();
 });
 
+// 3 septies. Son de la respiration, calculé hors ligne (le navigateur de test est muet) : audible sans être fort,
+//            il monte à l'inspiration et redescend à l'expiration, pour « Souffle » comme pour « Musique douce ».
+task("son de la respiration (rendu hors ligne)", async (check) => {
+  const { build } = createRequire(import.meta.url)("esbuild");
+  const out = await build({ entryPoints: [fileURLToPath(new URL("../src/lib/breathSound.ts", import.meta.url))], bundle: true, write: false, format: "iife", globalName: "BreathSound", target: "es2020" });
+  const ctx = await browser.newContext();
+  const page = await ctx.newPage();
+  await page.goto(origin + "/", { waitUntil: "networkidle" });
+  await page.addScriptTag({ content: out.outputFiles[0].text });
+  for (const kind of ["souffle", "musique"]) {
+    const m = await page.evaluate(async (kind) => {
+      const sr = 22050, ctx = new OfflineAudioContext(1, sr * 20, sr);
+      const b = window.BreathSound.buildBreath(ctx, kind);
+      b.inhaleAt(0, 4); b.exhaleAt(4, 6); b.inhaleAt(10, 4); b.exhaleAt(14, 6);
+      const d = (await ctx.startRendering()).getChannelData(0);
+      const rms = (a, z) => { let q = 0; for (let i = Math.round(a * sr); i < Math.round(z * sr); i++) q += d[i] * d[i]; return Math.sqrt(q / ((z - a) * sr)); };
+      let peak = 0; for (let i = 0; i < d.length; i++) peak = Math.max(peak, Math.abs(d[i]));
+      return { peak: +peak.toFixed(3), debut: +rms(0, 0.3).toFixed(4), finInspi: +rms(3.5, 4).toFixed(4), finExpi: +rms(9.5, 10).toFixed(4) };
+    }, kind);
+    check(m.peak > 0.02 && m.peak < 0.35 && m.finInspi > 3 * m.finExpi && m.debut < m.finInspi / 5, `son « ${kind} » : audible sans être fort, monte à l’inspiration et redescend ${JSON.stringify(m)}`);
+  }
+  await ctx.close();
+});
+
 // 4. Carnet, sauvegarde, restauration, effacement.
 task("carnet et sauvegarde", async (check) => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, acceptDownloads: true });

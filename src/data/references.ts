@@ -37,8 +37,6 @@ export interface Ref {
   design: string;
   /** GRADE tel que rapporté par les auteurs (citation), ou ce qu'on a pu en savoir. */
   grade?: string;
-  /** Ce qui a été lu pour vérifier : métadonnées, résumé, texte intégral, page. */
-  lu: string;
   correction?: string;
   /** Ce que le support en tire. */
   apport: string;
@@ -59,7 +57,7 @@ export const THEMES: { id: Theme; titre: string; intro: string }[] = [
   { id: "chaises", titre: "Le dialogue des chaises", intro: "Son origine, ses effets mesurés et ce qui reste une hypothèse." },
   { id: "action", titre: "Passer à l’action", intro: "Les plans « si… alors… », écrire ce que l’on ressent, dire ce qui ne va pas." },
   { id: "orientation", titre: "Définitions et orientation", intro: "Les mots du glossaire et les portes d’entrée vers un soin." },
-  { id: "aide", titre: "Numéros d’aide", intro: "Les numéros d’urgence et d’écoute, vérifiés sur les sites officiels." },
+  { id: "aide", titre: "Numéros d’aide", intro: "Les numéros d’urgence et d’écoute, d’après les sites officiels." },
   { id: "lectures", titre: "Lectures conseillées", intro: "Les livres proposés pour aller plus loin." },
   { id: "methode", titre: "Comment lire les niveaux de preuve", intro: "Les échelles utilisées pour les couleurs de cette page." },
 ];

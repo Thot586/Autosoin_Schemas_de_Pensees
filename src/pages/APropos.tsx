@@ -41,7 +41,7 @@ export default function APropos() {
       <Section eyebrow="Ce que c’est" title="Un support d’autosoin">
         <Terms><div className="prose">
           <p><b>{META.nom}</b> aide à repérer des thèmes de vie appris tôt (les « schémas »), à comprendre comment ils s’entretiennent et à essayer de petits gestes, à son rythme. Il s’inspire de la thérapie des schémas de Jeffrey Young. Il prépare à une thérapie ou la complète : il ne la remplace pas.</p>
-          <p>Il reprend le contenu d’un diaporama de psychoéducation, remis en forme pour le téléphone, la tablette et l’ordinateur : animations, définitions, outils à remplir, carnet, plan de la semaine.</p>
+          <p>Il reprend le contenu d’un diaporama de psychoéducation. On y trouve des animations, des définitions, des outils à remplir, un carnet et un plan de la semaine.</p>
         </div></Terms>
       </Section>
 
@@ -51,7 +51,7 @@ export default function APropos() {
           <li><Icon name="heart" size={20} /><span><b>Ce n’est pas un soin.</b> Ni un dispositif médical, ni un suivi, ni un traitement. Je ne change pas mon traitement sans en parler à mon médecin.</span></li>
           <li><Icon name="phone" size={20} /><span><b>Ce n’est pas un service d’urgence.</b> Quand je vais très mal, je demande de l’aide d’abord : <Link to="/aide">numéros d’aide</Link> (3114, 15, 112).</span></li>
           <li><Icon name="eye" size={20} /><span><b>Il peut réveiller des souvenirs.</b> Si c’est trop lourd, je m’arrête et j’en parle à un soignant. Un souvenir très douloureux se travaille avec un professionnel.</span></li>
-          <li><Icon name="info" size={20} /><span><b>Il n’a pas été évalué.</b> Ce support n’a pas fait l’objet d’une étude scientifique ; son contenu est en relecture. Le rangement des quinze schémas en cinq familles est un repère pour apprendre, pas une classification démontrée.</span></li>
+          <li><Icon name="info" size={20} /><span><b>Il n’a pas été évalué.</b> Ce support n’a pas fait l’objet d’une étude scientifique. Le rangement des quinze schémas en cinq familles est un repère pour apprendre, pas une classification démontrée.</span></li>
           <li><Icon name="lock" size={20} /><span><b>Sur un appareil partagé,</b> quelqu’un d’autre pourrait lire mes notes. Je peux tout effacer depuis <Link to="/mon-espace">Mon espace</Link>.</span></li>
         </ul></Terms>
         <p className="mt"><Link to="/apprendre/limites" className="btn btn-soft"><Icon name="play" size={18} /><span>La leçon « Ce que ce support ne fait pas »</span></Link></p>
@@ -97,7 +97,7 @@ export default function APropos() {
 
       <Section className="alt" eyebrow="Pour tous" title="Accessibilité">
         <div className="prose">
-          <p>Le site vise le niveau AA des recommandations d’accessibilité (WCAG) : contrastes vérifiés, navigation au clavier, lecteur d’écran pris en compte, texte agrandissable, thème clair ou sombre, animations désactivables. Aucun audit externe n’a encore été réalisé. Dans les réglages d’affichage (l’engrenage en haut sur ordinateur, le menu sur téléphone), je peux changer le thème, la taille du texte et réduire les animations.</p>
+          <p>Le site vise le niveau AA des recommandations d’accessibilité (WCAG) : contrastes suffisants, navigation au clavier, lecteur d’écran pris en compte, texte agrandissable, thème clair ou sombre, animations désactivables. Aucun audit externe n’a encore été réalisé. Dans les réglages d’affichage (l’engrenage en haut sur ordinateur, le menu sur téléphone), je peux changer le thème, la taille du texte et réduire les animations.</p>
           {META.contact ? <p>Si quelque chose me bloque : <a href={`mailto:${META.contact}`}>{META.contact}</a>.</p> : null}
         </div>
       </Section>

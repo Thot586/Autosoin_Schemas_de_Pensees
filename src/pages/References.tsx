@@ -38,13 +38,12 @@ function RefItem({ r }: { r: Ref }) {
     <li id={r.id} tabIndex={-1} className={`ref niv-${r.niveau}`}>
       <Badge n={r.niveau} />
       <p className="ref-apa"><Apa r={r} /></p>
-      <p className="ref-apport"><b>Ce que le support en tire :</b> {r.apport}</p>
+      <p className="ref-apport"><b>Ce qu’on en retient :</b> {r.apport}</p>
       <details className="ref-more">
-        <summary>Type d’étude et vérification</summary>
+        <summary>Plus de détail</summary>
         <dl>
           <dt>Type d’étude</dt><dd>{r.design}</dd>
           {r.grade && <><dt>GRADE</dt><dd>{r.grade}</dd></>}
-          <dt>Vérifié</dt><dd>{r.lu}</dd>
           {r.correction && <><dt>Correction publiée</dt><dd>{r.correction}</dd></>}
         </dl>
       </details>
@@ -62,7 +61,7 @@ export default function References() {
           ? <button type="button" className="back back-btn" onClick={() => history.back()}><Icon name="arrowLeft" size={18} /> Revenir à ma page</button>
           : <Link to="/" className="back"><Icon name="arrowLeft" size={18} /> Accueil</Link>}
         <h1>Références</h1>
-        <p className="lead">Toutes les sources de ce support, vérifiées une à une. La couleur dit à quel point chacune est solide.</p>
+        <p className="lead">Les sources de ce support. La couleur dit à quel point chacune est solide.</p>
 
         <section className="ref-legend" aria-labelledby="leg-h">
           <h2 id="leg-h" className="h-sec">Lire les couleurs</h2>
@@ -74,8 +73,7 @@ export default function References() {
           <details className="ref-more">
             <summary>Comment les couleurs sont choisies</summary>
             <p><CiteText text="La couleur suit le type d’étude, selon l’échelle des niveaux de preuve de la Haute Autorité de Santé [@has2013]. Une expérience de laboratoire chez des volontaires est classée à part : elle éclaire un mécanisme, sans montrer d’effet chez des patients." /></p>
-            <p><CiteText text="Quand les auteurs d’une revue ont évalué la certitude de leurs résultats avec la méthode GRADE (élevée, modérée, faible ou très faible), leur conclusion est citée telle quelle [@guyatt2008]. Nous ne l’avons jamais attribuée nous-mêmes." /></p>
-            <p><CiteText text="Les citations suivent la norme APA 7, dans son adaptation française [@umontreal-apa]. La liste est classée par thème, puis par ordre alphabétique : une adaptation de la règle APA, qui demande une seule liste." /></p>
+            <p><CiteText text="Quand les auteurs d’une revue ont évalué la certitude de leurs résultats avec la méthode GRADE (élevée, modérée, faible ou très faible), leur conclusion est indiquée sur la fiche [@guyatt2008]." /></p>
           </details>
         </section>
 

@@ -73,7 +73,7 @@ const C = {
   p2: {
     chapeau: "Quand l’une de ces bases manque durablement, un groupe de schémas peut se former.",
     complet: "Les trois schémas du modèle complet absents du questionnaire abrégé : recherche d’approbation, négativité, punition [@isst-schema; @mauchand2011].",
-    pro: "Diapositive pivot du cours. En haut, le besoin de l’enfant (la base) ; en bas, le domaine de schémas qui se développe quand ce besoin manque. Les besoins sont universels et légitimes : on ne « guérit » pas d’un besoin, on apprend à y répondre. La sécurité de l’attachement est la base des autres : c’est souvent là que se trouvent les schémas les plus profonds.",
+    pro: "Notion centrale du parcours : à chaque besoin de l’enfant (la base) correspond un domaine de schémas, qui se développe quand ce besoin manque. Les besoins sont universels et légitimes : on ne « guérit » pas d’un besoin, on apprend à y répondre. La sécurité de l’attachement est la base des autres : c’est souvent là que se trouvent les schémas les plus profonds.",
     invite: "Repérer la base dont les phrases sonnent le plus vrai ; elle sert de point de départ, sans chercher à tout traiter.",
     // AJOUT WEB : mécanisme en trois temps, à relire
     flux: [
@@ -164,7 +164,7 @@ const C = {
       ],
       pas: ["un adulte parfait", "une voix qui gronde", "penser positif à tout prix"],
       muscle: "C’est une part de moi qui se renforce avec l’entraînement, comme un muscle.",
-      pro: "Page ajoutée pour définir l’adulte sain avant de l’utiliser dans la suite (« Ce qui aide à en sortir », carte-mémo, pages « dans le moment »). Un seul exemple sert de fil conducteur : l’isolement social, avec une invitation à un anniversaire. Faire le lien avec la question de la page « Reconnaître un schéma activé ». L’adulte sain n’est ni parfait ni sévère : c’est la part de soi qui reconnaît le besoin et pose des limites quand il le faut ; il se renforce par l’entraînement. Notion issue du modèle des modes de la thérapie des schémas (Young, Klosko, Weishaar).",
+      pro: "L’adulte sain est défini ici avant de servir dans la suite (« Ce qui aide à en sortir », carte-mémo, pages « dans le moment »). Un seul exemple sert de fil conducteur : l’isolement social, avec une invitation à un anniversaire. Faire le lien avec la question de la leçon « Reconnaître un schéma allumé ». L’adulte sain n’est ni parfait ni sévère : c’est la part de soi qui reconnaît le besoin et pose des limites quand il le faut ; il se renforce par l’entraînement. Notion issue du modèle des modes de la thérapie des schémas (Young, Klosko, Weishaar).",
     },
     leviers: {
       titre: "Ce qui aide à en sortir",
@@ -204,7 +204,7 @@ const C = {
         { titre: "Repérer ce que ça fait sur moi", texte: "Quand il s’allume : ce que je ressens, ce que je me dis, ce que je fais ensuite. Je le note dans mon carnet." },
         { titre: "Un seul pas à la fois", texte: "Je choisis un geste, je le tente pendant une semaine, puis je note ce qui s’est vraiment passé." },
       ],
-      pro: "Présenter la structure : chaque schéma a deux pages. La première répond à « que faire quand ça se déclenche ? », la seconde à « comment avancer sur plusieurs semaines ? ». Insister sur le fait qu’un seul geste à la fois suffit, et qu’on peut commencer par le plus facile. Les exemples sont des pistes, pas des prescriptions.",
+      pro: "Présenter la structure : chaque schéma a trois temps. « Comprendre » explique d’où il vient ; « Dans le moment » répond à « que faire quand ça se déclenche ? » ; « Au fil des semaines » à « comment avancer sur plusieurs semaines ? ». Insister sur le fait qu’un seul geste à la fois suffit, et qu’on peut commencer par le plus facile. Les exemples sont des pistes, pas des prescriptions.",
     },
     fiche: {
       titre: "Retrouver mes schémas",
@@ -297,7 +297,7 @@ const C = {
       ],
       repetition: { titre: "Si cela se répète", texte: "Une critique isolée n’est pas du harcèlement moral. Si elle se répète et m’atteint, je ne reste pas seul(e) : je note les faits et j’en parle.", faire: "Noter la date, le lieu, les témoins et les mots exacts." },
       danger: "Si je me sens en danger ou sous l’emprise de l’autre, je ne le fais pas seul(e) : voir « Quand demander de l’aide ».",
-      pro: "Même méthode que la page « En parler avec mon chef », appliquée à trois situations : au travail, en couple, entre amis. Les quatre temps s’inspirent de la méthode DESC (décrire, exprimer, spécifier, conclure [@bower1976]), souvent utilisée pour recadrer ou pour exprimer un désaccord avec sa hiérarchie. Points de vigilance : ne pas la proposer telle quelle si la relation comporte de la peur, des menaces ou de l’emprise : dans ce cas, ne pas affronter seul(e) et s’appuyer sur la page « Quand demander de l’aide » (le 3919 est une écoute pour les victimes de violences sexistes et sexuelles). Une critique isolée, même maladroite, ne constitue pas un harcèlement moral ; celui-ci suppose des agissements répétés qui dégradent les conditions de travail et peuvent altérer la santé (service-public.gouv.fr, fiche « Harcèlement moral »). Si cela se répète : conserver des éléments datés (dates, lieux, témoins, messages), signaler par écrit à la hiérarchie, aux ressources humaines, à un représentant du personnel ou au médecin du travail, et ne pas rester seul(e). Cette page ne remplace pas un avis juridique. Les phrases sont des exemples : chacun les écrit avec ses mots.",
+      pro: "La même méthode, appliquée à trois situations : au travail, en couple, entre amis. Les quatre temps s’inspirent de la méthode DESC (décrire, exprimer, spécifier, conclure [@bower1976]), souvent utilisée pour recadrer ou pour exprimer un désaccord avec sa hiérarchie. Points de vigilance : ne pas la proposer telle quelle si la relation comporte de la peur, des menaces ou de l’emprise : dans ce cas, ne pas affronter seul(e) et s’appuyer sur la page « Quand demander de l’aide » (le 3919 est une écoute pour les victimes de violences sexistes et sexuelles). Une critique isolée, même maladroite, ne constitue pas un harcèlement moral ; celui-ci suppose des agissements répétés qui dégradent les conditions de travail et peuvent altérer la santé (service-public.gouv.fr, fiche « Harcèlement moral »). Si cela se répète : conserver des éléments datés (dates, lieux, témoins, messages), signaler par écrit à la hiérarchie, aux ressources humaines, à un représentant du personnel ou au médecin du travail, et ne pas rester seul(e). Cette page ne remplace pas un avis juridique. Les phrases sont des exemples : chacun les écrit avec ses mots.",
       invite: "Choisir une seule situation, écrire les trois phrases, les lire à voix haute, puis choisir un moment calme. Noter ensuite ce qui s’est vraiment passé dans le carnet.",
     },
     plan: {
@@ -338,7 +338,7 @@ const C = {
         { num: "3919", tel: "3919", horsUrgence: true, texte: "Violences Femmes Info : pour les femmes victimes de violences, leur entourage et les professionnels. Anonyme et gratuit, 24 h/24. Ce n’est pas un numéro d’urgence." },
       ],
       horsFrance: "Numéros valables en France. Ailleurs, je cherche avec mon thérapeute le numéro local.",
-      pro: "Cette page est à lire sans dramatiser. Les schémas sont des fragilités fréquentes, pas des urgences, mais certaines situations demandent de l’aide rapidement. Le 3114 est le numéro national de prévention du suicide en France (gratuit, 24 h/24). Le 15 et le 112 sont les numéros d’urgence. Le 114 est le numéro d’urgence des personnes sourdes, sourdaveugles, malentendantes ou aphasiques (SMS, visio, tchat). Le 3919 (Violences Femmes Info) s’adresse aux femmes victimes de violences, à leur entourage et aux professionnels : anonyme, gratuit, 24 h/24, mais ce n’est pas un numéro d’urgence (en urgence : 17 ou 112). Numéros vérifiés le 5 novembre 2026. Adapter les numéros si le groupe se trouve hors de France. Terminer en rappelant que demander de l’aide est un geste de l’adulte sain.",
+      pro: "Cette page est à lire sans dramatiser. Les schémas sont des fragilités fréquentes, pas des urgences, mais certaines situations demandent de l’aide rapidement. Le 3114 est le numéro national de prévention du suicide en France (gratuit, 24 h/24). Le 15 et le 112 sont les numéros d’urgence. Le 114 est le numéro d’urgence des personnes sourdes, sourdaveugles, malentendantes ou aphasiques (SMS, visio, tchat). Le 3919 (Violences Femmes Info) s’adresse aux femmes victimes de violences, à leur entourage et aux professionnels : anonyme, gratuit, 24 h/24, mais ce n’est pas un numéro d’urgence (en urgence : 17 ou 112). Adapter les numéros si le groupe se trouve hors de France. Terminer en rappelant que demander de l’aide est un geste de l’adulte sain.",
       invite: "Lire cette page dès le début, pas seulement en cas de crise. Noter à portée de main le numéro de mon médecin traitant.",
       rappel: "Demander de l’aide est un geste de l’adulte sain.",
     },
@@ -353,7 +353,7 @@ const C = {
         { titre: "Un proche sûr ou un groupe", texte: "Un groupe d’entraide, un atelier, une personne qui sait écouter : ils soutiennent, sans remplacer un suivi." },
       ],
       danger: "Si je me sens en danger ou si j’ai des pensées de me faire du mal : 3114 ou 15, sans attendre un rendez-vous.",
-      pro: "Page ajoutée pour les personnes qui utilisent ce support sans suivi en cours. Le médecin traitant est la porte d’entrée la plus simple. Mon soutien psy [@ameli-msp] : 12 séances par année civile (une d’évaluation, puis jusqu’à 11 de suivi), 50 € la séance sans dépassement, remboursées à 60 % par l’Assurance Maladie, accès direct sans ordonnance depuis le 15 juin 2024, dès 3 ans, pour une souffrance psychique légère à modérée. Exclues en général : les personnes déjà suivies en psychiatrie, en ALD psychiatrique, avec des antécédents psychiatriques sévères récents, en situation de handicap psychique ou en arrêt de plus de 6 mois pour motif psychiatrique ; avis psychiatrique en cas de risque suicidaire ou de trouble sévère. Annuaire : Institut Français de Thérapie des Schémas (IFTS), association de formation qui ne prend pas en charge de patients ; thérapeutes formés, certains certifiés par l’ISST ; informations déclarées par les thérapeutes. Annuaire international : schematherapysociety.org (Find a Therapist).",
+      pro: "Pour les personnes qui utilisent ce support sans suivi en cours, le médecin traitant est la porte d’entrée la plus simple. Mon soutien psy [@ameli-msp] : 12 séances par année civile (une d’évaluation, puis jusqu’à 11 de suivi), 50 € la séance sans dépassement, remboursées à 60 % par l’Assurance Maladie, accès direct sans ordonnance depuis le 15 juin 2024, dès 3 ans, pour une souffrance psychique légère à modérée. Exclues en général : les personnes déjà suivies en psychiatrie, en ALD psychiatrique, avec des antécédents psychiatriques sévères récents, en situation de handicap psychique ou en arrêt de plus de 6 mois pour motif psychiatrique ; avis psychiatrique en cas de risque suicidaire ou de trouble sévère. Annuaire : Institut Français de Thérapie des Schémas (IFTS), association de formation qui ne prend pas en charge de patients ; thérapeutes formés, certains certifiés par l’ISST ; informations déclarées par les thérapeutes. Annuaire international : schematherapysociety.org (Find a Therapist).",
     },
     retenir: {
       titre: "À retenir",
@@ -363,7 +363,7 @@ const C = {
         "On ne l’efface pas d’un coup : on apprend à le reconnaître et à y répondre autrement.",
         "Je peux avancer seul(e), un geste à la fois, et demander de l’aide quand il le faut.",
       ],
-      pro: "Laisser un temps de silence après cette diapositive. Inviter chacun à dire, s’il le souhaite, quelle base lui semble la plus concernée, sans entrer dans les détails personnels en groupe.",
+      pro: "Laisser un temps de silence après cette page. Inviter chacun à dire, s’il le souhaite, quelle base lui semble la plus concernée, sans entrer dans les détails personnels en groupe.",
       invite: "Écrire en une phrase quelle base me concerne le plus.",
     },
     carnet: {

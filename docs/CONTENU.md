@@ -27,7 +27,7 @@ Version 0.2 (novembre 2026) : le support est réorganisé en **leçons courtes, 
   - Ce système remplace les « phrases-ponts » (une phrase de plus dans le texte pour préparer un mot entendu en séance) : le mot reste dans le texte, et seuls ceux qui le veulent ouvrent l’explication. Exemple : « mode », dans la leçon sur l’adulte sain.
 - **Références** : chaque source est citée au format APA 7, adaptation française (« et » entre deux auteurs, « et al. » à partir de trois ; guide des bibliothèques de l’Université de Montréal). Un clic mène à sa fiche dans la page « Références » ; « Revenir à ma page » ramène à la même carte.
   - Dans les leçons, les citations sont dans le volet « Pour aller plus loin » (ou « Sources ») de la carte, pas dans le texte principal : il reste court.
-  - 57 sources, vérifiées une à une les 5 et 6 novembre 2026 (§ 5). Chacune a une **pastille de fiabilité** : preuve solide, modérée, préliminaire ou indirecte, avis d’experts, source officielle. La couleur suit le type d’étude (échelle de la HAS, 2013). GRADE n’est cité que si les auteurs l’ont utilisé : aucune des revues citées ne l’a fait.
+  - 56 sources (§ 5). Chacune a une **pastille de fiabilité** : preuve solide, modérée, préliminaire ou indirecte, avis d’experts, source officielle. La couleur suit le type d’étude (échelle de la HAS, 2013). GRADE n’est cité que si les auteurs l’ont utilisé : aucune des revues citées ne l’a fait.
   - Seules trois sources sont classées « preuve solide » : les deux grands essais (Bamelis 2014, Arntz 2022) et la méta-analyse de Kip (2023).
 - **Mode accompagnant(e)** : il est maintenant activé par défaut, et les « Repères pour l’accompagnant(e) » s’affichent. Il se coupe dans les réglages.
 
@@ -38,6 +38,8 @@ Version 0.2 (novembre 2026) : le support est réorganisé en **leçons courtes, 
 4. Les **corrections factuelles** issues de la vérification du 5 novembre 2026 (§ 5). Ce sont les numéros d’aide, *Mon soutien psy* et l’annuaire.
 5. Les **phrases simples** du glossaire, qui s’affichent au survol des mots (`src/data/glossaire.ts`, champ `short`), et les nouvelles définitions des soins (§ 5).
 6. Le **classement de fiabilité** de chaque source et la phrase « Ce que le support en tire » : page « Références » (`src/data/references.list.ts`).
+
+**Règle d’écriture** : l’application ne parle pas de notre travail (vérification des sources, relecture, diaporama d’origine, pages ajoutées). Ces informations restent dans cette documentation et dans `docs/verification/`. Seule exception, volontaire et temporaire : le bandeau « Version de travail » du pied de page (§ 7).
 
 **Décisions qui vous appartiennent** : voir § 7. Il s’agit des mentions légales, du logo du CRR, de la licence, de la diffusion des fiches PDF et Word, et du retrait du bandeau « Version de travail ».
 
@@ -176,7 +178,7 @@ Les sept animations du diaporama sont gardées : lunettes, marches, verre, journ
 
 ## 5. Faits vérifiés le 5 novembre 2026
 
-**Depuis le 6 novembre 2026, la liste de référence est la page « Références » de l’application** (`src/data/references.list.ts`, tenue à la main ; le détail de chaque vérification, avec les phrases citées mot pour mot, est dans [`verification/`](verification/)) : 57 sources, chacune avec son type d’étude, sa fiabilité, ce que le support en tire, ce qui a été lu (résumé ou texte intégral) et les corrections publiées. Le tableau ci-dessous garde l’historique de la première vérification.
+**Depuis le 6 novembre 2026, la liste de référence est la page « Références » de l’application** (`src/data/references.list.ts`, tenue à la main ; le détail de chaque vérification, avec les phrases citées mot pour mot, est dans [`verification/`](verification/)) : 56 sources, chacune avec son type d’étude, sa fiabilité, ce que le support en tire, ce qui a été lu (résumé ou texte intégral) et les corrections publiées. Le tableau ci-dessous garde l’historique de la première vérification.
 
 **Deuxième vérification (5 et 6 novembre 2026)**, une par une, dans Crossref, PubMed, Europe PMC, les catalogues (BnF, Library of Congress, Open Library) et les sites eux-mêmes. Ce qu’elle a changé :
 - **Corrections publiées**, signalées sur les fiches : rectificatif de Kip 2023 (2025 : un même essai compté deux fois ; l’effet face aux autres traitements reste nul, sans changement notable selon les auteurs) ; correction d’une figure d’Assmann 2024 (2025) ; erratum de Giesen-Bloo 2006 (tableau et figure ; contenu non lu).

@@ -78,7 +78,7 @@ export default function Aide() {
         </Link>
         <div className="row mt"><a className="btn btn-ghost" href={`${__BASE__}documents/quand-demander-de-l-aide.pdf`} download><Icon name="download" size={20} /><span>Télécharger la fiche « Quand demander de l’aide » (PDF)</span></a></div>
         {/* tout en bas, discret : d’où viennent les numéros (rien de surligné sur cette page) */}
-        <p className="small muted mt">Numéros vérifiés sur les sites officiels <Cite ids={["n3114", "n114", "n3919", "masecurite-numeros", "servicepublic-urgences"]} />.</p>
+        <p className="small muted mt">Sources des numéros <Cite ids={["n3114", "n114", "n3919", "masecurite-numeros", "servicepublic-urgences"]} />.</p>
       </div>
     </Page>
   );

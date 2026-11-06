@@ -263,7 +263,7 @@ const C = {
       ],
       resume: "La pause ne règle rien : elle me laisse le choix, au lieu de la réaction automatique.",
       exemple: "Exemple : mon chef critique mon dossier devant l’équipe, la honte monte. Stop : trois respirations. Nommer : « C’est mon schéma d’imperfection, 7 sur 10. » Choisir : « Je prends note. Pouvons-nous en reparler après la réunion ? » Plus tard, j’en parle à mon chef en tête-à-tête.",
-      pro: "La pause en trois temps se pratique d’abord à froid, en séance ou à la maison, puis dans la vraie vie. Vingt secondes suffisent. Le but n’est pas de se calmer à tout prix, mais de retrouver un peu de choix entre le déclenchement du schéma et la réaction.",
+      pro: "Le son de la respiration est coupé par défaut ; avec une personne gênée par les bruits, ou qui entend des voix, préférer l’exercice sans son. La pause en trois temps se pratique d’abord à froid, en séance ou à la maison, puis dans la vraie vie. Vingt secondes suffisent. Le but n’est pas de se calmer à tout prix, mais de retrouver un peu de choix entre le déclenchement du schéma et la réaction.",
       invite: "S’exercer d’abord à froid, deux ou trois fois, avant d’en avoir besoin. Si une émotion déborde et ne redescend pas, voir « Quand demander de l’aide ».",
     },
     dire: {

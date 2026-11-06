@@ -29,6 +29,7 @@ Version 0.2 (novembre 2026) : le support est réorganisé en **leçons courtes, 
   - Dans les leçons, les citations sont dans le volet « Pour aller plus loin » (ou « Sources ») de la carte, pas dans le texte principal : il reste court.
   - 56 sources (§ 5). Chacune a une **pastille de fiabilité** : preuve solide, modérée, préliminaire ou indirecte, avis d’experts, source officielle. La couleur suit le type d’étude (échelle de la HAS, 2013). GRADE n’est cité que si les auteurs l’ont utilisé : aucune des revues citées ne l’a fait.
   - Seules trois sources sont classées « preuve solide » : les deux grands essais (Bamelis 2014, Arntz 2022) et la méta-analyse de Kip (2023).
+- **Respiration guidée** (pause en trois temps) : le cercle se remplit à l’inspiration et se vide à l’expiration, avec un décompte. Son au choix, coupé par défaut : « Souffle » ou « Musique douce », qui suivent le rythme ; pas de musique enregistrée (elle ne suivrait pas le rythme, pèserait lourd hors connexion et pourrait réveiller des souvenirs). Vibration possible sur Android.
 - **Mode accompagnant(e)** : il est maintenant activé par défaut, et les « Repères pour l’accompagnant(e) » s’affichent. Il se coupe dans les réglages.
 
 **À relire en priorité.**

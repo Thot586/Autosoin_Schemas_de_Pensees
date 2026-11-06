@@ -9,6 +9,10 @@ export const prefs = persisted<Prefs>("prefs", { theme: "auto", motion: "auto", 
 const proParDefaut = persisted<boolean>("pro-par-defaut", false, { keep: true });
 if (!proParDefaut.get()) { if (!prefs.get().pro) prefs.set((p) => ({ ...p, pro: true })); proParDefaut.set(true); }
 
+// Respiration guidée : son (aucun par défaut) et vibration (non par défaut).
+export interface RespirationPrefs { son: "aucun" | "souffle" | "musique"; vibration: boolean }
+export const respiration = persisted<RespirationPrefs>("respiration", { son: "aucun", vibration: false }, { keep: true });
+
 export function applyPrefs(p: Prefs) {
   const r = document.documentElement;
   r.setAttribute("data-theme", p.theme);

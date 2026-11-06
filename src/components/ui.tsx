@@ -142,13 +142,19 @@ export function Term({ id, children }: { id: string; children: ReactNode }) {
   useLayoutEffect(() => {
     const w = wrap.current, tip = w?.querySelector<HTMLElement>(".term-tip");
     if (!open || !w || !tip) return;
-    tip.style.setProperty("--shift", "0px");
-    const r = tip.getBoundingClientRect(), t = w.getBoundingClientRect();
-    const zoom = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--zoom")) || 1;
-    const s = r.left < 8 ? 8 - r.left : r.right > window.innerWidth - 8 ? window.innerWidth - 8 - r.right : 0;
-    tip.style.setProperty("--shift", `${Math.round(s / zoom)}px`);
-    const top = Math.max(0, ...Array.from(document.querySelectorAll(".header, .lesson-top"), (b) => b.getBoundingClientRect().bottom));
-    setBelow(t.top - r.height - 14 < top && window.innerHeight - t.bottom > t.top - top);
+    const place = () => {
+      tip.style.setProperty("--shift", "0px");
+      const r = tip.getBoundingClientRect(), t = w.getBoundingClientRect();
+      const zoom = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--zoom")) || 1;
+      const s = r.left < 8 ? 8 - r.left : r.right > window.innerWidth - 8 ? window.innerWidth - 8 - r.right : 0;
+      tip.style.setProperty("--shift", `${Math.round(s / zoom)}px`);
+      const top = Math.max(0, ...Array.from(document.querySelectorAll(".header, .lesson-top"), (b) => b.getBoundingClientRect().bottom));
+      setBelow(t.top - r.height - 14 < top && window.innerHeight - t.bottom > t.top - top);
+    };
+    place();
+    // la carte peut encore glisser (animation d'entrée) : on se recale quand elle a fini
+    const again = window.setTimeout(place, 400);
+    return () => window.clearTimeout(again);
   }, [open]);
 
   // Échap masque l'infobulle sans bouger la souris ni le focus (WCAG 1.4.13).

@@ -158,15 +158,24 @@
 .ad-card-t { font: italic 700 15px var(--font-title); fill: var(--ink); }
 
 /* ───────── Respiration guidée ───────── */
+/* Respiration guidée : le cercle se remplit à l'inspiration (4 s) et se vide à l'expiration (6 s) ;
+   un halo très doux l'accompagne. Animations réduites : le niveau change seconde par seconde, sans glisser. */
 .breath { display: grid; gap: .8rem; justify-items: center; text-align: center; padding: 1.2rem 0 .4rem; }
-.breath-orb { position: relative; width: 190px; height: 190px; display: grid; place-items: center; }
-.breath-core { width: 90px; height: 90px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, color-mix(in oklab, var(--brand) 50%, #fff), var(--brand)); box-shadow: 0 10px 40px color-mix(in oklab, var(--brand) 40%, transparent); transform: scale(1); transition: transform 0s; }
-.breath-ring { position: absolute; inset: 0; border-radius: 50%; border: 3px dashed var(--mist); }
-.breath.is-in .breath-core { transform: scale(2); transition: transform 4s cubic-bezier(.4, 0, .2, 1); }
-.breath.is-out .breath-core { transform: scale(1); transition: transform 6s cubic-bezier(.4, 0, .2, 1); }
-.breath.is-done .breath-core { background: radial-gradient(circle at 35% 30%, color-mix(in oklab, var(--ok) 50%, #fff), var(--ok)); transform: scale(1.4); transition: transform 1s var(--ease); }
-.breath[data-reduced="true"] .breath-core { transition: none !important; }
+.breath-orb { position: relative; width: 200px; height: 200px; border-radius: 50%; overflow: hidden; background: var(--surface); border: 3px solid color-mix(in oklab, var(--brand) 45%, var(--edge)); box-shadow: 0 0 0 0 color-mix(in oklab, var(--brand) 16%, transparent); }
+.breath-fill { position: absolute; inset: -2px; background: linear-gradient(180deg, color-mix(in oklab, var(--brand) 45%, var(--surface)), var(--brand)); transform: translateY(calc(100% + 14px)); }
+.breath-fill::before { content: ""; position: absolute; left: -15%; right: -15%; top: -12px; height: 24px; border-radius: 50%; background: color-mix(in oklab, var(--brand) 45%, var(--surface)); }
+.breath.is-in .breath-fill { transform: translateY(0); transition: transform 4s cubic-bezier(.45, 0, .55, 1); }
+.breath.is-out .breath-fill { transform: translateY(calc(100% + 14px)); transition: transform 6s cubic-bezier(.45, 0, .55, 1); }
+.breath.is-in .breath-orb { box-shadow: 0 0 0 16px color-mix(in oklab, var(--brand) 14%, transparent); transition: box-shadow 4s cubic-bezier(.45, 0, .55, 1); }
+.breath.is-out .breath-orb { box-shadow: 0 0 0 0 color-mix(in oklab, var(--brand) 14%, transparent); transition: box-shadow 6s cubic-bezier(.45, 0, .55, 1); }
+.breath.is-done .breath-fill { transform: translateY(40%); background: linear-gradient(180deg, color-mix(in oklab, var(--ok) 45%, var(--surface)), var(--ok)); transition: transform 1s var(--ease); }
+.breath.is-done .breath-fill::before { background: color-mix(in oklab, var(--ok) 45%, var(--surface)); }
+.breath[data-reduced="true"] .breath-fill, .breath[data-reduced="true"] .breath-orb { transition: none !important; }
+.breath-count { position: absolute; inset: 0; margin: auto; width: 2.4em; height: 2.4em; display: grid; place-items: center; border-radius: 50%; background: var(--surface); color: var(--ink); font: 800 1.5rem/1 var(--font-title); box-shadow: var(--shadow-1); }
 .breath-l { font-family: var(--font-title); font-size: 1.35rem; min-height: 1.6em; margin: 0; }
 .breath-c { display: flex; gap: 8px; margin: 0; }
 .breath-c i { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--edge-strong); transition: background .4s; }
 .breath-c i.on { background: var(--brand); border-color: var(--brand); }
+.breath-opts { display: grid; gap: .5rem; justify-items: center; margin: .2rem 0 .3rem; }
+.breath-opts-t { margin: 0; font-weight: 700; color: var(--ink-2); font-size: .95rem; }
+.breath-opts .choice { justify-content: center; }

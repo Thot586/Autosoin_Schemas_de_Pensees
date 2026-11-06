@@ -290,6 +290,8 @@ task("infobulles au clavier", async (check) => {
   for (let c = 0; c < 8; c++) {
     for (let k = 0; k < 12; k++) {
       await page.keyboard.press("Tab");
+      // on laisse l'infobulle se placer (la carte peut encore finir de glisser), comme la verrait la personne
+      if (await page.evaluate(() => document.activeElement?.classList.contains("term"))) await page.waitForTimeout(500);
       const r = await page.evaluate(() => {
         const a = document.activeElement;
         if (!a?.classList.contains("term")) return null;
@@ -347,6 +349,31 @@ task("références et citations", async (check) => {
   await page.waitForURL(/\/apprendre\/imagerie$/);
   await page.waitForSelector(".lcard h2");
   check(await page.locator(".lcard h2").innerText() === card, "références : « Revenir à ma page » ramène à la même carte");
+  await ctx.close();
+});
+
+// 3 sexies. Respiration guidée : sans son par défaut ; le cercle et le décompte suivent les secondes ;
+//           le son ne démarre que s'il a été choisi, et « Arrêter » le coupe.
+task("respiration guidée", async (check) => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  await ctx.addInitScript(() => { const A = window.AudioContext; window.__actx = []; if (A) window.AudioContext = class extends A { constructor(...a) { super(...a); window.__actx.push(this); } }; });
+  const page = await ctx.newPage();
+  await page.goto(origin + "/outils/pause", { waitUntil: "networkidle" });
+  check((await page.locator('.breath [role="radio"][aria-checked="true"]').innerText()) === "Sans son", "respiration : sans son par défaut");
+  await page.click('.breath button:has-text("Commencer")');
+  await page.waitForTimeout(300);
+  const a = await page.evaluate(() => ({ l: document.querySelector(".breath-l")?.textContent, c: document.querySelector(".breath-count")?.textContent, n: window.__actx.length }));
+  check(a.l.startsWith("J’inspire") && a.c === "4" && a.n === 0, `respiration : « J’inspire », décompte à 4, aucun son ${JSON.stringify(a)}`);
+  await page.waitForTimeout(1200);
+  check((await page.locator(".breath-count").innerText()) === "3", "respiration : le décompte avance chaque seconde");
+  await page.click('.breath button:has-text("Arrêter")');
+  await page.click('.breath [role="radio"]:has-text("Souffle")');
+  await page.click('.breath button:has-text("Commencer")');
+  await page.waitForTimeout(300);
+  check(await page.evaluate(() => window.__actx.length === 1 && window.__actx[0].state !== "closed"), "respiration : le souffle démarre seulement quand on l’a choisi");
+  await page.click('.breath button:has-text("Arrêter")');
+  await page.waitForTimeout(900);
+  check(await page.evaluate(() => window.__actx[0].state === "closed"), "respiration : « Arrêter » coupe le son");
   await ctx.close();
 });
 

@@ -37,7 +37,7 @@ Application web de psychoéducation et d’autosoin autour des **15 schémas de 
   - chaque schéma en trois temps : comprendre, dans le moment, au fil des semaines.
 - **Animations** : dix au total. Les sept du diaporama ont été ajustées. Trois sont nouvelles : le parapluie, les trois réactions et le chemin d’une thérapie. Elles se lancent avec « Lire », avancent pas à pas et ont une transcription ; elles sont désactivées si les animations sont réduites.
 - **Outils** :
-  - la pause en trois temps, avec respiration guidée ;
+  - la pause en trois temps, avec respiration guidée : un cercle qui se remplit à l’inspiration (4 s) et se vide à l’expiration (6 s), un décompte, et, au choix, un son qui suit le rythme (« Souffle » ou « Musique douce », fabriqués par le navigateur, sans fichier) ou une vibration ; le son est coupé par défaut ;
   - la carte-mémo ;
   - dire ce qui ne va pas (méthode DESC) ;
   - le plan de la semaine, avec un rappel d’agenda `.ics` ;

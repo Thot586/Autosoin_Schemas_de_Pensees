@@ -187,7 +187,7 @@ export const THERAPIE_CAPS: ReactNode[] = deepFr([
   "Ensemble, on commence par comprendre : quels sont mes schémas, et d’où ils viennent.",
   "Puis on s’autorise à ressentir : on revient aux émotions anciennes, à l’abri, avec le thérapeute.",
   "On s’entraîne à agir autrement : un petit pas, à la place de la réaction automatique.",
-  "Et la relation compte : on vit, avec le thérapeute puis avec d’autres, un lien qui répond enfin au besoin.",
+  "La relation compte aussi : le thérapeute offre un lien fiable, dans le cadre des séances. Ensuite, on en construit d’autres, avec des proches sûrs.",
   "Pas à pas, l’adulte sain grandit : cette part de moi qui sait prendre soin de mes besoins.",
 ]);
 
@@ -238,7 +238,7 @@ function Therapie({ step }: { step: number }) {
         <text x={tx} y="282" textAnchor="middle" className="th-who">thérapeute</text>
         <text x={px} y="282" textAnchor="middle" className="th-who">moi</text>
       </g>}
-      {end && <g className="sv-pop"><text x="354" y="148" textAnchor="end" className="sv-label">l’adulte sain</text></g>}
+      {end && <g className="sv-pop"><text x="354" y="282" textAnchor="end" className="sv-label">l’adulte sain</text></g>}
     </svg>
   );
 }
@@ -283,12 +283,12 @@ function Person({ hx, hy, s, body = "stand", color = "var(--ink)", flip = false,
       style={{ transform: `translate(${hx}px, ${hy}px) scale(${flip ? -s : s}, ${s}) translate(-20px, -48px)`, ...style }}>
       {leg(p.b, "b")}{leg(p.a, "a")}
       <g className="fig-upper" style={{ transform: `rotate(${p.t}deg)`, transformOrigin: "20px 48px" }}>
+        <line x1="20" y1="14" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" />
         <g className="fig-head" style={{ transform: `translateY(${p.h ?? 0}px)` }}>
           <circle cx="20" cy="10" r="8.5" fill={color} />
           {eyes === "closed" && <path d="M21.5 10.5 q2.6 2.4 5.2 0" className="ch-eye" />}
           {eyes === "open" && <circle cx="24.2" cy="9.4" r="1.6" className="ch-eye-o" />}
         </g>
-        <line x1="20" y1="20" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" />
         <g className="fig-arm" style={{ transformOrigin: "20px 26px", transform: `rotate(${p.ar}deg)` }}><line x1="20" y1="26" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" /></g>
         <g className="fig-arm" style={{ transformOrigin: "20px 26px", transform: `rotate(${p.al}deg)` }}><line x1="20" y1="26" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" /></g>
       </g>

@@ -21,8 +21,9 @@ export function Figure({ x = 0, y = 0, scale = 1, pose = "stand", color = "var(-
   return (
     <g className={`fig ${walking ? "fig-walk" : ""} ${className}`} style={{ transform: `translate(${x}px, ${y}px) scale(${flip ? -scale : scale}, ${scale})`, ...style }} color={color}>
       <g className="fig-upper" style={{ transform: `rotate(${p.tilt}deg)`, transformOrigin: "20px 48px" }}>
+        {/* le cou part de l'intérieur de la tête : elle reste attachée même levée (bras en l'air) */}
+        <line x1="20" y1="14" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" />
         <circle cx="20" cy="10" r="8.5" fill={color} style={{ transform: `translateY(${p.head}px)` }} className="fig-head" />
-        <line x1="20" y1="20" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" />
         <g className="fig-arm" style={{ transformOrigin: "20px 26px", transform: `rotate(${p.al}deg)` }}><line x1="20" y1="26" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" /></g>
         <g className="fig-arm" style={{ transformOrigin: "20px 26px", transform: `rotate(${p.ar}deg)` }}><line x1="20" y1="26" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" /></g>
       </g>

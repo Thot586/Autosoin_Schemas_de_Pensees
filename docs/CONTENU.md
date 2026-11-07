@@ -40,7 +40,7 @@ Version 0.2 (novembre 2026) : le support est réorganisé en **leçons courtes, 
 5. Les **phrases simples** du glossaire, qui s’affichent au survol des mots (`src/data/glossaire.ts`, champ `short`), et les nouvelles définitions des soins (§ 5).
 6. Le **classement de fiabilité** de chaque source et la phrase « Ce que le support en tire » : page « Références » (`src/data/references.list.ts`).
 
-**Règle d’écriture** : l’application ne parle pas de notre travail (vérification des sources, relecture, diaporama d’origine, pages ajoutées). Ces informations restent dans cette documentation et dans `docs/verification/`. Seule exception, volontaire et temporaire : le bandeau « Version de travail » du pied de page (§ 7).
+**Règle d’écriture** : l’application ne parle pas de notre travail (vérification des sources, relecture, diaporama d’origine, pages ajoutées). Ces informations restent dans cette documentation et dans `docs/verification/`. Seule exception, volontaire et temporaire : le bandeau « Version de travail » du pied de page (§ 7). Elle ne décrit pas non plus nos intentions de rédaction (« une phrase simple, puis le détail », « une idée par écran », « avec des mots simples », « leçons courtes ») et ne dit jamais au lecteur qu’une chose est simple ou facile : chacun la vivra à sa façon. On dit ce que la page contient, ou un fait (« de 2 à 5 minutes », « le pas le moins difficile », « souvent la première porte d’entrée »).
 
 **Décisions qui vous appartiennent** : voir § 7. Il s’agit des mentions légales, du logo du CRR, de la licence, de la diffusion des fiches PDF et Word, et du retrait du bandeau « Version de travail ».
 

@@ -71,15 +71,15 @@
   "semaines": {
    "steps": [
     {
-     "level": "Pas 1 · facile",
+     "level": "Pas 1 · pour commencer",
      "text": "Une fois par jour, dire à quelqu’un de sûr ce que j’ai ressenti : « ça m’a fait plaisir », « j’étais fatigué(e) »."
     },
     {
-     "level": "Pas 2 · moyen",
+     "level": "Pas 2 · un cran plus loin",
      "text": "Faire une demande précise et nouvelle à un proche, en laissant le choix : « Aurais-tu un moment pour m’appeler ce soir ? », « Ça te dirait de m’accompagner à ce rendez-vous ? »"
     },
     {
-     "level": "Pas 3 · plus difficile",
+     "level": "Pas 3 · le plus exigeant",
      "text": "Me laisser consoler : accepter un câlin, un conseil, un cadeau, sans changer de sujet ni dire « ce n’est rien »."
     }
    ],
@@ -176,15 +176,15 @@
   "semaines": {
    "steps": [
     {
-     "level": "Pas 1 · facile",
+     "level": "Pas 1 · pour commencer",
      "text": "Avant chaque séparation, prévoir un petit rituel : quand on se reparle, et ce que je fais en attendant (film, amie, sport)."
     },
     {
-     "level": "Pas 2 · moyen",
+     "level": "Pas 2 · un cran plus loin",
      "text": "Tenir une heure sans relancer, puis deux, puis une demi-journée, en notant l’angoisse de 0 à 10 avant et après."
     },
     {
-     "level": "Pas 3 · plus difficile",
+     "level": "Pas 3 · le plus exigeant",
      "text": "Ne pas tout attendre d’une seule personne : entretenir au moins trois liens sûrs (une amie, un proche, un groupe) et les voir chaque semaine."
     }
    ],
@@ -281,15 +281,15 @@
   "semaines": {
    "steps": [
     {
-     "level": "Pas 1 · facile",
+     "level": "Pas 1 · pour commencer",
      "text": "Confier un avis ou une préférence sans enjeu (un film, un plat) à une personne qui n’a jamais abusé de ma confiance."
     },
     {
-     "level": "Pas 2 · moyen",
+     "level": "Pas 2 · un cran plus loin",
      "text": "Confier un petit souci du quotidien, puis observer trois choses : elle m’écoute, garde le secret, ne s’en sert pas contre moi."
     },
     {
-     "level": "Pas 3 · plus difficile",
+     "level": "Pas 3 · le plus exigeant",
      "text": "Parler d’une vulnérabilité plus personnelle à une personne sûre, ou en séance, à mon rythme. Rien n’oblige à aller plus vite."
     }
    ],
@@ -370,7 +370,7 @@
    "steps": [
     {
      "title": "Viser une personne, pas le groupe",
-     "text": "Choisir une personne et lui adresser une phrase simple : « As-tu passé un bon week-end ? », « Tu connais ce café ? » Deux minutes suffisent."
+     "text": "Choisir une personne et lui adresser une courte phrase : « As-tu passé un bon week-end ? », « Tu connais ce café ? » Deux minutes suffisent."
     },
     {
      "title": "Chercher un point commun",
@@ -386,15 +386,15 @@
   "semaines": {
    "steps": [
     {
-     "level": "Pas 1 · facile",
+     "level": "Pas 1 · pour commencer",
      "text": "Dire bonjour par le prénom à trois personnes cette semaine, puis demander à l’une d’elles comment s’est passé son week-end."
     },
     {
-     "level": "Pas 2 · moyen",
+     "level": "Pas 2 · un cran plus loin",
      "text": "Rejoindre une activité régulière autour d’un intérêt : association, atelier, club, groupe d’entraide. La répétition crée du lien."
     },
     {
-     "level": "Pas 3 · plus difficile",
+     "level": "Pas 3 · le plus exigeant",
      "text": "Proposer moi-même un café ou une promenade à une personne. Une personne, un moment précis, rien de plus."
     }
    ],
@@ -491,15 +491,15 @@
   "semaines": {
    "steps": [
     {
-     "level": "Pas 1 · facile",
+     "level": "Pas 1 · pour commencer",
      "text": "Partager une imperfection sans gravité à quelqu’un de sûr : « J’ai raté ce plat », « je me suis trompé(e) de salle ». Observer la réaction."
     },
     {
-     "level": "Pas 2 · moyen",
+     "level": "Pas 2 · un cran plus loin",
      "text": "Montrer quelque chose que j’ai fait (un texte, un dessin, une idée) à une personne bienveillante, sans m’excuser avant."
     },
     {
-     "level": "Pas 3 · plus difficile",
+     "level": "Pas 3 · le plus exigeant",
      "text": "Parler de ce dont j’ai honte, d’abord en séance, puis à une personne très proche si je le choisis. Un pas à la fois."
     }
    ],
@@ -596,15 +596,15 @@
   "semaines": {
    "steps": [
     {
-     "level": "Pas 1 · facile",
+     "level": "Pas 1 · pour commencer",
      "text": "Tenir un journal de trois réussites par semaine, avec ce que j’ai fait pour y arriver, pas seulement la chance."
     },
     {
-     "level": "Pas 2 · moyen",
+     "level": "Pas 2 · un cran plus loin",
      "text": "Demander un retour précis : « Qu’est-ce qui marche ? Qu’est-ce que je peux améliorer ? » plutôt que conclure « c’est nul »."
     },
     {
-     "level": "Pas 3 · plus difficile",
+     "level": "Pas 3 · le plus exigeant",
      "text": "Viser « assez bien » (70 %) sur une tâche qui compte, la rendre telle quelle, puis constater les conséquences réelles."
     }
    ],
@@ -617,7 +617,7 @@
     "Échec : le guide cite un parent qui juge sévèrement les performances, une carrière parentale très prospère, des comparaisons avec la fratrie, l’immigration, mais aussi des parents trop indulgents ; Young ajoute les difficultés d’apprentissage restées sans soutien. Le schéma porte sur l’impression d’être incompétent, qui peut être sans rapport avec le niveau réel : ne pas débattre des compétences, regarder ce que la personne retient de ses échecs."
    ],
    "moment": [
-    "La prédiction écrite avant et après est un exercice simple de test des croyances : les personnes sont souvent surprises par l’écart. Commencer par des tâches à faible enjeu."
+    "La prédiction écrite avant et après est un exercice de test des croyances : les personnes sont souvent surprises par l’écart. Commencer par des tâches à faible enjeu."
    ],
    "semaines": [
     "Insister sur le biais d’attribution : on compte les échecs, on oublie les réussites. Le journal des réussites peut être relu avec le thérapeute. Viser « assez bien » avant de viser « très bien »."
@@ -701,15 +701,15 @@
   "semaines": {
    "steps": [
     {
-     "level": "Pas 1 · facile",
+     "level": "Pas 1 · pour commencer",
      "text": "Décider seul(e) de petites choses (repas, programme, trajet) et noter chaque soir : « je l’ai fait seul(e) »."
     },
     {
-     "level": "Pas 2 · moyen",
+     "level": "Pas 2 · un cran plus loin",
      "text": "Faire une démarche entière avec un script écrit : appeler pour un rendez-vous, remplir un formulaire, poser une question à un guichet."
     },
     {
-     "level": "Pas 3 · plus difficile",
+     "level": "Pas 3 · le plus exigeant",
      "text": "Mener un petit projet à son terme (trajet nouveau, achat important, réparation), en n’appelant à l’aide que sur les points bloquants."
     }
    ],
@@ -806,15 +806,15 @@
   "semaines": {
    "steps": [
     {
-     "level": "Pas 1 · facile",
+     "level": "Pas 1 · pour commencer",
      "text": "Fixer un « rendez-vous avec l’inquiétude » de quinze minutes par jour, à heure fixe. En dehors, noter l’idée et la reporter."
     },
     {
-     "level": "Pas 2 · moyen",
+     "level": "Pas 2 · un cran plus loin",
      "text": "Lister ce que j’évite (infos, route, voyage) et en reprendre une chose, sans vérifier, en notant l’anxiété de 0 à 10."
     },
     {
-     "level": "Pas 3 · plus difficile",
+     "level": "Pas 3 · le plus exigeant",
      "text": "Vivre une situation redoutée avec mon plan B en poche : un trajet, un week-end, une journée sans vérifier ni chercher en ligne."
     }
    ],
@@ -911,15 +911,15 @@
   "semaines": {
    "steps": [
     {
-     "level": "Pas 1 · facile",
+     "level": "Pas 1 · pour commencer",
      "text": "Écrire dix phrases commençant par « J’aime… » ou « Je tiens à… » qui ne parlent que de moi : goûts, valeurs, envies."
     },
     {
-     "level": "Pas 2 · moyen",
+     "level": "Pas 2 · un cran plus loin",
      "text": "Avoir un loisir, un(e) ami(e) ou un projet qui m’appartient, et y consacrer du temps chaque semaine."
     },
     {
-     "level": "Pas 3 · plus difficile",
+     "level": "Pas 3 · le plus exigeant",
      "text": "Passer une soirée, puis un week-end séparés, en prévoyant à l’avance ce que je fais, sans appels répétés."
     }
    ],
@@ -1016,15 +1016,15 @@
   "semaines": {
    "steps": [
     {
-     "level": "Pas 1 · facile",
+     "level": "Pas 1 · pour commencer",
      "text": "Choisir le restaurant, le film ou l’horaire au moins une fois par semaine, sans dire « ça m’est égal »."
     },
     {
-     "level": "Pas 2 · moyen",
+     "level": "Pas 2 · un cran plus loin",
      "text": "Dire un désaccord léger : « Je vois ça autrement. » ou « Moi, je préfère… », sans m’excuser."
     },
     {
-     "level": "Pas 3 · plus difficile",
+     "level": "Pas 3 · le plus exigeant",
      "text": "Refuser en trois temps : reconnaître, refuser, proposer. « Je comprends que tu aies besoin d’aide, je ne peux pas ce soir, je peux jeudi. »"
     }
    ],
@@ -1121,15 +1121,15 @@
   "semaines": {
    "steps": [
     {
-     "level": "Pas 1 · facile",
+     "level": "Pas 1 · pour commencer",
      "text": "Réserver dans l’agenda 30 minutes par jour qui n’appartiennent qu’à moi, comme un rendez-vous : lecture, marche, rien."
     },
     {
-     "level": "Pas 2 · moyen",
+     "level": "Pas 2 · un cran plus loin",
      "text": "Demander une petite aide : « Tu peux ramener le pain ? », « Peux-tu me remplacer samedi ? »"
     },
     {
-     "level": "Pas 3 · plus difficile",
+     "level": "Pas 3 · le plus exigeant",
      "text": "Dire non à une demande qui n’est pas urgente, puis noter ce qui arrive vraiment et ma culpabilité de 0 à 10 : elle baisse."
     }
    ],
@@ -1226,15 +1226,15 @@
   "semaines": {
    "steps": [
     {
-     "level": "Pas 1 · facile",
+     "level": "Pas 1 · pour commencer",
      "text": "Chaque soir, noter un mot pour ma journée intérieure : « fatigué », « content », « tendu ». Une météo, sans analyse."
     },
     {
-     "level": "Pas 2 · moyen",
+     "level": "Pas 2 · un cran plus loin",
      "text": "Dire un petit sentiment inconfortable à une personne sûre : « J’ai été déçu(e) », « Ça m’a agacé. »"
     },
     {
-     "level": "Pas 3 · plus difficile",
+     "level": "Pas 3 · le plus exigeant",
      "text": "Laisser une émotion forte se voir devant quelqu’un de sûr : une larme, une joie, un rire franc. Observer ce qui se passe vraiment."
     }
    ],
@@ -1331,15 +1331,15 @@
   "semaines": {
    "steps": [
     {
-     "level": "Pas 1 · facile",
+     "level": "Pas 1 · pour commencer",
      "text": "Choisir trois priorités par jour, pas dix. Le reste attend demain."
     },
     {
-     "level": "Pas 2 · moyen",
+     "level": "Pas 2 · un cran plus loin",
      "text": "Envoyer un message ou rendre un travail sans la dernière relecture, et noter la réaction réelle des autres, souvent nulle."
     },
     {
-     "level": "Pas 3 · plus difficile",
+     "level": "Pas 3 · le plus exigeant",
      "text": "Programmer dans l’agenda un temps de plaisir sans but (jeu, sieste, promenade), le tenir, et noter l’inconfort comme les bénéfices."
     }
    ],
@@ -1436,15 +1436,15 @@
   "semaines": {
    "steps": [
     {
-     "level": "Pas 1 · facile",
+     "level": "Pas 1 · pour commencer",
      "text": "Accepter volontairement une petite contrariété par jour : attendre mon tour, laisser passer quelqu’un, entendre un « non »."
     },
     {
-     "level": "Pas 2 · moyen",
+     "level": "Pas 2 · un cran plus loin",
      "text": "Négocier au lieu d’exiger : proposer un échange (« Je fais ceci, tu fais cela »), puis écouter la contre-proposition."
     },
     {
-     "level": "Pas 3 · plus difficile",
+     "level": "Pas 3 · le plus exigeant",
      "text": "Après un refus, demander à l’autre ce qu’il ressent, l’écouter sans me défendre, puis le remercier d’avoir été franc."
     }
    ],
@@ -1541,15 +1541,15 @@
   "semaines": {
    "steps": [
     {
-     "level": "Pas 1 · facile",
+     "level": "Pas 1 · pour commencer",
      "text": "Travailler par blocs de 25 minutes suivis de 5 minutes de pause, et cocher chaque bloc terminé."
     },
     {
-     "level": "Pas 2 · moyen",
+     "level": "Pas 2 · un cran plus loin",
      "text": "Écrire un plan « si… alors… » : « Si j’ai envie d’abandonner, alors je fais trois respirations et cinq minutes de plus. »"
     },
     {
-     "level": "Pas 3 · plus difficile",
+     "level": "Pas 3 · le plus exigeant",
      "text": "Terminer une tâche ennuyeuse repoussée depuis longtemps, puis me récompenser par un plaisir prévu à l’avance."
     }
    ],

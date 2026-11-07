@@ -41,7 +41,7 @@ export default function APropos() {
       <Section eyebrow="Ce que c’est" title="Un support d’autosoin">
         <Terms><div className="prose">
           <p><b>{META.nom}</b> aide à repérer des thèmes de vie appris tôt (les « schémas »), à comprendre comment ils s’entretiennent et à essayer de petits gestes, à son rythme. Il s’inspire de la thérapie des schémas de Jeffrey Young. Il prépare à une thérapie ou la complète : il ne la remplace pas.</p>
-          <p>Il reprend le contenu d’un diaporama de psychoéducation. On y trouve des animations, des définitions, des outils à remplir, un carnet et un plan de la semaine.</p>
+          <p>On y trouve des leçons animées, des définitions, des outils à remplir, un carnet et un plan de la semaine.</p>
         </div></Terms>
       </Section>
 

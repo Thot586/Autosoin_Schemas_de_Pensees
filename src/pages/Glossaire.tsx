@@ -7,7 +7,7 @@ import { CiteText } from "../components/Cite";
 
 const norm = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
-/** « Les mots du support » : chaque mot, une phrase simple, puis le détail. Un bouton ramène à la page d'avant. */
+/** « Les mots du support » : chaque mot, son sens, et le détail au clic. Un bouton ramène à la page d'avant. */
 export default function Glossaire() {
   const [q, setQ] = useState("");
   const [back] = useState(canGoBack);
@@ -23,7 +23,7 @@ export default function Glossaire() {
           ? <button type="button" className="back back-btn" onClick={() => history.back()}><Icon name="arrowLeft" size={18} /> Revenir à ma page</button>
           : <Link to="/" className="back"><Icon name="arrowLeft" size={18} /> Accueil</Link>}
         <h1>Les mots du support</h1>
-        <p className="lead">Chaque mot en une phrase simple, puis plus de détail. Dans les pages, les mots surlignés s’expliquent au survol ; un clic (ou un toucher) ouvre le détail.</p>
+        <p className="lead">Les mots de ce support, et ce qu’ils veulent dire. Dans les pages, un mot surligné s’explique au survol ; un clic (ou un toucher) ouvre le détail.</p>
         <div className="gl-search field">
           <label htmlFor="gl-q"><Icon name="search" size={18} /> Chercher un mot</label>
           <input id="gl-q" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Schéma, adulte sain, CMP…" autoComplete="off" />

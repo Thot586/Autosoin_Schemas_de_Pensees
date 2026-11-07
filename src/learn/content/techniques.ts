@@ -31,7 +31,7 @@ export const TECHNIQUES: Lesson[] = [
       { id: "i8", kind: "text", icon: "shield", tone: "care", title: "Un souvenir douloureux ne se revit pas seul(e)",
         body: ["Revivre ou réécrire seul(e) un souvenir de violence ou d’abus : non. Cela se fait avec un thérapeute formé.", "Un souvenir très douloureux se travaille avec un professionnel.", "Si j’entends des voix, ou si je me sens souvent « ailleurs », j’en parle d’abord à un professionnel : mon équipe de soins, mon médecin traitant ou un CMP."] },
       { id: "i9", kind: "links", icon: "flag", title: "Ce que je peux essayer seul(e)",
-        body: ["Une version simple existe : une scène récente et légère, mon adulte sain qui y répond, puis mon geste répété en imagination.", "Personne n’a encore étudié cette version faite seul(e) : c’est une adaptation prudente, que j’arrête si c’est trop."],
+        body: ["Il existe une version à faire seul(e) : une scène récente et légère, mon adulte sain qui y répond, puis mon geste répété en imagination.", "Personne n’a encore étudié cette version : c’est une adaptation prudente, que j’arrête si c’est trop."],
         links: [{ to: "/outils/imagerie", label: "Essayer « Imaginer autrement » (dix minutes)", icon: "eye" }, { to: "/soutien", label: "Où trouver un thérapeute", icon: "users" }] },
       { id: "iq1", kind: "quiz", title: "Une question pour retenir", quiz: {
         id: "imagerie-qui", q: "Dans la réécriture en imagination, qui entre dans la scène ?",
@@ -78,7 +78,7 @@ export const TECHNIQUES: Lesson[] = [
       { id: "c8", kind: "text", icon: "shield", tone: "care", title: "Une pensée, pas une voix entendue",
         body: ["La petite voix, ici, c’est une pensée que je me dis à moi-même.", "Si j’entends des voix qui viennent de l’extérieur, ou si je me sens souvent « ailleurs », j’en parle d’abord à un professionnel : mon équipe de soins, mon médecin traitant ou un CMP.", "Et je ne fais jamais parler seul(e), sur une chaise, une personne qui m’a fait du mal."] },
       { id: "c9", kind: "links", icon: "flag", title: "Ce que je peux essayer seul(e)",
-        body: ["Une version simple existe, avec deux places, ou deux colonnes sur une feuille. L’adulte sain a toujours le dernier mot.", "Elle n’a pas été étudiée faite seul(e) : c’est une adaptation prudente, que j’arrête si c’est trop."],
+        body: ["Il existe une version à faire seul(e), avec deux places, ou deux colonnes sur une feuille. L’adulte sain a toujours le dernier mot.", "Cette version n’a pas été étudiée : c’est une adaptation prudente, que j’arrête si c’est trop."],
         links: [{ to: "/outils/chaises", label: "Essayer « Deux places, deux voix » (dix minutes)", icon: "users" }, { to: "/soutien", label: "Où trouver un thérapeute", icon: "users" }] },
       { id: "cq1", kind: "quiz", title: "Une question pour retenir", quiz: {
         id: "chaises-fin", q: "Par quelle voix termine-t-on un dialogue des chaises ?",

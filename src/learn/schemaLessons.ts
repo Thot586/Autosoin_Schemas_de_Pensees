@@ -79,7 +79,7 @@ export function schemaLesson(slug: string, part: SchemaPartId): Lesson | undefin
       ...(s.autosoin.semaines ? [{ id: "autosoin", kind: "text", tone, icon: "pencil", title: "En autosoin", body: [s.autosoin.semaines.charAt(0).toUpperCase() + s.autosoin.semaines.slice(1)] } as Card] : []),
       ...schemaQuizzes(slug, part).map((quiz, i): Card => ({ id: `q${i}`, kind: "quiz", tone, title: "Une question", quiz })),
     ];
-    retain = ["Je commence par le pas le plus facile, pendant une semaine.", `Le piège : ${lc(firstSentence(w.trap))}`, `Signe que ça avance : ${lc(w.sign)}`];
+    retain = ["Je commence par le pas le moins difficile, pendant une semaine.", `Le piège : ${lc(firstSentence(w.trap))}`, `Signe que ça avance : ${lc(w.sign)}`];
   }
 
   const lesson: Lesson = deepFr({

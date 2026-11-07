@@ -11,12 +11,12 @@ export const AVANT: Lesson[] = [
     cards: [
       { id: "b1", kind: "text", icon: "sparkles", title: "Comprendre ses schémas",
         body: ["Ce support explique les [[schema|schémas]] : des façons de voir et de réagir, apprises tôt dans la vie.", "Il s’inspire de la thérapie des schémas de Jeffrey Young."] },
-      { id: "b2", kind: "text", icon: "book", title: "Une idée par écran",
+      { id: "b2", kind: "text", icon: "book", title: "Carte après carte",
         body: ["Je lis une carte, puis j’appuie sur « Suivant ».", "Je peux revenir en arrière, ou écouter le texte avec le bouton « Écouter ».", "Un mot surligné s’explique : je passe la souris dessus, ou je le touche pour lire le détail."] },
       { id: "b3", kind: "text", icon: "clock", title: "À mon rythme",
         body: ["Une leçon dure 2 à 5 minutes. Une par jour suffit.", "Je peux quitter à tout moment : je reprendrai au même endroit."] },
       { id: "b4", kind: "text", icon: "star", title: "Des questions pour retenir",
-        body: ["À la fin des leçons, quelques questions simples.", "Ce n’est pas un examen : chercher la réponse aide à retenir, même quand on se trompe.", "Les idées reviennent ensuite dans « Mon rappel du jour »."] },
+        body: ["À la fin des leçons, il y a quelques questions.", "Ce n’est pas un examen : chercher la réponse aide à retenir, même quand on se trompe.", "Les idées reviennent ensuite dans « Mon rappel du jour »."] },
       { id: "b5", kind: "text", icon: "heart", tone: "care", title: "Si ça ne va pas",
         body: ["Si un exercice me bouleverse, je m’arrête et je fais une pause.", "Le bouton « Aide », en haut de l’écran, donne les numéros utiles."] },
       { id: "bq1", kind: "quiz", title: "Une question", quiz: {
@@ -29,7 +29,7 @@ export const AVANT: Lesson[] = [
         explain: "Ce n’est pas un examen. Chercher la réponse aide la mémoire, même quand on se trompe." } },
     ],
     retain: [
-      "Une idée par écran, à mon rythme : une leçon par jour suffit.",
+      "Carte après carte, à mon rythme : une leçon par jour suffit.",
       "Je peux m’arrêter à tout moment, et reprendre plus tard.",
       "Le bouton « Aide » est toujours en haut de l’écran.",
     ],
@@ -49,7 +49,7 @@ export const AVANT: Lesson[] = [
       { id: "t4", kind: "anim", anim: "therapie", title: "Comment ça se passe" },
       { id: "t5", kind: "text", icon: "chat", title: "En séance, on peut aussi…",
         list: ["Imaginer une scène ancienne, en sécurité, pour y répondre autrement : c’est l’[[imagerie|imagerie]].", "Parler à une part de soi en changeant de chaise : c’est le [[chaises|dialogue des chaises]]."],
-        after: ["En séance, ces exercices se font avec le thérapeute. Deux leçons, plus loin dans le parcours, les expliquent, avec une version simple à essayer seul(e)."] },
+        after: ["En séance, ces exercices se font avec le thérapeute. Deux leçons, plus loin dans le parcours, les expliquent, avec une version à faire seul(e)."] },
       { id: "t6", kind: "text", icon: "check", title: "Est-ce que ça marche ?",
         body: ["Elle a surtout été étudiée chez des personnes ayant un trouble de la personnalité, en particulier le trouble borderline.", "Dans ces études, elle aide à réduire les difficultés et à mieux vivre au quotidien. Moins de personnes arrêtent en cours de route qu’avec les autres prises en charge étudiées."],
         more: { body: ["Trois essais randomisés [@giesenbloo2006; @bamelis2014; @arntz2022] et une méta-analyse [@zhang2023]. Un clic sur une source ouvre sa fiche, avec sa fiabilité."] } },
@@ -57,7 +57,7 @@ export const AVANT: Lesson[] = [
         body: ["Les études sont encore peu nombreuses. Pour la dépression, l’anxiété, les traumatismes ou les troubles alimentaires, les résultats sont encourageants mais encore fragiles.", "C’est une thérapie longue : souvent deux à trois ans dans les grandes études sur le trouble borderline.", "J’en parle avec un professionnel (mon médecin traitant, ou mon équipe de soins si j’en ai une) pour savoir si elle me convient."],
         more: { label: "Sources", body: ["Études encore peu nombreuses : [n@taylor2017] ; [n@peeters2022].", "Durée : 3 ans de traitement dans un essai, 2 ans dans l’autre [@giesenbloo2006; @arntz2022]."] } },
       { id: "t7", kind: "text", icon: "book", title: "Et ce support ?",
-        body: ["Ce support n’est pas une thérapie. Il en reprend les idées de base, avec des mots simples.", "Il peut aider à se préparer, à attendre un rendez-vous, ou à compléter un suivi."] },
+        body: ["Ce support n’est pas une thérapie. Il en reprend les idées de base.", "Il peut aider à se préparer, à attendre un rendez-vous, ou à compléter un suivi."] },
       { id: "tq1", kind: "quiz", title: "Une question", quiz: {
         id: "therapie-quoi", q: "La thérapie des schémas, c’est…",
         options: ["Une psychothérapie, avec un thérapeute formé", "Un médicament", "Un test pour poser un diagnostic"], answer: 0,

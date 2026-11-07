@@ -51,7 +51,7 @@ export const AIDE: Lesson[] = [
       })),
       { id: "v5", kind: "text", icon: "user", title: "Le but", body: [P4.leviers.but] },
       { id: "v6", kind: "links", icon: "eye", title: "Ressentir : deux techniques de séance",
-        body: ["L’imagerie et le dialogue des chaises servent à « ressentir » : revenir aux émotions, pas seulement en parler.", "Deux leçons les expliquent, avec une version simple à essayer seul(e)."],
+        body: ["L’imagerie et le dialogue des chaises servent à « ressentir » : revenir aux émotions, pas seulement en parler.", "Deux leçons les expliquent, avec une version à faire seul(e)."],
         links: [{ to: "/apprendre/imagerie", label: "L’imagerie", icon: "eye" }, { to: "/apprendre/chaises", label: "Le dialogue des chaises", icon: "users" }] },
       { id: "vq1", kind: "quiz", title: "Une question", quiz: {
         id: "leviers-seance", q: "Quel levier se travaille d’abord en séance, avec un professionnel ?",
@@ -88,13 +88,13 @@ export const AIDE: Lesson[] = [
         options: ["Appeler le 3114 ou le 15, sans attendre", "Attendre mon prochain rendez-vous", "Faire une leçon de plus"], answer: 0,
         explain: "Le 3114 (prévention du suicide) est gratuit, 24 h/24. En danger immédiat : le 15 ou le 112." } },
       { id: "hq2", kind: "quiz", title: "Une question", quiz: {
-        id: "aide-medecin", q: "La porte d’entrée la plus simple pour être orienté(e), c’est…",
+        id: "aide-medecin", q: "Pour être orienté(e), la première porte d’entrée est souvent…",
         options: ["Mon médecin traitant", "Un moteur de recherche"], answer: 0,
         explain: "Il connaît mon histoire et peut m’orienter." } },
     ],
     retain: [
       "Pensées de me faire du mal, ou danger : 3114, 15 ou 112, sans attendre.",
-      "Mon médecin traitant est la porte d’entrée la plus simple.",
+      "Mon médecin traitant est souvent la première porte d’entrée.",
       "Un annuaire permet de trouver un thérapeute formé aux schémas.",
     ],
   },

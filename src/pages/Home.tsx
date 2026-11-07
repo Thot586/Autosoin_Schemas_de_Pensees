@@ -31,7 +31,7 @@ export default function Home() {
         <header className="home-hero">
           <BrandMark size={44} />
           <h1>Comprendre ses schémas</h1>
-          <Terms><p className="lead">Des leçons courtes pour comprendre ses façons de réagir, à son rythme. D’après la thérapie des schémas de Jeffrey Young.</p></Terms>
+          <Terms><p className="lead">Des leçons de quelques minutes pour comprendre ses façons de réagir, à son rythme. D’après la thérapie des schémas de Jeffrey Young.</p></Terms>
         </header>
 
         {next ? (

@@ -193,7 +193,7 @@ const C = {
         { id: "geste", titre: "Le geste", def: "Un petit pas concret, choisi à l’avance, qui remplace la réaction automatique. Un seul à la fois.", exemple: "Réagir par un mot à un message." },
         { id: "carte", titre: "La carte-mémo", def: "Ma fiche personnelle : le schéma, la petite voix, le besoin, le geste et ma phrase d’adulte sain.", exemple: "Une carte par schéma, sur moi." },
       ],
-      pro: "Page de référence, à laisser affichée ou à retrouver en cas de doute sur un mot. Les six mots sont illustrés par un même exemple : l’isolement social, vécu ici dans un groupe de messagerie où l’on lit sans jamais écrire. Le schéma est le même ; la situation change d’une personne à l’autre. Les définitions sont volontairement courtes : elles se travaillent en séance, avec les mots de la personne.",
+      pro: "Page de référence, à laisser affichée ou à retrouver en cas de doute sur un mot. Les six mots sont illustrés par un même exemple : l’isolement social, vécu ici dans un groupe de messagerie où l’on lit sans jamais écrire. Le schéma est le même ; la situation change d’une personne à l’autre. Chaque définition se complète en séance, avec les mots de la personne.",
       invite: "Relire cette page avant de remplir une carte-mémo ; un seul exemple personnel suffit pour commencer.",
     },
     comment: {
@@ -204,7 +204,7 @@ const C = {
         { titre: "Repérer ce que ça fait sur moi", texte: "Quand il s’allume : ce que je ressens, ce que je me dis, ce que je fais ensuite. Je le note dans mon carnet." },
         { titre: "Un seul pas à la fois", texte: "Je choisis un geste, je le tente pendant une semaine, puis je note ce qui s’est vraiment passé." },
       ],
-      pro: "Présenter la structure : chaque schéma a trois temps. « Comprendre » explique d’où il vient ; « Dans le moment » répond à « que faire quand ça se déclenche ? » ; « Au fil des semaines » à « comment avancer sur plusieurs semaines ? ». Insister sur le fait qu’un seul geste à la fois suffit, et qu’on peut commencer par le plus facile. Les exemples sont des pistes, pas des prescriptions.",
+      pro: "Présenter la structure : chaque schéma a trois temps. « Comprendre » explique d’où il vient ; « Dans le moment » répond à « que faire quand ça se déclenche ? » ; « Au fil des semaines » à « comment avancer sur plusieurs semaines ? ». Insister sur le fait qu’un seul geste à la fois suffit, et qu’on peut commencer par le moins difficile. Les exemples sont des pistes, pas des prescriptions.",
     },
     fiche: {
       titre: "Retrouver mes schémas",
@@ -251,7 +251,7 @@ const C = {
       exemple: { schema: "Isolement social", quand: "Un groupe où tout le monde se connaît déjà.", voix: "« Je ne suis pas comme eux. »", besoin: "Me sentir à ma place parmi les autres.", geste: "M’asseoir près des autres, pas au bord.", phrase: "« J’ai le droit d’être là, tel(le) que je suis. »" },
       champs: { schema: "Mon schéma", quand: "Quand il s’allume", voix: "La petite voix", besoin: "Ce dont j’ai besoin", geste: "Mon geste", phrase: "Ma phrase d’adulte sain" },
       resume: "La carte réunit tout ce qui précède : le schéma, la petite voix, le besoin, et un seul geste.",
-      pro: "La carte-mémo est l’outil le plus simple : six lignes, dont un seul geste. Faire remplir une carte en séance ou en groupe, à partir d’une situation vécue récemment. L’exemple montré (isolement social) est une illustration : chacun écrit avec ses mots.",
+      pro: "La carte-mémo est l’outil le plus court : six lignes, dont un seul geste. Faire remplir une carte en séance ou en groupe, à partir d’une situation vécue récemment. L’exemple montré (isolement social) est une illustration : chacun écrit avec ses mots.",
       invite: "Remplir une carte à partir d’une situation récente, au calme. Une carte par schéma, trois au maximum.",
     },
     pause: {
@@ -346,14 +346,14 @@ const C = {
       titre: "Où trouver un soutien",
       chapeau: "Pas de thérapeute pour l’instant ? Plusieurs portes d’entrée existent. Je peux en essayer plus d’une.",
       portes: [
-        { titre: "Mon médecin traitant", texte: "Il connaît mon histoire et peut m’orienter. C’est la porte d’entrée la plus simple." },
+        { titre: "Mon médecin traitant", texte: "Il connaît mon histoire et peut m’orienter. C’est souvent la première porte d’entrée." },
         { titre: "Un centre médico-psychologique (CMP)", texte: "Un lieu de soins public, organisé selon mon lieu d’habitation, pour toute personne en difficulté psychique : psychiatres, psychologues, infirmiers. Je peux le contacter directement, et les consultations sont gratuites. Mon médecin traitant peut m’indiquer le mien.", lien: "https://www.psycom.org/sorienter/le-dictionnaire-des-lieux/centre-medico-psychologique-cmp/", lienLabel: "Les CMP expliqués par Psycom" },
         { titre: "Mon soutien psy", texte: "Jusqu’à douze séances par an avec un psychologue partenaire de l’Assurance Maladie, remboursées en partie, sans ordonnance. Pour des difficultés légères à modérées : si je suis déjà suivi(e) en psychiatrie, il ne me concerne en général pas. Pas pour une urgence.", lien: "https://www.ameli.fr/assure/remboursements/rembourse/remboursement-seance-psychologue-mon-soutien-psy", lienLabel: "Mon soutien psy sur ameli.fr" },
         { titre: "Un thérapeute formé aux schémas", texte: "L’annuaire de l’Institut Français de Thérapie des Schémas en recense. J’en parle d’abord avec mon médecin traitant ou mon équipe de soins, et j’apporte ma carte-mémo et mon carnet.", lien: "https://www.schematherapie.fr/annuaire-therapeutes", lienLabel: "Annuaire de thérapeutes des schémas" },
         { titre: "Un proche sûr ou un groupe", texte: "Un groupe d’entraide, un atelier, une personne qui sait écouter : ils soutiennent, sans remplacer un suivi." },
       ],
       danger: "Si je me sens en danger ou si j’ai des pensées de me faire du mal : 3114 ou 15, sans attendre un rendez-vous.",
-      pro: "Pour les personnes qui utilisent ce support sans suivi en cours, le médecin traitant est la porte d’entrée la plus simple. Mon soutien psy [@ameli-msp] : 12 séances par année civile (une d’évaluation, puis jusqu’à 11 de suivi), 50 € la séance sans dépassement, remboursées à 60 % par l’Assurance Maladie, accès direct sans ordonnance depuis le 15 juin 2024, dès 3 ans, pour une souffrance psychique légère à modérée. Exclues en général : les personnes déjà suivies en psychiatrie, en ALD psychiatrique, avec des antécédents psychiatriques sévères récents, en situation de handicap psychique ou en arrêt de plus de 6 mois pour motif psychiatrique ; avis psychiatrique en cas de risque suicidaire ou de trouble sévère. Annuaire : Institut Français de Thérapie des Schémas (IFTS), association de formation qui ne prend pas en charge de patients ; thérapeutes formés, certains certifiés par l’ISST ; informations déclarées par les thérapeutes. Annuaire international : schematherapysociety.org (Find a Therapist).",
+      pro: "Pour les personnes qui utilisent ce support sans suivi en cours, le médecin traitant est souvent la première porte d’entrée. Mon soutien psy [@ameli-msp] : 12 séances par année civile (une d’évaluation, puis jusqu’à 11 de suivi), 50 € la séance sans dépassement, remboursées à 60 % par l’Assurance Maladie, accès direct sans ordonnance depuis le 15 juin 2024, dès 3 ans, pour une souffrance psychique légère à modérée. Exclues en général : les personnes déjà suivies en psychiatrie, en ALD psychiatrique, avec des antécédents psychiatriques sévères récents, en situation de handicap psychique ou en arrêt de plus de 6 mois pour motif psychiatrique ; avis psychiatrique en cas de risque suicidaire ou de trouble sévère. Annuaire : Institut Français de Thérapie des Schémas (IFTS), association de formation qui ne prend pas en charge de patients ; thérapeutes formés, certains certifiés par l’ISST ; informations déclarées par les thérapeutes. Annuaire international : schematherapysociety.org (Find a Therapist).",
     },
     retenir: {
       titre: "À retenir",

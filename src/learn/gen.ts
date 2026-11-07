@@ -35,9 +35,9 @@ export function adultQuiz(slug: string): QuizItem {
 export const STEPS_QUIZ: QuizItem = {
   id: "semaines-facile",
   q: "Pour avancer sur plusieurs semaines, je commence par…",
-  options: ["Le pas le plus facile", "Le pas le plus difficile", "Les trois pas en même temps"],
+  options: ["Le pas le moins difficile", "Le pas le plus difficile", "Les trois pas en même temps"],
   answer: 0,
-  explain: "Un seul pas à la fois, en commençant par le plus facile. Un écart n’efface rien : je reprends au pas suivant.",
+  explain: "Un seul pas à la fois, en commençant par le moins difficile. Un écart n’efface rien : je reprends au pas suivant.",
 };
 
 /** « Pour la base X, l'enfant a besoin… » */

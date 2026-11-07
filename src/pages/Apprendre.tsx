@@ -13,7 +13,7 @@ export default function Apprendre() {
     <Page title="Mon parcours">
       <div className="wrap page-pad">
         <h1>Mon parcours</h1>
-        <p className="lead">{LESSONS.length} leçons courtes, en six étapes. Une par jour suffit, dans l’ordre si possible.</p>
+        <p className="lead">{LESSONS.length} leçons de 2 à 5 minutes, en six étapes. Une par jour suffit, dans l’ordre si possible.</p>
         <div className="course-sum">
           <div className="meter" role="img" aria-label={`${done} leçons terminées sur ${LESSONS.length}`}><i style={{ width: `${(done / LESSONS.length) * 100}%` }} /></div>
           <p><b>{done}</b> leçon{done > 1 ? "s" : ""} terminée{done > 1 ? "s" : ""} sur {LESSONS.length} · environ {Math.round(TOTAL_MINUTES / 5) * 5} minutes en tout</p>

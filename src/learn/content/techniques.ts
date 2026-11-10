@@ -35,16 +35,16 @@ export const TECHNIQUES: Lesson[] = [
         links: [{ to: "/outils/imagerie", label: "Essayer « Imaginer autrement » (dix minutes)", icon: "eye" }, { to: "/soutien", label: "Où trouver un thérapeute", icon: "users" }] },
       { id: "iq1", kind: "quiz", title: "Une question pour retenir", quiz: {
         id: "imagerie-qui", q: "Dans la réécriture en imagination, qui entre dans la scène ?",
-        options: ["Le thérapeute, puis, plus tard, l’adulte que je suis devenu(e)", "Un juge, qui dit qui avait tort", "Personne : on se contente de regarder"], answer: 0,
-        explain: "D’abord le thérapeute, ensuite l’adulte d’aujourd’hui : ils protègent l’enfant et répondent à son besoin." } },
+        options: ["Le thérapeute, puis l’adulte que je suis devenu(e)", "Personne : on revoit la scène telle quelle", "L’enfant seul(e), qui apprend à se défendre"], answer: 0,
+        explain: "D’abord le thérapeute, ensuite l’adulte d’aujourd’hui : ils protègent l’enfant et répondent à son besoin. L’enfant n’a pas à se débrouiller seul(e)." } },
       { id: "iq2", kind: "quiz", title: "Une question pour retenir", quiz: {
         id: "imagerie-passe", q: "Après une réécriture en imagination, le passé…",
-        options: ["Reste le même : c’est son sens qui peut changer", "Est effacé", "Devient faux"], answer: 0,
+        options: ["Reste le même : son sens peut changer", "Est remplacé par la nouvelle scène", "Est oublié peu à peu"], answer: 0,
         explain: "Je sais que c’est de l’imagination. Les faits restent ; ce que la scène veut dire pour moi peut changer." } },
       { id: "iq3", kind: "quiz", title: "Une question pour retenir", quiz: {
         id: "imagerie-seul", q: "Un souvenir de violence me revient. Le revivre seul(e), les yeux fermés, c’est…",
-        options: ["À éviter : cela se travaille avec un thérapeute formé", "Une bonne idée, pour aller plus vite"], answer: 0,
-        explain: "Un souvenir très douloureux se travaille avec un professionnel. Seul(e), je m’en tiens à des scènes récentes et légères." } },
+        options: ["À éviter : cela se travaille avec un thérapeute formé", "Utile, si je m’arrête quand c’est trop dur"], answer: 0,
+        explain: "Revivre seul(e) un souvenir de violence ou d’abus : non, même en s’arrêtant à temps. Cela se travaille avec un thérapeute formé. Seul(e), je m’en tiens à des scènes récentes et légères." } },
     ],
     retain: [
       "En séance, on revoit une scène ancienne, et le thérapeute ou l’adulte sain y apporte ce qui a manqué.",
@@ -82,16 +82,16 @@ export const TECHNIQUES: Lesson[] = [
         links: [{ to: "/outils/chaises", label: "Essayer « Deux places, deux voix » (dix minutes)", icon: "users" }, { to: "/soutien", label: "Où trouver un thérapeute", icon: "users" }] },
       { id: "cq1", kind: "quiz", title: "Une question pour retenir", quiz: {
         id: "chaises-fin", q: "Par quelle voix termine-t-on un dialogue des chaises ?",
-        options: ["Celle de l’adulte sain", "Celle de la petite voix critique", "Peu importe"], answer: 0,
+        options: ["Celle de l’adulte sain", "Celle de la petite voix critique", "Celle de la part qui a mal"], answer: 0,
         explain: "On finit toujours avec l’adulte sain : c’est sa voix qu’on veut garder en soi." } },
       { id: "cq2", kind: "quiz", title: "Une question pour retenir", quiz: {
         id: "chaises-place", q: "Mettre la petite voix sur une autre chaise, ça aide à…",
-        options: ["Voir qu’elle n’est qu’une partie de moi, pas toute la vérité", "La faire taire pour toujours"], answer: 0,
-        explain: "On la regarde au lieu de l’entendre de l’intérieur. Elle ne disparaît pas d’un coup : on apprend à lui répondre." } },
+        options: ["Voir qu’elle n’est qu’une partie de moi", "La faire taire pour de bon", "Mieux l’écouter, pour savoir quoi faire"], answer: 0,
+        explain: "On la regarde au lieu de l’entendre de l’intérieur : elle n’est pas toute la vérité. Elle ne disparaît pas d’un coup : on apprend à lui répondre." } },
       { id: "cq3", kind: "quiz", title: "Une question pour retenir", quiz: {
-        id: "chaises-seul", q: "Seul(e), qui est-ce que je ne fais jamais parler sur une chaise ?",
-        options: ["Une personne qui m’a fait du mal", "Mon adulte sain"], answer: 0,
-        explain: "Ce travail-là se fait avec un thérapeute. Seul(e), je m’en tiens à la petite voix d’une situation récente et légère." } },
+        id: "chaises-seul", q: "Seul(e), sur une chaise, je peux faire parler…",
+        options: ["Ma petite voix, sur une situation récente et légère", "Une personne qui m’a fait du mal, pour lui répondre enfin"], answer: 0,
+        explain: "Faire parler une personne qui m’a fait du mal se fait avec un thérapeute, jamais seul(e). Seul(e), je m’en tiens à la petite voix d’une situation récente et légère." } },
     ],
     retain: [
       "Chaque part de moi a sa chaise : la petite voix, ce que je ressens, l’adulte sain.",

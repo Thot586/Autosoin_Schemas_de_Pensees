@@ -26,12 +26,12 @@ export const CERCLE: Lesson[] = [
         hint: "Je choisis une situation légère pour commencer. Ou je passe à la suite." },
       { id: "cq1", kind: "quiz", title: "Une question", quiz: {
         id: "cercle-confirme", q: "Dans le cercle, qu’est-ce qui confirme souvent le schéma ?",
-        options: ["Ma réaction automatique", "La situation seule", "Le hasard"], answer: 0,
-        explain: "La réaction automatique provoque souvent ce qu’on redoutait : « Tu vois, c’est toujours pareil. »" } },
+        options: ["Ma réaction automatique", "La situation, à elle seule", "Ce que les autres pensent de moi"], answer: 0,
+        explain: "La réaction automatique provoque souvent ce qu’on redoutait. Par exemple : par peur d’être rejeté(e), je ne propose jamais rien… et personne ne m’invite. « Tu vois, c’est toujours pareil. »" } },
       { id: "cq2", kind: "quiz", title: "Une question", quiz: {
         id: "cercle-sortir", q: "Où peut-on interrompre le cercle ?",
-        options: ["À chaque étape", "Nulle part", "Seulement au tout début"], answer: 0,
-        explain: "Repérer la situation, nommer l’émotion, choisir une autre réaction : chaque étape est une porte de sortie." } },
+        options: ["À chaque étape", "Avant la situation, en l’évitant", "Seulement en séance, avec un thérapeute"], answer: 0,
+        explain: "Repérer la situation, nommer l’émotion, choisir une autre réaction : chaque étape est une porte de sortie, et je peux m’y exercer. Éviter la situation soulage, mais entretient le schéma." } },
     ],
     retain: CONTENT.p4.retenir3,
   },
@@ -48,17 +48,17 @@ export const CERCLE: Lesson[] = [
       { id: "r5", kind: "text", tone: "care", icon: "eye", title: "À repérer, pas à suivre",
         body: [P3.reactions.conclusion, "Chacun utilise les trois, selon les jours, avec souvent une préférence."] },
       { id: "rq1", kind: "quiz", title: "Une question", quiz: {
-        id: "reactions-eviter", q: "« Je fuis ce qui réveille le schéma. » C’est…",
+        id: "reactions-eviter", q: "Avec un schéma d’échec, je ne postule jamais à un nouveau poste. C’est…",
         options: ["Éviter", "Capituler", "Surcompenser"], answer: 0,
-        explain: "Éviter, c’est fuir ce qui réveille le schéma : par exemple ne pas se confier, fuir l’intimité." } },
+        explain: "Éviter, c’est fuir ce qui réveille le schéma : ici, ne jamais se présenter. Cela soulage sur le moment, mais le schéma n’est jamais démenti." } },
       { id: "rq2", kind: "quiz", title: "Une question", quiz: {
-        id: "reactions-capituler", q: "« Je fais comme si c’était vrai. » C’est…",
+        id: "reactions-capituler", q: "Je me dévalorise sans cesse : « De toute façon, je suis nul(le). » C’est…",
         options: ["Capituler", "Éviter", "Surcompenser"], answer: 0,
         explain: "Capituler, c’est faire comme si le schéma disait vrai : par exemple se dévaloriser, choisir des proches critiques." } },
       { id: "rq3", kind: "quiz", title: "Une question", quiz: {
-        id: "reactions-effet", q: "Sur le long terme, ces trois réactions…",
-        options: ["Entretiennent le schéma", "Le font disparaître"], answer: 0,
-        explain: "Elles soulagent sur le moment, mais le schéma se renforce à chaque fois." } },
+        id: "reactions-surcompenser", q: "Avec un schéma d’imperfection, je veux paraître parfait(e) et je critique vite les autres. C’est…",
+        options: ["Surcompenser", "Éviter", "Capituler"], answer: 0,
+        explain: "Surcompenser, c’est faire l’inverse, en excès. Cela peut ressembler à de la confiance en soi, mais c’est rigide. Comme les deux autres réactions, cela soulage sur le moment et entretient le schéma." } },
     ],
     retain: [
       "Capituler, éviter, surcompenser : trois réflexes (se figer, fuir, combattre).",
@@ -84,7 +84,7 @@ export const CERCLE: Lesson[] = [
         body: ["Quel âge ai-je l’impression d’avoir, là, maintenant ?"] },
       { id: "gq1", kind: "quiz", title: "Une question", quiz: {
         id: "signes-emotion", q: "Lequel est un signe qu’un schéma s’est allumé ?",
-        options: ["Une émotion plus forte que la situation", "Une émotion à la mesure de la situation", "Une bonne nuit de sommeil"], answer: 0,
+        options: ["Une émotion plus forte que la situation", "Une émotion à la mesure de la situation", "Une émotion qui retombe vite"], answer: 0,
         explain: "Une émotion trop forte, ou trop longue, pour la situation : c’est le moment de ralentir." } },
       { id: "gq2", kind: "quiz", title: "Une question", quiz: {
         id: "signes-absolus", q: "« Il ne me répond jamais. Personne ne m’écoute. » Quel signe se repère ici ?",

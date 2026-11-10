@@ -23,16 +23,18 @@ export const COMPRENDRE: Lesson[] = [
         body: ["Je choisis des lunettes, et je regarde ce que je me dis."] },
       { id: "s7", kind: "reflect", title: "Et moi ?", prompt: "Ai-je déjà réagi beaucoup plus fort que la situation ne le justifiait ?",
         hint: "Je peux noter un exemple récent, sans le commenter. Ou passer à la suite.", noteId: "p1-fort", pro: P1.quoi.pro },
-      { id: "sq1", kind: "quiz", title: "Vrai ou faux ?", quiz: {
-        id: "schema-diagnostic", q: "Un schéma, c’est un diagnostic.", options: ["Faux", "Vrai"], answer: 0,
+      { id: "sq1", kind: "quiz", title: "Une question", quiz: {
+        id: "schema-diagnostic", q: "Un schéma, c’est…",
+        options: ["Une façon de voir, apprise tôt", "Un défaut de caractère", "Une maladie, qui se diagnostique"], answer: 0,
         explain: P1.recues[0].reponse } },
       { id: "sq2", kind: "quiz", title: "Une question", quiz: {
         id: "schema-reveil", q: "Un schéma se réveille surtout…",
-        options: ["Dans une situation qui ressemble à une ancienne", "Au hasard, sans raison", "Seulement quand je suis seul(e)"], answer: 0,
-        explain: "Une situation qui rappelle l’ancienne le rallume, souvent sans qu’on le remarque." } },
-      { id: "sq3", kind: "quiz", title: "Vrai ou faux ?", quiz: {
-        id: "schema-comprendre", q: "Il suffit de comprendre son schéma pour qu’il disparaisse.", options: ["Faux", "Vrai"], answer: 0,
-        explain: P1.recues[3].reponse } },
+        options: ["Dans une situation qui rappelle une ancienne", "Quand je repense à mon enfance", "Seulement lors d’un événement grave"], answer: 0,
+        explain: "Une situation d’aujourd’hui, même petite, qui rappelle l’ancienne le rallume, souvent sans qu’on le remarque." } },
+      { id: "sq3", kind: "quiz", title: "Une question", quiz: {
+        id: "schema-comprendre", q: "Une fois que j’ai compris mon schéma…",
+        options: ["Il peut encore s’allumer : j’apprends à y répondre", "Il disparaît de lui-même", "Je peux le faire taire en raisonnant"], answer: 0,
+        explain: `${P1.recues[3].reponse} Il se ressent avant de se penser : raisonner ne suffit pas toujours.` } },
     ],
     retain: [
       "Un schéma est une façon apprise tôt de se voir, de voir les autres et le monde.",
@@ -58,15 +60,16 @@ export const COMPRENDRE: Lesson[] = [
         body: ["Un même vécu donne des schémas différents selon le tempérament. On peut avoir un schéma sans souvenir précis.", "Si ces souvenirs sont pénibles, j’en parle à un thérapeute avant d’aller plus loin."] },
       { id: "oq1", kind: "quiz", title: "Une question", quiz: {
         id: "origines-adaptation", q: "À l’époque, le schéma…",
-        options: ["Aidait l’enfant à tenir", "Était un défaut de caractère", "Était choisi par l’enfant"], answer: 0,
+        options: ["Aidait l’enfant à tenir", "Ne lui servait à rien", "Montrait un défaut de caractère"], answer: 0,
         explain: "Le schéma était une adaptation : il aidait à tenir dans l’environnement d’alors." } },
-      { id: "oq3", kind: "quiz", title: "Vrai ou faux ?", quiz: {
-        id: "origines-souvenir", q: "On peut avoir un schéma sans en avoir de souvenir précis.", options: ["Vrai", "Faux"], answer: 0,
-        explain: "C’est vrai : un schéma peut venir d’un manque répété, jour après jour, sans événement marquant dont on se souvienne." } },
+      { id: "oq3", kind: "quiz", title: "Une question", quiz: {
+        id: "origines-souvenir", q: "Je n’ai aucun souvenir précis d’une enfance difficile. Avoir un schéma…",
+        options: ["Reste possible", "Est impossible", "Veut dire que j’ai oublié un événement grave"], answer: 0,
+        explain: "C’est possible : un schéma peut venir d’un manque répété, jour après jour, sans événement marquant dont on se souvienne. Je n’ai pas à chercher un souvenir oublié." } },
       { id: "oq2", kind: "quiz", title: "Une question", quiz: {
         id: "origines-coupable", q: "Quand on cherche d’où vient un schéma, on cherche…",
-        options: ["Le besoin qui n’a pas été comblé", "Un coupable"], answer: 0,
-        explain: P1.recues[2].reponse } },
+        options: ["Le besoin qui n’a pas été comblé", "Le jour précis où tout a commencé", "Ce que j’ai fait de travers"], answer: 0,
+        explain: "On cherche le besoin qui n’a pas été comblé, pour apprendre à y répondre aujourd’hui. L’enfant n’y est pour rien, et le schéma vient souvent de manques répétés, pas d’un seul jour." } },
     ],
     retain: [
       "Un schéma naît d’un besoin d’enfant resté sans réponse.",
@@ -89,12 +92,12 @@ export const COMPRENDRE: Lesson[] = [
         body: ["On peut se reconnaître dans plusieurs schémas, de plusieurs bases.", "Je repère la base dont les phrases sonnent le plus vrai : c’est un point de départ, sans chercher à tout traiter."] },
       { id: "nq1", kind: "quiz", title: "Une question", quiz: {
         id: "besoins-liste", q: "Lequel fait partie des cinq besoins de base ?",
-        options: ["Spontanéité et jeu", "Réussite et argent", "Beauté et apparence"], answer: 0,
-        explain: "Les cinq bases : sécurité et attachement ; autonomie et compétence ; exprimer besoins et émotions ; spontanéité et jeu ; limites et maîtrise de soi." } },
+        options: ["Spontanéité et jeu", "Réussite et performance", "Obéissance et discipline"], answer: 0,
+        explain: "Les cinq bases : sécurité et attachement ; autonomie et compétence ; exprimer besoins et émotions ; spontanéité et jeu ; limites et maîtrise de soi. On parle de confiance en ses capacités, pas de performance ; de limites bienveillantes, pas d’obéissance." } },
       { id: "nq2", kind: "quiz", title: "Une question", quiz: {
         id: "besoins-durable", q: "Un groupe de schémas peut se former quand un besoin…",
-        options: ["Manque durablement", "Manque une seule fois"], answer: 0,
-        explain: "Pas une fois : de façon répétée, sur une longue période." } },
+        options: ["Manque durablement", "Manque une seule fois", "Est trop fort chez l’enfant"], answer: 0,
+        explain: "Le plus souvent, pas une fois : de façon répétée, sur une longue période. Et un besoin n’est jamais « trop fort » : il est légitime." } },
     ],
     retain: P2.retenir,
   },
@@ -111,12 +114,12 @@ export const COMPRENDRE: Lesson[] = [
         more: { body: [P2.complet] } },
       { id: "qq1", kind: "quiz", title: "Une question", quiz: {
         id: "quinze-plusieurs", q: "Me reconnaître dans plusieurs schémas, c’est…",
-        options: ["Possible et fréquent", "Impossible", "Forcément grave"], answer: 0,
-        explain: "Plusieurs schémas peuvent coexister ; ils se réveillent selon les situations." } },
+        options: ["Fréquent : ils se réveillent selon les situations", "Rare : en général, on n’en a qu’un", "Le signe d’un trouble grave"], answer: 0,
+        explain: "Plusieurs schémas peuvent coexister ; ils se réveillent selon les situations. Et je ne me reconnais pas dans tous : c’est normal aussi." } },
       { id: "qq2", kind: "quiz", title: "Une question", quiz: {
-        id: "quinze-tous", q: "Je ne me reconnais pas dans tous les schémas. C’est…",
-        options: ["Normal", "Anormal"], answer: 0,
-        explain: "Personne ne se reconnaît dans tous. On commence par ceux qui sonnent vrai." } },
+        id: "quinze-familles", q: "Les quinze schémas sont rangés en cinq familles, selon…",
+        options: ["Le besoin dont ils naissent", "Leur gravité", "Leur fréquence"], answer: 0,
+        explain: "Chaque famille correspond à une base, c’est-à-dire à un besoin d’enfant : le classement suit le besoin, pas la gravité." } },
     ],
     retain: [
       "Quinze schémas, rangés en cinq familles selon le besoin.",

@@ -24,12 +24,12 @@ export const AIDE: Lesson[] = [
         hint: "Exemple : « Je peux y aller, et repartir quand je veux. » Je pourrai la recopier sur ma carte-mémo." },
       { id: "aq1", kind: "quiz", title: "Une question", quiz: {
         id: "adulte-quoi", q: "L’adulte sain, c’est…",
-        options: ["La part de moi qui voit le besoin et y répond", "Un adulte parfait, qui ne se trompe jamais", "Une voix sévère qui me gronde"], answer: 0,
-        explain: "Ni parfait, ni sévère : il voit le besoin de l’enfant et y répond, avec bienveillance et fermeté." } },
+        options: ["La part de moi qui voit le besoin et y répond", "Une voix qui me pousse, avec sévérité", "Une voix qui voit tout en positif"], answer: 0,
+        explain: "Ni sévère, ni « positif à tout prix » : il voit le besoin de l’enfant et y répond, avec bienveillance et fermeté." } },
       { id: "aq2", kind: "quiz", title: "Une question", quiz: {
         id: "adulte-muscle", q: "L’adulte sain se renforce…",
-        options: ["Avec l’entraînement, comme un muscle", "D’un seul coup, en le décidant"], answer: 0,
-        explain: "Chaque petit geste choisi l’entraîne un peu plus." } },
+        options: ["Avec l’entraînement, comme un muscle", "En comprenant d’où viennent mes schémas", "Avec le temps, sans rien faire de spécial"], answer: 0,
+        explain: "Comprendre aide, mais ne suffit pas. Chaque petit geste choisi l’entraîne un peu plus." } },
     ],
     retain: [
       "L’adulte sain n’est ni parfait ni sévère : il voit le besoin de l’enfant et y répond.",
@@ -54,13 +54,13 @@ export const AIDE: Lesson[] = [
         body: ["L’imagerie et le dialogue des chaises servent à « ressentir » : revenir aux émotions, pas seulement en parler.", "Deux leçons les expliquent, avec une version à faire seul(e)."],
         links: [{ to: "/apprendre/imagerie", label: "L’imagerie", icon: "eye" }, { to: "/apprendre/chaises", label: "Le dialogue des chaises", icon: "users" }] },
       { id: "vq1", kind: "quiz", title: "Une question", quiz: {
-        id: "leviers-seance", q: "Quel levier se travaille d’abord en séance, avec un professionnel ?",
-        options: ["Ressentir : revenir aux émotions d’origine", "Comprendre : lire ce support"], answer: 0,
-        explain: "Le travail sur les émotions anciennes se fait d’abord en séance, dans un cadre sécurisant." } },
+        id: "leviers-seance", q: "Quel levier se travaille surtout en séance, avec un professionnel ?",
+        options: ["Ressentir : revenir aux émotions d’origine", "Comprendre : repérer mes schémas", "Agir autrement : un geste par semaine"], answer: 0,
+        explain: "Revenir aux émotions anciennes se fait surtout en séance, dans un cadre sécurisant. Comprendre et agir autrement se travaillent aussi de mon côté." } },
       { id: "vq2", kind: "quiz", title: "Une question", quiz: {
         id: "leviers-agir", q: "« Agir autrement », c’est…",
-        options: ["Remplacer la réaction automatique par un petit geste", "Tout changer d’un coup"], answer: 0,
-        explain: "Un geste par semaine, à petits pas, noté dans le carnet." } },
+        options: ["Remplacer la réaction automatique par un nouveau geste", "Comprendre pourquoi je réagis ainsi", "Éviter les situations qui réveillent le schéma"], answer: 0,
+        explain: "Un geste par semaine, à petits pas, noté dans le carnet. Comprendre, c’est un autre levier ; éviter soulage, mais entretient le schéma." } },
     ],
     retain: [
       "Comprendre, ressentir, agir autrement, être en lien : quatre leviers.",
@@ -85,12 +85,12 @@ export const AIDE: Lesson[] = [
         links: [{ to: LIENS.annuaire.url, label: "Ouvrir l’annuaire", icon: "external" }, { to: "/soutien", label: "Toutes les portes d’entrée", icon: "arrowRight" }] },
       { id: "hq1", kind: "quiz", title: "Une question", quiz: {
         id: "aide-pensees", q: "J’ai des pensées de me faire du mal. Que faire ?",
-        options: ["Appeler le 3114 ou le 15, sans attendre", "Attendre mon prochain rendez-vous", "Faire une leçon de plus"], answer: 0,
+        options: ["Appeler le 3114 ou le 15, sans attendre", "Attendre mon prochain rendez-vous"], answer: 0,
         explain: "Le 3114 (prévention du suicide) est gratuit, 24 h/24. En danger immédiat : le 15 ou le 112." } },
       { id: "hq2", kind: "quiz", title: "Une question", quiz: {
         id: "aide-medecin", q: "Pour être orienté(e), la première porte d’entrée est souvent…",
-        options: ["Mon médecin traitant", "Un moteur de recherche"], answer: 0,
-        explain: "Il connaît mon histoire et peut m’orienter." } },
+        options: ["Mon médecin traitant", "Les urgences de l’hôpital", "Un moteur de recherche"], answer: 0,
+        explain: "Il connaît mon histoire et peut m’orienter, par exemple vers un CMP. Les urgences, le 15 ou le 112, c’est pour un danger immédiat." } },
     ],
     retain: [
       "Pensées de me faire du mal, ou danger : 3114, 15 ou 112, sans attendre.",

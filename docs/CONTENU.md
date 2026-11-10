@@ -34,7 +34,7 @@ Version 0.2 (novembre 2026) : le support est réorganisé en **leçons courtes, 
 
 **À relire en priorité.**
 1. Les textes **nouveaux** du chapitre « Avant de commencer » (§ 2), en particulier la leçon sur la thérapie des schémas et celle sur les limites.
-2. Les **85 questions** et leurs explications : voir [`QUESTIONS.md`](QUESTIONS.md).
+2. Les **85 questions** et leurs explications : voir [`QUESTIONS.md`](QUESTIONS.md). Les choix de réponse ont été revus le 10 novembre 2026 (§ 3) ; en priorité, les 15 « fausses forces » et les 5 situations d’enfance, qui sont des textes nouveaux.
 3. Les **légendes** des trois nouvelles animations (§ 4).
 4. Les **corrections factuelles** issues de la vérification du 5 novembre 2026 (§ 5). Ce sont les numéros d’aide, *Mon soutien psy* et l’annuaire.
 5. Les **phrases simples** du glossaire, qui s’affichent au survol des mots (`src/data/glossaire.ts`, champ `short`), et les nouvelles définitions des soins (§ 5).
@@ -161,7 +161,13 @@ Les six mots de la méthode, la méthode en trois étapes, la pause en trois tem
 - Rappels espacés (boîtes de Leitner) :
   - une idée retrouvée du premier coup revient dans 3 jours, puis dans 7, 14 et 30 jours ;
   - une idée à revoir revient le lendemain.
-- 53 questions sont écrites à la main, dans les leçons. Les autres sont construites à partir des données du diaporama : la phrase de chaque schéma, le besoin de chaque base, et la phrase d’adulte sain opposée à la petite voix.
+- 44 questions sont écrites à la main, dans les leçons. Les 41 autres sont construites à partir des données du diaporama (`src/learn/gen.ts`) : la phrase des schémas (leçons des bases), une situation d’enfance par base, le besoin derrière chaque schéma, et la phrase d’adulte sain face à la petite voix et à une « fausse force ».
+- **Règle des mauvaises réponses** (revue du 10 novembre 2026) : chacune est une idée fausse que la leçon corrige elle-même, qu’on pourrait vraiment choisir. Pas de réponse absurde, pas de Vrai/Faux. Trois choix partout, deux pour les cinq questions de sécurité (se sentir bouleversé(e), crise, idées de se faire du mal, souvenir de violence, chaise d’une personne qui m’a fait du mal). Les mauvaises réponses des questions sur les schémas viennent de schémas voisins choisis à la main (`RIVALS` dans `gen.ts`).
+- **Nouveau, à relire** :
+  - les 15 « fausses forces » (`moment.force` dans `src/data/schemas.generated.json`) : une phrase qui a l’air forte mais surcompense. Pour contrôle émotionnel, idéaux exigeants et droits exagérés, schémas déjà proches de la surcompensation, elle ressemble davantage à la petite voix ;
+  - les 5 situations d’enfance des leçons des bases (`NEED_SCENES` dans `gen.ts`) ;
+  - l’explication « Je n’ai pas à chercher un souvenir oublié » (question sur les souvenirs, leçon « D’où viennent les schémas ? ») ;
+  - la question « Quand on cherche d’où vient un schéma… » n’a plus le choix « Un coupable ». La carte « Pas de coupable » de la leçon dit encore « Ni l’enfant ni l’adulte ne sont coupables du schéma », ce qui peut s’entendre comme « l’adulte maltraitant n’est pas responsable » : décision à prendre.
 - **Toutes les questions** sont listées, avec leurs bonnes réponses et leurs explications, dans [`QUESTIONS.md`](QUESTIONS.md). Ce fichier se régénère avec `npm run docs:questions`.
 
 ## 4. Animations

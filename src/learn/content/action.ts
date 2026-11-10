@@ -20,12 +20,12 @@ export const ACTION: Lesson[] = [
       })),
       { id: "mq1", kind: "quiz", title: "Une question", quiz: {
         id: "mots-voix", q: "« Personne n’attend ce que j’ai à dire. » C’est…",
-        options: ["La petite voix", "Le geste", "Le besoin"], answer: 0,
-        explain: "La petite voix : la phrase que le schéma répète dans ma tête, comme si c’était un fait." } },
+        options: ["La petite voix", "Un fait, que je constate", "Le besoin"], answer: 0,
+        explain: "La petite voix : la phrase que le schéma répète dans ma tête. Elle parle comme si c’était un fait, mais ce n’en est pas un." } },
       { id: "mq2", kind: "quiz", title: "Une question", quiz: {
-        id: "mots-geste", q: "Le geste, c’est…",
-        options: ["Un petit pas concret, choisi à l’avance", "Une grande décision", "Une réaction automatique"], answer: 0,
-        explain: "Un seul à la fois : il remplace la réaction automatique." } },
+        id: "mots-geste", q: "Je lis un groupe de messagerie sans jamais y écrire. Lequel est un geste ?",
+        options: ["Écrire un mot sous un message", "Me promettre de participer davantage", "Quitter le groupe, pour ne plus y penser"], answer: 0,
+        explain: "Un geste est un petit pas concret, choisi à l’avance : un seul à la fois. Une promesse reste vague ; quitter le groupe, c’est éviter." } },
     ],
     retain: [
       "Besoin, petite voix, réaction automatique, adulte sain, geste, carte-mémo.",
@@ -53,11 +53,11 @@ export const ACTION: Lesson[] = [
         ] },
       { id: "eq1", kind: "quiz", title: "Une question", quiz: {
         id: "methode-un", q: "Combien de schémas je travaille à la fois ?",
-        options: ["Un seul", "Les quinze"], answer: 0,
-        explain: "Un seul à la fois. Les autres attendent." } },
+        options: ["Un seul, pour commencer", "Tous ceux que j’ai cochés", "Trois, pour aller plus vite"], answer: 0,
+        explain: "Je garde un à trois schémas, et je commence par un seul : à égalité, celui qui me coûte le plus. Les autres attendent." } },
       { id: "eq2", kind: "quiz", title: "Une question", quiz: {
         id: "methode-semaine", q: "Combien de temps je tente un même geste ?",
-        options: ["Une semaine", "Une heure"], answer: 0,
+        options: ["Une semaine", "Un jour", "Un mois"], answer: 0,
         explain: "Je le tente pendant une semaine, puis je note ce qui s’est vraiment passé." } },
     ],
     retain: [
@@ -91,7 +91,7 @@ export const ACTION: Lesson[] = [
         explain: "Stop, nommer, choisir. Vingt secondes suffisent." } },
       { id: "pq2", kind: "quiz", title: "Une question", quiz: {
         id: "pause-souffle", q: "Pendant la pause, je respire…",
-        options: ["En expirant plus longtemps que j’inspire", "En retenant mon souffle"], answer: 0,
+        options: ["En expirant plus longtemps que j’inspire", "En inspirant plus longtemps que j’expire", "En retenant mon souffle"], answer: 0,
         explain: "Pieds au sol, trois respirations lentes : l’expiration plus longue que l’inspiration." } },
     ],
     retain: [
@@ -114,12 +114,12 @@ export const ACTION: Lesson[] = [
       { id: "d2", kind: "text", icon: "phone", tone: "care", title: "Si je me sens en danger", body: [P6.dire.danger] },
       { id: "dq1", kind: "quiz", title: "Une question", quiz: {
         id: "dire-moment", q: "Pour dire ce qui ne va pas, le bon moment, c’est…",
-        options: ["Plus tard, une fois calme, en tête-à-tête", "Tout de suite, devant tout le monde"], answer: 0,
-        explain: "Pas à chaud, pas devant les autres : j’attends d’être calme, puis je demande un court moment." } },
+        options: ["Une fois calme, en tête-à-tête", "Tout de suite, tant que c’est frais", "Par message, pour éviter la discussion"], answer: 0,
+        explain: "Pas à chaud, pas devant les autres : j’attends d’être calme, puis je demande un court moment en tête-à-tête." } },
       { id: "dq2", kind: "quiz", title: "Une question", quiz: {
         id: "dire-fait", q: "Quelle phrase décrit un fait, sans jugement ?",
-        options: ["« Samedi, notre sortie a été annulée le jour même. »", "« Tu annules toujours tout. »"], answer: 0,
-        explain: "Un fait précis, sans « toujours » ni « jamais ». Puis ce que je ressens, en disant « je »." } },
+        options: ["« Samedi, notre sortie a été annulée le jour même. »", "« Tu annules toujours tout. »", "« Nos sorties ne t’intéressent pas. »"], answer: 0,
+        explain: "Un fait précis, sans « toujours » ni « jamais », et sans deviner ce que l’autre pense. Puis ce que je ressens, en disant « je »." } },
     ],
     retain: [
       "Le bon moment ; le fait et mon ressenti ; ma demande ; conclure ensemble.",

@@ -2,7 +2,7 @@ import type { Card, Lesson, QuizItem, Tone } from "./types";
 import { schemaBySlug } from "../data/schemas";
 import { baseById } from "../data/bases";
 import { deepFr } from "../lib/typo";
-import { adultQuiz, phraseQuiz, STEPS_QUIZ } from "./gen";
+import { adultQuiz, needQuiz, STEPS_QUIZ } from "./gen";
 
 // Les trois pages de chaque schéma (diaporama, partie 7), découpées en cartes courtes.
 
@@ -17,7 +17,7 @@ const lc = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
 const firstSentence = (s: string) => (s.match(/^.*?[.!?…](\s|$)/)?.[0] ?? s).trim();
 
 export function schemaQuizzes(slug: string, part: SchemaPartId): QuizItem[] {
-  if (part === "comprendre") return [phraseQuiz(slug)];
+  if (part === "comprendre") return [needQuiz(slug)];
   if (part === "moment") return [adultQuiz(slug)];
   return [STEPS_QUIZ];
 }

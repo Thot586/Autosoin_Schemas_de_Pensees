@@ -7,7 +7,11 @@ export interface SchemaData {
   facons: { title: string; text: string }[];
   prudence: string;
   recap: { situations: string[]; pousse: string };
-  moment: { scene: string; voice: string; reaction: string; steps: { title: string; text: string }[]; phrase: string };
+  moment: {
+    scene: string; voice: string; reaction: string; steps: { title: string; text: string }[]; phrase: string;
+    /** « Fausse force » : une phrase qui a l'air forte mais surcompense (rigide, excessive). Sert de mauvaise réponse dans la question sur l'adulte sain. */
+    force: string;
+  };
   semaines: { steps: { level: string; text: string }[]; others: string; trap: string; sign: string };
   pro: { comprendre: string[]; moment: string[]; semaines: string[] };
   autosoin: { comprendre: string; moment: string; semaines: string };

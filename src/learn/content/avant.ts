@@ -20,13 +20,13 @@ export const AVANT: Lesson[] = [
       { id: "b5", kind: "text", icon: "heart", tone: "care", title: "Si ça ne va pas",
         body: ["Si un exercice me bouleverse, je m’arrête et je fais une pause.", "Le bouton « Aide », en haut de l’écran, donne les numéros utiles."] },
       { id: "bq1", kind: "quiz", title: "Une question", quiz: {
-        id: "bienvenue-stop", q: "Si un exercice me bouleverse, que puis-je faire ?",
-        options: ["M’arrêter et faire une pause", "Continuer coûte que coûte", "Tout recommencer depuis le début"], answer: 0,
-        explain: "Je peux m’arrêter à tout moment. Si ça ne passe pas, j’en parle à un professionnel ; le bouton « Aide » donne les numéros utiles." } },
+        id: "bienvenue-stop", q: "Pendant un exercice, je me sens bouleversé(e). Je peux…",
+        options: ["M’arrêter et faire une pause", "Aller jusqu’au bout, pour ne pas perdre le fil"], answer: 0,
+        explain: "Je peux m’arrêter à tout moment, et reprendre plus tard. Si ça ne passe pas, j’en parle à un professionnel ; le bouton « Aide » donne les numéros utiles." } },
       { id: "bq2", kind: "quiz", title: "Une question", quiz: {
         id: "bienvenue-questions", q: "Les questions à la fin des leçons servent à…",
-        options: ["Mieux retenir les idées", "Me donner une note", "Poser un diagnostic"], answer: 0,
-        explain: "Ce n’est pas un examen. Chercher la réponse aide la mémoire, même quand on se trompe." } },
+        options: ["Mieux retenir les idées", "Repérer mes schémas", "Me donner une note"], answer: 0,
+        explain: "Elles portent sur les idées du support, pas sur moi, et ce n’est pas un examen. Chercher la réponse aide la mémoire, même quand on se trompe." } },
     ],
     retain: [
       "Carte après carte, à mon rythme : une leçon par jour suffit.",
@@ -60,16 +60,16 @@ export const AVANT: Lesson[] = [
         body: ["Ce support n’est pas une thérapie. Il en reprend les idées de base.", "Il peut aider à se préparer, à attendre un rendez-vous, ou à compléter un suivi."] },
       { id: "tq1", kind: "quiz", title: "Une question", quiz: {
         id: "therapie-quoi", q: "La thérapie des schémas, c’est…",
-        options: ["Une psychothérapie, avec un thérapeute formé", "Un médicament", "Un test pour poser un diagnostic"], answer: 0,
-        explain: "C’est une psychothérapie : un travail en séances avec un thérapeute formé à cette approche." } },
+        options: ["Une psychothérapie, avec un thérapeute formé", "Un traitement par médicaments", "Un questionnaire pour repérer ses schémas"], answer: 0,
+        explain: "C’est une psychothérapie : un travail en séances, avec un thérapeute formé à cette approche. Un questionnaire peut servir au début, mais ce n’est qu’un outil." } },
       { id: "tq3", kind: "quiz", title: "Une question", quiz: {
         id: "therapie-duree", q: "Une thérapie des schémas dure en général…",
-        options: ["Plusieurs mois, parfois plusieurs années", "Une seule séance", "Un week-end"], answer: 0,
-        explain: "C’est un travail long : souvent deux à trois ans dans les grandes études sur le trouble borderline [@giesenbloo2006; @arntz2022]." } },
+        options: ["Plusieurs mois, parfois plusieurs années", "Une dizaine de séances", "Jusqu’à ce que je comprenne mon schéma"], answer: 0,
+        explain: "C’est un travail long : souvent deux à trois ans dans les grandes études sur le trouble borderline [@giesenbloo2006; @arntz2022]. Comprendre son schéma ne suffit pas : le changement prend du temps." } },
       { id: "tq2", kind: "quiz", title: "Une question", quiz: {
         id: "therapie-support", q: "Ce support peut-il remplacer une thérapie ?",
-        options: ["Non : il prépare ou complète un suivi", "Oui, si je fais toutes les leçons"], answer: 0,
-        explain: "Il aide à comprendre. Le travail sur les émotions anciennes se fait avec un professionnel." } },
+        options: ["Non : il prépare ou complète un suivi", "Oui, si je fais toutes les leçons", "Oui, avec les exercices guidés en plus"], answer: 0,
+        explain: "Il aide à comprendre et à s’entraîner. Le travail sur les émotions anciennes se fait avec un professionnel, même avec les exercices guidés." } },
     ],
     retain: [
       "La thérapie des schémas est une psychothérapie, créée par Jeffrey Young.",
@@ -100,12 +100,12 @@ export const AVANT: Lesson[] = [
         body: ["Ce que j’écris reste sur cet appareil. Rien n’est envoyé sur internet.", "Si je prête mon téléphone, quelqu’un pourrait le lire. Je peux tout effacer dans « Réglages »."] },
       { id: "lq1", kind: "quiz", title: "Une question", quiz: {
         id: "limites-cocher", q: "J’ai coché « Ça sonne vrai » pour un schéma. Cela veut dire…",
-        options: ["Que cette phrase me parle : c’est un point de départ", "Que j’ai un diagnostic", "Que je dois changer de traitement"], answer: 0,
-        explain: "Cocher n’est ni un test ni un diagnostic. C’est un repère pour choisir par où commencer." } },
+        options: ["Que cette phrase me parle : c’est un point de départ", "Que ce schéma est confirmé chez moi", "Que je dois travailler tous les schémas cochés"], answer: 0,
+        explain: "Cocher n’est pas un test : un vrai repérage se fait avec un professionnel. C’est un repère pour choisir par où commencer, avec un seul schéma d’abord." } },
       { id: "lq2", kind: "quiz", title: "Une question", quiz: {
         id: "limites-crise", q: "Je vais très mal en ce moment. Le mieux est de…",
-        options: ["Demander de l’aide d’abord", "Faire toutes les leçons d’un coup"], answer: 0,
-        explain: "Dans les moments très difficiles, l’aide d’une personne passe avant. Les numéros sont derrière le bouton « Aide »." } },
+        options: ["Demander de l’aide d’abord", "Lire ce support pour me calmer"], answer: 0,
+        explain: "Quand je vais très mal, ce n’est pas le moment de lire ce support : l’aide d’une personne passe avant. Les numéros sont derrière le bouton « Aide »." } },
     ],
     retain: [
       "Ce support aide à comprendre : ce n’est ni un diagnostic, ni un soin.",

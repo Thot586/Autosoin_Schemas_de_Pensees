@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { Page } from "../components/ui";
 import { Icon } from "../components/Icon";
+import { SchemaEmblem } from "../components/Emblem";
 import { Link } from "../lib/router";
 import { neighbours, schemaBySlug } from "../data/schemas";
 import { baseById } from "../data/bases";
@@ -37,7 +38,7 @@ function SchemaHub({ slug }: { slug: string }) {
       <div className="wrap-narrow page-pad">
         <Link to="/schemas" className="back"><Icon name="arrowLeft" size={18} /> Mes schémas</Link>
         <p className="base-tag"><span className="w-bases-n">{b.id}</span> {b.name}</p>
-        <h1>{s.name}</h1>
+        <div className="sp-title"><span className="emb-disc emb-lg"><SchemaEmblem slug={slug} size={44} /></span><h1>{s.name}</h1></div>
         <blockquote className="lc-quote lc-quote-xl"><p>{s.phrase}</p></blockquote>
         <Terms><p className="lead">Le besoin derrière : {s.besoin}</p></Terms>
         {(n > 0 || kept.includes(slug)) && (

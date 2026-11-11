@@ -156,6 +156,12 @@
 .ad-ask { fill: var(--surface); stroke: var(--accent); stroke-width: 2; }
 .ad-card { fill: var(--surface); stroke: var(--accent); stroke-width: 2; stroke-dasharray: 6 4; }
 .ad-card-t { font: italic 700 15px var(--font-title); fill: var(--ink); }
+/* porte ouverte de la dernière étape : on peut y aller, et en repartir. Lumière chaude, comme le soleil du parapluie. */
+.ad-door { transition: opacity 1s var(--ease); }
+.ad-door-in { fill: color-mix(in oklab, var(--b2) 45%, var(--surface)); stroke: var(--ink-2); stroke-width: 2; }
+.ad-door-glow { fill: color-mix(in oklab, var(--b2) 55%, var(--surface)); fill-opacity: .35; }
+.ad-door-knob { fill: var(--ink-2); }
+.ad-door-leaf { fill: var(--surface); stroke: var(--ink-2); stroke-width: 2; stroke-linejoin: round; }
 
 /* ───────── Respiration guidée ───────── */
 /* Respiration guidée : le cercle se remplit à l'inspiration (4 s) et se vide à l'expiration (6 s) ;

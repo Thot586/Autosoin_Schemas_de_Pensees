@@ -232,6 +232,13 @@
 .srow-t b { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .srow-t > span { display: block; color: var(--ink-2); font-size: .92rem; }
 .srow-s { display: flex; align-items: center; gap: 8px; color: var(--ink-3); flex-shrink: 0; }
+/* emblème d'un schéma ou d'une base (Emblem.tsx) : décoratif, le nom est toujours écrit à côté */
+.emb-disc { flex: 0 0 auto; display: inline-grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-ink); }
+.emb-lg { width: 68px; height: 68px; }
+/* le titre passe sous l'emblème quand son mot le plus long ne tient pas à côté (« Assujettissement » sur petit téléphone) */
+.sp-title { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: .3em 0 .6em; }
+.sp-title h1 { margin: 0; flex: 1 1 12rem; }
+.w-bases-e { margin-left: auto; flex: 0 0 auto; color: var(--accent-ink); }
 .srow-s small { font-weight: 700; }
 .sgroup { margin: 1.4rem 0; }
 .sgroup-h { display: flex; gap: 10px; align-items: center; font-size: 1.1rem; margin: 0 0 .6rem; color: var(--accent-ink); letter-spacing: 0; }

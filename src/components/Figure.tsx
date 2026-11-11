@@ -14,8 +14,8 @@ const POSES: Record<Pose, { al: number; ar: number; tilt: number; head: number }
 };
 
 /** Personnage « bâton » : bras et buste animés par transitions CSS. 40 × 80 unités. */
-export function Figure({ x = 0, y = 0, scale = 1, pose = "stand", color = "var(--ink)", flip = false, walking = false, className = "", style }: {
-  x?: number; y?: number; scale?: number; pose?: Pose; color?: string; flip?: boolean; walking?: boolean; className?: string; style?: CSSProperties;
+export function Figure({ x = 0, y = 0, scale = 1, pose = "stand", color = "var(--ink)", flip = false, walking = false, eyes = true, className = "", style }: {
+  x?: number; y?: number; scale?: number; pose?: Pose; color?: string; flip?: boolean; walking?: boolean; eyes?: boolean; className?: string; style?: CSSProperties;
 }) {
   const p = POSES[pose];
   return (
@@ -23,7 +23,11 @@ export function Figure({ x = 0, y = 0, scale = 1, pose = "stand", color = "var(-
       <g className="fig-upper" style={{ transform: `rotate(${p.tilt}deg)`, transformOrigin: "20px 48px" }}>
         {/* le cou part de l'intérieur de la tête : elle reste attachée même levée (bras en l'air) */}
         <line x1="20" y1="14" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" />
-        <circle cx="20" cy="10" r="8.5" fill={color} style={{ transform: `translateY(${p.head}px)` }} className="fig-head" />
+        {/* même tête que Person (Person.tsx) : un œil tourné vers l'avant, pour qu'on retrouve le même personnage d'une scène à l'autre */}
+        <g style={{ transform: `translateY(${p.head}px)` }} className="fig-head">
+          <circle cx="20" cy="10" r="8.5" fill={color} />
+          {eyes && <circle cx="24.2" cy="9.4" r="1.6" className="ch-eye-o" />}
+        </g>
         <g className="fig-arm" style={{ transformOrigin: "20px 26px", transform: `rotate(${p.al}deg)` }}><line x1="20" y1="26" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" /></g>
         <g className="fig-arm" style={{ transformOrigin: "20px 26px", transform: `rotate(${p.ar}deg)` }}><line x1="20" y1="26" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" /></g>
       </g>

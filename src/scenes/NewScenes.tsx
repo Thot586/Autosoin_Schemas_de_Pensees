@@ -1,6 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import { Player } from "../components/Player";
 import { Figure, type Pose } from "../components/Figure";
+import { Chair, LEG, Person, seatHip, type BodyName } from "../components/Person";
 import { deepFr } from "../lib/typo";
 
 type Vars = CSSProperties & Record<`--${string}`, string | number>;
@@ -233,7 +234,7 @@ function Therapie({ step }: { step: number }) {
         );
       })}
       <Figure {...fig(tx, TH_FS)} pose="calm" color="var(--brand)" className="th-fig" />
-      <Figure {...fig(px, ps)} pose={end ? "cheer" : "calm"} className="th-fig" />
+      <Figure {...fig(px, ps)} pose="calm" className="th-fig" />
       {step === 0 && <g className="sv-pop">
         <text x={tx} y="282" textAnchor="middle" className="th-who">thérapeute</text>
         <text x={px} y="282" textAnchor="middle" className="th-who">moi</text>
@@ -248,61 +249,6 @@ export function TherapieAnimation() {
     transcript={<ol>{THERAPIE_CAPS.map((c, i) => <li key={i}>{c}</li>)}</ol>} />;
 }
 
-/* ═════════ Personnage assis ou à genoux, et chaise (scènes 4 et 5) ═════════
-   Même dessin que Figure (40 × 80, hanche en 20 48), mais jambes en deux segments (cuisse, tibia)
-   pour pouvoir s'asseoir et s'agenouiller. « Devant » = vers la droite ; `flip` le tourne vers la gauche. */
-type Body = { t: number; al: number; ar: number; a: [number, number]; b: [number, number]; h?: number };
-const BODY = {
-  stand: { t: 0, al: 16, ar: -16, a: [4, 0], b: [-4, 0] },
-  sit: { t: 0, al: -26, ar: -40, a: [-86, 86], b: [-94, 94] },
-  sitBow: { t: 22, al: -42, ar: -58, a: [-86, 86], b: [-94, 94], h: 3 },
-  floor: { t: 14, al: -48, ar: -58, a: [-110, 50], b: [-116, 56], h: 2 },
-  kneel: { t: 12, al: -74, ar: -8, a: [-90, 90], b: [-4, 94] },
-  firm: { t: -3, al: 8, ar: -98, a: [7, 0], b: [-7, 0], h: -2 },
-  kind: { t: 8, al: 10, ar: -52, a: [4, 0], b: [-4, 0], h: 2 },
-} satisfies Record<string, Body>;
-type BodyName = keyof typeof BODY;
-const LEG = 16; // cuisse = tibia : 16 unités
-const SEAT = LEG + 1.5; // hanche assise un peu au-dessus du tibia : le pied (bout arrondi) ne passe pas sous le sol
-
-/** Place la hanche en (hx, hy). Debout : hy = sol − 32 s ; à genoux : hy = sol − 16 s ; assis : voir seatHip. */
-function Person({ hx, hy, s, body = "stand", color = "var(--ink)", flip = false, eyes, className = "", style }: {
-  hx: number; hy: number; s: number; body?: BodyName; color?: string; flip?: boolean; eyes?: "closed" | "open"; className?: string; style?: CSSProperties;
-}) {
-  const p: Body = BODY[body];
-  const leg = (tk: [number, number], k: string) => (
-    <g key={k} className={`fig-leg ch-thigh ch-thigh-${k}`} style={{ transformOrigin: "20px 48px", transform: `rotate(${tk[0]}deg)` }}>
-      <line x1="20" y1="48" x2="20" y2={48 + LEG} stroke={color} strokeWidth="4.5" strokeLinecap="round" />
-      <g className="fig-leg" style={{ transformOrigin: `20px ${48 + LEG}px`, transform: `rotate(${tk[1]}deg)` }}>
-        <line x1="20" y1={48 + LEG} x2="20" y2={48 + 2 * LEG} stroke={color} strokeWidth="4.5" strokeLinecap="round" />
-      </g>
-    </g>
-  );
-  return (
-    <g className={`fig ${className}`} color={color}
-      style={{ transform: `translate(${hx}px, ${hy}px) scale(${flip ? -s : s}, ${s}) translate(-20px, -48px)`, ...style }}>
-      {leg(p.b, "b")}{leg(p.a, "a")}
-      <g className="fig-upper" style={{ transform: `rotate(${p.t}deg)`, transformOrigin: "20px 48px" }}>
-        <line x1="20" y1="14" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" />
-        <g className="fig-head" style={{ transform: `translateY(${p.h ?? 0}px)` }}>
-          <circle cx="20" cy="10" r="8.5" fill={color} />
-          {eyes === "closed" && <path d="M21.5 10.5 q2.6 2.4 5.2 0" className="ch-eye" />}
-          {eyes === "open" && <circle cx="24.2" cy="9.4" r="1.6" className="ch-eye-o" />}
-        </g>
-        <g className="fig-arm" style={{ transformOrigin: "20px 26px", transform: `rotate(${p.ar}deg)` }}><line x1="20" y1="26" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" /></g>
-        <g className="fig-arm" style={{ transformOrigin: "20px 26px", transform: `rotate(${p.al}deg)` }}><line x1="20" y1="26" x2="20" y2="48" stroke={color} strokeWidth="5" strokeLinecap="round" /></g>
-      </g>
-    </g>
-  );
-}
-
-/** Chaise vue de profil, dossier en x, tournée vers la droite (dir = 1) ou la gauche (dir = −1), pour un personnage d'échelle s. */
-function Chair({ x, g, s, dir = 1, className = "" }: { x: number; g: number; s: number; dir?: 1 | -1; className?: string }) {
-  const seat = g - SEAT * s + 3.5 * s, d = 19 * s * dir;
-  return <path d={`M${x} ${g} V${seat - 30 * s} M${x} ${seat} H${x + d} V${g}`} className={`ch-chair ${className}`} />;
-}
-/** Hanche d'un personnage assis sur la chaise de dossier x. */
-const seatHip = (x: number, g: number, s: number, dir: 1 | -1 = 1) => ({ hx: x + 8 * s * dir, hy: g - SEAT * s, s, flip: dir < 0 });
 
 /* ═════════ 4. La réécriture en imagination ═════════ */
 export const IMAGERIE_CAPS: ReactNode[] = deepFr([

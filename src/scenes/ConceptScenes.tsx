@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Player } from "../components/Player";
-import { Figure } from "../components/Figure";
+import { HOLD_HIP, LEG, Person, type BodyName } from "../components/Person";
 import { CONTENT } from "../data/content";
 import { deepFr } from "../lib/typo";
 
@@ -109,21 +109,44 @@ function Bub({ cx, y, text, fill = false, tail = "down", tx }: { cx: number; y: 
   );
 }
 
+// Mêmes personnages que l'imagerie et les chaises : l'adulte sain en couleur de marque, l'enfant en encre douce.
+const AD_G = 270, AD_CS = 0.95, AD_AS = 1.45;
+const AD_CX = 84, AD_AX = 255;           // étapes 0 à 4 : l'enfant à gauche, l'adulte à droite
+const AD_HOLD_CX = 110, AD_HOLD_AX = 143; // étape 5 : main dans la main, en route vers la porte ouverte
+const AD_DOOR = { x: 288, w: 44, top: 162 };
+
 function Adulte({ step }: { step: number }) {
   const adult = step >= 3;
   const turned = step === 2;
-  const cs = 0.95, as = 1.45;
+  const together = step === 5;
+  const childBody: BodyName = together ? "holdChild" : step === 1 ? "shrug" : turned ? "bow" : "calm";
+  const adultBody: BodyName = together ? "holdAdult" : "calm";
+  const childHy = AD_G - (together ? HOLD_HIP.child : 2 * LEG) * AD_CS;
+  const adultHy = AD_G - (together ? HOLD_HIP.adult : 2 * LEG) * AD_AS;
+  const childDx = together ? AD_HOLD_CX - AD_CX : turned ? -10 : 0;
+  const adultDx = together ? AD_HOLD_AX - AD_AX : adult ? 0 : 30;
   return (
     <svg viewBox="0 0 360 300" className="sv sv-adulte" data-step={step}>
-      <line x1="12" y1="270" x2="348" y2="270" className="sv-ground" />
-      <g className="ad-child" style={{ transform: turned ? "translateX(-10px)" : "none" }}>
-        <Figure x={64} y={270 - 74 * cs} scale={cs} pose={step === 0 ? "calm" : step === 1 ? "shrug" : turned ? "bow" : "calm"} color="var(--accent)" flip={turned} />
-        <text x="84" y="292" textAnchor="middle" className="sv-cap">L’ENFANT</text>
+      <g className="ad-door" style={{ opacity: together ? 1 : 0 }}>
+        <path d={`M${AD_DOOR.x} ${AD_DOOR.top + 10} L${AD_DOOR.x - 84} ${AD_G} H${AD_DOOR.x} Z`} className="ad-door-glow" />
+        <rect x={AD_DOOR.x} y={AD_DOOR.top} width={AD_DOOR.w} height={AD_G - AD_DOOR.top} rx="3" className="ad-door-in" />
+        <path d={`M${AD_DOOR.x + AD_DOOR.w} ${AD_DOOR.top} L${AD_DOOR.x + AD_DOOR.w + 20} ${AD_DOOR.top + 12} V${AD_G - 6} L${AD_DOOR.x + AD_DOOR.w} ${AD_G}`} className="ad-door-leaf" />
+        <circle cx={AD_DOOR.x + AD_DOOR.w + 14} cy={(AD_DOOR.top + AD_G) / 2 + 8} r="2.6" className="ad-door-knob" />
       </g>
-      <g className="ad-adult" style={{ opacity: adult ? 1 : 0.07, transform: adult ? "none" : "translateX(30px)" }}>
-        <Figure x={226} y={270 - 74 * as} scale={as} pose={step === 5 ? "cheer" : step === 3 ? "calm" : "stand"} />
-        <text x="246" y="292" textAnchor="middle" className="sv-cap">L’ADULTE D’AUJOURD’HUI</text>
+      <line x1="12" y1={AD_G} x2="348" y2={AD_G} className="sv-ground" />
+      <g className="ad-child" style={{ transform: `translateX(${childDx}px)` }}>
+        <Person hx={AD_CX} hy={childHy} s={AD_CS} body={childBody} color="var(--ink-2)" flip={turned} eyes="open" />
       </g>
+      <g className="ad-adult" style={{ opacity: adult ? 1 : 0.07, transform: `translateX(${adultDx}px)` }}>
+        <Person hx={AD_AX} hy={adultHy} s={AD_AS} body={adultBody} color="var(--brand)" flip={!together} eyes="open" />
+      </g>
+      {together ? <>
+        <text x={AD_HOLD_CX} y="292" textAnchor="middle" className="sv-cap">L’ENFANT</text>
+        <text x={AD_HOLD_AX + 4} y="292" className="sv-cap">L’ADULTE D’AUJOURD’HUI</text>
+      </> : <>
+        <text x={AD_CX + childDx} y="292" textAnchor="middle" className="sv-cap">L’ENFANT</text>
+        <text x={AD_AX - 9} y="292" textAnchor="middle" className="sv-cap" style={{ opacity: adult ? 1 : 0.07 }}>L’ADULTE D’AUJOURD’HUI</text>
+      </>}
       {step === 0 && <Pill x={30} y={120} w={176} cls="ad-need">Faire partie d’un groupe</Pill>}
       {step === 1 && <>
         <g className="sv-pop"><rect x="226" y="44" width="104" height="64" rx="10" className="ad-env" /><path d="M226 50 L278 84 L330 50" className="ad-env-l" /><text x="278" y="128" textAnchor="middle" className="sv-tiny">Invitation à un anniversaire</text></g>

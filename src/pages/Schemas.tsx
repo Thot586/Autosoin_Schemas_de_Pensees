@@ -2,6 +2,7 @@ import { Page } from "../components/ui";
 import { Icon } from "../components/Icon";
 import { Link } from "../lib/router";
 import { BASES } from "../data/bases";
+import { SchemaEmblem } from "../components/Emblem";
 import { SCHEMAS, schemasOfBase } from "../data/schemas";
 import { focusSchema, retained, ticks, tickCount } from "../lib/state";
 import { lessonState } from "../learn/progress";
@@ -74,6 +75,7 @@ function SchemaRow({ slug, name, phrase, base, done, ticks: n, focus }: { slug: 
   return (
     <li>
       <Link to={`/schemas/${slug}`} className={`srow tone-b${base}`}>
+        <span className="emb-disc"><SchemaEmblem slug={slug} size={30} /></span>
         <span className="srow-t">
           <b>{name}{focus && <span className="tag">Je commence par lui</span>}</b>
           <span>{phrase}</span>

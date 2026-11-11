@@ -174,6 +174,11 @@ Les six mots de la méthode, la méthode en trois étapes, la pause en trois tem
 
 Les sept animations du diaporama sont gardées : lunettes, marches, verre, journée, vague, cercle, adulte sain. Le lecteur ne démarre plus tout seul ; on appuie sur « Lire », et le rythme est plus lent.
 
+**Dessins revus le 11 novembre 2026 (à relire)** :
+- **Adulte sain, dernière image** : l’adulte levait les bras en V, loin de l’enfant (on lisait « victoire », proche de la « fausse force »). Il tient maintenant la main de l’enfant, et ils marchent vers une porte ouverte, éclairée : « Je peux y aller, et repartir quand je veux. » La fin du chemin de la thérapie ne lève plus les bras non plus.
+- **Un seul personnage** : tous les bonshommes ont un œil tourné vers l’avant ; l’adulte sain est de la couleur de marque dans l’adulte sain, l’imagerie, les chaises et les réactions (dans le chemin de la thérapie, cette couleur reste celle du thérapeute). Personnage partagé : `src/components/Person.tsx`.
+- **Emblèmes (nouveaux)** : une image par schéma et par base, à côté du nom (liste et page des schémas, widget des cinq bases). Des objets, jamais une personne en détresse : `src/components/Emblem.tsx`. Carence affective : cœur en pointillés ; abandon : valise ; méfiance : bouclier et œil ; isolement : un point à l’écart d’un groupe ; imperfection : masque ; échec : flèche à côté de la cible ; dépendance : plante sur un tuteur ; vulnérabilité : nuage d’orage ; relation fusionnelle : deux cercles fondus en une forme ; assujettissement : marionnette ; sacrifice de soi : bougie qui se consume ; contrôle émotionnel : marmite au couvercle fermé ; idéaux exigeants : liste à cocher sans fin ; droits exagérés : couronne ; manque d’autocontrôle : sablier. Bases : abri avec un cœur, marches, bulle de parole, cerf-volant, garde-fou.
+
 **Textes réécrits pour sonner naturels.** Les textes du cercle, de l’adulte sain et des lunettes étaient assemblés automatiquement (« titre. texte. Exemple (abandon) : … »). Ils sont réécrits sans changer le sens : `ConceptScenes.tsx`, `BaseScenes.tsx`.
 
 **Nouvelles animations, légendes (Nouveau)** : `src/scenes/NewScenes.tsx` (constantes `PARAPLUIE_CAPS`, `REACTIONS_CAPS`, `THERAPIE_CAPS`, `IMAGERIE_CAPS`, `CHAISES_CAPS`).

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Choice } from "../components/ui";
 import { Icon } from "../components/Icon";
+import { BaseEmblem } from "../components/Emblem";
 import { Breathing } from "../components/Breathing";
 import { CONTENT } from "../data/content";
 import { BASES } from "../data/bases";
@@ -77,6 +78,7 @@ function Bases() {
         <li key={b.id} className={`tone-b${b.id}`}>
           <span className="w-bases-n">{b.id}</span>
           <span className="w-bases-t"><b>{b.name}</b><small>{b.besoins[0]}</small></span>
+          <BaseEmblem id={b.id} size={34} className="w-bases-e" />
         </li>
       ))}
     </ol>

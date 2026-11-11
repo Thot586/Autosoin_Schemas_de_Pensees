@@ -34,6 +34,8 @@ function arc(a0: number, a1: number) {
 }
 // angles (0° = droite, sens horaire) : haut = 270° (−90°)
 const ARCS = [arc(-55, -20), arc(20, 55), arc(125, 160), arc(200, 235)];
+// angle du point qui fait le tour, par étape : au milieu de l'arc qui suit l'étape éclairée (−37,5° = après « Une situation »)
+const CY_DOT = [322.5, 322.5, 397.5, 502.5, 577.5, 682.5, 682.5];
 
 function Cycle({ step }: { step: number }) {
   const active = step >= 1 && step <= 4 ? step - 1 : -1;
@@ -46,6 +48,11 @@ function Cycle({ step }: { step: number }) {
         const on = (step > i && step <= 5) || step >= 5;
         return <g key={i} className={`cy-arcg ${on ? "is-on" : ""} ${step >= 5 && step < 6 ? "is-all" : ""}`}><path d={g.d} className="cy-arc" pathLength={1} /><path d={g.head} className="cy-head" /></g>;
       })}
+      {/* un point fait le tour : il avance d'une étape à l'autre, tourne en boucle quand le schéma se renforce,
+          et disparaît quand on interrompt le cercle. La rotation suit l'arc (angles toujours croissants). */}
+      <g className={`cy-dot ${step === 5 ? "is-lap" : ""}`} style={{ transform: `rotate(${CY_DOT[step]}deg)`, opacity: step >= 1 && step <= 5 ? 1 : 0 }}>
+        <circle cx={180 + R} cy="168" r="7" />
+      </g>
       {NODES.map((n, i) => {
         const lit = active === i || step === 5 || (interrupt && i < 3);
         const act = interrupt && i < 3;

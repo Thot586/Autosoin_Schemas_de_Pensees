@@ -278,6 +278,7 @@ const IM_S = 1.05, IM_TX = 100, IM_PX = 262;
 const IM_THER = seatHip(IM_TX, IM_G, IM_S, 1);
 const IM_ME = seatHip(IM_PX, IM_G, IM_S, -1);
 const IM_CS = 0.85, IM_AS = 0.78;          // enfant, adulte dans le film
+const IM_ZOOM = 1.3;                       // le film entier est agrandi : de y 12 à 197, au-dessus des têtes assises (≈ 217)
 // adulte du film : position et posture selon l'étape (invisible avant l'étape 3)
 const imAdult = (step: number): { hx: number; body: BodyName } =>
   step <= 1 ? { hx: 288, body: "stand" } : step === 2 ? { hx: 236, body: "stand" } : { hx: 190, body: "kneel" };
@@ -290,8 +291,8 @@ function Imagerie({ step }: { step: number }) {
   const adY = IM_FG - (ad.body === "kneel" ? LEG : 2 * LEG) * IM_AS;
   return (
     <svg viewBox="0 0 360 310" className={`sv im-scene ${step === 2 ? "im-walking" : ""}`} data-step={step}>
-      {/* le souvenir, comme un film */}
-      <g className="im-film" style={{ opacity: film ? 1 : 0 }}>
+      {/* le souvenir, comme un film : agrandi de 30 % (depuis le haut, au centre) pour rester lisible sur téléphone */}
+      <g className="im-film" style={{ opacity: film ? 1 : 0, transform: `scale(${IM_ZOOM})`, transformOrigin: "180px 12px" }}>
         <rect x="56" y="12" width="248" height="142" rx="18" className={`im-screen ${warm ? "is-warm" : ""}`} />
         <line x1="76" y1={IM_FG} x2="284" y2={IM_FG} className="im-floor" />
         <g className="im-cloud" style={{ opacity: warm ? 0 : 1, transform: warm ? "translateY(-8px) scale(.7)" : "none" }}>
@@ -308,7 +309,7 @@ function Imagerie({ step }: { step: number }) {
       </g>
       {/* le film se passe « dans la tête » de la personne assise */}
       <g className="im-think" style={{ opacity: film ? 1 : 0 }}>
-        <circle cx="248" cy="200" r="3" /><circle cx="241" cy="185" r="4.5" /><circle cx="233" cy="168" r="6" />
+        <circle cx="251" cy="212" r="2.6" /><circle cx="244" cy="204" r="3.8" />
       </g>
 
       <line x1="12" y1={IM_G} x2="348" y2={IM_G} className="sv-ground" />
@@ -373,8 +374,11 @@ function Chaises({ step }: { step: number }) {
   return (
     <svg viewBox="0 0 360 300" className="sv ch-scene" data-step={step}>
       <line x1="12" y1={CH_G} x2="348" y2={CH_G} className="sv-ground" />
-      <Chair x={CH_X1} g={CH_G} s={CH_S} dir={1} />
+      <Chair x={CH_X1} g={CH_G} s={CH_S} dir={1} className="ch-chair-voice" />
       <Chair x={CH_X2} g={CH_G} s={CH_S} dir={-1} />
+      {/* le trajet : d'une chaise à l'autre (étape 2), puis de la chaise au centre, debout (étape 3) */}
+      {step === 2 && <g key="m2" className="ch-move sv-pop"><path d={`M${CH_X1 + 30} 202 Q180 156 ${CH_X2 - 50} 202`} /><path d={`M${CH_X2 - 60} 193 l10 9 -13 3`} className="ch-move-head" /></g>}
+      {step === 3 && <g key="m3" className="ch-move sv-pop"><path d={`M${CH_X2 - 30} 196 Q252 164 206 190`} /><path d={`M213 180 l-7 10 13 2`} className="ch-move-head" /></g>}
       <text x={CH_X1 + 16} y="280" textAnchor="middle" className="ch-lab ch-lab1">{CH_TXT.chair1}</text>
       <text x={CH_X2 - 16} y="280" textAnchor="middle" className="ch-lab">{CH_TXT.chair2}</text>
 

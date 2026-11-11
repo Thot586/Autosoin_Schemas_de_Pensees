@@ -29,7 +29,7 @@ export const LEG = 16; // cuisse = tibia : 16 unités
 export const SEAT = LEG + 1.5; // hanche assise un peu au-dessus du tibia : le pied (bout arrondi) ne passe pas sous le sol
 
 /** Place la hanche en (hx, hy). Debout : hy = sol − 32 s ; à genoux : hy = sol − 16 s ; assis : voir seatHip. */
-export function Person({ hx, hy, s, body = "stand", color = "var(--ink)", flip = false, eyes, className = "", style }: {
+export function Person({ hx, hy, s, body = "stand", color = "var(--ink)", flip = false, eyes = "open", className = "", style }: {
   hx: number; hy: number; s: number; body?: BodyName; color?: string; flip?: boolean; eyes?: "closed" | "open"; className?: string; style?: CSSProperties;
 }) {
   const p: Body = BODY[body];
@@ -66,3 +66,15 @@ export function Chair({ x, g, s, dir = 1, className = "" }: { x: number; g: numb
 }
 /** Hanche d'un personnage assis sur la chaise de dossier x. */
 export const seatHip = (x: number, g: number, s: number, dir: 1 | -1 = 1) => ({ hx: x + 8 * s * dir, hy: g - SEAT * s, s, flip: dir < 0 });
+
+/** L'enfant et l'adulte d'aujourd'hui, main dans la main (la dernière image de « L'adulte sain »). Décoratif. */
+export function HandInHand({ className = "" }: { className?: string }) {
+  const g = 100, cs = 0.95, as = 1.45, cx = 30, ax = 63;
+  return (
+    <svg viewBox="0 -14 92 118" className={`hand-in-hand ${className}`} aria-hidden="true" focusable="false">
+      <line x1="4" y1={g} x2="88" y2={g} className="sv-ground" />
+      <Person hx={cx} hy={g - HOLD_HIP.child * cs} s={cs} body="holdChild" color="var(--ink-2)" />
+      <Person hx={ax} hy={g - HOLD_HIP.adult * as} s={as} body="holdAdult" color="var(--brand)" />
+    </svg>
+  );
+}

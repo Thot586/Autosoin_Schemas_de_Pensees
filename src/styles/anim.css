@@ -130,6 +130,10 @@
 .sv-cycle[data-step="6"] .cy-arc { stroke: var(--edge-strong); stroke-dasharray: 5 7; stroke-dashoffset: 0; }
 .sv-cycle[data-step="6"] .cy-head { stroke: var(--edge-strong); opacity: 1; }
 .cy-node { transition: transform .8s var(--ease), opacity .6s; }
+.cy-dot { transform-box: view-box; transform-origin: 180px 168px; transition: transform 1.2s var(--ease), opacity .5s; }
+.cy-dot circle { fill: var(--accent); stroke: var(--surface); stroke-width: 2.5; }
+.cy-dot.is-lap { animation: cy-lap 7s linear infinite; }
+@keyframes cy-lap { from { transform: rotate(682.5deg); } to { transform: rotate(1042.5deg); } }
 .cy-node rect { fill: var(--surface); stroke: var(--edge-strong); stroke-width: 2; transition: fill .5s, stroke .5s; }
 .cy-node rect.lit { stroke: var(--accent); fill: var(--accent-soft); }
 .cy-node.is-active rect { fill: var(--accent); stroke: var(--accent); }
@@ -177,6 +181,11 @@
 .breath.is-done .breath-fill { transform: translateY(40%); background: linear-gradient(180deg, color-mix(in oklab, var(--ok) 45%, var(--surface)), var(--ok)); transition: transform 1s var(--ease); }
 .breath.is-done .breath-fill::before { background: color-mix(in oklab, var(--ok) 45%, var(--surface)); }
 .breath[data-reduced="true"] .breath-fill, .breath[data-reduced="true"] .breath-orb { transition: none !important; }
+/* volume : un reflet en haut à gauche et une ombre intérieure en bas, au-dessus de l'eau, sous le décompte */
+.breath-orb::after { content: ""; position: absolute; inset: 0; border-radius: 50%; pointer-events: none; z-index: 1;
+  background: radial-gradient(circle at 32% 26%, rgb(255 255 255 / .42), rgb(255 255 255 / 0) 44%);
+  box-shadow: inset -10px -16px 28px rgb(0 0 0 / .14), inset 6px 8px 18px rgb(255 255 255 / .18); }
+.breath-count { z-index: 2; }
 .breath-count { position: absolute; inset: 0; margin: auto; width: 2.4em; height: 2.4em; display: grid; place-items: center; border-radius: 50%; background: var(--surface); color: var(--ink); font: 800 1.5rem/1 var(--font-title); box-shadow: var(--shadow-1); }
 .breath-l { font-family: var(--font-title); font-size: 1.35rem; min-height: 1.6em; margin: 0; }
 .breath-c { display: flex; gap: 8px; margin: 0; }

@@ -210,9 +210,11 @@ const TH_PATH = Array.from({ length: 57 }, (_, i) => { const x = TH_X0 + (i / 56
 const TH_CY = 66, TH_R = 24;
 const MILES: { x: number; label: string[]; icon: ReactNode }[] = [
   { x: 62, label: ["Comprendre"], icon: <><circle cx="-8" cy="1" r="6" /><circle cx="8" cy="1" r="6" /><path d="M-2 0 Q0 -3 2 0 M-14 0 L-17 -5 M14 0 L17 -5" /></> },
-  { x: 140, label: ["Ressentir"], icon: <path d="M0 9 C-14 0 -12 -12 -6 -12 C-2.5 -12 0 -9 0 -7 C0 -9 2.5 -12 6 -12 C12 -12 14 0 0 9 Z" /> },
+  // Pas de cœur ni d'anneaux à côté du thérapeute (ils pourraient évoquer une relation amoureuse) :
+  // une vague pour l'émotion, deux bulles pour le dialogue.
+  { x: 140, label: ["Ressentir"], icon: <path d="M-14 1 q3.5 -9 7 0 t7 0 t7 0 t7 0" /> },
   { x: 218, label: ["Agir", "autrement"], icon: <path d="M-13 10 H-5 V3 H3 V-4 H11 V-11" /> },
-  { x: 296, label: ["Être", "en lien"], icon: <><circle cx="-5" cy="0" r="7.5" /><circle cx="5" cy="0" r="7.5" /></> },
+  { x: 296, label: ["Être", "en lien"], icon: <><path d="M-14 -10 h14 v9 h-8 l-4 4 v-4 h-2 z" /><path d="M-2 0 h16 v9 h-2 v4 l-4 -4 h-10 z" /></> },
 ];
 // [thérapeute, personne] : centres x selon l'étape
 const TH_POS: [number, number][] = [[40, 100], ...MILES.map((m): [number, number] => [m.x - 17, m.x + 15]), [270, 326]];
@@ -301,7 +303,10 @@ function Imagerie({ step }: { step: number }) {
         <g className="im-need">
           <circle cx="129" cy="92" r="3" className="im-bub" /><circle cx="121" cy="83" r="4.5" className="im-bub" />
           <circle cx="104" cy="58" r="22" className="im-bub" />
-          <path d={HEART} transform="translate(104 60) scale(1.05)" className={`im-heart ${warm ? "" : "is-dim"}`} />
+          {/* le besoin de l'enfant : un soleil (chaleur, sécurité), terne puis lumineux. Pas de cœur dans une scène avec le thérapeute. */}
+          <g className={`im-sun ${warm ? "" : "is-dim"}`} transform="translate(104 58)">
+            <circle r="7.5" /><path d="M0 -11.5v-3.5M0 11.5v3.5M-11.5 0h-3.5M11.5 0h3.5M-8.1 -8.1l-2.5 -2.5M8.1 8.1l2.5 2.5M-8.1 8.1l-2.5 2.5M8.1 -8.1l2.5 -2.5" />
+          </g>
         </g>
         <Person hx={146} hy={IM_FG - 3 * IM_CS} s={IM_CS} body="floor" color="var(--ink-2)" />
         <Person hx={ad.hx} hy={adY} s={IM_AS} body={ad.body} color="var(--brand)" flip
@@ -319,10 +324,10 @@ function Imagerie({ step }: { step: number }) {
       <Person {...IM_ME} body="sit" eyes={step >= 4 ? "open" : "closed"} />
       {step === 1 && <path d="M125 214 q5 8 0 16 M132 209 q8 13 0 26" className="im-talk sv-pop" />}
 
+      {/* retour au présent : on parle de ce qui a changé (une bulle de parole, tournée vers le thérapeute) */}
       {step === 4 && <g className="sv-pop">
-        <circle cx="270" cy="204" r="3" className="im-bub" /><circle cx="279" cy="192" r="4.5" className="im-bub" />
-        <circle cx="296" cy="166" r="22" className="im-bub" />
-        <path d={HEART} transform="translate(296 168) scale(1.05)" className="im-heart" />
+        <path d={bubblePath(190, 150, 64, 34, 232, 244, 204)} className="im-say" />
+        <circle cx="208" cy="167" r="2.8" className="im-say-dot" /><circle cx="222" cy="167" r="2.8" className="im-say-dot" /><circle cx="236" cy="167" r="2.8" className="im-say-dot" />
       </g>}
       {step === 5 && <g className="sv-pop">
         <rect x="88" y="128" width="184" height="32" rx="16" className="im-pill" />
@@ -391,9 +396,8 @@ function Chaises({ step }: { step: number }) {
       {b && <g key={step} className={`ch-say ${b.cls} sv-pop`}>
         <path d={bubblePath(b.x, b.y, b.w, b.h, b.bx, b.tx, b.ty)} className="ch-say-b" />
         <text x={b.x + b.w / 2} y={b.y + (b.lines.length > 1 ? 26 : 28)} textAnchor="middle" className="ch-say-t">
-          {b.lines.map((l, k) => <tspan key={k} x={b.x + b.w / 2 - (step === 4 && k === 1 ? 10 : 0)} dy={k === 0 ? 0 : 21}>{l}</tspan>)}
+          {b.lines.map((l, k) => <tspan key={k} x={b.x + b.w / 2} dy={k === 0 ? 0 : 21}>{l}</tspan>)}
         </text>
-        {step === 4 && <path d={HEART} transform={`translate(${b.x + b.w / 2 + 50} ${b.y + 44}) scale(.62)`} className="ch-heart" />}
       </g>}
       {step === 5 && <g className="sv-pop">
         <rect x="70" y="74" width="220" height="32" rx="16" className="ch-pill" />

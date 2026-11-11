@@ -101,13 +101,17 @@
 /* ───────── La réécriture en imagination ───────── */
 .im-film, .im-think, .im-who { transition: opacity 1.6s var(--ease); }
 .im-screen { fill: var(--surface-2); stroke: var(--edge-strong); stroke-width: 3; transition: fill 1.4s var(--ease); }
-.im-screen.is-warm { fill: color-mix(in oklab, var(--care-soft) 55%, var(--surface)); }
+.im-screen.is-warm { fill: color-mix(in oklab, var(--b2-soft) 75%, var(--surface)); }
 .im-floor { stroke: var(--edge-strong); stroke-width: 2; stroke-linecap: round; }
 .im-cloud { transform-box: fill-box; transform-origin: center; transition: opacity 1.4s var(--ease), transform 1.6s var(--ease); }
 .im-cloud path { fill: color-mix(in oklab, var(--ink-2) 34%, var(--surface)); stroke: color-mix(in oklab, var(--ink-2) 55%, var(--surface)); stroke-width: 1.5; stroke-linejoin: round; }
 .im-bub, .im-think circle { fill: var(--surface); stroke: var(--edge-strong); stroke-width: 1.5; }
-.im-heart { fill: var(--care); transition: fill 1.2s var(--ease), opacity 1.2s var(--ease); }
-.im-heart.is-dim { fill: var(--ink-2); opacity: .3; }
+.im-sun circle { fill: var(--b2); transition: fill 1.2s var(--ease), opacity 1.2s var(--ease); }
+.im-sun path { fill: none; stroke: var(--b2); stroke-width: 2.4; stroke-linecap: round; transition: stroke 1.2s var(--ease), opacity 1.2s var(--ease); }
+.im-sun.is-dim circle { fill: var(--ink-2); opacity: .3; }
+.im-sun.is-dim path { stroke: var(--ink-2); opacity: .3; }
+.im-say { fill: var(--surface); stroke: var(--edge-strong); stroke-width: 1.8; stroke-linejoin: round; }
+.im-say-dot { fill: var(--ink-2); }
 .im-adult { transition: transform 1.6s var(--ease), opacity 1s var(--ease); }
 .im-talk { fill: none; stroke: var(--brand); stroke-width: 2.5; stroke-linecap: round; }
 .im-pill, .ch-pill { fill: var(--surface); stroke: var(--brand); stroke-width: 1.5; }
@@ -129,9 +133,8 @@
 .ch-say-feel .ch-say-b { fill: var(--surface); stroke: var(--edge-strong); }
 .ch-say-firm .ch-say-b { fill: var(--brand); stroke: var(--brand); }
 .ch-say-firm .ch-say-t { font-style: normal; font-weight: 800; fill: var(--on-brand); }
-.ch-say-kind .ch-say-b { fill: var(--care-soft); stroke: var(--care); }
-.ch-say-kind .ch-say-t { fill: var(--care-ink); }
-.ch-heart { fill: var(--care); }
+.ch-say-kind .ch-say-b { fill: var(--brand-soft); stroke: var(--brand); }
+.ch-say-kind .ch-say-t { fill: var(--brand-ink); }
 
 /* ───────── Mouvement réduit (réécriture) ───────── */
 :root[data-motion="reduced"] .im-walking .im-adult :is(.ch-thigh-a, .ch-thigh-b) { animation: none; }

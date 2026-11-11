@@ -176,6 +176,7 @@ Les sept animations du diaporama sont gardées : lunettes, marches, verre, journ
 
 **Dessins revus le 11 novembre 2026 (à relire)** :
 - **Adulte sain, dernière image** : l’adulte levait les bras en V, loin de l’enfant (on lisait « victoire », proche de la « fausse force »). Il tient maintenant la main de l’enfant, et ils marchent vers une porte ouverte, éclairée : « Je peux y aller, et repartir quand je veux. » La fin du chemin de la thérapie ne lève plus les bras non plus.
+- **Aucun cœur à côté du thérapeute** (il pourrait évoquer une relation amoureuse) : dans l’imagerie, le besoin de l’enfant est un soleil (terne, puis lumineux), le retour au présent est une bulle de parole tournée vers le thérapeute, et le fond de la scène réparée est doré plutôt que rose ; dans le chemin de la thérapie, « Ressentir » est une vague et « Être en lien » deux bulles de dialogue (plus de cœur, plus d’anneaux entrelacés) ; dans les chaises, la phrase de douceur n’a plus de cœur et prend la couleur de l’adulte sain. Le cœur reste là où aucun thérapeute n’apparaît (le parapluie, les emblèmes).
 - **Le cercle** : un point fait le tour, d’une étape à l’autre ; il tourne en boucle quand le schéma se renforce, et disparaît quand on interrompt le cercle.
 - **L’imagerie** : la scène imaginée est agrandie (elle était minuscule sur téléphone).
 - **Les chaises** : la chaise de la petite voix prend sa couleur ; un pointillé montre le passage d’une chaise à l’autre, puis de la chaise au centre.

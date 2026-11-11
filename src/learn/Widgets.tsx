@@ -20,6 +20,13 @@ function LunettesDemo() {
       <p className="w-lens-msg"><Icon name="chat" size={22} /> {d.message}</p>
       <Choice label="Avec quelles lunettes je lis ce message ?" value={v} onChange={setV} options={d.lectures.map((l) => ({ id: l.id, label: l.label }))} className="choice-col" />
       <div className={`w-lens-out ${v === "aucune" ? "is-clear" : "is-tint"}`} aria-live="polite">
+        {/* les mêmes lunettes que l'animation de la base 1 : verres clairs, ou teintés dès qu'un schéma les colore */}
+        <svg viewBox="0 0 220 90" className="w-lens-glasses" aria-hidden="true">
+          <path d="M8 34 L2 26 M212 34 L218 26" className="w-lens-frame" />
+          <rect x="10" y="22" width="88" height="58" rx="26" className="w-lens-glass" />
+          <rect x="122" y="22" width="88" height="58" rx="26" className="w-lens-glass" />
+          <path d="M98 44 Q110 36 122 44" className="w-lens-frame" />
+        </svg>
         <span className="w-lens-lab">Ce que je me dis</span>
         <p key={v} className="w-lens-q">{cur.texte}</p>
       </div>

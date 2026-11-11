@@ -192,6 +192,15 @@
 .cm-form { display: grid; gap: 1rem; }
 .cm-preview .eyebrow { margin-bottom: .5rem; }
 .cm-ex { max-width: 520px; }
+/* carte-mémo à retourner (aperçu) : deux faces superposées dans la même case de grille, rotation en 3D */
+.flip { max-width: 520px; perspective: 1400px; display: grid; gap: .8rem; justify-items: start; }
+.flip-in { display: grid; width: 100%; transform-style: preserve-3d; transition: transform .7s var(--ease); }
+.flip-in.is-back { transform: rotateY(180deg); }
+.flip-face { grid-area: 1 / 1; backface-visibility: hidden; -webkit-backface-visibility: hidden; max-width: none; }
+.flip-back { transform: rotateY(180deg); }
+.flip-btn { min-height: 44px; }
+.cm-print-only { display: none; }
+@media print { .flip { display: none !important; } .cm-print-only { display: block !important; } }
 select { width: 100%; border-radius: 14px; border: 1.5px solid var(--edge-strong); background: var(--bg); padding: 12px 14px; min-height: 48px; }
 select:focus { outline: 3px solid color-mix(in oklab, var(--brand) 35%, transparent); border-color: var(--brand); }
 .field input[type="range"] { padding: 0; min-height: 0; border: 0; background: none; }

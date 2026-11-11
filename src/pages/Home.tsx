@@ -1,5 +1,6 @@
 import { Page } from "../components/ui";
-import { Icon, BrandMark } from "../components/Icon";
+import { Icon } from "../components/Icon";
+import { HandInHand } from "../components/Person";
 import { Link } from "../lib/router";
 import { chapterOf, dueToday, LESSONS, lessonIndex, nextToDo } from "../learn/lessons";
 import { lessonState, quizState } from "../learn/progress";
@@ -29,7 +30,7 @@ export default function Home() {
         <div className="home-cols">
         <div className="home-main">
         <header className="home-hero">
-          <BrandMark size={44} />
+          <HandInHand className="home-art" />
           <h1>Comprendre ses schémas</h1>
           <Terms><p className="lead">Des leçons de quelques minutes pour comprendre ses façons de réagir, à son rythme. D’après la thérapie des schémas de Jeffrey Young.</p></Terms>
         </header>

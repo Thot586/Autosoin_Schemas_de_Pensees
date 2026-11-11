@@ -6,7 +6,7 @@ import { useLocation } from "../lib/router";
 import { SCHEMAS, schemaBySlug } from "../data/schemas";
 import { CONTENT } from "../data/content";
 import { cartes, retained, focusSchema, type Carte } from "../lib/state";
-import { CarteView, FIELDS, defaultCarte } from "../components/SchemaBits";
+import { CarteFlip, CarteView, FIELDS, defaultCarte } from "../components/SchemaBits";
 
 const C = CONTENT.p6.carte;
 export default function CarteMemo() {
@@ -77,7 +77,9 @@ export default function CarteMemo() {
           </form>
           <div className="cm-preview">
             <p className="eyebrow">Aperçu</p>
-            <CarteView c={draft} tone={`b${s.base}`} id="carte-print" />
+            <CarteFlip c={draft} tone={`b${s.base}`} />
+            {/* la carte complète, pour l'impression seulement (le recto et le verso sur une même feuille) */}
+            <div className="cm-print-only"><CarteView c={draft} tone={`b${s.base}`} id="carte-print" /></div>
           </div>
         </div>
         <div className="mt stack" style={{ ["--gap" as string]: "1.2rem" }}>

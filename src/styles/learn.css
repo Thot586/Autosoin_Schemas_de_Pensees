@@ -126,6 +126,10 @@
 .w-lens-msg { display: flex; gap: 10px; align-items: center; padding: 14px 16px; border-radius: 18px 18px 18px 4px; background: var(--surface-2); font-weight: 700; margin: 0 0 12px; }
 .w-lens-out { margin-top: 12px; padding: 14px 16px; border-radius: 16px; border: 2px solid var(--edge); transition: background .3s, border-color .3s; }
 .w-lens-out.is-tint { background: var(--b1-soft); border-color: var(--b1); }
+.w-lens-glasses { display: block; width: 92px; height: auto; margin: 0 0 6px; overflow: visible; }
+.w-lens-frame { fill: none; stroke: var(--ink); stroke-width: 6; stroke-linecap: round; }
+.w-lens-glass { fill: transparent; stroke: var(--ink); stroke-width: 6; transition: fill .4s var(--ease); }
+.w-lens-out.is-tint .w-lens-glass { fill: color-mix(in oklab, var(--b1) 45%, transparent); }
 .w-lens-lab { font-size: .8em; color: var(--ink-3); font-weight: 700; }
 .w-lens-q { font-weight: 800; font-size: 1.1em; margin: 4px 0 0; }
 .w-foot { color: var(--ink-2); margin: 12px 0 0; font-size: .95em; }
@@ -172,6 +176,9 @@
 
 /* ───────── Accueil ───────── */
 .home-hero { margin-bottom: 1.2rem; }
+/* l’enfant et l’adulte d’aujourd’hui, main dans la main : discret sur téléphone (le bouton Commencer reste visible), plus grand sur ordinateur */
+.home-art { display: block; height: 52px; width: auto; overflow: visible; }
+@media (min-width: 700px) { .home-art { height: 92px; } }
 .home-hero h1 { margin: 10px 0 8px; }
 .next-lesson { background: var(--surface); border-radius: var(--radius-l); padding: clamp(20px, 5vw, 32px); box-shadow: var(--shadow-1); border-top: 6px solid var(--brand); margin-bottom: 14px; }
 .next-kicker { font-weight: 800; color: var(--brand-ink); margin: 0 0 4px; }

@@ -116,14 +116,26 @@ export const REACTIONS_CAPS: ReactNode[] = deepFr([
 
 const RE_G = 262;
 const reAt = (cx: number, s: number) => ({ x: cx - 20 * s, y: RE_G - 74 * s, scale: s });
-// figure principale (étapes 1 à 4) : centre, échelle, posture, libellé
-const RE_MAIN: { cx: number; s: number; pose: Pose; label: string }[] = [
-  { cx: 180, s: 1.1, pose: "stand", label: "" },
-  { cx: 180, s: 0.78, pose: "bow", label: "se figer" },
-  { cx: 296, s: 1.1, pose: "walk", label: "fuir" },
-  { cx: 180, s: 1.55, pose: "puff", label: "combattre" },
+// figure principale (étapes 1 à 4) : centre, échelle, posture, libellé.
+// `word` : le mot de la leçon et des questions (capituler, éviter, surcompenser), écrit au-dessus de l'image (se figer…).
+const RE_MAIN: { cx: number; s: number; pose: Pose; label: string; word: string }[] = [
+  { cx: 180, s: 1.1, pose: "stand", label: "", word: "" },
+  { cx: 180, s: 0.78, pose: "bow", label: "se figer", word: "capituler" },
+  { cx: 296, s: 1.1, pose: "walk", label: "fuir", word: "éviter" },
+  { cx: 180, s: 1.55, pose: "puff", label: "combattre", word: "surcompenser" },
 ];
-const RE_TRIO: { pose: Pose; label: string; walk?: boolean }[] = [{ pose: "bow", label: "se figer" }, { pose: "walk", label: "fuir", walk: true }, { pose: "puff", label: "combattre" }];
+const RE_TRIO: { pose: Pose; label: string; word: string; walk?: boolean }[] = [
+  { pose: "bow", label: "se figer", word: "capituler" }, { pose: "walk", label: "fuir", word: "éviter", walk: true }, { pose: "puff", label: "combattre", word: "surcompenser" },
+];
+/** Deux lignes sous une figure : le mot de la leçon, puis l'image. */
+function ReLabel({ x, word, label }: { x: number; word: string; label: string }) {
+  return (
+    <text x={x} y="281" textAnchor="middle" className="re-label">
+      <tspan x={x} className="sv-label">{word}</tspan>
+      <tspan x={x} dy="15" className="re-sub">{label}</tspan>
+    </text>
+  );
+}
 const RE_VOICE = deepFr("On ne m’aimerait pas.");
 
 function Speed({ x, y, s = 1 }: { x: number; y: number; s?: number }) {
@@ -152,7 +164,7 @@ function Reactions({ step }: { step: number }) {
       <g className="re-main" style={{ opacity: trio ? 0 : 1 }}>
         {step === 2 && <Speed x={main.cx - 26} y={RE_G - 58} />}
         <Figure {...reAt(main.cx, main.s)} pose={main.pose} walking={step === 2} className={main.pose === "puff" ? "re-puff" : ""} />
-        {main.label && <text key={step} x={main.cx} y="288" textAnchor="middle" className="sv-label re-label">{main.label}</text>}
+        {main.label && <ReLabel key={step} x={main.cx} word={main.word} label={main.label} />}
       </g>
 
       <g className="re-trio" style={{ opacity: trio ? 1 : 0 }}>
@@ -163,7 +175,7 @@ function Reactions({ step }: { step: number }) {
               <Figure {...reAt(tx[i], ts)} pose={f.pose} walking={!!f.walk && trio} className={f.pose === "puff" ? "re-puff" : ""} />
             </g>
             <g className="re-move" style={{ transform: `translateX(${tx[i]}px)` }}>
-              <text x="0" y="288" textAnchor="middle" className="sv-label re-label">{f.label}</text>
+              <ReLabel x={0} word={f.word} label={f.label} />
             </g>
           </g>
         ))}
@@ -171,7 +183,7 @@ function Reactions({ step }: { step: number }) {
 
       <g className="re-adult" style={{ opacity: chosen ? 1 : 0, transform: chosen ? "none" : "translateX(16px)" }}>
         <Figure {...reAt(292, 1.25)} pose="calm" color="var(--brand)" />
-        <text x="292" y="288" textAnchor="middle" className="re-adult-t">l’adulte sain</text>
+        <text x="292" y="281" textAnchor="middle" className="re-adult-t">l’adulte sain</text>
       </g>
     </svg>
   );

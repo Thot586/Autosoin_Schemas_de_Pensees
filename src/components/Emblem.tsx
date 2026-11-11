@@ -51,11 +51,14 @@ const SCHEMA: Record<string, ReactElement> = {
   </>,
   // deux cercles fondus en une seule forme : où je finis, où l'autre commence
   "relation-fusionnelle": <path d="M24 15.2a11 11 0 1 0 0 17.6 11 11 0 1 0 0-17.6z" />,
-  // une marionnette : d'autres tiennent les fils
+  // une balance qui penche toujours du côté des autres
   assujettissement: <>
-    <path d="M12 8h24M24 4v9M14 8v15M34 8v15M24 13v6" />
-    <circle cx="24" cy="23" r="4" />
-    <path d="M24 27v9M14 23l10 7 10-7M24 36l-5 7M24 36l5 7" />
+    <path d="M24 10v30M15 41h18M8 13.6L40 20.4" />
+    <circle cx="24" cy="9" r="2.2" fill="currentColor" stroke="none" />
+    <path d="M8 13.6L4 24M8 13.6l4 10.4M40 20.4L36 31M40 20.4l4 10.6" />
+    <path d="M3 24h10a5 4.4 0 0 1-10 0zM35 31h10a5 4.4 0 0 1-10 0z" />
+    <circle cx="8" cy="21.6" r="1.7" fill="currentColor" stroke="none" />
+    <circle cx="37.4" cy="28.6" r="1.7" fill="currentColor" stroke="none" /><circle cx="42.6" cy="28.6" r="1.7" fill="currentColor" stroke="none" /><circle cx="40" cy="25.6" r="1.7" fill="currentColor" stroke="none" />
   </>,
   // une bougie qui se consume pour éclairer les autres
   "sacrifice-de-soi": <>
@@ -78,10 +81,13 @@ const SCHEMA: Record<string, ReactElement> = {
     <rect x="14" y="33.4" width="5" height="5" rx="1" /><path d="M23 36h10" />
     <path d="M10 11v29M10 44h4M18 44h4M26 44h4" />
   </>,
-  // une couronne : « les règles ne sont pas pour moi »
+  // une file d'attente, et un point qui passe devant : « les règles ne sont pas pour moi »
   "droits-exageres": <>
-    <path d="M10 34L7.6 15.6l8.6 7.4L24 11l7.8 12 8.6-7.4L38 34z" />
-    <path d="M10 39.4h28" />
+    <circle cx="9" cy="33" r="3.6" /><circle cx="18.5" cy="33" r="3.6" /><circle cx="28" cy="33" r="3.6" />
+    <circle cx="39" cy="33" r="3.6" fill="currentColor" />
+    <path d="M10 25c4-12 22-14 27-1.6" strokeDasharray="3 3.6" />
+    <path d="M33.2 23.6l3.8 1.2 1.4-3.8" />
+    <path d="M5 40h38" />
   </>,
   // un sablier : attendre est très difficile
   "manque-d-autocontrole": <>

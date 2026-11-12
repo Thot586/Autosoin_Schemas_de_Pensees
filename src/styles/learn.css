@@ -398,3 +398,31 @@
 .lcard-quiz h2, .lcard-rappel h2 { font-size: clamp(1.35rem, 1.15rem + 1vw, 1.75rem); line-height: 1.35; }
 .tools-warn { display: flex; gap: 8px; align-items: flex-start; padding: 12px 14px; border-radius: 14px; background: var(--care-soft); color: var(--ink); font-size: .98rem; line-height: 1.5; margin: 0 0 12px; }
 .tools-warn .icon { color: var(--care); flex-shrink: 0; margin-top: 3px; }
+
+/* ───────── Le verre et la vague, à mon tour (bases 3 et 5) ───────── */
+.w-verre { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px; align-items: center; }
+.w-verre-svg { width: 132px; height: auto; display: block; overflow: visible; }
+.wv-level, .wv-surface { transition: transform .8s cubic-bezier(.3, .7, .3, 1); }
+.wv-surface { fill: color-mix(in oklab, var(--accent) 45%, var(--surface)); stroke: color-mix(in oklab, var(--accent) 70%, var(--surface)); stroke-width: 1.2; }
+.wv-glass { stroke: var(--ink-2); stroke-width: 2.6; stroke-linejoin: round; }
+.wv-rim { fill: color-mix(in oklab, var(--surface) 70%, transparent); stroke: var(--ink-2); stroke-width: 2.6; }
+.wv-foot { fill: color-mix(in oklab, var(--ink-2) 18%, var(--surface)); stroke: var(--ink-2); stroke-width: 2.6; stroke-linejoin: round; }
+.wv-shine { fill: none; stroke: #fff; stroke-opacity: .7; stroke-width: 5; stroke-linecap: round; }
+.wv-shine-2 { stroke-width: 3; stroke-opacity: .5; }
+.wv-tick { stroke: var(--ink-3); stroke-width: 1.6; stroke-linecap: round; }
+.wv-shadow { fill: var(--ink); opacity: .1; }
+.wv-puddle { fill: var(--accent); opacity: .35; transition: rx .6s var(--ease), ry .6s var(--ease); }
+.wv-drop { fill: var(--accent); animation: wv-fall .7s cubic-bezier(.5, 0, 1, 1) both; }
+@keyframes wv-fall { from { transform: translateY(0); opacity: 1; } 92% { opacity: 1; } to { transform: translateY(var(--to)); opacity: 0; } }
+.wv-dome { fill: var(--accent); opacity: .75; animation: pop .5s var(--ease) both; transform-box: fill-box; transform-origin: center bottom; }
+.wv-run { fill: none; stroke: var(--accent); stroke-width: 5; stroke-linecap: round; opacity: .75; stroke-dasharray: 220; animation: drip 1.2s var(--ease) both; }
+.wv-run-2 { animation-delay: .25s; stroke-width: 4; }
+.w-verre-msg { font-weight: 700; margin: 0 0 10px; min-height: 3em; }
+.w-verre-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 440px) { .w-verre { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; } .w-verre-btns { justify-content: center; } }
+.w-vague-svg { width: 100%; max-width: 460px; height: auto; display: block; }
+.w-vague-msg { font-weight: 700; margin: 6px 0 4px; min-height: 1.6em; }
+.w-vague-lab { display: block; font-weight: 700; color: var(--ink-2); font-size: .95rem; }
+.w-vague-range { display: block; width: 100%; height: 44px; margin: 0; accent-color: var(--accent); cursor: pointer; }
+:root[data-theme="dark"] .wv-shine { stroke-opacity: .22; }
+@media (prefers-color-scheme: dark) { :root[data-theme="auto"] .wv-shine { stroke-opacity: .22; } }

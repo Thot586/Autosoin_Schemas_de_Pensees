@@ -198,6 +198,10 @@
 .flip-in.is-back { transform: rotateY(180deg); }
 .flip-face { grid-area: 1 / 1; backface-visibility: hidden; -webkit-backface-visibility: hidden; max-width: none; }
 .flip-back { transform: rotateY(180deg); }
+/* la face cachée disparaît à mi-rotation (lecteurs d’écran et mise en page), la visible apparaît aussitôt */
+.flip-face { transition: visibility 0s linear .35s; }
+.flip-face[aria-hidden="true"] { visibility: hidden; }
+.flip-face[aria-hidden="false"] { transition-delay: 0s; }
 .flip-btn { min-height: 44px; }
 .cm-print-only { display: none; }
 @media print { .flip { display: none !important; } .cm-print-only { display: block !important; } }

@@ -16,7 +16,7 @@ export type AnimKey =
  * « echelle » : note de 0 à 10 (paramètre = clé, ex. « imagerie-avant ») ;
  * « bilan » : compare avant / après (paramètre = préfixe, ex. « imagerie »).
  */
-export type WidgetKey = "lunettes-demo" | "age" | "numeros" | "bases" | "quinze" | "respiration" | "echelle" | "bilan";
+export type WidgetKey = "lunettes-demo" | "age" | "numeros" | "bases" | "quinze" | "respiration" | "echelle" | "bilan" | "verre" | "vague";
 
 /** Une question de quiz : elle porte sur une idée du support, jamais sur la personne. */
 export interface QuizItem {

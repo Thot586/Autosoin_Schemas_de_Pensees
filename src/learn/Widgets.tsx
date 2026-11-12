@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useId, useState } from "react";
+import { TMAX, WAVE, WX0, WX1, WY0, wx, wy } from "../scenes/BaseScenes";
 import { Choice } from "../components/ui";
 import { Icon } from "../components/Icon";
 import { BaseEmblem } from "../components/Emblem";
@@ -142,8 +143,118 @@ function Bilan({ prefix }: { prefix: string }) {
   );
 }
 
+/** Le verre, à mon tour : me taire fait monter le niveau ; dire une petite chose le fait baisser. Plein, il déborde. */
+const VERRE_MSG = {
+  debut: "Le verre est presque vide.",
+  tais: "Je garde ça pour moi : le niveau monte.",
+  deborde: "Ça déborde : tout sort d’un coup, plus fort que prévu.",
+  dis: "Je le dis tôt, en une phrase : le niveau redescend.",
+};
+// Verre vu de trois quarts : bord en ellipse, parois qui se resserrent, pied épais.
+// Demi-largeur intérieure à la hauteur y (bord y=62, fond y=246).
+const V_TOP = 62, V_BOT = 246, V_HW_TOP = 46, V_HW_BOT = 32, V_CX = 80;
+const vHw = (y: number) => V_HW_TOP - (V_HW_TOP - V_HW_BOT) * (y - V_TOP) / (V_BOT - V_TOP);
+const V_BODY = `M${V_CX - V_HW_TOP} ${V_TOP} L${V_CX - V_HW_BOT} ${V_BOT} Q${V_CX} ${V_BOT + 6} ${V_CX + V_HW_BOT} ${V_BOT} L${V_CX + V_HW_TOP} ${V_TOP} Z`;
+function VerreJeu() {
+  const uid = useId().replace(/:/g, "");
+  const [lv, setLv] = useState(0.1);
+  const [msg, setMsg] = useState(VERRE_MSG.debut);
+  const [drops, setDrops] = useState(0);
+  const over = lv >= 1;
+  const tais = () => { const n = Math.min(1, +(lv + 0.225).toFixed(3)); setLv(n); setDrops((d) => d + 1); setMsg(n >= 1 ? VERRE_MSG.deborde : VERRE_MSG.tais); };
+  const dis = () => { setLv((x) => Math.max(0.1, +(x - 0.3).toFixed(3))); setMsg(VERRE_MSG.dis); };
+  const reset = () => { setLv(0.1); setDrops(0); setMsg(VERRE_MSG.debut); };
+  const y = V_BOT - (V_BOT - V_TOP) * Math.min(lv, 0.985);
+  return (
+    <div className="w-verre">
+      <svg viewBox="0 0 160 300" className="w-verre-svg" aria-hidden="true">
+        <defs>
+          <clipPath id={`c${uid}`}><path d={V_BODY} /></clipPath>
+          <linearGradient id={`w${uid}`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" style={{ stopColor: "var(--accent)", stopOpacity: .55 }} />
+            <stop offset="1" style={{ stopColor: "var(--accent)", stopOpacity: .9 }} />
+          </linearGradient>
+          <linearGradient id={`g${uid}`} x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" style={{ stopColor: "var(--ink)", stopOpacity: .1 }} />
+            <stop offset=".35" style={{ stopColor: "var(--surface)", stopOpacity: .05 }} />
+            <stop offset="1" style={{ stopColor: "var(--ink)", stopOpacity: .14 }} />
+          </linearGradient>
+        </defs>
+        {/* ombre portée, et flaque quand ça déborde */}
+        <ellipse cx={V_CX} cy="266" rx="46" ry="6" className="wv-shadow" />
+        <ellipse cx={V_CX} cy="268" rx={over ? 74 : 0} ry={over ? 9 : 0} className="wv-puddle" />
+        {/* eau : un bloc qui monte, et sa surface en ellipse (plus étroite en bas du verre) */}
+        <g clipPath={`url(#c${uid})`}>
+          <g className="wv-level" style={{ transform: `translateY(${y}px)` }}>
+            <rect x="20" y="0" width="120" height="260" fill={`url(#w${uid})`} />
+          </g>
+          {/* gouttes qui tombent dans le verre, une par silence */}
+          {drops > 0 && !over && <circle key={drops} cx={V_CX + 6} cy="20" r="4" className="wv-drop" style={{ ["--to" as string]: `${y - 20}px` }} />}
+        </g>
+        <ellipse cx={V_CX} cy="0" rx={V_HW_TOP} ry="5.5" className="wv-surface"
+          style={{ transform: `translateY(${y}px) scaleX(${vHw(y) / V_HW_TOP})`, transformOrigin: `${V_CX}px 0px` }} />
+        {/* le verre : paroi teintée, reflets, bord et pied */}
+        <path d={V_BODY} fill={`url(#g${uid})`} className="wv-glass" />
+        <path d={`M${V_CX - V_HW_TOP + 9} ${V_TOP + 14} L${V_CX - V_HW_BOT + 6} ${V_BOT - 18}`} className="wv-shine" />
+        <path d={`M${V_CX + V_HW_TOP - 8} ${V_TOP + 22} L${V_CX + V_HW_TOP - 11} ${V_TOP + 70}`} className="wv-shine wv-shine-2" />
+        <path d={`M${V_CX - V_HW_BOT} ${V_BOT} Q${V_CX} ${V_BOT + 6} ${V_CX + V_HW_BOT} ${V_BOT} L${V_CX + V_HW_BOT - 2} ${V_BOT + 14} Q${V_CX} ${V_BOT + 20} ${V_CX - V_HW_BOT + 2} ${V_BOT + 14} Z`} className="wv-foot" />
+        <ellipse cx={V_CX} cy={V_TOP} rx={V_HW_TOP} ry="5.5" className="wv-rim" />
+        {/* repères de niveau */}
+        {[0.25, 0.5, 0.75].map((k) => { const ty = V_BOT - (V_BOT - V_TOP) * k; const hx = V_CX + vHw(ty); return <line key={k} x1={hx - 9} y1={ty} x2={hx - 2} y2={ty} className="wv-tick" />; })}
+        {/* débordement : l'eau bombe au-dessus du bord et coule des deux côtés */}
+        {over && <g className="wv-over">
+          <path d={`M${V_CX - V_HW_TOP} ${V_TOP} C${V_CX - V_HW_TOP + 6} ${V_TOP - 22} ${V_CX + V_HW_TOP - 6} ${V_TOP - 22} ${V_CX + V_HW_TOP} ${V_TOP} Z`} className="wv-dome" />
+          <path d={`M${V_CX + V_HW_TOP + 1} ${V_TOP + 2} C${V_CX + V_HW_TOP + 8} 120 ${V_CX + V_HW_BOT + 12} 200 ${V_CX + V_HW_BOT + 16} 262`} className="wv-run" />
+          <path d={`M${V_CX - V_HW_TOP - 1} ${V_TOP + 2} C${V_CX - V_HW_TOP - 7} 130 ${V_CX - V_HW_BOT - 10} 210 ${V_CX - V_HW_BOT - 14} 262`} className="wv-run wv-run-2" />
+        </g>}
+      </svg>
+      <div className="w-verre-side">
+        <p className="w-verre-msg" role="status" aria-live="polite">{msg}</p>
+        <div className="w-verre-btns">
+          {over ? (
+            <button type="button" className="btn btn-soft" onClick={reset}><Icon name="replay" size={20} /><span>Revenir au début</span></button>
+          ) : <>
+            <button type="button" className="btn btn-ghost" onClick={tais}><span>Je me tais</span></button>
+            <button type="button" className="btn btn-primary" onClick={dis} disabled={lv <= 0.1}><Icon name="chat" size={20} /><span>Je dis une petite chose</span></button>
+          </>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** La vague, à mon rythme : je fais passer le temps, l'envie monte, culmine, puis redescend d'elle-même. */
+function vagueMsg(t: number) {
+  if (t < 1) return "L’envie commence à monter.";
+  if (t < 3.8) return "Elle monte. Je respire. J’attends.";
+  if (t < 5) return "C’est le pic : le moment le plus difficile.";
+  if (t < 10) return "Elle redescend d’elle-même.";
+  return "Elle est passée, sans que je lui obéisse.";
+}
+function VagueJeu() {
+  const [t, setT] = useState(0);
+  const id = useId();
+  const done = `M${wx(0)} ${wy(0)} ` + Array.from({ length: 41 }, (_, i) => { const u = (i / 40) * t; return `L${wx(u).toFixed(1)} ${wy(u).toFixed(1)}`; }).join(" ");
+  return (
+    <div className="w-vague">
+      <svg viewBox="30 30 340 200" className="w-vague-svg" aria-hidden="true">
+        <line x1={WX0} y1="40" x2={WX0} y2={WY0} className="sv-axis" /><line x1={WX0} y1={WY0} x2={WX1 + 6} y2={WY0} className="sv-axis" />
+        <path d={WAVE} className="wave-ghost" />
+        <path d={done} className="wave-line" />
+        <circle cx={wx(t)} cy={wy(t)} r="8" className="wave-dot" />
+      </svg>
+      <p className="w-vague-msg" role="status" aria-live="polite">{vagueMsg(t)}</p>
+      <label htmlFor={id} className="w-vague-lab">Le temps passe : {t === 0 ? "maintenant" : `environ ${Math.round(t)} min`}</label>
+      <input id={id} type="range" min={0} max={TMAX} step={0.5} value={t} onChange={(e) => setT(+e.target.value)} className="w-vague-range"
+        aria-valuetext={`${t === 0 ? "maintenant" : `environ ${Math.round(t)} minutes`} : ${vagueMsg(t)}`} />
+    </div>
+  );
+}
+
 export function Widget({ k, param }: { k: WidgetKey; param?: string }) {
   switch (k) {
+    case "verre": return <VerreJeu />;
+    case "vague": return <VagueJeu />;
     case "echelle": return <Echelle id={param ?? "note"} />;
     case "bilan": return <Bilan prefix={param ?? "note"} />;
     case "lunettes-demo": return <LunettesDemo />;

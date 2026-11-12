@@ -202,11 +202,11 @@ const VAGUE_CAPS = deepFr([
   "…elle atteint un pic, puis redescend d’elle-même, en une dizaine de minutes environ.",
   "L’envie est une vague : elle monte, culmine, redescend. On n’a pas à lui obéir pendant qu’elle passe.",
 ]);
-const WX0 = 44, WX1 = 360, WY0 = 214, WY1 = 52, TMAX = 14;
+export const WX0 = 44, WX1 = 360, WY0 = 214, WY1 = 52, TMAX = 14;
 const wf = (t: number) => Math.exp(-Math.pow((t - 4.3) / 2.7, 2)) * (t < 0 ? 0 : 1);
-const wx = (t: number) => WX0 + (t / TMAX) * (WX1 - WX0);
-const wy = (t: number) => WY0 - wf(t) * (WY0 - WY1);
-const WAVE = Array.from({ length: 71 }, (_, i) => { const t = (i / 70) * TMAX; return `${i === 0 ? "M" : "L"}${wx(t).toFixed(1)} ${wy(t).toFixed(1)}`; }).join(" ");
+export const wx = (t: number) => WX0 + (t / TMAX) * (WX1 - WX0);
+export const wy = (t: number) => WY0 - wf(t) * (WY0 - WY1);
+export const WAVE = Array.from({ length: 71 }, (_, i) => { const t = (i / 70) * TMAX; return `${i === 0 ? "M" : "L"}${wx(t).toFixed(1)} ${wy(t).toFixed(1)}`; }).join(" ");
 function Vague({ step }: { step: number }) {
   const cid = useId().replace(/:/g, "");
   const prog = [2.4, 2.4, 3.6, TMAX, TMAX][step];

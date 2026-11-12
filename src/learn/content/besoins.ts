@@ -30,6 +30,11 @@ export const BESOINS: Lesson[] = BASES.map((b) => {
       tiles: g.map((s) => ({ title: s.name, text: s.phrase + (b.quotidien[s.slug] ? ` ${b.quotidien[s.slug]}` : "") })),
     })),
     { id: "anim", kind: "anim", tone, anim: b.anim.id, title: b.anim.titre },
+    // à mon tour, après l'animation : le verre (base 3) et la vague (base 5)
+    ...(b.id === 3 ? [{ id: "verre-moi", kind: "widget", tone, widget: "verre", title: "Le verre, à mon tour",
+      body: ["Je regarde ce qui se passe quand je me tais, et quand je dis les choses tôt, en petit."] } as Card] : []),
+    ...(b.id === 5 ? [{ id: "vague-moi", kind: "widget", tone, widget: "vague", title: "La vague, à mon rythme",
+      body: ["Je fais passer le temps avec le curseur, et je regarde ce que devient l’envie."] } as Card] : []),
     { id: "essai", kind: "reflect", tone, title: "À essayer cette semaine", prompt: cap(b.anim.essai),
       hint: "Je peux noter ici ce que j’ai repéré, ou passer à la suite.", noteId: `essai-b${b.id}` },
     ...(b.extra ? [{ id: "extra", kind: "text", tone, icon: "book", title: "Bon à savoir", body: [b.extra] } as Card] : []),

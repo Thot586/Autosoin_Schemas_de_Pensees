@@ -170,6 +170,8 @@ Les six mots de la méthode, la méthode en trois étapes, la pause en trois tem
   - la question « Quand on cherche d’où vient un schéma… » n’a plus le choix « Un coupable ». La carte « Pas de coupable » de la leçon dit encore « Ni l’enfant ni l’adulte ne sont coupables du schéma », ce qui peut s’entendre comme « l’adulte maltraitant n’est pas responsable » : décision à prendre.
 - **Toutes les questions** sont listées, avec leurs bonnes réponses et leurs explications, dans [`QUESTIONS.md`](QUESTIONS.md). Ce fichier se régénère avec `npm run docs:questions`.
 
+**« À retenir » sans croyance à retenir (12 novembre 2026, à relire).** La phrase d’un schéma n’est plus jamais posée seule comme une vérité : « Sa petite voix dit : « … » C’est le schéma qui parle, pas un fait. » (15 schémas, « Comprendre ») ; « Quand il s’allume, la petite voix dit : « … » Ce n’est pas un fait. » (« Dans le moment »). Bases : « Quand elle a manqué, on peut… » au lieu de « Quand elle manque, on… » (une tendance apprise, pas une fatalité). Échec, le piège : « Croire que mes réussites viennent de la chance, et que mes erreurs prouvent que je suis incapable ». Deux pièges n’étaient plus coupés en pleine citation (abandon, manque d’autocontrôle). L’étiquette « Sa phrase » devient « Sa petite voix » (fiche, leçon, page du schéma), et la liste des schémas précise : « la phrase du schéma : ce qu’il fait croire, pas un fait ».
+
 ## 4. Animations
 
 Les sept animations du diaporama sont gardées : lunettes, marches, verre, journée, vague, cercle, adulte sain. Le lecteur ne démarre plus tout seul ; on appuie sur « Lire », et le rythme est plus lent.

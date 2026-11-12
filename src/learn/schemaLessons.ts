@@ -14,7 +14,17 @@ export const SCHEMA_PARTS: { id: SchemaPartId; label: string; short: string; ico
 ];
 
 const lc = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
-const firstSentence = (s: string) => (s.match(/^.*?[.!?…](\s|$)/)?.[0] ?? s).trim();
+/** Première phrase, sans couper à l'intérieur d'une citation « … » (ex. « tu m'aimes vraiment ? »). */
+const firstSentence = (s: string) => {
+  let depth = 0;
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i];
+    if (c === "«") depth++;
+    else if (c === "»") depth = Math.max(0, depth - 1);
+    else if (depth === 0 && ".!?…".includes(c) && (i + 1 === s.length || /\s/.test(s[i + 1]))) return s.slice(0, i + 1).trim();
+  }
+  return s.trim();
+};
 
 export function schemaQuizzes(slug: string, part: SchemaPartId): QuizItem[] {
   if (part === "comprendre") return [needQuiz(slug)];
@@ -37,7 +47,7 @@ export function schemaLesson(slug: string, part: SchemaPartId): Lesson | undefin
 
   if (part === "comprendre") {
     cards = [
-      { id: "phrase", kind: "text", tone, icon: "chat", title: s.name, quote: s.phrase, quoteLabel: "Sa phrase",
+      { id: "phrase", kind: "text", tone, icon: "chat", title: s.name, quote: s.phrase, quoteLabel: "Sa petite voix",
         body: [`Base ${s.base} : ${base.name.toLowerCase()}.`, `Le besoin derrière : ${s.besoin}`], pro: s.pro.comprendre.join(" ") },
       { id: "origine", kind: "text", tone, icon: "wind", title: "D’où ça peut venir", list: s.origine, after: s.sensible ? [s.sensible] : undefined },
       { id: "prudence", kind: "text", tone: "care", icon: "heart", title: "Des pistes, pas des causes", body: [s.prudence] },
@@ -50,7 +60,8 @@ export function schemaLesson(slug: string, part: SchemaPartId): Lesson | undefin
         body: ["Ce sont des réactions automatiques : elles soulagent sur le moment, mais entretiennent le schéma.", "Ce qui aide se trouve dans « Dans le moment » et « Au fil des semaines »."] },
       ...schemaQuizzes(slug, part).map((quiz, i): Card => ({ id: `q${i}`, kind: "quiz", tone, title: "Une question", quiz })),
     ];
-    retain = [s.phrase, `Le besoin derrière : ${s.besoin}`, "Ce qu’il me pousse à faire : à repérer, pas à suivre."];
+    // la phrase du schéma n'est jamais posée seule : c'est sa petite voix, pas une vérité à retenir
+    retain = [`Sa petite voix dit : ${s.phrase} C’est le schéma qui parle, pas un fait.`, `Le besoin derrière : ${s.besoin}`, "Ce qu’il me pousse à faire, je le repère : je n’ai pas à le suivre."];
   }
 
   if (part === "moment") {
@@ -65,7 +76,7 @@ export function schemaLesson(slug: string, part: SchemaPartId): Lesson | undefin
       ...(s.autosoin.moment ? [{ id: "autosoin", kind: "text", tone, icon: "pencil", title: "En autosoin", body: [s.autosoin.moment.charAt(0).toUpperCase() + s.autosoin.moment.slice(1)] } as Card] : []),
       ...schemaQuizzes(slug, part).map((quiz, i): Card => ({ id: `q${i}`, kind: "quiz", tone, title: "Une question", quiz })),
     ];
-    retain = [`La petite voix : ${m.voice}`, `Un geste : ${lc(m.steps[0].title)}.`, `Ma phrase d’adulte sain : ${m.phrase}`];
+    retain = [`Quand il s’allume, la petite voix dit : ${m.voice} Ce n’est pas un fait.`, `Un geste : ${lc(m.steps[0].title)}.`, `Ma phrase d’adulte sain : ${m.phrase}`];
   }
 
   if (part === "semaines") {

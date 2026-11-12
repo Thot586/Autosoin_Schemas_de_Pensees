@@ -23,7 +23,7 @@ export default function Schemas() {
     <Page title="Mes schémas">
       <div className="wrap page-pad">
         <h1>Mes schémas</h1>
-        <Terms><p className="lead">Quinze schémas. Je repère ceux qui me parlent, puis je commence par un seul.</p></Terms>
+        <Terms><p className="lead">Quinze schémas. Je repère ceux qui me parlent, puis je commence par un seul. Sous chaque nom, la phrase du schéma : ce qu’il fait croire, pas un fait.</p></Terms>
 
         <section className="hub-cards" aria-label="Retrouver mes schémas">
           <Link to="/trouver" className="act-card tone-brand">

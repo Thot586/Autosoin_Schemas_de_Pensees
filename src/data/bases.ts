@@ -9,7 +9,7 @@ const BASES_RAW: BaseData[] = [
     manque: "On s’attend à être quitté(e), blessé(e), incompris(e) ou rejeté(e).",
     quotidien: {},
     pro: "La base la plus fondamentale : les autres besoins s’appuient sur elle. Les cinq schémas ont un point commun : l’attente que le lien ne sera pas sûr. Chacun dit comment il ne le sera pas : l’autre partira (abandon), fera du mal (méfiance), ne donnera pas assez (carence), ne m’inclura pas (isolement), me rejettera s’il me voit vraiment (imperfection). Inviter chacun à repérer la phrase qui « sonne » le plus vrai, sans la commenter.",
-    autosoin: "lire les cinq phrases à voix basse et noter celle qui sonne le plus vrai, sans la discuter.",
+    autosoin: "lire les cinq phrases à voix basse et noter celle qui me parle le plus, sans me juger.",
     anim: {
       id: "lunettes", titre: "Des lunettes teintées",
       explication: "Des événements variés et souvent ambigus (un message bref, un silence, une critique) passent à travers des « lunettes » teintées par les schémas de la base 1. Quand la sécurité a manqué, ce sont les événements qui confirment le schéma qui ressortent. Ceux qui le contredisent (un merci, un appel d’un ami, une gentillesse) étaient pourtant là, mais ils passent inaperçus.",

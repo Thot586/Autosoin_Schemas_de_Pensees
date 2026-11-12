@@ -39,7 +39,7 @@ function SchemaHub({ slug }: { slug: string }) {
         <Link to="/schemas" className="back"><Icon name="arrowLeft" size={18} /> Mes schémas</Link>
         <p className="base-tag"><span className="w-bases-n">{b.id}</span> {b.name}</p>
         <div className="sp-title"><span className="emb-disc emb-lg"><SchemaEmblem slug={slug} size={44} /></span><h1>{s.name}</h1></div>
-        <blockquote className="lc-quote lc-quote-xl"><p>{s.phrase}</p></blockquote>
+        <blockquote className="lc-quote lc-quote-xl"><span className="lc-quote-l">Sa petite voix</span><p>{s.phrase}</p></blockquote>
         <Terms><p className="lead">Le besoin derrière : {s.besoin}</p></Terms>
         {(n > 0 || kept.includes(slug)) && (
           <p className="small muted">

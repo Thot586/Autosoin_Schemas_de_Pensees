@@ -18,7 +18,7 @@ export function FicheItem({ slug }: { slug: string }) {
   const set = (k: keyof Tick) => ticks.set((x) => ({ ...x, [slug]: { ...(x[slug] || EMPTY), [k]: !(x[slug] || EMPTY)[k] } }));
   return (
     <div className="fiche">
-      <blockquote className="lc-quote"><span className="lc-quote-l">Sa phrase</span><p>{s.phrase}</p></blockquote>
+      <blockquote className="lc-quote"><span className="lc-quote-l">Sa petite voix</span><p>{s.phrase}</p></blockquote>
       <details className="fiche-ex">
         <summary><Icon name="plus" size={18} /> Des exemples</summary>
         <p><b>Par exemple :</b> {s.recap.situations.join(" ")}</p>
